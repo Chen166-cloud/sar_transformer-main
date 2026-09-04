@@ -25,8 +25,8 @@
     "macro_average": "unweighted mean of the four per-L means"
   },
   "synthesis_seed": 20260904,
-  "primary_dataset_root": "NWPU_RESISC45_SAR_global_L_v2",
-  "robustness_dataset_root": "NWPU_RESISC45_SAR_intensity_v1",
+  "primary_dataset_root": "datasets/NWPU_RESISC45_SAR_global_L_v2",
+  "robustness_dataset_root": "datasets/NWPU_RESISC45_SAR_intensity_v1",
   "robustness_dataset_role": "4x4 mixed-L complex-noise ablation only",
-  "robustness_split_manifest": "NWPU_RESISC45_SAR_intensity_v1/global_L_v2_matched_split_manifest.json"
+  "robustness_split_manifest": "datasets/NWPU_RESISC45_SAR_intensity_v1/global_L_v2_matched_split_manifest.json"
 }

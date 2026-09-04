@@ -25,9 +25,11 @@ python train_reproducible.py --dataset-root datasets/NWPU_RESISC45_SAR_global_L_
 
 ## 兼容性与迁移记录
 
-- 原项目根目录的 8 个同名数据集入口是 Windows 目录联接（junction），指向这里的实际目录，不是额外的数据副本。
-- 旧脚本默认路径和历史实验记录可以继续使用；数据生成脚本保持原样，以保留 manifest 记录的生成器哈希。
-- Docker Compose 将这里的目录直接挂载到容器中的旧路径，同时整个项目挂载仍提供 `/workspace/datasets/`。
-- 复制或备份数据时使用本目录。Windows 联接不是可移植目录；迁移到其他计算机时，新命令使用 `datasets/` 路径，旧默认路径可通过 Docker Compose 提供。
+- 原项目根目录的 8 个 Windows 目录联接（junction）已删除，数据只保留在本目录中。
+- 日常训练、测试和数据划分脚本的默认路径已更新。历史实验记录中的旧路径需加上 `datasets/` 前缀后使用。
+- Docker Compose 通过整个项目挂载提供 `/workspace/datasets/`，不再挂载旧的数据路径。
+- 两个 NWPU 生成器及历史修复、组装脚本保留原样，以保留 manifest 记录的代码哈希。NWPU 生成器必须显式传入 `--source-root datasets/NWPU-RESISC45 --output-root datasets/<目标数据集名>`；历史修复、组装脚本中的旧路径需要另行适配后才能重跑。
+- 复制、备份或迁移数据时使用本目录，不需要兼容链接。
 - `organization_inventory.json` 记录整理前的文件数、逻辑字节数、文件元数据摘要及 JSON/CSV 内容哈希；`organization_verification.json` 记录移动后核对结果。逻辑字节数不是实际磁盘占用，硬链接数据可能共享存储。
+- `legacy_links_removal_verification.json` 记录删除旧链接后的文件完整性核对结果；前述迁移报告中链接存在的记录仅代表当时状态。
 - 模型、实验输出、示例代码和空的 `test_images` 目录保留在原位置。

@@ -19,10 +19,10 @@ from ablation_config import ABLATION_PRESETS
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dataset-root", default="NWPU_RESISC45_SAR_global_L_v2")
+    parser.add_argument("--dataset-root", default="datasets/NWPU_RESISC45_SAR_global_L_v2")
     parser.add_argument(
         "--split-manifest",
-        default="NWPU_RESISC45_SAR_global_L_v2/dataset_manifest.json",
+        default="datasets/NWPU_RESISC45_SAR_global_L_v2/dataset_manifest.json",
     )
     parser.add_argument("--output-root", default="experiments_repro/nwpu_global_L_p0_ablation")
     parser.add_argument("--evaluation-root", default="test_results_repro/nwpu_global_L_p0_ablation")

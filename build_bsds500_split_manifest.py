@@ -135,9 +135,9 @@ def verify_manifest(dataset_root: Path, manifest: dict[str, Any], verify_hashes:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dataset-root", default="bsds500_synthetic_dataset")
+    parser.add_argument("--dataset-root", default="datasets/bsds500_synthetic_dataset")
     parser.add_argument(
-        "--output", default="bsds500_synthetic_dataset/official_split_manifest.json"
+        "--output", default="datasets/bsds500_synthetic_dataset/official_split_manifest.json"
     )
     parser.add_argument("--verify-only", action="store_true")
     parser.add_argument("--skip-hashes", action="store_true")

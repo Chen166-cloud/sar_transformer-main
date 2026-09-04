@@ -4,7 +4,7 @@ from tqdm import tqdm
 
 
 def main() -> None:
-    save_root = "./NWPU-RESISC45"
+    save_root = "./datasets/NWPU-RESISC45"
 
     # 下载 Hugging Face 镜像版 NWPU-RESISC45
     dataset = load_dataset("jonathan-roberts1/NWPU-RESISC45")

@@ -7,15 +7,6 @@ services:
     working_dir: /workspace
     volumes:
       - .:/workspace
-      # Mount the consolidated datasets at legacy paths for Linux containers.
-      - ./datasets/BSR_bsds500:/workspace/BSR_bsds500
-      - ./datasets/bsds500_synthetic_dataset:/workspace/bsds500_synthetic_dataset
-      - ./datasets/NWPU-RESISC45:/workspace/NWPU-RESISC45
-      - ./datasets/NWPU_RESISC45_SAR_intensity_v1:/workspace/NWPU_RESISC45_SAR_intensity_v1
-      - ./datasets/NWPU_RESISC45_SAR_global_L_v1:/workspace/NWPU_RESISC45_SAR_global_L_v1
-      - ./datasets/NWPU_RESISC45_SAR_global_L_v2:/workspace/NWPU_RESISC45_SAR_global_L_v2
-      - ./datasets/real_sar_dataset:/workspace/real_sar_dataset
-      - ./datasets/UCMerced_LandUse_SAR_mat:/workspace/UCMerced_LandUse_SAR_mat
     deploy:
       resources:
         reservations:

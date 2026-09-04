@@ -7,15 +7,15 @@ separately before training or evaluation.
 
 ## Dataset location
 
-All datasets are stored under [`datasets/`](datasets/README.md). The original
-top-level dataset paths are compatibility junctions on Windows; `compose.yaml`
-also mounts those legacy paths for Docker. New commands can use
-`datasets/<dataset-name>`. See the dataset guide for each dataset's purpose.
+All datasets are stored under [`datasets/`](datasets/README.md). Use
+`datasets/<dataset-name>` for data paths; the original top-level compatibility
+junctions have been removed. Docker uses `/workspace/datasets/` through the
+project mount. See the dataset guide for each dataset's purpose.
 
 > **Reproducibility update:** the historical commands below describe the upstream
 > project only. New paper experiments must use the grouped, intensity-domain
 > protocol in [REPRODUCIBLE_EXPERIMENTS.md](REPRODUCIBLE_EXPERIMENTS.md). In
-> particular, do not train directly from `bsds500_synthetic_dataset/train` because
+> particular, do not train directly from `datasets/bsds500_synthetic_dataset/train` because
 > that legacy directory contains official BSDS500 test images.
 
 

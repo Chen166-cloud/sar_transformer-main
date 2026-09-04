@@ -452,8 +452,8 @@ def generate_syn_dataset(
 
 if __name__ == "__main__":
 
-    source_root = "./UCMerced_LandUse"
-    savepath = "./UCMerced_LandUse_SAR_mat/"
+    source_root = "./datasets/UCMerced_LandUse"
+    savepath = "./datasets/UCMerced_LandUse_SAR_mat/"
 
     generate_syn_dataset(
         source_root=source_root,

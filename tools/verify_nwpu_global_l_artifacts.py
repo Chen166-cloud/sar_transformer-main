@@ -13,10 +13,10 @@ from synthetic_manifest import sha256_file, verify_paired_sar_manifest
 
 
 def main():
-    root = ROOT / "NWPU_RESISC45_SAR_global_L_v2"
+    root = ROOT / "datasets" / "NWPU_RESISC45_SAR_global_L_v2"
     manifest = json.loads((root / "dataset_manifest.json").read_text(encoding="utf-8"))
     plan = json.loads((root / "generation_plan.json").read_text(encoding="utf-8"))
-    old = json.loads((ROOT / "NWPU_RESISC45_SAR_intensity_v1" / "global_L_v2_matched_split_manifest.json").read_text(encoding="utf-8"))
+    old = json.loads((ROOT / "datasets" / "NWPU_RESISC45_SAR_intensity_v1" / "global_L_v2_matched_split_manifest.json").read_text(encoding="utf-8"))
     records = plan["records"]
     assert len(records) == 50400
     assert len({r["output_relative"] for r in records}) == 50400

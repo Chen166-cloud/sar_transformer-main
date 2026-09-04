@@ -23,7 +23,7 @@ def generate_syn_dataset(savepath):
     save_path_train = savepath + 'train/'
     save_path_val = savepath + 'val/'
 
-    path1 = './BSR_bsds500/BSR/BSDS500/data/images/train'  #path to BSD500 train images
+    path1 = './datasets/BSR_bsds500/BSR/BSDS500/data/images/train'  #path to BSD500 train images
     i=0
     for file in os.listdir(path1):
             if file.endswith(".jpg"):
@@ -42,7 +42,7 @@ def generate_syn_dataset(savepath):
 
                 savemat(data_save_path, dat)
 
-    path3 = './BSR_bsds500/BSR/BSDS500/data/images/test'  # path to BSD500 test images
+    path3 = './datasets/BSR_bsds500/BSR/BSDS500/data/images/test'  # path to BSD500 test images
     for file in os.listdir(path3):
             if file.endswith(".jpg"):
                 i= i+1
@@ -62,7 +62,7 @@ def generate_syn_dataset(savepath):
 
                 savemat(data_save_path, dat)
 
-    path2 = './BSR_bsds500/BSR/BSDS500/data/images/val' # path to BSD500 val images
+    path2 = './datasets/BSR_bsds500/BSR/BSDS500/data/images/val' # path to BSD500 val images
     L_file = [];
     for file in os.listdir(path2):
             if file.endswith(".jpg"):
@@ -107,5 +107,5 @@ if __name__ == '__main__':
     
     ### uncomment below lines if a new dataset generation is needed
 
-    savepath = './synthetic_dataset/'
+    savepath = './datasets/synthetic_dataset/'
     generate_syn_dataset(savepath)

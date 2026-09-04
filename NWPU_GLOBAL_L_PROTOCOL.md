@@ -2,8 +2,8 @@
 
 ## 数据角色
 
-- 主实验：`NWPU_RESISC45_SAR_global_L_v2`。初版 v1 因发现两组跨划分同内容图像，已降级为审计中间产物，不得训练。
-- 鲁棒性消融：保留原 `NWPU_RESISC45_SAR_intensity_v1`，其中采用 4×4 区域混合 L；不得与主实验指标混报。
+- 主实验：`datasets/NWPU_RESISC45_SAR_global_L_v2`。初版 v1 因发现两组跨划分同内容图像，已降级为审计中间产物，不得训练。
+- 鲁棒性消融：保留原 `datasets/NWPU_RESISC45_SAR_intensity_v1`，其中采用 4×4 区域混合 L；不得与主实验指标混报。
 - 外部测试：UCMerced_LandUse，不参与 NWPU 训练或验证划分。
 
 ## 可复现划分
@@ -12,7 +12,7 @@
 - 使用 `split_seed=42` 对每类独立、确定性地划分 560 张训练源图和 140 张验证源图。
 - 训练与验证源路径交集、源文件内容 SHA-256 交集均必须为 0。
 - 初始划分发现 airport 类中两组同内容异名图跨集合；按固定种子做两次同类别交换，保持每类 560/140 和每类每 L=140 不变。交换详情写入 `split.repair_swaps`。
-- 混合 L 鲁棒性数据使用 `NWPU_RESISC45_SAR_intensity_v1/global_L_v2_matched_split_manifest.json`，与修正后的主实验 clean 划分一致。原始混合 L 文件及原 manifest 不改动。
+- 混合 L 鲁棒性数据使用 `datasets/NWPU_RESISC45_SAR_intensity_v1/global_L_v2_matched_split_manifest.json`，与修正后的主实验 clean 划分一致。原始混合 L 文件及原 manifest 不改动。
 
 ## 训练集 L 分配
 

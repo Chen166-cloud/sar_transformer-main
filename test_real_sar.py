@@ -17,7 +17,7 @@ from transform_main import *
 def parse_args():
     parser = argparse.ArgumentParser(description='Test real SAR images')
 
-    parser.add_argument('--dataset', type=str, default='./real_sar_dataset/test',
+    parser.add_argument('--dataset', type=str, default='./datasets/real_sar_dataset/test',
                         help='Path to real SAR test dataset')
 
     parser.add_argument('--save_path', type=str, required=True,

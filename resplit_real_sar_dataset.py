@@ -212,7 +212,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Create a non-destructive parent-image grouped real-SAR manifest."
     )
-    parser.add_argument("--dataset_dir", default="real_sar_dataset")
+    parser.add_argument("--dataset_dir", default="datasets/real_sar_dataset")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--ratios", type=int, nargs=3, default=(8, 1, 1))
     parser.add_argument("--manifest", default="")

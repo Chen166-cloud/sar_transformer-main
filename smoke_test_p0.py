@@ -21,12 +21,12 @@ from utils import BSD_SAR, RealSARDataset
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dataset-root", default="real_sar_dataset")
-    parser.add_argument("--manifest", default="real_sar_dataset/real_split_grouped_seed42.json")
-    parser.add_argument("--synthetic-root", default="bsds500_synthetic_dataset")
+    parser.add_argument("--dataset-root", default="datasets/real_sar_dataset")
+    parser.add_argument("--manifest", default="datasets/real_sar_dataset/real_split_grouped_seed42.json")
+    parser.add_argument("--synthetic-root", default="datasets/bsds500_synthetic_dataset")
     parser.add_argument(
         "--synthetic-manifest",
-        default="bsds500_synthetic_dataset/official_split_manifest.json",
+        default="datasets/bsds500_synthetic_dataset/official_split_manifest.json",
     )
     parser.add_argument(
         "--checkpoint",

@@ -15,10 +15,10 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--input', type=str, required=True,
-                        help='Original real SAR test folder, e.g. ./real_sar_dataset/test')
+                        help='Original real SAR test folder, e.g. ./datasets/real_sar_dataset/test')
 
     parser.add_argument('--output', type=str, required=True,
-                        help='Output selected folder, e.g. ./real_sar_dataset/test_selected')
+                        help='Output selected folder, e.g. ./datasets/real_sar_dataset/test_selected')
 
     parser.add_argument('--n_each', type=int, default=20,
                         help='Number of images selected for each category')
