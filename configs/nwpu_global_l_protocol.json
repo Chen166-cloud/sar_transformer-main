@@ -1,0 +1,32 @@
+{
+  "schema_version": "nwpu_global_l_protocol_v2",
+  "source_dataset": "NWPU-RESISC45",
+  "source_counts": {
+    "classes": 45,
+    "images_per_class": 700,
+    "total": 31500
+  },
+  "split": {
+    "method": "per-class stratified 8:2 with deterministic exact-content-group repair",
+    "seed": 42,
+    "train_sources_per_class": 560,
+    "validation_sources_per_class": 140,
+    "source_overlap": 0,
+    "source_content_hash_overlap": 0,
+    "repair_seed": 42
+  },
+  "global_L": {
+    "choices": [1, 2, 4, 8],
+    "assignment_seed": 42,
+    "training_policy": "one L per source, balanced within every class",
+    "train_sources_per_class_per_L": 140,
+    "validation_policy": "every validation source rendered once at each L",
+    "validation_pairs_per_L": 6300,
+    "macro_average": "unweighted mean of the four per-L means"
+  },
+  "synthesis_seed": 20260904,
+  "primary_dataset_root": "NWPU_RESISC45_SAR_global_L_v2",
+  "robustness_dataset_root": "NWPU_RESISC45_SAR_intensity_v1",
+  "robustness_dataset_role": "4x4 mixed-L complex-noise ablation only",
+  "robustness_split_manifest": "NWPU_RESISC45_SAR_intensity_v1/global_L_v2_matched_split_manifest.json"
+}

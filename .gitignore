@@ -1,0 +1,47 @@
+# Python and local development files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+.idea/
+.vscode/
+.claude/
+.env
+.env.*
+!.env.example
+*.tmp
+*.log
+
+# Local transfer scripts may contain machine-specific credentials
+/_scp_copy.py
+/_sync_remote.py
+
+# Datasets and Windows compatibility junctions (keep the dataset guide)
+/datasets/*
+!/datasets/README.md
+/bsds500_synthetic_dataset
+/BSR_bsds500
+/NWPU-RESISC45
+/NWPU_RESISC45_SAR_*
+/real_sar_dataset
+/UCMerced_LandUse_SAR_mat
+/UCMerced_LandUse
+/ucmerced_synthetic_dataset
+
+# Model weights and generated experiment results
+*.pth
+*.pt
+*.ckpt
+/pretrained_models/
+/experiments/
+/experiments_repro/
+/experiments_smoke/
+/test_results/
+/test_results_smoke/
+/report_qa/
+/results
+
+# Local session archives
+/codex_handoff_2026-09-03/

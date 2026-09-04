@@ -1,0 +1,319 @@
+TransSARV2	train_start	start_time=2026-05-02 23:09:32	start_epoch=0	load=default
+TransSARV2	epoch=1	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.027130	val_loss=0.012481	val_psnr=17.644928	val_ssim=0.732642
+TransSARV2	epoch=2	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.008929	val_loss=0.007076	val_psnr=20.395486	val_ssim=0.846643
+TransSARV2	epoch=3	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.007358	val_loss=0.008662	val_psnr=19.361871	val_ssim=0.824866
+TransSARV2	epoch=4	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.007081	val_loss=0.006540	val_psnr=20.778312	val_ssim=0.849093
+TransSARV2	epoch=5	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006669	val_loss=0.006434	val_psnr=20.804356	val_ssim=0.855408
+TransSARV2	epoch=6	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006539	val_loss=0.006018	val_psnr=21.109252	val_ssim=0.857962
+TransSARV2	epoch=7	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006336	val_loss=0.006974	val_psnr=20.478124	val_ssim=0.833537
+TransSARV2	epoch=8	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006244	val_loss=0.006376	val_psnr=20.731299	val_ssim=0.857892
+TransSARV2	epoch=9	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006114	val_loss=0.005670	val_psnr=21.360340	val_ssim=0.862887
+TransSARV2	epoch=10	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005939	val_loss=0.005785	val_psnr=21.321176	val_ssim=0.859394
+TransSARV2	epoch=11	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005973	val_loss=0.005268	val_psnr=21.586284	val_ssim=0.877675
+TransSARV2	epoch=12	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005862	val_loss=0.006523	val_psnr=20.738049	val_ssim=0.832476
+TransSARV2	epoch=13	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005837	val_loss=0.005776	val_psnr=21.268685	val_ssim=0.855274
+TransSARV2	epoch=14	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005749	val_loss=0.005726	val_psnr=21.281190	val_ssim=0.856254
+TransSARV2	epoch=15	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005696	val_loss=0.006081	val_psnr=20.951436	val_ssim=0.847677
+TransSARV2	epoch=16	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005739	val_loss=0.005425	val_psnr=21.515466	val_ssim=0.861634
+TransSARV2	epoch=17	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005700	val_loss=0.005170	val_psnr=21.706812	val_ssim=0.871845
+TransSARV2	epoch=18	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005701	val_loss=0.005706	val_psnr=21.231513	val_ssim=0.859569
+TransSARV2	epoch=19	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005521	val_loss=0.005798	val_psnr=21.053326	val_ssim=0.870423
+TransSARV2	epoch=20	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005588	val_loss=0.005530	val_psnr=21.320432	val_ssim=0.872936
+TransSARV2	epoch=21	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005616	val_loss=0.005081	val_psnr=21.623741	val_ssim=0.885673
+TransSARV2	epoch=22	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005516	val_loss=0.005159	val_psnr=21.530079	val_ssim=0.886211
+TransSARV2	epoch=23	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005426	val_loss=0.005098	val_psnr=21.626573	val_ssim=0.882139
+TransSARV2	epoch=24	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005502	val_loss=0.005164	val_psnr=21.620915	val_ssim=0.877289
+TransSARV2	epoch=25	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005367	val_loss=0.004859	val_psnr=21.937556	val_ssim=0.884520
+TransSARV2	epoch=26	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005534	val_loss=0.005528	val_psnr=21.439364	val_ssim=0.864715
+TransSARV2	epoch=27	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005326	val_loss=0.005179	val_psnr=21.565227	val_ssim=0.882962
+TransSARV2	epoch=28	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005427	val_loss=0.005424	val_psnr=21.531627	val_ssim=0.860900
+TransSARV2	epoch=29	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005439	val_loss=0.005093	val_psnr=21.809127	val_ssim=0.874925
+TransSARV2	epoch=30	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005323	val_loss=0.005954	val_psnr=21.068010	val_ssim=0.842000
+TransSARV2	epoch=31	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005461	val_loss=0.005359	val_psnr=21.352188	val_ssim=0.885197
+TransSARV2	epoch=32	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005348	val_loss=0.005251	val_psnr=21.541118	val_ssim=0.872434
+TransSARV2	epoch=33	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005241	val_loss=0.005115	val_psnr=21.725800	val_ssim=0.872675
+TransSARV2	epoch=34	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005311	val_loss=0.005494	val_psnr=21.232265	val_ssim=0.878389
+TransSARV2	epoch=35	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005206	val_loss=0.005071	val_psnr=21.711011	val_ssim=0.874537
+TransSARV2	epoch=36	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005183	val_loss=0.005406	val_psnr=21.414548	val_ssim=0.863282
+TransSARV2	epoch=37	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005097	val_loss=0.006302	val_psnr=20.758154	val_ssim=0.846866
+TransSARV2	epoch=38	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005143	val_loss=0.005641	val_psnr=21.258645	val_ssim=0.858479
+TransSARV2	epoch=39	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005069	val_loss=0.005067	val_psnr=21.770395	val_ssim=0.870795
+TransSARV2	epoch=40	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005157	val_loss=0.005032	val_psnr=21.762933	val_ssim=0.870659
+TransSARV2	epoch=41	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005120	val_loss=0.005043	val_psnr=21.790935	val_ssim=0.867923
+TransSARV2	epoch=42	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005142	val_loss=0.004861	val_psnr=21.890392	val_ssim=0.877821
+TransSARV2	epoch=43	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005024	val_loss=0.005209	val_psnr=21.698667	val_ssim=0.865483
+TransSARV2	epoch=44	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004974	val_loss=0.004915	val_psnr=21.909269	val_ssim=0.872486
+TransSARV2	epoch=45	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004901	val_loss=0.005015	val_psnr=21.812756	val_ssim=0.869383
+TransSARV2	best_model	epoch=25	best_val_loss=0.004859	best_val_psnr=21.937556	best_val_ssim=0.884520	path=/root/autodl-tmp/research/sar_transformer/experiments/TransSARV2/best_model.pth
+TransSARV2	train_end	end_time=2026-05-03 01:31:37	duration_sec=8524.07
+TransSARV2_FreqNG	train_start	start_time=2026-05-03 15:31:59	start_epoch=0	load=default
+TransSARV2_FreqNG	epoch=1	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.017480	val_loss=0.007365	val_psnr=20.154886	val_ssim=0.835915
+TransSARV2_FreqNG	epoch=2	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006715	val_loss=0.007594	val_psnr=20.210731	val_ssim=0.813673
+TransSARV2_FreqNG	epoch=3	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006282	val_loss=0.006660	val_psnr=20.752889	val_ssim=0.840957
+TransSARV2_FreqNG	epoch=4	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006211	val_loss=0.006342	val_psnr=20.955614	val_ssim=0.846642
+TransSARV2_FreqNG	epoch=5	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005976	val_loss=0.006718	val_psnr=20.716334	val_ssim=0.835500
+TransSARV2_FreqNG	epoch=6	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005754	val_loss=0.005938	val_psnr=21.235676	val_ssim=0.857328
+TransSARV2_FreqNG	epoch=7	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005706	val_loss=0.005318	val_psnr=21.680472	val_ssim=0.871434
+TransSARV2_FreqNG	epoch=8	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005735	val_loss=0.005537	val_psnr=21.484620	val_ssim=0.862474
+TransSARV2_FreqNG	epoch=9	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005465	val_loss=0.005455	val_psnr=21.588230	val_ssim=0.868148
+TransSARV2_FreqNG	epoch=10	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005574	val_loss=0.005949	val_psnr=21.056927	val_ssim=0.867564
+TransSARV2_FreqNG	epoch=11	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005482	val_loss=0.005524	val_psnr=21.396631	val_ssim=0.876647
+TransSARV2_FreqNG	epoch=12	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005265	val_loss=0.005314	val_psnr=21.675225	val_ssim=0.871049
+TransSARV2_FreqNG	epoch=13	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005247	val_loss=0.005059	val_psnr=21.801210	val_ssim=0.882908
+TransSARV2_FreqNG	epoch=14	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005274	val_loss=0.004834	val_psnr=22.041648	val_ssim=0.884288
+TransSARV2_FreqNG	epoch=15	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005142	val_loss=0.005359	val_psnr=21.592971	val_ssim=0.874431
+TransSARV2_FreqNG	epoch=16	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005162	val_loss=0.005146	val_psnr=21.755527	val_ssim=0.881454
+TransSARV2_FreqNG	epoch=17	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005151	val_loss=0.004875	val_psnr=22.001318	val_ssim=0.884249
+TransSARV2_FreqNG	epoch=18	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005080	val_loss=0.004871	val_psnr=22.070366	val_ssim=0.880943
+TransSARV2_FreqNG	epoch=19	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005122	val_loss=0.005150	val_psnr=21.669047	val_ssim=0.883691
+TransSARV2_FreqNG	epoch=20	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005023	val_loss=0.004712	val_psnr=22.120677	val_ssim=0.887151
+TransSARV2_FreqNG	epoch=21	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004982	val_loss=0.004924	val_psnr=22.015975	val_ssim=0.880912
+TransSARV2_FreqNG	epoch=22	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005025	val_loss=0.004586	val_psnr=22.112068	val_ssim=0.894349
+TransSARV2_FreqNG	epoch=23	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004936	val_loss=0.005237	val_psnr=21.772800	val_ssim=0.874353
+TransSARV2_FreqNG	epoch=24	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004966	val_loss=0.004980	val_psnr=21.850650	val_ssim=0.878595
+TransSARV2_FreqNG	epoch=25	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004892	val_loss=0.004595	val_psnr=22.207919	val_ssim=0.891009
+TransSARV2_FreqNG	epoch=26	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004894	val_loss=0.004930	val_psnr=21.897382	val_ssim=0.887070
+TransSARV2_FreqNG	epoch=27	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004857	val_loss=0.004869	val_psnr=22.047475	val_ssim=0.878802
+TransSARV2_FreqNG	epoch=28	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004829	val_loss=0.004578	val_psnr=22.266762	val_ssim=0.887938
+TransSARV2_FreqNG	epoch=29	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004780	val_loss=0.004576	val_psnr=22.224105	val_ssim=0.889696
+TransSARV2_FreqNG	epoch=30	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004864	val_loss=0.005070	val_psnr=21.762959	val_ssim=0.882670
+TransSARV2_FreqNG	epoch=31	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004769	val_loss=0.004301	val_psnr=22.475773	val_ssim=0.898290
+TransSARV2_FreqNG	epoch=32	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004774	val_loss=0.005006	val_psnr=21.770762	val_ssim=0.882689
+TransSARV2_FreqNG	epoch=33	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004811	val_loss=0.004873	val_psnr=21.938616	val_ssim=0.888658
+TransSARV2_FreqNG	epoch=34	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004773	val_loss=0.004317	val_psnr=22.543093	val_ssim=0.894900
+TransSARV2_FreqNG	epoch=35	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004785	val_loss=0.004928	val_psnr=21.942369	val_ssim=0.880468
+TransSARV2_FreqNG	epoch=36	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004763	val_loss=0.004525	val_psnr=22.285667	val_ssim=0.890691
+TransSARV2_FreqNG	epoch=37	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004725	val_loss=0.004638	val_psnr=22.203421	val_ssim=0.885290
+TransSARV2_FreqNG	epoch=38	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004756	val_loss=0.004301	val_psnr=22.510958	val_ssim=0.896460
+TransSARV2_FreqNG	epoch=39	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004795	val_loss=0.004538	val_psnr=22.288188	val_ssim=0.891798
+TransSARV2_FreqNG	epoch=40	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004714	val_loss=0.004864	val_psnr=22.102486	val_ssim=0.878999
+TransSARV2_FreqNG	epoch=41	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004665	val_loss=0.004217	val_psnr=22.444220	val_ssim=0.903288
+TransSARV2_FreqNG	epoch=42	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004626	val_loss=0.004323	val_psnr=22.526526	val_ssim=0.893965
+TransSARV2_FreqNG	epoch=43	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004568	val_loss=0.004295	val_psnr=22.452549	val_ssim=0.897728
+TransSARV2_FreqNG	epoch=44	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004510	val_loss=0.004340	val_psnr=22.505087	val_ssim=0.892744
+TransSARV2_FreqNG	epoch=45	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004529	val_loss=0.004544	val_psnr=22.304294	val_ssim=0.887055
+TransSARV2_FreqNG	epoch=46	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004623	val_loss=0.004180	val_psnr=22.558954	val_ssim=0.902438
+TransSARV2_FreqNG	epoch=47	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004537	val_loss=0.004286	val_psnr=22.517367	val_ssim=0.894657
+TransSARV2_FreqNG	epoch=48	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004609	val_loss=0.004393	val_psnr=22.337638	val_ssim=0.895812
+TransSARV2_FreqNG	epoch=49	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004550	val_loss=0.004399	val_psnr=22.461752	val_ssim=0.894730
+TransSARV2_FreqNG	epoch=50	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004513	val_loss=0.004135	val_psnr=22.621099	val_ssim=0.902311
+TransSARV2_FreqNG	best_model	epoch=50	best_val_loss=0.004135	best_val_psnr=22.621099	best_val_ssim=0.902311	path=/root/autodl-tmp/research/sar_transformer/experiments/TransSARV2_FreqNG/best_model.pth
+TransSARV2_FreqNG	train_end	end_time=2026-05-03 18:54:08	duration_sec=12128.43
+TransSARV2_Full	train_start	start_time=2026-05-03 18:58:07	start_epoch=0	load=default
+TransSARV2_Full	epoch=1	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.012492	val_loss=0.006146	val_psnr=21.017442	val_ssim=0.855979
+TransSARV2_Full	epoch=2	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006681	val_loss=0.006460	val_psnr=20.820567	val_ssim=0.845108
+TransSARV2_Full	epoch=3	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006275	val_loss=0.006505	val_psnr=20.679868	val_ssim=0.855473
+TransSARV2_Full	epoch=4	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006178	val_loss=0.006305	val_psnr=20.748051	val_ssim=0.864559
+TransSARV2_Full	epoch=5	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005939	val_loss=0.005181	val_psnr=21.678953	val_ssim=0.878694
+TransSARV2_Full	epoch=6	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005734	val_loss=0.005784	val_psnr=21.317253	val_ssim=0.858865
+TransSARV2_Full	epoch=7	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005624	val_loss=0.005361	val_psnr=21.672804	val_ssim=0.870234
+TransSARV2_Full	epoch=8	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005405	val_loss=0.005141	val_psnr=21.793989	val_ssim=0.873852
+TransSARV2_Full	epoch=9	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005506	val_loss=0.004914	val_psnr=21.833491	val_ssim=0.886967
+TransSARV2_Full	epoch=10	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005313	val_loss=0.005984	val_psnr=20.963696	val_ssim=0.868106
+TransSARV2_Full	epoch=11	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005339	val_loss=0.004956	val_psnr=21.874071	val_ssim=0.883426
+TransSARV2_Full	epoch=12	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005259	val_loss=0.004743	val_psnr=22.089193	val_ssim=0.883162
+TransSARV2_Full	epoch=13	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005079	val_loss=0.006000	val_psnr=20.721122	val_ssim=0.886974
+TransSARV2_Full	epoch=14	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005161	val_loss=0.004688	val_psnr=22.073358	val_ssim=0.890863
+TransSARV2_Full	epoch=15	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005086	val_loss=0.004642	val_psnr=22.214559	val_ssim=0.887844
+TransSARV2_Full	epoch=16	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005078	val_loss=0.004633	val_psnr=22.219109	val_ssim=0.886874
+TransSARV2_Full	epoch=17	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005010	val_loss=0.004486	val_psnr=22.348099	val_ssim=0.892406
+TransSARV2_Full	epoch=18	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005103	val_loss=0.004662	val_psnr=22.206107	val_ssim=0.885353
+TransSARV2_Full	epoch=19	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004978	val_loss=0.005838	val_psnr=20.882789	val_ssim=0.889121
+TransSARV2_Full	epoch=20	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004986	val_loss=0.004836	val_psnr=22.100815	val_ssim=0.880655
+TransSARV2_Full	epoch=21	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005014	val_loss=0.004502	val_psnr=22.228001	val_ssim=0.892179
+TransSARV2_Full	epoch=22	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004968	val_loss=0.005111	val_psnr=21.669584	val_ssim=0.889040
+TransSARV2_Full	epoch=23	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004897	val_loss=0.004407	val_psnr=22.358641	val_ssim=0.896085
+TransSARV2_Full	epoch=24	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005007	val_loss=0.004564	val_psnr=22.256835	val_ssim=0.891316
+TransSARV2_Full	epoch=25	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004832	val_loss=0.004439	val_psnr=22.313808	val_ssim=0.894316
+TransSARV2_Full	epoch=26	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004928	val_loss=0.004522	val_psnr=22.342436	val_ssim=0.887594
+TransSARV2_Full	epoch=27	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004837	val_loss=0.004475	val_psnr=22.339374	val_ssim=0.888963
+TransSARV2_Full	epoch=28	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004913	val_loss=0.004418	val_psnr=22.445820	val_ssim=0.891882
+TransSARV2_Full	epoch=29	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004858	val_loss=0.004543	val_psnr=22.237400	val_ssim=0.891980
+TransSARV2_Full	epoch=30	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004869	val_loss=0.004462	val_psnr=22.335571	val_ssim=0.894040
+TransSARV2_Full	epoch=31	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004898	val_loss=0.004536	val_psnr=22.260588	val_ssim=0.893854
+TransSARV2_Full	epoch=32	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004797	val_loss=0.004371	val_psnr=22.427267	val_ssim=0.892471
+TransSARV2_Full	epoch=33	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004797	val_loss=0.004248	val_psnr=22.530302	val_ssim=0.894736
+TransSARV2_Full	epoch=34	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004834	val_loss=0.004483	val_psnr=22.292678	val_ssim=0.892843
+TransSARV2_Full	epoch=35	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004799	val_loss=0.007810	val_psnr=19.820508	val_ssim=0.829200
+TransSARV2_Full	epoch=36	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004759	val_loss=0.004724	val_psnr=22.001330	val_ssim=0.885573
+TransSARV2_Full	epoch=37	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004748	val_loss=0.004386	val_psnr=22.438097	val_ssim=0.894242
+TransSARV2_Full	epoch=38	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004574	val_loss=0.004202	val_psnr=22.613542	val_ssim=0.896128
+TransSARV2_Full	epoch=39	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004645	val_loss=0.004300	val_psnr=22.526900	val_ssim=0.896640
+TransSARV2_Full	epoch=40	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004601	val_loss=0.004179	val_psnr=22.630409	val_ssim=0.897243
+TransSARV2_Full	epoch=41	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004612	val_loss=0.004245	val_psnr=22.572479	val_ssim=0.898058
+TransSARV2_Full	epoch=42	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004595	val_loss=0.004244	val_psnr=22.616860	val_ssim=0.895239
+TransSARV2_Full	epoch=43	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004607	val_loss=0.004338	val_psnr=22.519072	val_ssim=0.892138
+TransSARV2_Full	epoch=44	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004608	val_loss=0.004217	val_psnr=22.572713	val_ssim=0.897951
+TransSARV2_Full	epoch=45	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004551	val_loss=0.004437	val_psnr=22.332938	val_ssim=0.893883
+TransSARV2_Full	epoch=46	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004624	val_loss=0.004736	val_psnr=22.072606	val_ssim=0.882329
+TransSARV2_Full	epoch=47	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004505	val_loss=0.004246	val_psnr=22.579499	val_ssim=0.894773
+TransSARV2_Full	epoch=48	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004559	val_loss=0.005138	val_psnr=21.786448	val_ssim=0.868910
+TransSARV2_Full	epoch=49	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004611	val_loss=0.004276	val_psnr=22.525682	val_ssim=0.895216
+TransSARV2_Full	epoch=50	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004511	val_loss=0.004203	val_psnr=22.643379	val_ssim=0.896129
+TransSARV2_Full	best_model	epoch=40	best_val_loss=0.004179	best_val_psnr=22.630409	best_val_ssim=0.897243	path=experiments/TransSARV2_Full/best_model.pth
+TransSARV2_Full	train_end	end_time=2026-05-03 21:45:00	duration_sec=10012.91
+TransSARV2_Freq	train_start	start_time=2026-05-03 21:54:42	start_epoch=0	load=default
+TransSARV2_Freq	epoch=1	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.012936	val_loss=0.006847	val_psnr=20.374285	val_ssim=0.851282
+TransSARV2_Freq	epoch=2	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006683	val_loss=0.007767	val_psnr=19.997525	val_ssim=0.816384
+TransSARV2_Freq	epoch=3	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006101	val_loss=0.016347	val_psnr=16.322697	val_ssim=0.842781
+TransSARV2_Freq	epoch=4	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006159	val_loss=0.005884	val_psnr=21.216419	val_ssim=0.857092
+TransSARV2_Freq	epoch=5	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005937	val_loss=0.005764	val_psnr=21.098854	val_ssim=0.874267
+TransSARV2_Freq	epoch=6	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005699	val_loss=0.005050	val_psnr=21.769456	val_ssim=0.882010
+TransSARV2_Freq	epoch=7	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005701	val_loss=0.005120	val_psnr=21.680061	val_ssim=0.884614
+TransSARV2_Freq	epoch=8	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005474	val_loss=0.004941	val_psnr=21.930326	val_ssim=0.879481
+TransSARV2_Freq	epoch=9	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005357	val_loss=0.004859	val_psnr=21.892222	val_ssim=0.887086
+TransSARV2_Freq	epoch=10	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005314	val_loss=0.004794	val_psnr=21.921074	val_ssim=0.889609
+TransSARV2_Freq	epoch=11	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005288	val_loss=0.006516	val_psnr=20.296807	val_ssim=0.887677
+TransSARV2_Freq	epoch=12	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005183	val_loss=0.005693	val_psnr=21.224752	val_ssim=0.859728
+TransSARV2_Freq	epoch=13	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005303	val_loss=0.005015	val_psnr=21.796166	val_ssim=0.886000
+TransSARV2_Freq	epoch=14	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005089	val_loss=0.004609	val_psnr=22.150346	val_ssim=0.893113
+TransSARV2_Freq	epoch=15	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005082	val_loss=0.004526	val_psnr=22.277435	val_ssim=0.890131
+TransSARV2_Freq	epoch=16	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005109	val_loss=0.004669	val_psnr=22.194096	val_ssim=0.884657
+TransSARV2_Freq	epoch=17	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005091	val_loss=0.005535	val_psnr=21.303835	val_ssim=0.874008
+TransSARV2_Freq	epoch=18	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004955	val_loss=0.004975	val_psnr=21.906119	val_ssim=0.873140
+TransSARV2_Freq	epoch=19	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005071	val_loss=0.004605	val_psnr=22.152958	val_ssim=0.891684
+TransSARV2_Freq	epoch=20	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005073	val_loss=0.004293	val_psnr=22.480469	val_ssim=0.896426
+TransSARV2_Freq	epoch=21	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004954	val_loss=0.005272	val_psnr=21.617807	val_ssim=0.874135
+TransSARV2_Freq	epoch=22	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004956	val_loss=0.004385	val_psnr=22.445299	val_ssim=0.892752
+TransSARV2_Freq	epoch=23	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005065	val_loss=0.005057	val_psnr=21.826749	val_ssim=0.877465
+TransSARV2_Freq	epoch=24	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004916	val_loss=0.004367	val_psnr=22.345790	val_ssim=0.897928
+TransSARV2_Freq	epoch=25	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004889	val_loss=0.004752	val_psnr=22.064198	val_ssim=0.882200
+TransSARV2_Freq	epoch=26	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004915	val_loss=0.004337	val_psnr=22.471774	val_ssim=0.894703
+TransSARV2_Freq	epoch=27	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004841	val_loss=0.004667	val_psnr=22.190552	val_ssim=0.886362
+TransSARV2_Freq	epoch=28	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004900	val_loss=0.004638	val_psnr=22.204164	val_ssim=0.884021
+TransSARV2_Freq	epoch=29	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004897	val_loss=0.004619	val_psnr=22.212992	val_ssim=0.886079
+TransSARV2_Freq	epoch=30	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004647	val_loss=0.004658	val_psnr=22.160653	val_ssim=0.884986
+TransSARV2_Freq	epoch=31	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004673	val_loss=0.005025	val_psnr=21.821418	val_ssim=0.869547
+TransSARV2_Freq	epoch=32	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004651	val_loss=0.004304	val_psnr=22.503689	val_ssim=0.894698
+TransSARV2_Freq	epoch=33	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004725	val_loss=0.004444	val_psnr=22.358530	val_ssim=0.891629
+TransSARV2_Freq	epoch=34	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004682	val_loss=0.004838	val_psnr=22.005119	val_ssim=0.877167
+TransSARV2_Freq	epoch=35	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004623	val_loss=0.004392	val_psnr=22.412910	val_ssim=0.891401
+TransSARV2_Freq	epoch=36	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004681	val_loss=0.004725	val_psnr=21.966643	val_ssim=0.891679
+TransSARV2_Freq	epoch=37	batch_size=1	initial_lr=0.00020000	current_lr=0.00010000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004617	val_loss=0.004557	val_psnr=22.147612	val_ssim=0.888567
+TransSARV2_Freq	epoch=38	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004673	val_loss=0.004352	val_psnr=22.471657	val_ssim=0.892641
+TransSARV2_Freq	epoch=39	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004590	val_loss=0.004613	val_psnr=22.209829	val_ssim=0.881820
+TransSARV2_Freq	epoch=40	batch_size=1	initial_lr=0.00020000	current_lr=0.00005000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004538	val_loss=0.004695	val_psnr=22.119142	val_ssim=0.881269
+TransSARV2_Freq	best_model	epoch=20	best_val_loss=0.004293	best_val_psnr=22.480469	best_val_ssim=0.896426	path=./experiments/TransSARV2_Freq/best_model.pth
+TransSARV2_Freq	train_end	end_time=2026-05-04 00:29:31	duration_sec=9288.90
+TransSARV2_FreqNG_Bottle	train_start	start_time=2026-05-04 15:27:04	start_epoch=0	load=default
+TransSARV2_FreqNG_Bottle	epoch=1	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.016356	val_loss=0.007351	val_psnr=20.071990	val_ssim=0.845697
+TransSARV2_FreqNG_Bottle	epoch=2	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006618	val_loss=0.006453	val_psnr=20.914337	val_ssim=0.846625
+TransSARV2_FreqNG_Bottle	epoch=3	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006228	val_loss=0.006472	val_psnr=20.908660	val_ssim=0.843164
+TransSARV2_FreqNG_Bottle	epoch=4	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006132	val_loss=0.006149	val_psnr=21.108206	val_ssim=0.858935
+TransSARV2_FreqNG_Bottle	epoch=5	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005930	val_loss=0.007192	val_psnr=20.458733	val_ssim=0.833909
+TransSARV2_FreqNG_Bottle	epoch=6	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005691	val_loss=0.005032	val_psnr=21.767045	val_ssim=0.882313
+TransSARV2_FreqNG_Bottle	epoch=7	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005716	val_loss=0.005259	val_psnr=21.653869	val_ssim=0.879362
+TransSARV2_FreqNG_Bottle	epoch=8	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005383	val_loss=0.004823	val_psnr=21.865021	val_ssim=0.886785
+TransSARV2_FreqNG_Bottle	epoch=9	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005344	val_loss=0.005388	val_psnr=21.582199	val_ssim=0.875718
+TransSARV2_FreqNG_Bottle	epoch=10	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005282	val_loss=0.005191	val_psnr=21.688438	val_ssim=0.879960
+TransSARV2_FreqNG_Bottle	epoch=11	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005222	val_loss=0.005203	val_psnr=21.765078	val_ssim=0.875847
+TransSARV2_FreqNG_Bottle	epoch=12	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005181	val_loss=0.004864	val_psnr=21.999215	val_ssim=0.886423
+TransSARV2_FreqNG_Bottle	epoch=13	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005117	val_loss=0.005056	val_psnr=21.752352	val_ssim=0.883267
+TransSARV2_FreqNG_Bottle	epoch=14	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005020	val_loss=0.004868	val_psnr=21.865445	val_ssim=0.889765
+TransSARV2_FreqNG_Bottle	epoch=15	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005079	val_loss=0.004845	val_psnr=22.098344	val_ssim=0.882973
+TransSARV2_FreqNG_Bottle	epoch=16	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005036	val_loss=0.004720	val_psnr=22.162629	val_ssim=0.884220
+TransSARV2_FreqNG_Bottle	epoch=17	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004998	val_loss=0.004826	val_psnr=22.084285	val_ssim=0.882940
+TransSARV2_FreqNG_Bottle	epoch=18	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004934	val_loss=0.004562	val_psnr=22.246138	val_ssim=0.891558
+TransSARV2_FreqNG_Bottle	epoch=19	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004939	val_loss=0.004747	val_psnr=22.068231	val_ssim=0.886536
+TransSARV2_FreqNG_Bottle	epoch=20	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004969	val_loss=0.004502	val_psnr=22.354393	val_ssim=0.889952
+TransSARV2_FreqNG_Bottle	epoch=21	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004843	val_loss=0.004842	val_psnr=21.997443	val_ssim=0.886715
+TransSARV2_FreqNG_Bottle	epoch=22	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004771	val_loss=0.004802	val_psnr=22.094644	val_ssim=0.878806
+TransSARV2_FreqNG_Bottle	epoch=23	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004829	val_loss=0.004785	val_psnr=22.131731	val_ssim=0.883738
+TransSARV2_FreqNG_Bottle	epoch=24	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004757	val_loss=0.004479	val_psnr=22.276495	val_ssim=0.895340
+TransSARV2_FreqNG_Bottle	epoch=25	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004766	val_loss=0.004648	val_psnr=22.250447	val_ssim=0.885931
+TransSARV2_FreqNG_Bottle	epoch=26	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004795	val_loss=0.004487	val_psnr=22.366067	val_ssim=0.888822
+TransSARV2_FreqNG_Bottle	epoch=27	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004863	val_loss=0.004481	val_psnr=22.360814	val_ssim=0.891408
+TransSARV2_FreqNG_Bottle	epoch=28	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004860	val_loss=0.004543	val_psnr=22.326399	val_ssim=0.887529
+TransSARV2_FreqNG_Bottle	epoch=29	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004718	val_loss=0.004454	val_psnr=22.335965	val_ssim=0.896321
+TransSARV2_FreqNG_Bottle	epoch=30	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004701	val_loss=0.004525	val_psnr=22.137799	val_ssim=0.896586
+TransSARV2_FreqNG_Bottle	epoch=31	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004687	val_loss=0.005121	val_psnr=21.556662	val_ssim=0.892741
+TransSARV2_FreqNG_Bottle	epoch=32	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004799	val_loss=0.004405	val_psnr=22.356543	val_ssim=0.894140
+TransSARV2_FreqNG_Bottle	epoch=33	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004757	val_loss=0.004507	val_psnr=22.374337	val_ssim=0.887068
+TransSARV2_FreqNG_Bottle	epoch=34	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004720	val_loss=0.004430	val_psnr=22.265659	val_ssim=0.896023
+TransSARV2_FreqNG_Bottle	epoch=35	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004755	val_loss=0.004279	val_psnr=22.542325	val_ssim=0.892319
+TransSARV2_FreqNG_Bottle	epoch=36	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004759	val_loss=0.004188	val_psnr=22.612848	val_ssim=0.897869
+TransSARV2_FreqNG_Bottle	epoch=37	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004747	val_loss=0.004386	val_psnr=22.413057	val_ssim=0.889134
+TransSARV2_FreqNG_Bottle	epoch=38	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004645	val_loss=0.004235	val_psnr=22.505426	val_ssim=0.897293
+TransSARV2_FreqNG_Bottle	epoch=39	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004736	val_loss=0.004426	val_psnr=22.360097	val_ssim=0.892764
+TransSARV2_FreqNG_Bottle	epoch=40	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004694	val_loss=0.004252	val_psnr=22.559113	val_ssim=0.896910
+TransSARV2_FreqNG_Bottle	epoch=41	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004737	val_loss=0.004575	val_psnr=22.068342	val_ssim=0.894788
+TransSARV2_FreqNG_Bottle	epoch=42	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004738	val_loss=0.004312	val_psnr=22.483192	val_ssim=0.891720
+TransSARV2_FreqNG_Bottle	epoch=43	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004661	val_loss=0.004452	val_psnr=22.420084	val_ssim=0.888475
+TransSARV2_FreqNG_Bottle	epoch=44	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004707	val_loss=0.004594	val_psnr=22.095047	val_ssim=0.894611
+TransSARV2_FreqNG_Bottle	epoch=45	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004776	val_loss=0.004151	val_psnr=22.566948	val_ssim=0.900612
+TransSARV2_FreqNG_Bottle	epoch=46	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004709	val_loss=0.004432	val_psnr=22.444158	val_ssim=0.887902
+TransSARV2_FreqNG_Bottle	epoch=47	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004621	val_loss=0.004423	val_psnr=22.420706	val_ssim=0.890026
+TransSARV2_FreqNG_Bottle	epoch=48	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004680	val_loss=0.004442	val_psnr=22.370044	val_ssim=0.889461
+TransSARV2_FreqNG_Bottle	epoch=49	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004681	val_loss=0.004190	val_psnr=22.616549	val_ssim=0.896091
+TransSARV2_FreqNG_Bottle	epoch=50	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004591	val_loss=0.004229	val_psnr=22.547261	val_ssim=0.897378
+TransSARV2_FreqNG_Bottle	best_model	epoch=45	best_val_loss=0.004151	best_val_psnr=22.566948	best_val_ssim=0.900612	path=./experiments/TransSARV2_FreqNG_Bottle/best_model.pth	train_end	end_time=2026-05-04 18:55:33	duration_sec=12508.89
+TransSARV2_DualFreqNG_Bottle	train_start	start_time=2026-05-04 20:27:02	start_epoch=0	load=default
+TransSARV2_DualFreqNG_Bottle	epoch=1	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.010802	val_loss=0.006633	val_psnr=20.665587	val_ssim=0.850032
+TransSARV2_DualFreqNG_Bottle	epoch=2	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006685	val_loss=0.006586	val_psnr=20.727166	val_ssim=0.848397
+TransSARV2_DualFreqNG_Bottle	epoch=3	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006466	val_loss=0.006312	val_psnr=20.899985	val_ssim=0.854446
+TransSARV2_DualFreqNG_Bottle	epoch=4	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006336	val_loss=0.006426	val_psnr=20.881263	val_ssim=0.848150
+TransSARV2_DualFreqNG_Bottle	epoch=5	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.006218	val_loss=0.006545	val_psnr=20.812381	val_ssim=0.843916
+TransSARV2_DualFreqNG_Bottle	epoch=6	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005903	val_loss=0.005648	val_psnr=21.422412	val_ssim=0.867122
+TransSARV2_DualFreqNG_Bottle	epoch=7	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005699	val_loss=0.005963	val_psnr=21.193418	val_ssim=0.862708
+TransSARV2_DualFreqNG_Bottle	epoch=8	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005580	val_loss=0.005386	val_psnr=21.612633	val_ssim=0.873406
+TransSARV2_DualFreqNG_Bottle	epoch=9	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005453	val_loss=0.005164	val_psnr=21.729332	val_ssim=0.877731
+TransSARV2_DualFreqNG_Bottle	epoch=10	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005397	val_loss=0.005433	val_psnr=21.551561	val_ssim=0.872379
+TransSARV2_DualFreqNG_Bottle	epoch=11	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005366	val_loss=0.005058	val_psnr=21.828398	val_ssim=0.877250
+TransSARV2_DualFreqNG_Bottle	epoch=12	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005364	val_loss=0.005257	val_psnr=21.765375	val_ssim=0.872396
+TransSARV2_DualFreqNG_Bottle	epoch=13	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005156	val_loss=0.005276	val_psnr=21.752139	val_ssim=0.871080
+TransSARV2_DualFreqNG_Bottle	epoch=14	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005278	val_loss=0.005625	val_psnr=21.339199	val_ssim=0.870350
+TransSARV2_DualFreqNG_Bottle	epoch=15	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005145	val_loss=0.004890	val_psnr=22.011688	val_ssim=0.883073
+TransSARV2_DualFreqNG_Bottle	epoch=16	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005172	val_loss=0.004947	val_psnr=21.972040	val_ssim=0.882605
+TransSARV2_DualFreqNG_Bottle	epoch=17	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005087	val_loss=0.005252	val_psnr=21.762434	val_ssim=0.871069
+TransSARV2_DualFreqNG_Bottle	epoch=18	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005143	val_loss=0.005436	val_psnr=21.615795	val_ssim=0.866733
+TransSARV2_DualFreqNG_Bottle	epoch=19	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005074	val_loss=0.004938	val_psnr=22.040713	val_ssim=0.880310
+TransSARV2_DualFreqNG_Bottle	epoch=20	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005097	val_loss=0.004932	val_psnr=21.936874	val_ssim=0.882801
+TransSARV2_DualFreqNG_Bottle	epoch=21	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005136	val_loss=0.004985	val_psnr=21.984474	val_ssim=0.877915
+TransSARV2_DualFreqNG_Bottle	epoch=22	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005096	val_loss=0.004761	val_psnr=22.087226	val_ssim=0.885994
+TransSARV2_DualFreqNG_Bottle	epoch=23	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004922	val_loss=0.004780	val_psnr=22.083858	val_ssim=0.886617
+TransSARV2_DualFreqNG_Bottle	epoch=24	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005071	val_loss=0.004930	val_psnr=21.737853	val_ssim=0.889976
+TransSARV2_DualFreqNG_Bottle	epoch=25	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004984	val_loss=0.005537	val_psnr=21.521324	val_ssim=0.865567
+TransSARV2_DualFreqNG_Bottle	epoch=26	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005064	val_loss=0.004890	val_psnr=22.033085	val_ssim=0.882084
+TransSARV2_DualFreqNG_Bottle	epoch=27	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005023	val_loss=0.005201	val_psnr=21.809486	val_ssim=0.868890
+TransSARV2_DualFreqNG_Bottle	epoch=28	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004964	val_loss=0.004975	val_psnr=21.943146	val_ssim=0.876771
+TransSARV2_DualFreqNG_Bottle	epoch=29	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005030	val_loss=0.004681	val_psnr=22.132756	val_ssim=0.888828
+TransSARV2_DualFreqNG_Bottle	epoch=30	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004946	val_loss=0.004722	val_psnr=22.045251	val_ssim=0.888454
+TransSARV2_DualFreqNG_Bottle	epoch=31	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005019	val_loss=0.004681	val_psnr=22.224623	val_ssim=0.886638
+TransSARV2_DualFreqNG_Bottle	epoch=32	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004925	val_loss=0.004554	val_psnr=22.195359	val_ssim=0.892134
+TransSARV2_DualFreqNG_Bottle	epoch=33	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004981	val_loss=0.004816	val_psnr=22.152002	val_ssim=0.881612
+TransSARV2_DualFreqNG_Bottle	epoch=34	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004964	val_loss=0.005107	val_psnr=21.921102	val_ssim=0.871902
+TransSARV2_DualFreqNG_Bottle	epoch=35	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005014	val_loss=0.005066	val_psnr=21.744817	val_ssim=0.882928
+TransSARV2_DualFreqNG_Bottle	epoch=36	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004901	val_loss=0.004662	val_psnr=22.215927	val_ssim=0.886806
+TransSARV2_DualFreqNG_Bottle	epoch=37	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004877	val_loss=0.005291	val_psnr=21.722028	val_ssim=0.872131
+TransSARV2_DualFreqNG_Bottle	epoch=38	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.005003	val_loss=0.004645	val_psnr=22.121762	val_ssim=0.889940
+TransSARV2_DualFreqNG_Bottle	epoch=39	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004962	val_loss=0.004497	val_psnr=22.341646	val_ssim=0.892224
+TransSARV2_DualFreqNG_Bottle	epoch=40	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004893	val_loss=0.005034	val_psnr=21.939476	val_ssim=0.876119
+TransSARV2_DualFreqNG_Bottle	epoch=41	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004987	val_loss=0.004881	val_psnr=22.082942	val_ssim=0.879490
+TransSARV2_DualFreqNG_Bottle	epoch=42	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004954	val_loss=0.004871	val_psnr=22.097357	val_ssim=0.879719
+TransSARV2_DualFreqNG_Bottle	epoch=43	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004829	val_loss=0.004459	val_psnr=22.388829	val_ssim=0.892109
+TransSARV2_DualFreqNG_Bottle	epoch=44	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004861	val_loss=0.004531	val_psnr=22.303647	val_ssim=0.890771
+TransSARV2_DualFreqNG_Bottle	epoch=45	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004857	val_loss=0.004697	val_psnr=22.224606	val_ssim=0.884752
+TransSARV2_DualFreqNG_Bottle	epoch=46	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004836	val_loss=0.005057	val_psnr=21.954058	val_ssim=0.872142
+TransSARV2_DualFreqNG_Bottle	epoch=47	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004920	val_loss=0.004430	val_psnr=22.423830	val_ssim=0.893419
+TransSARV2_DualFreqNG_Bottle	epoch=48	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004763	val_loss=0.004564	val_psnr=22.304447	val_ssim=0.886275
+TransSARV2_DualFreqNG_Bottle	epoch=49	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004852	val_loss=0.004877	val_psnr=22.056573	val_ssim=0.876289
+TransSARV2_DualFreqNG_Bottle	epoch=50	batch_size=1	initial_lr=0.00020000	current_lr=0.00020000	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.004762	val_loss=0.004713	val_psnr=22.133231	val_ssim=0.885824
+TransSARV2_DualFreqNG_Bottle	best_model	epoch=47	best_val_loss=0.004430	best_val_psnr=22.423830	best_val_ssim=0.893419	path=./experiments/TransSARV2_DualFreqNG_Bottle/best_model.pth
+TransSARV2_DualFreqNG_Bottle	train_end	end_time=2026-05-05 00:03:46	duration_sec=13003.76
+
+
+
+
+
+
+TransSARV2_DualFreqNG_Bottle	train_start	start_time=2026-05-06 09:47:58	start_epoch=0	load=default
+TransSARV2_DualFreqNG_Bottle	epoch=1	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.098590	val_loss=0.088834	val_selfsup_loss=0.088834	val_psnr=20.260230	val_ssim=0.866670
+TransSARV2_DualFreqNG_Bottle	epoch=2	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.084398	val_loss=0.081155	val_selfsup_loss=0.081155	val_psnr=18.388422	val_ssim=0.814433
+TransSARV2_DualFreqNG_Bottle	epoch=3	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.078429	val_loss=0.076359	val_selfsup_loss=0.076359	val_psnr=17.314540	val_ssim=0.774537
+TransSARV2_DualFreqNG_Bottle	epoch=4	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.074363	val_loss=0.072870	val_selfsup_loss=0.072870	val_psnr=16.413821	val_ssim=0.738851
+TransSARV2_DualFreqNG_Bottle	epoch=5	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.071359	val_loss=0.070213	val_selfsup_loss=0.070213	val_psnr=15.710051	val_ssim=0.710015
+TransSARV2_DualFreqNG_Bottle	epoch=6	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.069046	val_loss=0.068224	val_selfsup_loss=0.068224	val_psnr=15.165477	val_ssim=0.686881
+TransSARV2_DualFreqNG_Bottle	epoch=7	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.067253	val_loss=0.066590	val_selfsup_loss=0.066590	val_psnr=14.766237	val_ssim=0.669215
+TransSARV2_DualFreqNG_Bottle	epoch=8	batch_size=1	initial_lr=0.00000200	current_lr=0.00000200	weight_decay=0.00001000	lambda_loss=0.040000	train_loss=0.065757	val_loss=0.065204	val_selfsup_loss=0.065204	val_psnr=14.522010	val_ssim=0.658234
+TransSARV2_DualFreqNG_Bottle	best_model	epoch=8	best_val_selfsup_loss=0.065204	path=./experiments/dualfreqng_bottle_ams_finetune_safe/best_model.pth
+TransSARV2_DualFreqNG_Bottle	train_end	end_time=2026-05-06 11:16:40	duration_sec=5322.37

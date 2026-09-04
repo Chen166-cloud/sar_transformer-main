@@ -1,0 +1,17 @@
+# Runtime chosen for RTX 4070 (Ada, compute capability 8.9).
+# torch/torchvision/CUDA are supplied by the PyTorch base image.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.11.4
+opencv-python-headless==4.10.0.84
+Pillow==10.4.0
+matplotlib==3.8.4
+PyWavelets==1.6.0
+PyYAML==6.0.2
+timm==0.9.16
+huggingface-hub==0.23.5
+safetensors==0.4.5
+addict==2.4.0
+yapf==0.40.2
+tqdm==4.66.5
+thop==0.1.1.post2209072238

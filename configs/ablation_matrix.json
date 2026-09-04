@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "canonical_model": "TransSARV2_DualFreqNG_Bottle",
+  "numeric_domain": "intensity_v1",
+  "controlled_factors": ["msf", "frequency", "gate", "bottleneck", "fusion"],
+  "presets": {
+    "full": {"msf": true, "frequency": true, "gate": true, "bottleneck": true, "fusion": true},
+    "wout_frequency": {"msf": true, "frequency": false, "gate": true, "bottleneck": true, "fusion": true},
+    "wout_gate": {"msf": true, "frequency": true, "gate": false, "bottleneck": true, "fusion": true},
+    "wout_fusion": {"msf": true, "frequency": true, "gate": true, "bottleneck": true, "fusion": false},
+    "wout_msf": {"msf": false, "frequency": true, "gate": true, "bottleneck": true, "fusion": true},
+    "wout_bottleneck": {"msf": true, "frequency": true, "gate": true, "bottleneck": false, "fusion": true}
+  },
+  "required_seeds": [42, 43, 44],
+  "invariants": [
+    "dataset inventory",
+    "train/validation split",
+    "numeric domain",
+    "crop size",
+    "optimizer",
+    "learning-rate schedule",
+    "epoch budget",
+    "loss",
+    "metric implementation"
+  ]
+}
