@@ -1,0 +1,34 @@
+{
+  "pages": 7,
+  "new_tables": {
+    "tab:ucm_scenes": {
+      "number": "II",
+      "page": 5
+    },
+    "tab:real_scenes": {
+      "number": "V",
+      "page": 6
+    }
+  },
+  "included_scene_values_match_source": true,
+  "original_tables_equations_figures_bibliography_preserved": true,
+  "missing_references_or_citations": false,
+  "overfull_warnings": 0,
+  "underfull_hbox_warnings": 0,
+  "underfull_vbox_warnings": 1,
+  "real_average_rows_omitted": false,
+  "visual_review": "Corrected pages 6-7 reviewed; table and discussion contain ENL 72.7568 and EPI 0.798884; no clipped or overlapping content.",
+  "current_pdf": "docs/ICSPS2026_LaTeX/ICSPS2026_paper_with_average.pdf",
+  "canonical_pdf_update_blocked_by_viewer": true,
+  "real_average_values_match_authoritative_source": true,
+  "source_markdown_edited_by_assistant": false,
+  "all_five_result_tables_checked_against_latest_source": true,
+  "source_sha256": "2fbb2b640a6eb21a823fbd6e3e95544fa5f41bf41e7c6e851f03f7d6dc4feb7d",
+  "current_pdf_sha256": "b04cf3b8ad9f3fee31879166601377197dd0d3549878651449534e43047c32e0",
+  "real_average_ams": {
+    "ENL": 72.7568,
+    "M_index": 1.454366,
+    "EPI": 0.798884
+  },
+  "obsolete_average_values_remaining": false
+}

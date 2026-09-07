@@ -1,10 +1,17 @@
-# ICSPS 2026 LaTeX manuscript with Figures 1-5
+# ICSPS 2026 LaTeX manuscript with Figures 1-5 and scene-wise results
 
-## Current single-column 2-row by 4-column comparison layout
+## Current manuscript with scene-wise experiments
 
 Main manuscript: `ICSPS2026_paper.tex`.
-**Current compiled PDF: `ICSPS2026_paper.pdf` (7 pages).**
-The existing `build.ps1` / Tectonic workflow has successfully rebuilt and overwritten the canonical PDF, including Table I at the bottom of page 4. The additional `ICSPS2026_paper_layout_2x4.pdf` is locked by a viewer and retains the earlier table-at-top layout; use the canonical `ICSPS2026_paper.pdf` for the current result.
+**Current compiled PDF: `ICSPS2026_paper_with_average.pdf` (7 pages).**
+The existing `build.ps1` / Tectonic workflow has compiled the manuscript with both scene-wise tables, all source Average values, and their English analysis from `../实验结果表.md`. The canonical `ICSPS2026_paper.pdf` is currently locked by a viewer and retains the preceding version without the real-scene Average rows, so the updated build is saved as `ICSPS2026_paper_with_average.pdf`. Use this latest PDF; the named layout copies are historical versions. A later `build.ps1` run can update the canonical PDF once the viewer releases it.
+
+- Section IV-D and Table II add UCMerced agricultural, buildings, and residential results (100 samples per group), including the reported average of 29.0909 dB / 0.7757 for Ours-base.
+- Section IV-G and Table V add real-SAR homogeneous, structural, and texture results (20 patches per group), including the source Average rows for 60 patches, comparing Ours-base and Ours+AMS with ENL, M-index, and EPI.
+- The conclusion now reflects both scene evaluations. Their summaries remain separate from the four-look UCM-21 macro benchmark and the 592-patch real-SAR benchmark; the fixed-ROI description is explicitly scoped to the latter.
+- All included scene values retain the source precision. Original experiment tables, equations, figures, and bibliography entries are unchanged.
+
+As confirmed by the author, `../实验结果表.md` is authoritative for all scene and Average values. Table V reproduces both Average rows exactly: Ours-base ENL/M-index/EPI = 597.0446/1.740321/0.372438 and Ours+AMS = 72.7568/1.454366/0.798884, with Noisy ENL = 23.7477 for 60 patches. The table and discussion incorporate the author's corrected source values. The source Markdown has not been edited by this manuscript update. The supplied scene summaries do not specify their look aggregation or establish that they use the main benchmark's fixed-ROI protocol, so the text does not assume either.
 
 | Figure | Current placement | PDF page |
 |---|---|---|
@@ -12,15 +19,15 @@ The existing `build.ps1` / Tectonic workflow has successfully rebuilt and overwr
 | 2 | Original vector PDF, safely trimmed top/bottom, 0.94 column width | 3 |
 | 3 | Original vector PDF, safely trimmed top/bottom, 0.98 column width | 4 |
 | 4 | Eight independent PNGs, **2 rows by 4 columns within one column** | 5, left column |
-| 5 | Eight independent PNGs, **2 rows by 4 columns within one column** | 6, left column |
+| 5 | Eight independent PNGs, **2 rows by 4 columns within one column** | 6, right column |
 
 Each comparison panel is proportionally scaled to 0.24 column width (approximately 21.257 mm square); the original 256-by-256 pixels are unchanged. Two-line labels remain 8 pt. All eight panels, both ratio images, and Figure 5(a)'s red inspection box are retained.
 
-Table I now spans both columns at the bottom of page 4, using `table*` with `[!b]` and the `stfloats` package. Its data, caption, label, width, and font size are unchanged; no baseline-stretching commands are enabled.
+Table I remains across both columns at the bottom of page 4. Tables II (UCM scenes) and III (ablation) are in the right column of page 5; Tables IV (592 real patches) and V (real scenes) are in the left and right columns of page 6, respectively. The new tables use the existing IEEEtran, booktabs, and 8 pt table style.
 
-REFERENCES starts in the right column of page 6, after the complete Figure 5 in the left column. IEEEtran's native `\IEEEtriggeratref{16}` balances the final bibliography columns. Apart from adding `stfloats` for the requested bottom placement, template geometry, global type size, line spacing, technical content, and reference numbering are unchanged.
+REFERENCES starts in the left column of page 7. IEEEtran's native `\IEEEtriggeratref{3}` balances the final columns after the added content. Template geometry, global type size, line spacing, and reference numbering are unchanged.
 
-Build using `build.ps1` as documented below. See `LAYOUT_2X4_REPORT.md` for the current code and verification. Final checks have no errors, undefined references, missing citations, or Overfull warnings; one Underfull vbox remains on page 4.
+Build using `build.ps1` as documented below. Final checks have no errors, undefined references, missing citations, Overfull warnings, or Underfull hbox warnings; the existing Underfull vbox remains on page 4. The rendered experiment pages and final bibliography were visually checked. Scene-update verification is saved under `../../output/pdf/ICSPS2026_SceneResults/`; the earlier layout reports describe historical versions.
 
 The previous `ICSPS2026_paper_layout_4x2.pdf` and `LAYOUT_4X2_REPORT.md` are historical files, superseded by this 2-row by 4-column version.
 

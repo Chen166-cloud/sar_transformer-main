@@ -223,7 +223,7 @@ Identical test IDs are used for all methods. Unsigned 8-bit inputs are divided b
 \subsection{Implementation, Baselines, and Metrics}
 All learned models use batch size one and Adam with learning rate \(10^{-3}\), weight decay \(10^{-5}\), and 100,000 successful updates. Validation occurs every 5,000 updates; the lowest class-by-look macro intensity MSE selects the checkpoint. One proposed-model checkpoint handles all four \(L\). Lee-MMSE uses a window selected on NWPU validation, while SAR-BM3D receives nominal \(L\) and follows its square-root-input/squared-output chain; both are \emph{oracle-\(L\)}. SAR-CAM~\cite{ko2022}, the inherited Trans-SAR baseline~\cite{perera2022}, and our model receive only corrupted intensity. All outputs are measured in normalized linear intensity without display stretching.
 
-Synthetic PSNR and SSIM are computed per image and averaged equally across classes and looks. For real SAR, five nonoverlapping \(32\times32\) regions are selected once from each noisy input on a fixed grid by the lowest squared coefficient of variation after rejecting dark, zero-dominated, or saturated candidates; the same 2,960 regions are reused for all methods. ENL is a smoothness diagnostic rather than a one-direction quality score. The M-index follows ratio-image first-order and texture residuals~\cite{gomez2017}, while EPI uses fixed adjacent differences~\cite{ma2024epi}. ENL and ratio behavior are interpreted jointly because smoothing may inflate ENL while erasing structure~\cite{vasquez2025ratio}; whole-image M-index and EPI provide complementary checks.
+For the four-look UCM-21 benchmark, PSNR and SSIM are computed per image and averaged equally across classes and looks. For the 592-patch real-SAR benchmark, five nonoverlapping \(32\times32\) regions are selected once from each noisy input on a fixed grid by the lowest squared coefficient of variation after rejecting dark, zero-dominated, or saturated candidates; the same 2,960 regions are reused for all methods. ENL is a smoothness diagnostic rather than a one-direction quality score. The M-index follows ratio-image first-order and texture residuals~\cite{gomez2017}, while EPI uses fixed adjacent differences~\cite{ma2024epi}. ENL and ratio behavior are interpreted jointly because smoothing may inflate ENL while erasing structure~\cite{vasquez2025ratio}; whole-image M-index and EPI provide complementary checks.
 
 \subsection{Synthetic Comparison}
 Table~\ref{tab:main} shows the highest PSNR at every look, with margins of 0.40, 0.72, 0.43, and 0.35~dB over the strongest competing point estimate for \(L=1,2,4,8\). The macro result is 28.14~dB/0.7791 SSIM, improving on Trans-SAR by 0.48~dB/0.0755 and oracle-\(L\) SAR-BM3D by 0.66~dB/0.0027. The SSIM claim is qualified: SAR-BM3D leads at \(L=1,4\), while ours leads at \(L=2,8\).
@@ -247,6 +247,35 @@ One parameter set handles all looks without an external \(L\) estimate in the qu
 \end{figure}
 
 Across the four conditions, PSNR rises from 25.93~dB at one look to 30.13~dB at eight looks without changing model capacity. SSIM is not perfectly monotonic at intermediate looks, which motivates reporting both measures and all four noise levels. Improvements over local filtering are large, while the gaps to nonlocal and Transformer baselines are narrower. These aggregate comparisons are supported by Table~\ref{tab:main}; the single-scene visualization in Fig.~\ref{fig:synthetic_qual} illustrates local structure preservation and does not establish performance across scene classes or look numbers.
+
+\subsection{Generalization across Three UCMerced Scene Types}
+Table~\ref{tab:ucm_scenes} complements the full UCM-21 benchmark with 100 samples each from agricultural, buildings, and residential scenes. These groups emphasize smooth land cover, regular boundaries, and dense texture, respectively. Their source is excluded from supervised development. This three-scene evaluation is reported separately from the four-look macro results in Table~\ref{tab:main}.
+
+\begin{table}[!t]
+\caption{Generalization Results on Three UCMerced Scene Types}
+\label{tab:ucm_scenes}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.0pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule
+\textbf{Scene} & \textbf{Num.} &
+\shortstack{\textbf{Noisy}\\PSNR / SSIM} &
+\shortstack{\textbf{Ours-base}\\PSNR / SSIM} \\
+\midrule
+Agricultural & 100 & 17.7573 / 0.4218 & \textbf{29.1523 / 0.7446} \\
+Buildings    & 100 & 16.6583 / 0.4625 & \textbf{27.6827 / 0.7883} \\
+Residential  & 100 & 17.5475 / 0.4557 & \textbf{30.4376 / 0.7941} \\
+\midrule
+Average      & 300 & 17.3211 / 0.4467 & \textbf{29.0909 / 0.7757} \\
+\bottomrule
+\end{tabular*}
+\vspace{1pt}
+\parbox{\columnwidth}{\scriptsize PSNR is in dB. Ours-base is the model before real-SAR adaptation. Bold values indicate improvements over the noisy input; the three-scene average is distinct from the UCM-21 macro result.}
+\end{table}
+
+Ours-base improves PSNR over noisy inputs by 11.02--12.89~dB and SSIM by 0.3228--0.3384 across the three groups. Average performance reaches 29.0909~dB/0.7757, versus 17.3211~dB/0.4467 for noisy inputs. Residential scenes attain the highest restored PSNR and SSIM; buildings yield the lowest PSNR, and agricultural scenes the lowest SSIM. These consistent gains support transfer across varied scene structures under synthetic speckle. Module contributions are evaluated separately by the ablations below.
 
 \subsection{Ablation Study}
 The compact comparison in Table~\ref{tab:ablation} isolates the representation chain and the six Fourier blocks.
@@ -301,7 +330,7 @@ Ours-base   & 530.85 & 1.8213             & 0.4229 \\
 \end{table}
 The base output combines ENL 530.85 with EPI 0.4229, indicating excessive smoothing. AMS changes ENL to 84.72, reduces the M-index from 1.8213 to 1.3365 (26.62\%), and raises EPI from 0.4229 to 0.8214 (94.23\%). It ranks first among filtered outputs on M-index and EPI, with SAR-BM3D second on both. SDUDNet has similar ENL but higher M-index and lower EPI; SAR2SAR has the largest filtered-output M-index, while Trans-SAR retains less edge energy. Because training assumptions differ, the controlled real-data claim is the Ours-base versus Ours+AMS change on identical parent-disjoint patches.
 
-For the quantitative evaluation, ROI coordinates are determined exclusively from each noisy image, stored once, and reused across outputs, which reduces method-dependent selection bias. ENL remains sensitive to whether a region is truly homogeneous, so it is interpreted only with the whole-image M-index, EPI, and ratio-image structure.
+For this 592-patch comparison, ROI coordinates are determined exclusively from each noisy image, stored once, and reused across outputs, which reduces method-dependent selection bias. ENL remains sensitive to whether a region is truly homogeneous, so it is interpreted only with the whole-image M-index, EPI, and ratio-image structure.
 
 Fig.~\ref{fig:real_qual} illustrates one selected real-SAR scene. SAR-BM3D retains pronounced granular texture, while SAR2SAR, SDUDNet, Trans-SAR, and Ours-base produce smoother reconstructions. Relative to Ours-base, Ours+AMS shows clearer local boundaries and bright structures, qualitatively consistent with the aggregate increase in edge preservation. Scene-aligned structures remain visible in the Ours+AMS ratio panel, indicating structure-related residuals. This single-scene illustration complements the dataset-level measurements in Table~\ref{tab:real}; it does not establish clean-reference fidelity or behavior across acquisitions.
 
@@ -321,16 +350,55 @@ Fig.~\ref{fig:real_qual} illustrates one selected real-SAR scene. SAR-BM3D retai
   \label{fig:real_qual}
 \end{figure}
 
+\subsection{Scene-Wise No-Reference Evaluation on Real SAR}
+Table~\ref{tab:real_scenes} examines a complementary 60-patch real-SAR test subset, with 20 patches each from homogeneous, structural, and texture scenes. These groups emphasize uniform-region speckle suppression, geometric boundary preservation, and texture retention, respectively. The scene summaries provide a separate descriptive evaluation and are not pooled with the 592-patch results in Table~\ref{tab:real}.
+
+% Source: ../实验结果表.md. All scene and Average entries are reproduced
+% from the experimental-results table, as confirmed by the author.
+\begin{table}[!t]
+\caption{No-Reference Results by Real-SAR Scene Type}
+\label{tab:real_scenes}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.0pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule
+\textbf{Model} & \textbf{ENL} & \(\mathbf{M}\)\textbf{-index}$\downarrow$ & \textbf{EPI}$\uparrow$ \\
+\midrule
+\multicolumn{4}{@{}l@{}}{\textit{Homogeneous: 20 patches; Noisy ENL = 32.0025}} \\
+Ours-base & 740.6812 & 4.386215 & 0.312438 \\
+Ours+AMS  & 88.3567  & \textbf{3.742691} & \textbf{0.818562} \\
+\midrule
+\multicolumn{4}{@{}l@{}}{\textit{Structural: 20 patches; Noisy ENL = 24.3142}} \\
+Ours-base & 429.6054 & 0.682143 & 0.343582 \\
+Ours+AMS  & 74.2189  & \textbf{0.521876} & \textbf{0.742615} \\
+\midrule
+\multicolumn{4}{@{}l@{}}{\textit{Texture: 20 patches; Noisy ENL = 14.9264}} \\
+Ours-base & 620.8473 & 0.152604 & 0.461294 \\
+Ours+AMS  & 55.6948  & \textbf{0.098531} & \textbf{0.835476} \\
+\midrule
+\multicolumn{4}{@{}l@{}}{\textit{Average: 60 patches; Noisy ENL = 23.7477}} \\
+Ours-base & 597.0446 & 1.740321 & 0.372438 \\
+Ours+AMS  & 72.7568  & \textbf{1.454366} & \textbf{0.798884} \\
+\bottomrule
+\end{tabular*}
+\vspace{1pt}
+\parbox{\columnwidth}{\scriptsize The same 20 patches per category are compared before and after AMS. Bold values identify the better M-index and EPI in each comparison. ENL is a smoothness diagnostic and is not ranked.}
+\end{table}
+
+AMS reduces the M-index by 14.67\%, 23.49\%, and 35.43\% in homogeneous, structural, and texture scenes, respectively, and increases EPI in all three groups. The reported Average results show a lower M-index (1.740321 to 1.454366) and higher EPI (0.372438 to 0.798884), with ENL changing from 597.0446 to 72.7568. In every group, AMS reduces ENL relative to Ours-base while retaining values above the noisy input. Together, these changes are consistent with reduced oversmoothing and improved edge retention across scene structures. The no-reference measures support this adaptation trend without establishing clean-image fidelity.
+
 \subsection{Limitations}
 Several limitations bound our claims. Optical NWPU and UCM sources make the synthetic results a controlled Gamma-restoration test, not a model of complete real-SAR statistics. The parent-disjoint real patches come from one acquisition, precluding cross-region or cross-sensor claims. Noisy-target masking is not theoretically unbiased under correlated speckle, so the adaptation evidence is empirical. We also report neither parameter count, operation count, runtime, nor variation across initializations and therefore make no efficiency or uncertainty-calibrated claim.
 
 Future work should add independent acquisitions and paired source-cluster intervals for UCM and parent-cluster intervals for real SAR, without treating four looks or sibling patches as independent observations. Accordingly, the evidence supports fixed-Gamma transfer across the two optical datasets, the representation/FDR ablation under a shared budget, and within-collection masked calibration. It does not establish universal speckle statistics, absolute radiometric fidelity, or state-of-the-art performance across unmatched training pipelines.
 
 \section{Conclusion}
-This work presents a representation-consistent Fourier extension of the public Trans-SAR backbone for SAR intensity despeckling. Full-spectrum real--imaginary refinement is applied at six reconstruction scales, while a bounded log estimate is analytically returned to intensity before residual compensation. On the UCM-21 simulated test, the complete model obtains the highest macro PSNR and SSIM point estimates, and controlled ablations show clear reductions when Fourier refinement or intensity compensation is removed. On parent-disjoint real patches, encoder-frozen masked adaptation improves the M-index and edge preservation while reducing the extreme smoothness of the base output. The scope remains normalized single-image intensity restoration within the evaluated datasets; broader real-SAR claims require independent acquisitions and uncertainty analysis.
+This work presents a representation-consistent Fourier extension of the public Trans-SAR backbone for SAR intensity despeckling. Full-spectrum real--imaginary refinement is applied at six reconstruction scales, while a bounded log estimate is analytically returned to intensity before residual compensation. On the UCM-21 simulated test, the complete model obtains the highest macro PSNR and SSIM point estimates, and controlled ablations show clear reductions when Fourier refinement or intensity compensation is removed. On parent-disjoint real patches, encoder-frozen masked adaptation improves the M-index and edge preservation while reducing the extreme smoothness of the base output. Complementary scene evaluations show PSNR/SSIM gains over noisy inputs in all three UCMerced categories and consistent M-index/EPI improvements after AMS in all three real-SAR categories. The scope remains normalized single-image intensity restoration within the evaluated datasets; broader real-SAR claims require independent acquisitions and uncertainty analysis.
 
 % Balance the final bibliography columns with IEEEtran's native mechanism.
-\IEEEtriggeratref{16}
+\IEEEtriggeratref{3}
 \begin{thebibliography}{00}
 
 \bibitem{fracastoro2021overview}
