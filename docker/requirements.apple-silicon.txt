@@ -1,0 +1,27 @@
+# Native Linux/aarch64 wheels; Docker on macOS does not expose Metal/MPS.
+torch==2.2.2
+torchvision==0.17.2
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+timm==0.3.2
+opencv-python-headless==4.10.0.84
+Pillow==10.4.0
+matplotlib==3.8.4
+imageio==2.34.2
+networkx==3.3
+scikit-image==0.24.0
+PyWavelets==1.6.0
+addict==2.4.0
+cycler==0.12.1
+kiwisolver==1.4.7
+pyparsing==3.1.4
+python-dateutil==2.9.0.post0
+pytz==2024.1
+PyYAML==6.0.2
+decorator==5.1.1
+six==1.16.0
+packaging==24.1
+yapf==0.40.2
+tqdm==4.66.5
+thop==0.1.1.post2209072238

@@ -1,0 +1,7 @@
+protocol_id,dataset,split,assigned_items,valid_items,parent_groups,pairs,L1_pairs,L2_pairs,L4_pairs,L8_pairs,missing_files,duplicate_ids,path_overlap,sha256_overlap,invalid_or_constant,saturation_rate_L1,saturation_rate_L2,saturation_rate_L4,saturation_rate_L8,manifest_sha256,audit_status,notes
+ICSPS26-FROZEN-v2,NWPU,train,900,,,,25000,25000,25000,25000,0,0,0,0,,,,,,,PENDING,protocol targets only; verify/overwrite from formal artifacts; item=source
+ICSPS26-FROZEN-v2,NWPU,validation,225,,,900,225,225,225,225,0,0,0,0,,,,,,,PENDING,protocol targets only; verify/overwrite from formal artifacts; item=source
+ICSPS26-FROZEN-v2,UCM,test,2100,,,8400,2100,2100,2100,2100,0,0,,0,,,,,,,PENDING,protocol targets only; verify/overwrite from formal artifacts; item=source
+ICSPS26-FROZEN-v2,RealSAR,train,4700,,1175,,,,,,,,0,,,,,,,,PENDING,protocol targets only; verify/overwrite from remote QC; item=child patch
+ICSPS26-FROZEN-v2,RealSAR,validation,584,,146,,,,,,,,0,,,,,,,,PENDING,protocol targets only; verify/overwrite from remote QC; item=child patch
+ICSPS26-FROZEN-v2,RealSAR,test,592,,148,,,,,,,,0,,,,,,,,PENDING,protocol targets only; verify/overwrite from remote QC; item=child patch

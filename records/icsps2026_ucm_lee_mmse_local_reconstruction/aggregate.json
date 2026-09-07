@@ -1,0 +1,92 @@
+{
+  "by_L_class_macro": {
+    "1": {
+      "psnr": 21.225446426286403,
+      "ssim": 0.5211638859600635
+    },
+    "2": {
+      "psnr": 23.051277462883533,
+      "ssim": 0.5998739107251327
+    },
+    "4": {
+      "psnr": 24.70946275314882,
+      "ssim": 0.6756844669588341
+    },
+    "8": {
+      "psnr": 26.33439984202161,
+      "ssim": 0.7455482169708088
+    }
+  },
+  "candidate_windows": [
+    5,
+    7,
+    9,
+    11
+  ],
+  "dataset": "ucm_test",
+  "formal_run": false,
+  "implementation_note": "local-statistics Lee MMSE; not Refined Lee edge-directed filtering",
+  "input_sha256": {
+    "nwpu_canonical_master_manifest": "748b7010bf4f4c29eac5c814e32ba0f360e49ae7e063a20e03981a231c75e9bb",
+    "nwpu_selected_validation_source_ids": "68f37233f17451831a5b425986f24d4c8db7290aa8a011034cc37a60147e00a4",
+    "protocol_config": "c423a9d65f7712f9eeeb16936d38c4b6b991fb7517276abf81570e992fb5dbbf",
+    "ucm_noisy_reconstruction_per_pair": "bd0f1b6d7085aaaf867b7e83bc3e623c71c157716ce4e22ffd10e2bdd2742319"
+  },
+  "limitation": "The formal fixed-pair/pretest-seal directory and raw UCM image tree are absent locally. UCM clean arrays were read from the 2,100 legacy MAT files and Gamma noise was regenerated from the recorded frozen-v2 seeds; all 8,400 reconstructed Noisy PSNR/SSIM values were checked against the existing local reconstruction before Lee-MMSE was evaluated.",
+  "look_mode": "oracle nominal L",
+  "macro": {
+    "psnr": 23.830146621085092,
+    "ssim": 0.6355676201537098
+  },
+  "method": "lee_mmse",
+  "method_label": "Lee-MMSE",
+  "pairs": 8400,
+  "protocol_id": "ICSPS26-FROZEN-v2",
+  "reconstruction_checks": {
+    "noisy_psnr_max_abs_error_vs_record": 0.0,
+    "noisy_ssim_max_abs_error_vs_record": 0.0
+  },
+  "selected_window": 5,
+  "selection": {
+    "pairs": 900,
+    "val_macro_mse": 0.003628147263375997,
+    "val_macro_psnr": 27.139729675092823,
+    "val_macro_ssim": 0.7228805164656769,
+    "window": 5
+  },
+  "selection_dataset": "canonical NWPU fixed validation reconstructed in memory",
+  "selection_metric": "class-by-L macro post-clip MSE",
+  "sources": 2100,
+  "status": "local_reconstruction_from_canonical_nwpu_and_legacy_ucm_clean_arrays",
+  "tuning": [
+    {
+      "pairs": 900,
+      "val_macro_mse": 0.003628147263375997,
+      "val_macro_psnr": 27.139729675092823,
+      "val_macro_ssim": 0.7228805164656769,
+      "window": 5
+    },
+    {
+      "pairs": 900,
+      "val_macro_mse": 0.0038827293367653536,
+      "val_macro_psnr": 26.953655922590922,
+      "val_macro_ssim": 0.7170051002619153,
+      "window": 7
+    },
+    {
+      "pairs": 900,
+      "val_macro_mse": 0.004209311161167265,
+      "val_macro_psnr": 26.658839752127577,
+      "val_macro_ssim": 0.7059348209386443,
+      "window": 9
+    },
+    {
+      "pairs": 900,
+      "val_macro_mse": 0.004523355744294828,
+      "val_macro_psnr": 26.369442193477333,
+      "val_macro_ssim": 0.695555544279537,
+      "window": 11
+    }
+  ],
+  "variant": "window_5"
+}

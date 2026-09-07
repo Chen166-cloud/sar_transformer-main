@@ -1,0 +1,57 @@
+{
+  "artifacts": {
+    "paper_table_csv": "paper_table.csv",
+    "paper_table_sha256": "de4c2b6d3f02c13dc5c384a4d3465342cfe52fb684f0666fbf3338e18b4f33ab",
+    "per_patch_csv": "per_patch.csv",
+    "per_patch_sha256": "53ad0357b3132eea488f90ff78561724553d7c904f0186fcf08c3ada6ff3de22",
+    "roi_regions_csv": "roi_regions.csv",
+    "roi_regions_sha256": "b50d28e11d1a2d5e602d12a9e9d59244c2d3340effd1100b8994fb8f98165434"
+  },
+  "enl_fixed_roi": {
+    "display": "24.930 [19.246, 30.562]",
+    "mean": 26.25317599848665,
+    "median": 24.93024708819,
+    "q1": 19.246440623301165,
+    "q3": 30.56214942247034
+  },
+  "epi": {
+    "definition": "Remote Sensing 2024 Eq.16; diagonal neighbours per author EPD.m",
+    "identity_baseline_is_tautological": true,
+    "max": 1.0,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0
+  },
+  "m_index": {
+    "definition": "Remote Sensing 2017 Eq.1-3; strict no-fallback implementation",
+    "invalid_patches": 592,
+    "invalid_reasons": {
+      "no_textureless_window_satisfies_paper_tolerance": 592
+    },
+    "mean": null,
+    "median": null,
+    "parameters": {
+      "levels": 8,
+      "seed": 42,
+      "shuffles": 100,
+      "tolerance": 0.03,
+      "window": 25
+    },
+    "valid_patches": 0
+  },
+  "method": "Noisy",
+  "num_fixed_rois": 2960,
+  "num_parent_clusters": 148,
+  "num_patches": 592,
+  "paper_table_row": {
+    "ENL": "24.930 [19.246, 30.562]",
+    "EPI_up": "1.0000",
+    "M_down": "N/A",
+    "Method": "Noisy"
+  },
+  "qc_csv_sha256": "be6212eadbdd58d005e9f12ac5ea9cd8ad5158509b58db56a872ba7d0cda0def",
+  "qc_manifest_sha256": "02d53c3190f9cfe1730ca0657ee2b44fcc5782967170595d70b762d69e81ae0f",
+  "roi_manifest_sha256": "4305e8ba50aaeb8e7cb289d1f9372ae3db290f541b1c2194ef12adc8432bbe8f",
+  "schema_version": 1,
+  "split": "test"
+}

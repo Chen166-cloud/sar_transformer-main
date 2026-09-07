@@ -1,0 +1,46 @@
+protocol_id,method_key,method,variant,seed,training_mode,L,pairs,psnr,ssim,result_source,notes
+ICSPS26-FROZEN-v2,noisy,noisy,,42,none,1,2100,,,,required
+ICSPS26-FROZEN-v2,noisy,noisy,,42,none,2,2100,,,,required
+ICSPS26-FROZEN-v2,noisy,noisy,,42,none,4,2100,,,,required
+ICSPS26-FROZEN-v2,noisy,noisy,,42,none,8,2100,,,,required
+ICSPS26-FROZEN-v2,noisy,noisy,,42,none,macro,8400,,,,required
+ICSPS26-FROZEN-v2,lee,lee_mmse,,,oracle-L,1,2100,,,,required
+ICSPS26-FROZEN-v2,lee,lee_mmse,,,oracle-L,2,2100,,,,required
+ICSPS26-FROZEN-v2,lee,lee_mmse,,,oracle-L,4,2100,,,,required
+ICSPS26-FROZEN-v2,lee,lee_mmse,,,oracle-L,8,2100,,,,required
+ICSPS26-FROZEN-v2,lee,lee_mmse,,,oracle-L,macro,8400,,,,required
+ICSPS26-FROZEN-v2,sarbm3d,sar_bm3d,v1.0,,oracle-L,1,2100,,,,required MATLAB baseline
+ICSPS26-FROZEN-v2,sarbm3d,sar_bm3d,v1.0,,oracle-L,2,2100,,,,required MATLAB baseline
+ICSPS26-FROZEN-v2,sarbm3d,sar_bm3d,v1.0,,oracle-L,4,2100,,,,required MATLAB baseline
+ICSPS26-FROZEN-v2,sarbm3d,sar_bm3d,v1.0,,oracle-L,8,2100,,,,required MATLAB baseline
+ICSPS26-FROZEN-v2,sarbm3d,sar_bm3d,v1.0,,oracle-L,macro,8400,,,,required MATLAB baseline
+ICSPS26-FROZEN-v2,sar_cam,sar_cam,,42,blind-retrained,1,2100,,,,optional P2
+ICSPS26-FROZEN-v2,sar_cam,sar_cam,,42,blind-retrained,2,2100,,,,optional P2
+ICSPS26-FROZEN-v2,sar_cam,sar_cam,,42,blind-retrained,4,2100,,,,optional P2
+ICSPS26-FROZEN-v2,sar_cam,sar_cam,,42,blind-retrained,8,2100,,,,optional P2
+ICSPS26-FROZEN-v2,sar_cam,sar_cam,,42,blind-retrained,macro,8400,,,,optional P2
+ICSPS26-FROZEN-v2,transsar,transsar_v2,,42,blind-retrained,1,2100,,,,required
+ICSPS26-FROZEN-v2,transsar,transsar_v2,,42,blind-retrained,2,2100,,,,required
+ICSPS26-FROZEN-v2,transsar,transsar_v2,,42,blind-retrained,4,2100,,,,required
+ICSPS26-FROZEN-v2,transsar,transsar_v2,,42,blind-retrained,8,2100,,,,required
+ICSPS26-FROZEN-v2,transsar,transsar_v2,,42,blind-retrained,macro,8400,,,,required
+ICSPS26-FROZEN-v2,intensity_only,ours,intensity_only,42,blind-one-model,1,2100,,,,required ablation
+ICSPS26-FROZEN-v2,intensity_only,ours,intensity_only,42,blind-one-model,2,2100,,,,required ablation
+ICSPS26-FROZEN-v2,intensity_only,ours,intensity_only,42,blind-one-model,4,2100,,,,required ablation
+ICSPS26-FROZEN-v2,intensity_only,ours,intensity_only,42,blind-one-model,8,2100,,,,required ablation
+ICSPS26-FROZEN-v2,intensity_only,ours,intensity_only,42,blind-one-model,macro,8400,,,,required ablation
+ICSPS26-FROZEN-v2,log_only,ours,log_only,42,blind-one-model,1,2100,,,,required ablation
+ICSPS26-FROZEN-v2,log_only,ours,log_only,42,blind-one-model,2,2100,,,,required ablation
+ICSPS26-FROZEN-v2,log_only,ours,log_only,42,blind-one-model,4,2100,,,,required ablation
+ICSPS26-FROZEN-v2,log_only,ours,log_only,42,blind-one-model,8,2100,,,,required ablation
+ICSPS26-FROZEN-v2,log_only,ours,log_only,42,blind-one-model,macro,8400,,,,required ablation
+ICSPS26-FROZEN-v2,wout_all_fdr,ours,wout_all_fdr,42,blind-one-model,1,2100,,,,required ablation
+ICSPS26-FROZEN-v2,wout_all_fdr,ours,wout_all_fdr,42,blind-one-model,2,2100,,,,required ablation
+ICSPS26-FROZEN-v2,wout_all_fdr,ours,wout_all_fdr,42,blind-one-model,4,2100,,,,required ablation
+ICSPS26-FROZEN-v2,wout_all_fdr,ours,wout_all_fdr,42,blind-one-model,8,2100,,,,required ablation
+ICSPS26-FROZEN-v2,wout_all_fdr,ours,wout_all_fdr,42,blind-one-model,macro,8400,,,,required ablation
+ICSPS26-FROZEN-v2,ours,ours,full,42,blind-one-model,1,2100,,,,required
+ICSPS26-FROZEN-v2,ours,ours,full,42,blind-one-model,2,2100,,,,required
+ICSPS26-FROZEN-v2,ours,ours,full,42,blind-one-model,4,2100,,,,required
+ICSPS26-FROZEN-v2,ours,ours,full,42,blind-one-model,8,2100,,,,required
+ICSPS26-FROZEN-v2,ours,ours,full,42,blind-one-model,macro,8400,,,,required

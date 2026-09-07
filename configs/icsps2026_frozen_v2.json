@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ICSPS26-FROZEN-v2",
+  "numeric_domain": "linear_normalized_intensity_0_1",
+  "image_size": [
+    256,
+    256
+  ],
+  "looks": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "seeds": {
+    "split": 42,
+    "subset": 20260905,
+    "synthesis": 20260904,
+    "validation": 20260904,
+    "ucm_test": 20260905
+  },
+  "nwpu": {
+    "expected_classes": 45,
+    "expected_per_class": 700,
+    "canonical_master_manifest_sha256": "748b7010bf4f4c29eac5c814e32ba0f360e49ae7e063a20e03981a231c75e9bb",
+    "master_train_per_class": 560,
+    "master_validation_per_class": 140,
+    "train_per_class": 20,
+    "validation_per_class": 5,
+    "cross_dataset_near_duplicate_audit": {
+      "algorithm": "phash_dct_32x32_low8x8_excluding_dc",
+      "maximum_hamming_distance": 5,
+      "action": "manual_review_only_no_automatic_exclusion"
+    },
+    "native_size_policy": "require_exact_256x256_no_resampling",
+    "grayscale": "0.299R+0.587G+0.114B",
+    "clean_intensity": "square(grayscale/255)"
+  },
+  "schedule": {
+    "updates": 100000,
+    "global_step_indexing": "one_based",
+    "d4_count": 8,
+    "run_seeds": [
+      42,
+      43,
+      44
+    ]
+  },
+  "training": {
+    "batch_size": 1,
+    "optimizer_updates": 100000,
+    "validation_interval_updates": 5000,
+    "record_step_zero_validation": true,
+    "optimizer": {
+      "name": "Adam",
+      "learning_rate": 0.001,
+      "weight_decay": 0.00001
+    },
+    "loss": {
+      "reconstruction": "mean_squared_error",
+      "tv_definition": "mean_total_variation",
+      "lambda_tv": 5e-7
+    },
+    "scheduler": {
+      "name": "ReduceLROnPlateau",
+      "mode": "min",
+      "factor": 0.5,
+      "patience_validation_events": 4,
+      "min_lr": 0.000001,
+      "monitor": "val_macro_mse"
+    },
+    "checkpoint_selection": {
+      "metric": "val_macro_mse",
+      "mode": "min",
+      "tie_break": "earliest_global_step",
+      "metric_output_clip": [
+        0.0,
+        1.0
+      ],
+      "metric_domain": "linear_normalized_intensity",
+      "data_range": 1.0,
+      "border": 0
+    }
+  },
+  "validation": {
+    "pairs_per_source": 4,
+    "augmentation": "none",
+    "storage": "one_mat_per_source_and_look_with_clean_and_noisy_fields"
+  },
+  "ucm": {
+    "expected_classes": 21,
+    "expected_per_class": 100,
+    "split": "external_test_only",
+    "size_policy": {
+      "name": "identity_if_256_else_bilinear_resize",
+      "target_height": 256,
+      "target_width": 256,
+      "resampler": "PIL.Image.Resampling.BILINEAR",
+      "record_original_shape": true,
+      "reason": "Retain all 21x100 sources while handling the non-256 images reported by public dataset loaders deterministically."
+    }
+  },
+  "synthesis": {
+    "distribution": "Gamma(shape=L, scale=1/L)",
+    "unit_mean_before_clipping": true,
+    "formula": "noisy=clip(clean*speckle,0,1)",
+    "additional_gaussian_sigma": 0.0,
+    "impulse_probability": 0.0,
+    "misregistration_alpha": 0.0,
+    "stripe_amplitude": 0.0,
+    "train_generation": "deterministic_online_from_schedule",
+    "validation_test_generation": "fixed_mat_files"
+  },
+  "real": {
+    "dataset_version": "Mendeley_fs455tz88y.1_noisy_only",
+    "split_manifest_sha256": "3d2161938861dddd66aed2950160b355bf067143564a35af51f6209dba659ec0",
+    "use_gt16": false,
+    "evaluation_scope": "no_reference_only",
+    "reported_metrics": [
+      "ratio_mean_bias",
+      "ratio_acf_sidelobe_energy",
+      "sobel_gc_noisy_output",
+      "noisy_enl",
+      "output_enl"
+    ],
+    "forbidden_paper_metrics": [
+      "qpsnr_gt16",
+      "qssim_gt16"
+    ]
+  },
+  "ams": {
+    "name": "encoder_frozen_masked_post_adaptation",
+    "epochs": 8,
+    "batch_size": 1,
+    "crop_height": 256,
+    "crop_width": 256,
+    "optimizer": {
+      "name": "Adam",
+      "learning_rate": 0.000001,
+      "weight_decay": 0.00001
+    },
+    "mask": {
+      "distribution": "Bernoulli",
+      "ratio": 0.2,
+      "validation_policy": "fixed_seed_or_persisted_binary_mask_per_sample"
+    },
+    "loss": {
+      "reconstruction": "masked_l1_on_masked_pixels",
+      "tv_definition": "mean_total_variation",
+      "lambda_tv": 0.001
+    },
+    "frozen_modules": [
+      "model.log_branch.Tenc"
+    ],
+    "trainable_modules": [
+      "bottleneck",
+      "decoder",
+      "guidance",
+      "head",
+      "compensator"
+    ],
+    "checkpoint_selection": {
+      "selection_metric": "fixed_real_validation_masked_loss",
+      "selection_mode": "min",
+      "candidate_epochs": "adapted_epochs_1_to_8"
+    },
+    "inference_mask": "none"
+  },
+  "smoke": {
+    "nwpu_classes": 3,
+    "nwpu_expected_per_class": 8,
+    "nwpu_master_train_per_class": 6,
+    "nwpu_master_validation_per_class": 2,
+    "nwpu_train_per_class": 2,
+    "nwpu_validation_per_class": 1,
+    "schedule_updates": 48,
+    "validation_interval_updates": 16,
+    "ucm_classes": 2,
+    "ucm_expected_per_class": 3
+  }
+}

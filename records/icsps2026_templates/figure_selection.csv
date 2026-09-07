@@ -1,0 +1,5 @@
+protocol_id,figure,panel,dataset,source_id,class_name,L,parent_id,sample_id,region_type,crop_x,crop_y,crop_width,crop_height,selection_rule,selected_before_test_unlock,notes
+ICSPS26-FROZEN-v2,Fig4,A,UCM,,,1,,,,,,,,pre-registered source and crop,TRUE,fill source_id/class/crop before test unlock
+ICSPS26-FROZEN-v2,Fig4,B,UCM,,,4,,,,,,,,pre-registered source and crop,TRUE,fill source_id/class/crop before test unlock
+ICSPS26-FROZEN-v2,Fig5,A,RealSAR,,,,,,homogeneous,,,,,pre-registered sample and crop,TRUE,fill sample_id/parent_id/crop before test unlock
+ICSPS26-FROZEN-v2,Fig5,B,RealSAR,,,,,,structured,,,,,pre-registered sample and crop,TRUE,fill sample_id/parent_id/crop before test unlock

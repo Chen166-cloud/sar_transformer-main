@@ -1,0 +1,16 @@
+services:
+  sar-apple:
+    platform: linux/arm64
+    build:
+      context: .
+      dockerfile: Dockerfile.apple-silicon
+    image: sar-denoise:apple-silicon-cpu
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      OMP_NUM_THREADS: "6"
+      MKL_NUM_THREADS: "6"
+    shm_size: "4gb"
+    stdin_open: true
+    tty: true

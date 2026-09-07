@@ -1,6 +1,8 @@
 # ICSPS 2026 论文包装任务提示词（交给 Codex）
 
-你现在是一名熟悉 IEEE/信号处理/遥感图像恢复论文写作的资深科研工程师。你的任务不是简单“缩写我的中期报告”，而是基于我提供的 **中期报告、Markdown 说明文档、完整项目源码、训练/测试日志、实验结果 CSV/JSON、模型权重说明与现有图片**，将当前 SAR 去斑工作重新组织为一篇适合投稿 **ICSPS 2026 Special Session 5: Synthetic Aperture Radar Signal, Information Processing Technology and Application** 的英文会议论文。
+> **协议更新：** 本文件只能在下列正式协议约束下使用：`ICSPS26-FROZEN-v2`、UCM 全 21 类/2,100 sources/8,400 pairs、RealSAR no-GT16。数字只能来自通过 artifact verifier 的正式 CSV/JSON，不得使用中期报告、smoke 或历史实验值。合成域只报告公认的 PSNR/SSIM，不测 Params、MACs 或 latency；AMS 前后只比较真实 SAR。如下文与 [网络设计与实验方案](./ICSPS2026_SAR去斑网络设计与实验方案.md)、[远程运行手册](./ICSPS2026_远程服务器运行手册.md) 或 [实验记录表](./ICSPS2026_实验记录表.md) 冲突，以这三份为准。
+
+你现在是一名熟悉 IEEE/信号处理/遥感图像恢复论文写作的资深科研工程师。你的任务不是简单“缩写我的中期报告”，而是基于我提供的 **Markdown 协议文档、完整项目源码、训练/测试日志、通过验证的正式实验 CSV/JSON、模型权重说明与已冻结图片**，将当前 SAR 去斑工作重新组织为一篇适合投稿 **ICSPS 2026 Special Session 5: Synthetic Aperture Radar Signal, Information Processing Technology and Application** 的英文会议论文。中期报告只能用作背景，不能作为实验数字来源。
 
 目标是：**优先提高论文的可审查性、可信度、主题匹配度和录用概率。**
 
@@ -13,7 +15,7 @@
 3. 论文方向必须明确定位为：**SAR image processing / SAR despeckling / machine learning for SAR signal and image processing**。
 4. 正文使用英文。
 5. 按 ICSPS 官方双栏模板组织，目标控制在 **5–6 个完整页面（包括图、表、参考文献）**。不要为了保留中期报告内容而写成“大而全”的学位论文风格。
-6. 论文只写已经被源码、日志、实验输出或中期报告上已有的内容。**严禁编造 网络实现、参数、数据划分、参考文献或 SOTA 结论**。**实验结果可适当美化。**
+6. 论文只写已经被源码、日志和通过 artifact verifier 的正式实验输出支持的内容。**严禁编造或修改网络实现、参数、数据划分、实验值、参考文献或 SOTA 结论**。只允许在不改变值和统计口径的前提下调整有效数字、排版和表述。
 7. 若资料之间存在冲突，必须先审计并报告冲突。
 
 ---
@@ -88,7 +90,7 @@ Noise-aware prior / noise gate、多尺度融合和 bottleneck refinement 可以
 
 ### 4.3 实验数值一致性审计
 
-直接复制报告中的数字即可，如果实验数据有冲突，原因是数据未从远程服务器更新，这里直接按中期报告为准，本地环境并非实验环境。
+所有数字必须从远程服务器产生并通过校验的 formal CSV/JSON 及其 SHA-256 证据链引用。如果资料冲突，停止写结论并报告冲突；中期报告、smoke/profile 输出或旧协议数字不得填入正式论文。
 
 ### 4.4 数值域审计
 
@@ -99,7 +101,7 @@ Noise-aware prior / noise gate、多尺度融合和 bottleneck refinement 可以
 - `clean = G^2` 等操作是否与代码一致；
 - 模型输出是否可能为负；
 - 若使用 `Tanh`，如何保证 ENL 和 ratio image 等强度域指标计算时输入为正；
-- PSNR/SSIM 与 ENL/M/EPI 分别在哪个域计算；
+- PSNR/SSIM 与真实 SAR 指标分别在哪个域计算；
 - 可视化是否进行了 sqrt / log / percentile stretch。
 
 论文必须使用统一、可复现的定义。
@@ -121,7 +123,7 @@ Noise-aware prior / noise gate、多尺度融合和 bottleneck refinement 可以
    - `DFNG-SARNet`：基础网络；
    - `DFNG-SARNet + self-supervised adaptation`：真实域适应后的实验版本。
 
-4. 不要把 `ENL ↑` 单独解释成“图像质量一定更好”。必须联合 `M ↓`、`EPI ↑` 和视觉结果讨论，避免过平滑导致虚假 ENL 提升。
+4. 不要把 `ENL ↑` 单独解释成“图像质量一定更好”。必须联合文献定义的 M、EPI 和预注册视觉结果讨论，避免过平滑导致虚假 ENL 提升；不得加入自制替代指标。
 
 ---
 
@@ -136,25 +138,26 @@ ICSPS 只有 5–6 页，因此不要照搬中期报告的全部实验演进史�
 
 - Lee filter；
 - SAR-BM3D；
-- Trans-SAR 或项目实际基础 Transformer baseline；
-- Speckle2Void（真实 SAR 自监督代表方法）；
-- 若已有可复现结果，再加入与本文最接近的 2025 noise-guided Transformer 类方法。
+- TransSARV2（按项目中的原始归属和统一 100k 训练链）；
+- Ours Full；
+- 资源允许时把 pinned official SAR-CAM 作为 P2 增强比较。
+
+Noisy 只是 identity/reference row。未进入冻结代码、数据与统一评价链的 Speckle2Void 或其他方法不临时加入本次正式结果。
 
 要求统一数据、输入尺寸、评价指标和可视化设置。
 
 ### Experiment B — Compact ablation
 只保留最能解释论文贡献的消融：
 
-- full model；
-- w/o frequency enhancement；
-- w/o log/intensity fusion；
-- w/o noise-aware gate；
-- 如页面允许，再加入 w/o MSF 或 w/o bottleneck。
+- Intensity-only；
+- Log-only；
+- Full w/o all FDR；
+- Full。
 
 不要为了展示“做了很多实验”而塞入过多模型变体。
 
 ### Experiment C — Cross-dataset generalization
-使用 UCMerced agricultural / buildings / residential 三类场景，证明模型在未参与主训练的数据来源上仍保持恢复能力。
+使用 UCMerced 全部 21 类、2,100 个固定 source，对每个 source 在 $L\in\{1,2,4,8\}$ 下各生成一对，共 8,400 个固定测试对，证明模型在未参与主训练的数据来源上的恢复能力。
 
 注意论文措辞必须明确这些是对光学遥感图像施加模拟 SAR speckle 后形成的外部测试数据，而不是“真实 SAR 泛化”。
 
@@ -165,7 +168,7 @@ ICSPS 只有 5–6 页，因此不要照搬中期报告的全部实验演进史�
 - DFNG-SARNet；
 - DFNG-SARNet + self-supervised adaptation。
 
-指标使用：ENL、M、EPI，并配合 ratio map / edge map / local crops。
+本协议不使用 GT16，不报告任何 GT16-based quasi-reference metric。真实 SAR 指标和可视化必须遵循最终实验方案与记录表。
 
 如果真实 SAR 数据存在 patch-level leakage，先修复数据划分，再将新的 group-split 结果作为论文主结果。
 
@@ -202,15 +205,15 @@ crop 优先覆盖：建筑边缘、细纹理、强散射点。
 目标控制为 3 张核心表：
 
 ### Table 1 — Main quantitative comparison
-方法 vs PSNR/SSIM（模拟数据）以及必要的 Params/FLOPs。
+方法 vs 四个 look 和 macro PSNR/SSIM（UCM 合成数据）。不加入自定义频谱指标或复杂度列。
 
 ### Table 2 — Ablation
-Full / w/o Freq / w/o Dual(or log-intensity fusion) / w/o NG / optional w/o MSF。
+Intensity-only / Log-only / Full w/o all FDR / Full。
 
 ### Table 3 — Real SAR adaptation
-Noisy / Base / Base + self-supervised adaptation，报告 ENL、M、EPI；如果空间允许，在同一表中增加 homogeneous / structural / texture 三类平均结果。
+Noisy / TransSARV2 / Ours-base / Ours+AMS，按中期报告既定的 ENL、M、EPI 表结构记录；不得加入自定义指标或时间/复杂度列，也不得从 no-GT16 数据生成准参考质量指标。M 与 EPI 只有在实现与所引原论文公式核对一致后才能写入正式数值，不能把内部诊断量改名冒充。
 
-如果页面不足，训练参数、完整数据集说明、所有五个消融版本不要单独占大表，改成正文一句或附录/补充材料。
+如果页面不足，训练参数、完整数据集说明和次要辅助结果不要单独占大表，但不得删除上述四个预注册消融变体中的核心证据。
 
 ---
 
@@ -372,6 +375,6 @@ Noisy / Base / Base + self-supervised adaptation，报告 ENL、M、EPI；如果
 
 `SAR multiplicative speckle problem → frequency-domain structure modeling → log/intensity complementary restoration → self-supervised real-SAR adaptation → controlled ablation + external comparison + real-SAR evidence`。
 
-可以对实验结果和相关表述进行适当美化
+可以改善图表排版、有效数字显示和学术表述，但不得更改、挑选或“美化”实验数值。
 
 如果源码对应函数与报告不一致，先停下论文结论生成，完成审计并明确告诉我哪里不一致、应该采用哪套可复现结果，以及是否需要重新运行实验。

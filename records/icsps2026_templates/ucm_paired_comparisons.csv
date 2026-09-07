@@ -1,0 +1,7 @@
+protocol_id,ours_key,baseline_key,metric,raw_difference_definition,raw_difference,advantage_definition,advantage,advantage_ci95_low,advantage_ci95_high,bootstrap_samples,bootstrap_seed,cluster,result_source,notes
+ICSPS26-FROZEN-v2,ours,transsar,psnr,ours_minus_baseline,,ours_minus_baseline,,,,10000,20260905,UCM source within class; all four L retained,,primary predeclared comparison
+ICSPS26-FROZEN-v2,ours,transsar,ssim,ours_minus_baseline,,ours_minus_baseline,,,,10000,20260905,UCM source within class; all four L retained,,primary predeclared comparison
+ICSPS26-FROZEN-v2,ours,wout_all_fdr,psnr,ours_minus_baseline,,ours_minus_baseline,,,,10000,20260905,UCM source within class; all four L retained,,core FDR ablation
+ICSPS26-FROZEN-v2,ours,wout_all_fdr,ssim,ours_minus_baseline,,ours_minus_baseline,,,,10000,20260905,UCM source within class; all four L retained,,core FDR ablation
+ICSPS26-FROZEN-v2,ours,log_only,psnr,ours_minus_baseline,,ours_minus_baseline,,,,10000,20260905,UCM source within class; all four L retained,,core representation-chain ablation
+ICSPS26-FROZEN-v2,ours,log_only,ssim,ours_minus_baseline,,ours_minus_baseline,,,,10000,20260905,UCM source within class; all four L retained,,core representation-chain ablation

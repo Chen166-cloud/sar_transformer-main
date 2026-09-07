@@ -1,0 +1,44 @@
+{
+  "by_L_class_macro": {
+    "1": {
+      "psnr": 12.953703005752553,
+      "saturation_rate": 0.05299689156668527,
+      "ssim": 0.20687280897435562
+    },
+    "2": {
+      "psnr": 14.983354825666915,
+      "saturation_rate": 0.03740515572684152,
+      "ssim": 0.286983778174662
+    },
+    "4": {
+      "psnr": 17.375200257705973,
+      "saturation_rate": 0.024706021263485867,
+      "ssim": 0.3839768523361761
+    },
+    "8": {
+      "psnr": 20.013728091222134,
+      "saturation_rate": 0.016016642252604164,
+      "ssim": 0.49160988438420006
+    }
+  },
+  "classes": 21,
+  "looks": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "macro": {
+    "psnr": 16.331496545086893,
+    "saturation_rate": 0.0327811777024042,
+    "ssim": 0.34236083096734843
+  },
+  "method": "noisy",
+  "note": "Clean arrays match the current linear-intensity conversion, but official source files/manifests are absent locally; rerun the frozen manifest evaluator on the server before paper submission.",
+  "pairs": 8400,
+  "protocol_id": "ICSPS26-FROZEN-v2",
+  "source_path_assumption": "<lowercase_class>/<lowercase_class><00-99>.tif",
+  "sources": 2100,
+  "status": "local_reconstruction_from_legacy_clean_arrays_not_formal_manifest_verified",
+  "synthesis_seed": 20260905
+}

@@ -1,0 +1,2 @@
+protocol_id,run_id,method,variant,seed,global_step,val_macro_mse,val_macro_psnr,val_macro_ssim,learning_rate_before_scheduler,learning_rate_after_scheduler,is_best,checkpoint_sha256,formal_run,selection_role,notes
+ICSPS26-FROZEN-v2,,,,,0,,,,,,FALSE,,TRUE,,

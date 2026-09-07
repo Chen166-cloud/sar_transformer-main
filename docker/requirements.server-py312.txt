@@ -1,0 +1,16 @@
+# For the user's Ubuntu 22.04 / Python 3.12 / preinstalled PyTorch 2.5.1 image.
+# Do not reinstall torch/torchvision/CUDA from this file.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.14.1
+opencv-python-headless==4.10.0.84
+Pillow==10.4.0
+matplotlib==3.9.2
+PyWavelets==1.7.0
+PyYAML==6.0.2
+timm==0.9.16
+huggingface-hub==0.25.2
+safetensors==0.4.5
+tqdm==4.66.5
+thop==0.1.1.post2209072238
+tensorboard==2.18.0

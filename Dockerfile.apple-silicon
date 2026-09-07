@@ -1,0 +1,32 @@
+FROM python:3.11-slim-bookworm
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    OMP_NUM_THREADS=6 \
+    MKL_NUM_THREADS=6
+
+WORKDIR /workspace
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libgomp1 && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY docker/requirements.apple-silicon.txt /tmp/sar-requirements.txt
+
+RUN python -m pip install --upgrade "pip<25" && \
+    python -m pip install -r /tmp/sar-requirements.txt && \
+    python -m pip install --no-deps mmcv==1.7.2 && \
+    python -m pip check
+
+# timm 0.3.2 is retained in the historical dependency set, but it imports the
+# removed torch._six module. Upgrade only timm while keeping the model API used
+# by this repository (timm.models.layers) intact.
+RUN python -m pip install --upgrade \
+      timm==0.9.16 \
+      huggingface-hub==0.24.7 \
+      safetensors==0.4.5 && \
+    python -m pip check
+
+CMD ["bash"]

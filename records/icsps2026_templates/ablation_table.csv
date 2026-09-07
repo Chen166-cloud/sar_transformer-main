@@ -1,0 +1,5 @@
+protocol_id,method,variant,seed_count,log_transform,inverse_log,intensity_compensation,bottleneck_fdr,decoder_fdr,macro_psnr,macro_ssim,result_source,notes
+ICSPS26-FROZEN-v2,ours,intensity_only,1,FALSE,FALSE,FALSE,TRUE,TRUE,,,,
+ICSPS26-FROZEN-v2,ours,log_only,1,TRUE,TRUE,FALSE,TRUE,TRUE,,,,
+ICSPS26-FROZEN-v2,ours,wout_all_fdr,1,TRUE,TRUE,TRUE,FALSE,FALSE,,,,
+ICSPS26-FROZEN-v2,ours,full,1,TRUE,TRUE,TRUE,TRUE,TRUE,,,,

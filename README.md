@@ -13,10 +13,11 @@ junctions have been removed. Docker uses `/workspace/datasets/` through the
 project mount. See the dataset guide for each dataset's purpose.
 
 > **Reproducibility update:** the historical commands below describe the upstream
-> project only. New paper experiments must use the grouped, intensity-domain
-> protocol in [REPRODUCIBLE_EXPERIMENTS.md](REPRODUCIBLE_EXPERIMENTS.md). In
-> particular, do not train directly from `datasets/bsds500_synthetic_dataset/train` because
-> that legacy directory contains official BSDS500 test images.
+> project only. `REPRODUCIBLE_EXPERIMENTS.md` documents the general historical
+> cleanup, but **ICSPS 2026 formal runs must use only** the frozen ICSPS documents
+> linked below and `scripts/icsps2026/`. In particular, do not train directly from
+> `datasets/bsds500_synthetic_dataset/train` because that legacy directory contains
+> official BSDS500 test images.
 
 
 ## Using the code:
@@ -35,6 +36,17 @@ To install all the dependencies using conda:
 conda env create -f environment.yml
 conda activate sar
 ```
+
+For the native Apple Silicon (`linux/arm64`) Docker environment, see
+[APPLE_SILICON_DOCKER.md](APPLE_SILICON_DOCKER.md).
+
+For the frozen ICSPS 2026 SAR-despeckling protocol and the Ubuntu 22.04 / dual
+RTX 4090 server workflow, use
+[docs/ICSPS2026_SAR去斑网络设计与实验方案.md](docs/ICSPS2026_SAR去斑网络设计与实验方案.md)
+and
+[docs/ICSPS2026_远程服务器运行手册.md](docs/ICSPS2026_远程服务器运行手册.md).
+Those entry points target Python 3.12, PyTorch 2.5.1 + CUDA 12.4, and do not use
+the historical Python 3.6 environment below.
 
 If you prefer pip, install following versions:
 

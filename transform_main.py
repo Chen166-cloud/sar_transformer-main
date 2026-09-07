@@ -12,7 +12,6 @@ from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 import types
 import math
 from abc import ABCMeta, abstractmethod
-from mmcv.cnn import ConvModule
 import pdb
 
 from numeric_domain import (
@@ -23,7 +22,13 @@ from numeric_domain import (
     log_transform_01_torch,
     validate_numeric_domain,
 )
-from ablation_config import ABLATION_PRESETS, resolve_ablation_preset
+from ablation_config import (
+    ABLATION_PRESETS,
+    FORMAL_VARIANTS,
+    legacy_preset_to_variant,
+    resolve_ablation_preset,
+    resolve_formal_variant,
+)
 
 class EncoderTransformer(nn.Module):
     def __init__(self, img_size=256, patch_size=16, in_chans=1, num_classes=1000, embed_dims=[64, 128, 256, 512],
@@ -1453,8 +1458,10 @@ class FFTRefineBlock(nn.Module):
         return x + out
 
 class BottleneckRefine(nn.Module):
-    def __init__(self, channels=512):
+    def __init__(self, channels=512, use_frequency=True):
         super().__init__()
+
+        self.use_frequency = bool(use_frequency)
 
         # local branch: local texture enhancement
         self.local = nn.Sequential(
@@ -1475,11 +1482,19 @@ class BottleneckRefine(nn.Module):
 
         self.gamma = nn.Parameter(torch.ones(1) * 0.1)
 
+        # Construct the full block first so that shared parameters receive the
+        # same initialization for a fixed seed.  Removing only this registered
+        # submodule gives the formal ablation a genuine local-only bottleneck;
+        # using nn.Identity would be incorrect because FFTRefineBlock itself
+        # returns ``x + residual`` and would leave an extra x contribution.
+        if not self.use_frequency:
+            self.freq = None
+
     def forward(self, x):
         residual = x
 
         x_local = self.local(x)
-        x_freq = self.freq(x)
+        x_freq = self.freq(x) if self.freq is not None else torch.zeros_like(x_local)
 
         out = self.fuse(x_local + x_freq)
 
@@ -1989,6 +2004,7 @@ class TransSARV2_FreqNG_Bottle(nn.Module):
         use_frequency=True,
         use_gate=True,
         use_bottleneck=True,
+        use_bottleneck_frequency=True,
         output_activation="tanh",
         **kwargs,
     ):
@@ -1996,6 +2012,7 @@ class TransSARV2_FreqNG_Bottle(nn.Module):
 
         self.use_gate = bool(use_gate)
         self.use_bottleneck = bool(use_bottleneck)
+        self.use_bottleneck_frequency = bool(use_bottleneck_frequency)
 
         # Construct all optional modules before disabling any of them. This makes
         # the random initialization of shared layers invariant to the ablation.
@@ -2020,7 +2037,10 @@ class TransSARV2_FreqNG_Bottle(nn.Module):
         )
 
         # bottleneck refinement on deepest feature
-        self.bottleneck_refine = BottleneckRefine(channels=512)
+        self.bottleneck_refine = BottleneckRefine(
+            channels=512,
+            use_frequency=self.use_bottleneck_frequency,
+        )
 
         self.convproj = convprojection_freq_ng(
             use_msf=use_msf,
@@ -2058,14 +2078,44 @@ class TransSARV2_DualFreqNG_Bottle(nn.Module):
         self,
         path=None,
         ablation="full",
+        variant=None,
         numeric_domain=INTENSITY_DOMAIN,
         **kwargs,
     ):
         super(TransSARV2_DualFreqNG_Bottle, self).__init__()
 
+        if variant is not None and ablation != "full":
+            raise ValueError(
+                "Specify either a legacy ablation or a formal variant, not both"
+            )
+        if variant is not None:
+            variant_config = resolve_formal_variant(variant)
+            variant_name = variant
+            legacy_ablation = None
+        elif ablation in FORMAL_VARIANTS and ablation not in ABLATION_PRESETS:
+            # Convenience for direct construction with
+            # ``ablation='intensity_only'`` while keeping the historical
+            # ``ablation`` argument operational.
+            variant_config = resolve_formal_variant(ablation)
+            variant_name = ablation
+            legacy_ablation = None
+        else:
+            variant_config = legacy_preset_to_variant(ablation)
+            variant_name = "full" if ablation == "full" else None
+            legacy_ablation = ablation
+
         self.ablation_name = ablation
-        self.ablation_config = resolve_ablation_preset(ablation)
+        self.variant_name = variant_name
+        self.legacy_ablation_name = legacy_ablation
+        # Preserve the public attribute used by historical scripts while
+        # exposing the unambiguous formal schema separately.
+        self.ablation_config = (
+            resolve_ablation_preset(legacy_ablation)
+            if legacy_ablation is not None else dict(variant_config)
+        )
+        self.variant_config = dict(variant_config)
         self.numeric_domain = validate_numeric_domain(numeric_domain)
+        self.representation = variant_config["representation"]
 
         # The intensity-v1 branch predicts normalized log intensity, which is
         # explicitly inverted before original-intensity residual fusion.
@@ -2073,10 +2123,11 @@ class TransSARV2_DualFreqNG_Bottle(nn.Module):
             "sigmoid" if self.numeric_domain == INTENSITY_DOMAIN else "tanh"
         )
         self.log_branch = TransSARV2_FreqNG_Bottle(
-            use_msf=self.ablation_config["msf"],
-            use_frequency=self.ablation_config["frequency"],
-            use_gate=self.ablation_config["gate"],
-            use_bottleneck=self.ablation_config["bottleneck"],
+            use_msf=variant_config["msf"],
+            use_frequency=variant_config["decoder_fdr"],
+            use_gate=variant_config["gate"],
+            use_bottleneck=variant_config["bottleneck_local"],
+            use_bottleneck_frequency=variant_config["bottleneck_fdr"],
             output_activation=branch_activation,
         )
 
@@ -2084,7 +2135,7 @@ class TransSARV2_DualFreqNG_Bottle(nn.Module):
 
         # Used only by the explicitly selected legacy numerical-domain path.
         self.active = nn.Tanh()
-        if not self.ablation_config["fusion"]:
+        if not variant_config["compensation"]:
             self.dual_fusion = None
 
     def forward(self, x):
@@ -2094,14 +2145,20 @@ class TransSARV2_DualFreqNG_Bottle(nn.Module):
         # Ensure non-negative, bounded input before log transform.
         x01 = torch.clamp(x, 0.0, 1.0)
 
-        # Build normalized log-intensity branch input.
-        log_x = log_transform_01(x01, alpha=LOG_ALPHA)
+        # The formal intensity-only control keeps the same enhanced branch but
+        # bypasses log/inverse-log and the final compensation module.
+        branch_input = (
+            log_transform_01(x01, alpha=LOG_ALPHA)
+            if self.representation == "log" else x01
+        )
 
-        # Log-domain branch denoising.
-        log_clean = self.log_branch(log_x)
+        branch_output = self.log_branch(branch_input)
 
         if self.numeric_domain == INTENSITY_DOMAIN:
-            branch_clean = inverse_log_transform_01(log_clean, alpha=LOG_ALPHA)
+            branch_clean = (
+                inverse_log_transform_01(branch_output, alpha=LOG_ALPHA)
+                if self.representation == "log" else branch_output
+            )
             if self.dual_fusion is not None:
                 clean = self.dual_fusion(x01, branch_clean)
             else:
@@ -2110,8 +2167,8 @@ class TransSARV2_DualFreqNG_Bottle(nn.Module):
 
         # Historical behavior is retained behind an explicit legacy mode only.
         clean = (
-            self.dual_fusion(x01, log_clean)
-            if self.dual_fusion is not None else log_clean
+            self.dual_fusion(x01, branch_output)
+            if self.dual_fusion is not None else branch_output
         )
 
         # Keep output activation aligned with earlier stages.

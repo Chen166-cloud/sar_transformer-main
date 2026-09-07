@@ -1,0 +1,26 @@
+protocol_id,method,variant,adaptation,seed,metric_num_observations,metric_num_parent_clusters,observation_unit,metric,patch_mean,patch_median,parent_macro_mean,ci95_low,ci95_high,roi_q1,roi_q3,bootstrap_samples,bootstrap_seed,result_source,notes
+ICSPS26-FROZEN-v2,noisy,,base,42,,,patch,ratio_mean_bias,,,,,,,,10000,42,,Noisy identity baseline; N/A tautological identity check; do not rank
+ICSPS26-FROZEN-v2,noisy,,base,42,,,patch,ratio_acf_sidelobe_energy,,,,,,,,10000,42,,Noisy identity baseline; N/A tautological identity check; do not rank
+ICSPS26-FROZEN-v2,noisy,,base,42,,,patch,sobel_gc_noisy_output,,,,,,,,10000,42,,Noisy identity baseline; descriptive only; N/A tautological identity check; do not rank
+ICSPS26-FROZEN-v2,noisy,,base,42,,,roi,noisy_enl,,,,,,,,10000,42,,Noisy identity baseline; ROI-level diagnostic
+ICSPS26-FROZEN-v2,noisy,,base,42,,,roi,output_enl,,,,,,,,10000,42,,Noisy identity baseline; ROI-level diagnostic
+ICSPS26-FROZEN-v2,transsar_v2,,base,42,,,patch,ratio_mean_bias,,,,,,,,10000,42,,external learned baseline
+ICSPS26-FROZEN-v2,transsar_v2,,base,42,,,patch,ratio_acf_sidelobe_energy,,,,,,,,10000,42,,external learned baseline
+ICSPS26-FROZEN-v2,transsar_v2,,base,42,,,patch,sobel_gc_noisy_output,,,,,,,,10000,42,,external learned baseline; descriptive only
+ICSPS26-FROZEN-v2,transsar_v2,,base,42,,,roi,noisy_enl,,,,,,,,10000,42,,external learned baseline; ROI-level diagnostic
+ICSPS26-FROZEN-v2,transsar_v2,,base,42,,,roi,output_enl,,,,,,,,10000,42,,external learned baseline; ROI-level diagnostic
+ICSPS26-FROZEN-v2,ours,log_only,base,42,,,patch,ratio_mean_bias,,,,,,,,10000,42,,representation-chain ablation
+ICSPS26-FROZEN-v2,ours,log_only,base,42,,,patch,ratio_acf_sidelobe_energy,,,,,,,,10000,42,,representation-chain ablation
+ICSPS26-FROZEN-v2,ours,log_only,base,42,,,patch,sobel_gc_noisy_output,,,,,,,,10000,42,,representation-chain ablation; descriptive only
+ICSPS26-FROZEN-v2,ours,log_only,base,42,,,roi,noisy_enl,,,,,,,,10000,42,,representation-chain ablation; ROI-level diagnostic
+ICSPS26-FROZEN-v2,ours,log_only,base,42,,,roi,output_enl,,,,,,,,10000,42,,representation-chain ablation; ROI-level diagnostic
+ICSPS26-FROZEN-v2,ours,full,base,42,,,patch,ratio_mean_bias,,,,,,,,10000,42,,proposed base
+ICSPS26-FROZEN-v2,ours,full,base,42,,,patch,ratio_acf_sidelobe_energy,,,,,,,,10000,42,,proposed base
+ICSPS26-FROZEN-v2,ours,full,base,42,,,patch,sobel_gc_noisy_output,,,,,,,,10000,42,,proposed base; descriptive only
+ICSPS26-FROZEN-v2,ours,full,base,42,,,roi,noisy_enl,,,,,,,,10000,42,,proposed base; ROI-level diagnostic
+ICSPS26-FROZEN-v2,ours,full,base,42,,,roi,output_enl,,,,,,,,10000,42,,proposed base; ROI-level diagnostic
+ICSPS26-FROZEN-v2,ours,full,ams,42,,,patch,ratio_mean_bias,,,,,,,,10000,42,,proposed adapted
+ICSPS26-FROZEN-v2,ours,full,ams,42,,,patch,ratio_acf_sidelobe_energy,,,,,,,,10000,42,,proposed adapted
+ICSPS26-FROZEN-v2,ours,full,ams,42,,,patch,sobel_gc_noisy_output,,,,,,,,10000,42,,proposed adapted; descriptive only
+ICSPS26-FROZEN-v2,ours,full,ams,42,,,roi,noisy_enl,,,,,,,,10000,42,,proposed adapted; ROI-level diagnostic
+ICSPS26-FROZEN-v2,ours,full,ams,42,,,roi,output_enl,,,,,,,,10000,42,,proposed adapted; ROI-level diagnostic
