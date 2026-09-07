@@ -1,0 +1,520 @@
+{
+  "checks": {
+    "body_after_removing_floats_and_comments_identical": true,
+    "section_subsection_sequence_identical": true,
+    "all_ref_eqref_cite_relationships_identical": true,
+    "all_labels_preserved_once": true,
+    "all_equation_source_and_order_identical": true,
+    "entire_bibliography_source_identical": true,
+    "packages_identical": true,
+    "documentclass_identical": true,
+    "only_allowed_reference_balancing_command": true,
+    "preamble_unchanged_except_local_panel_macro": true,
+    "fig1_entire_definition_unchanged_and_double_column": true,
+    "fig2_fig3_captions_unchanged": true,
+    "all_table_content_and_fonts_preserved": true,
+    "equations_still_numbered_1_to_8": true,
+    "citation_numbers_preserved": true,
+    "figure_numbers_1_to_5": true,
+    "page_geometry_unchanged": true,
+    "fig4_2_rows_4_columns_ordered": true,
+    "fig4_all_panels_square_equal_size": true,
+    "fig4_entire_grid_within_one_column": true,
+    "fig4_caption_found": true,
+    "fig5_2_rows_4_columns_ordered": true,
+    "fig5_all_panels_square_equal_size": true,
+    "fig5_entire_grid_within_one_column": true,
+    "fig5_caption_found": true,
+    "all_16_source_png_bytes_and_embedded_pixels_preserved": true,
+    "fig5_complete_before_references_in_reading_order": true
+  },
+  "all_checks_pass": true,
+  "before_pages": 7,
+  "after_pages": 7,
+  "figure_number_page_mapping": {
+    "fig:overview": [
+      "1",
+      2
+    ],
+    "fig:fdr": [
+      "2",
+      3
+    ],
+    "fig:representation_ams": [
+      "3",
+      4
+    ],
+    "fig:synthetic_qual": [
+      "4",
+      5
+    ],
+    "fig:real_qual": [
+      "5",
+      6
+    ]
+  },
+  "equation_numbers": {
+    "eq:observation": "1",
+    "eq:log": "2",
+    "eq:inverse": "3",
+    "eq:fft": "4",
+    "eq:fdr": "5",
+    "eq:compensation": "6",
+    "eq:supervised": "7",
+    "eq:ams": "8"
+  },
+  "reference_count": 21,
+  "references_start_page": 6,
+  "table_checks": {
+    "tab:main": {
+      "all_table_cells_including_formatting_identical": true,
+      "caption_identical": true,
+      "note_identical": true,
+      "font_commands_identical": true
+    },
+    "tab:ablation": {
+      "all_table_cells_including_formatting_identical": true,
+      "caption_identical": true,
+      "note_identical": true,
+      "font_commands_identical": true
+    },
+    "tab:real": {
+      "all_table_cells_including_formatting_identical": true,
+      "caption_identical": true,
+      "note_identical": true,
+      "font_commands_identical": true
+    }
+  },
+  "layout_geometry": {
+    "fig4": {
+      "page": 5,
+      "column": 0,
+      "grid_rect_pt": [
+        50.21847915649414,
+        50.37043380737305,
+        298.76800537109375,
+        193.49496459960938
+      ],
+      "full_figure_including_caption_rect_pt": [
+        48.963897705078125,
+        50.37043380737305,
+        300.0224914550781,
+        256.3122863769531
+      ],
+      "single_panel_mm": [
+        21.256827237870954,
+        21.256827237870954
+      ],
+      "total_grid_width_mm": 87.68274952570597,
+      "column_width_mm": 88.56787048567871
+    },
+    "fig5": {
+      "page": 6,
+      "column": 0,
+      "grid_rect_pt": [
+        50.21847915649414,
+        203.44020080566406,
+        298.76800537109375,
+        346.5647277832031
+      ],
+      "full_figure_including_caption_rect_pt": [
+        48.96388244628906,
+        203.44020080566406,
+        300.02252197265625,
+        409.3819580078125
+      ],
+      "single_panel_mm": [
+        21.256827237870954,
+        21.256825892130532
+      ],
+      "total_grid_width_mm": 87.68274952570597,
+      "column_width_mm": 88.56787048567871
+    }
+  },
+  "figure5_end_reading_key": [
+    6,
+    0,
+    409.3819580078125
+  ],
+  "references_start_reading_key": [
+    6,
+    1,
+    418.1318054199219
+  ],
+  "audited_source_sha256": "d151e1451948df48da68a51bf78038600be16b71c1be887de1a011cba4ad1c3b",
+  "local_reference_balancing_commands": [
+    [
+      "IEEEtriggeratref",
+      "16"
+    ]
+  ],
+  "panels": [
+    {
+      "figure": 4,
+      "label": "(a) Clean",
+      "filename": "00_Clean.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "d5dad4531adcd36d5bb66f46e6d7ffac77fc5395c7fde20453815180d1af7085",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          50.21847915649414,
+          50.37043380737305,
+          110.47405242919922,
+          110.62600708007812
+        ]
+      ]
+    },
+    {
+      "figure": 4,
+      "label": "(b) Noisy",
+      "filename": "01_Noisy.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "a3d3ea0a5abf3a7d3cbcf9f5a397131ada3dc63016764d03074c7738d441b3f3",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          112.98312377929688,
+          50.37043380737305,
+          173.2386932373047,
+          110.62600708007812
+        ]
+      ]
+    },
+    {
+      "figure": 4,
+      "label": "(c) LEE",
+      "filename": "LEE-MMSE.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "9e2bcbad71c7f4015d4634af858862aa94b07b109a3ee7c19f9ca286d893a269",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          175.74777221679688,
+          50.37043380737305,
+          236.0033416748047,
+          110.62600708007812
+        ]
+      ]
+    },
+    {
+      "figure": 4,
+      "label": "(d) SAR-BM3D",
+      "filename": "SAR-BM3D.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "9ca74ede6f66d4533314a389893bcddd94d8e37f3957017717c60bbc70e1921a",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          238.51242065429688,
+          50.37043380737305,
+          298.76800537109375,
+          110.62600708007812
+        ]
+      ]
+    },
+    {
+      "figure": 4,
+      "label": "(e) SAR-CAM",
+      "filename": "SAR-CAM.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "04972e2888cbf9b634b4bc77d7a343f8c9aecb02da11d5984198b9d98833eb46",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          50.21847915649414,
+          133.23939514160156,
+          110.47405242919922,
+          193.49496459960938
+        ]
+      ]
+    },
+    {
+      "figure": 4,
+      "label": "(f) Trans-SAR",
+      "filename": "SAR-Trans.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "d993982658247cb23ea16d779e773ffb8d3a8d8cb431d42b5be0a2a3c3bb5e35",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          112.98312377929688,
+          133.23939514160156,
+          173.2386932373047,
+          193.49496459960938
+        ]
+      ]
+    },
+    {
+      "figure": 4,
+      "label": "(g) Ours",
+      "filename": "Ours-base.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "5670008017f7893bf118460126a3f43cdedddbb700efa01a76724b5035b987d9",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          175.74777221679688,
+          133.23939514160156,
+          236.0033416748047,
+          193.49496459960938
+        ]
+      ]
+    },
+    {
+      "figure": 4,
+      "label": "(h) Ours ratio",
+      "filename": "Ours-base_ratio.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "5ca8dbabafa54f2da8268f47d1ec3cb6be8bb88dc877af37d74fc0bd1dedf84a",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 5,
+      "rects_pdf_pt": [
+        [
+          238.51242065429688,
+          133.23939514160156,
+          298.76800537109375,
+          193.49496459960938
+        ]
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(a) Noisy",
+      "filename": "noisy.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "copied_file_byte_identical": true,
+      "sha256": "3b468dda8671483a0940613266a495bbe2a4d1e8b9d265063bc3b6cd1ee964c0",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          50.21847915649414,
+          203.44020080566406,
+          110.47405242919922,
+          263.6957702636719
+        ]
+      ],
+      "red_pixel_count": 156,
+      "red_box_bounds": [
+        88,
+        144,
+        127,
+        183
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(b) SAR-BM3D",
+      "filename": "SAR-BM3D.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "a8eef43a7f6c3ff26ee04e33ecf7df81db8759b0da5c817952dd423b05fa3ddb",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          112.98312377929688,
+          203.44020080566406,
+          173.2386932373047,
+          263.6957702636719
+        ]
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(c) SAR2SAR",
+      "filename": "SAR2SAR.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "8a168cacfb5db539d5efa32fe12cf0f8f80075dbcba0b0f7b4ff83b2b3ab99a3",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          175.74777221679688,
+          203.44020080566406,
+          236.0033416748047,
+          263.6957702636719
+        ]
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(d) SDUDNet",
+      "filename": "SDUDNet.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "777d9cf2827fe072804409d2555b83878512826f45cfc0d54067799d4e635e16",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          238.51242065429688,
+          203.44020080566406,
+          298.76800537109375,
+          263.6957702636719
+        ]
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(e) Trans-SAR",
+      "filename": "sar-trans.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "ccc939b65252a3cae3af399a3936b0550975909e55a6896a17b35f3a802a93c7",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          50.21847915649414,
+          286.30914306640625,
+          110.47405242919922,
+          346.5647277832031
+        ]
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(f) Ours-base",
+      "filename": "Ours-base.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "944281e112a26a162a828222805ce56698816788f433d0867165d9685bf2537e",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          112.98312377929688,
+          286.30914306640625,
+          173.2386932373047,
+          346.5647277832031
+        ]
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(g) Ours+AMS",
+      "filename": "Ours-ams.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "2cf83db6329e68696409c6f48efd7256648a30bcb8d52d431d7c6e9a17c74e0a",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          175.74777221679688,
+          286.30914306640625,
+          236.0033416748047,
+          346.5647277832031
+        ]
+      ]
+    },
+    {
+      "figure": 5,
+      "label": "(h) Ours+AMS ratio",
+      "filename": "Ours-ams-ratio.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "copied_file_byte_identical": true,
+      "sha256": "2431e46a1c01599e1b2410fb22d60e294ed021b2f385427f2dda544f16f4c657",
+      "unique_native_pixel_match_in_final_pdf": true,
+      "final_page": 6,
+      "rects_pdf_pt": [
+        [
+          238.51242065429688,
+          286.30914306640625,
+          298.76800537109375,
+          346.5647277832031
+        ]
+      ]
+    }
+  ],
+  "visual_qa": {
+    "viewed_renderings": [
+      "after/page-5.png",
+      "after/page-6.png",
+      "after/page-7.png"
+    ],
+    "finding": "Two rows by four columns visibly confirmed for both figures; all 16 panels and their labels are present and aligned, red ROI retained, and both complete figures precede References. Final page rechecked after native IEEEtriggeratref{16}: references 10-15 occupy the left column and 16-21 the right, with original text and numbering unchanged. No further adjustment advised."
+  }
+}

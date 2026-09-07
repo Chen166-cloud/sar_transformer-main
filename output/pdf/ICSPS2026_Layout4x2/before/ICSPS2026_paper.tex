@@ -8,23 +8,10 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{graphicx}
-% Enable bottom placement of double-column floats without changing spacing.
-\usepackage{stfloats}
 \usepackage{cite}
 \usepackage{url}
 
 \newcommand{\vect}[1]{\bm{#1}}
-
-% Original comparison images, placed without resampling; labels remain 8 pt.
-\newcommand{\comparisonpanel}[3]{%
-  \begin{minipage}[t]{0.24\columnwidth}
-    \centering
-    \includegraphics[width=\linewidth]{#1}\par
-    \vspace{2pt}%
-    {\footnotesize\strut #2\par\strut #3\par}
-  \end{minipage}%
-}
-
 
 \begin{document}
 
@@ -131,7 +118,7 @@ Two real-valued \(1\times1\) convolutions with an intermediate GELU mix channels
 One block is used in the bottleneck and five at decoder resolutions \(16^2\), \(32^2\), \(64^2\), \(128^2\), and \(256^2\). As Fig.~\ref{fig:fdr} emphasizes, the \(1\times1\) weights share channel mixing over frequency coordinates but do not convolve across adjacent frequencies. The inverse real FFT maps the mixed coefficients back to a real feature before spatial fusion. We therefore describe this operation as full-spectrum real--imaginary refinement, not high-frequency enhancement, magnitude--phase processing, band decomposition, or complex-valued convolution.
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=0.94\columnwidth,trim=0 5bp 0 6bp,clip]{figures/fig2_fdr_block.pdf}
+  \includegraphics[width=\columnwidth]{figures/fig2_fdr_block.pdf}
   \caption{Full-spectrum Fourier residual refinement (FDR). A depthwise--pointwise spatial branch complements a spectral branch. The one-sided rFFT representation retains all nonredundant frequencies. Shared real-valued \(1\times1\) convolutions mix channels and real--imaginary components independently at each frequency coordinate, without convolution across neighboring frequencies. After inverse rFFT, spatial and spectral features are concatenated, projected, and added to the input.}
   \label{fig:fdr}
 \end{figure}
@@ -148,35 +135,6 @@ The log input produces an unsupervised single-channel guidance map. At each deco
 \label{eq:compensation}
 \end{equation}
 The compensator comprises two \(3\times3\), 32-channel GELU layers and a single-channel residual head. Both operands in~\eqref{eq:compensation} are intensities, so the historical name ``dual-domain fusion'' denotes a limited post-inversion correction, not two restoration branches or direct log/intensity addition. Conditioning on both the observation and inverse-mapped estimate permits a small correction of radiometric contrast and bright-scatterer neighborhoods without asking the compensator to repeat despeckling independently. Clamping follows the residual update, as shown in Fig.~\ref{fig:representation_ams}(a).
-
-% Declare the wide results table early for the experiments page bottom.
-\begin{table*}[!b]
-\caption{UCM-21 Gamma-Speckle Results on 8,400 Fixed Pairs}
-\label{tab:main}
-\centering
-\footnotesize
-\setlength{\tabcolsep}{3.2pt}
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular*}{0.86\textwidth}{@{\extracolsep{\fill}}llccccc@{}}
-\toprule
-\textbf{Method} & \textbf{Look mode} &
-\shortstack{\(L=1\)\\PSNR / SSIM} &
-\shortstack{\(L=2\)\\PSNR / SSIM} &
-\shortstack{\(L=4\)\\PSNR / SSIM} &
-\shortstack{\(L=8\)\\PSNR / SSIM} &
-\shortstack{Macro\\PSNR / SSIM} \\
-\midrule
-Noisy       & --                & 12.95 / 0.2069 & 14.98 / 0.2870 & 17.37 / 0.3840 & 20.01 / 0.4916 & 16.33 / 0.3424 \\
-Lee-MMSE    & oracle-\(L\)      & 21.23 / 0.5212 & 23.05 / 0.5999 & 24.71 / 0.6757 & 26.33 / 0.7455 & 23.83 / 0.6356 \\
-SAR-BM3D    & oracle-\(L\)      & 25.24 / \textbf{0.7234} & 26.78 / \underline{0.7612} & \underline{28.14} / \textbf{0.7967} & 29.77 / \underline{0.8243} & 27.48 / \underline{0.7764} \\
-SAR-CAM     & blind             & 22.68 / 0.5622 & 23.54 / 0.6138 & 25.89 / 0.7295 & 28.10 / 0.7949 & 25.05 / 0.6751 \\
-Trans-SAR   & blind             & \underline{25.53} / 0.6446 & \underline{27.22} / 0.6963 & 28.12 / 0.7397 & \underline{29.78} / 0.7336 & \underline{27.66} / 0.7036 \\
-\textbf{Ours (Full)} & blind    & \textbf{25.93} / \underline{0.7169} & \textbf{27.94} / \textbf{0.7930} & \textbf{28.57} / \underline{0.7754} & \textbf{30.13} / \textbf{0.8312} & \textbf{28.14} / \textbf{0.7791} \\
-\bottomrule
-\end{tabular*}
-\vspace{1pt}
-\parbox{0.86\textwidth}{\scriptsize PSNR is in dB. Best and second-best values among despeckling methods are bold and underlined, respectively. Oracle-\(L\) methods receive the nominal look number; blind methods do not.}
-\end{table*}
 
 \subsection{Supervised Training and Masked Post-Adaptation}
 The supervised objective is defined on normalized linear intensity:
@@ -200,7 +158,7 @@ During eight adaptation epochs at a learning rate of \(10^{-6}\), the inherited 
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=0.98\columnwidth,trim=0 2bp 0 5bp,clip]{figures/fig3_representation_ams.pdf}
+  \includegraphics[width=\columnwidth]{figures/fig3_representation_ams.pdf}
   \caption{(a) Representation-consistent reconstruction: exact inversion precedes
   intensity residual compensation and clipping. (b) Masked post-adaptation (AMS):
   the entire model, including the compensator, receives $Y_m$, which replaces the
@@ -211,6 +169,34 @@ During eight adaptation epochs at a learning rate of \(10^{-6}\), the inherited 
 \end{figure}
 
 \section{Experiments}
+\begin{table*}[!t]
+\caption{UCM-21 Gamma-Speckle Results on 8,400 Fixed Pairs}
+\label{tab:main}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+\textbf{Method} & \textbf{Look mode} &
+\shortstack{\(L=1\)\\PSNR / SSIM} &
+\shortstack{\(L=2\)\\PSNR / SSIM} &
+\shortstack{\(L=4\)\\PSNR / SSIM} &
+\shortstack{\(L=8\)\\PSNR / SSIM} &
+\shortstack{Macro\\PSNR / SSIM} \\
+\midrule
+Noisy       & --                & 12.95 / 0.2069 & 14.98 / 0.2870 & 17.37 / 0.3840 & 20.01 / 0.4916 & 16.33 / 0.3424 \\
+Lee-MMSE    & oracle-\(L\)      & 21.23 / 0.5212 & 23.05 / 0.5999 & 24.71 / 0.6757 & 26.33 / 0.7455 & 23.83 / 0.6356 \\
+SAR-BM3D    & oracle-\(L\)      & 25.24 / \textbf{0.7234} & 26.78 / \underline{0.7612} & \underline{28.14} / \textbf{0.7967} & 29.77 / \underline{0.8243} & 27.48 / \underline{0.7764} \\
+SAR-CAM     & blind             & 22.68 / 0.5622 & 23.54 / 0.6138 & 25.89 / 0.7295 & 28.10 / 0.7949 & 25.05 / 0.6751 \\
+Trans-SAR   & blind             & \underline{25.53} / 0.6446 & \underline{27.22} / 0.6963 & 28.12 / 0.7397 & \underline{29.78} / 0.7336 & \underline{27.66} / 0.7036 \\
+\textbf{Ours (Full)} & blind    & \textbf{25.93} / \underline{0.7169} & \textbf{27.94} / \textbf{0.7930} & \textbf{28.57} / \underline{0.7754} & \textbf{30.13} / \textbf{0.8312} & \textbf{28.14} / \textbf{0.7791} \\
+\bottomrule
+\end{tabular}
+\vspace{1pt}
+\parbox{0.98\textwidth}{\scriptsize PSNR is in dB. Best and second-best values among despeckling methods are bold and underlined, respectively. Oracle-\(L\) methods receive the nominal look number; blind methods do not.}
+\end{table*}
+
 \subsection{Datasets and Evaluation Protocol}
 For supervised development, we use the optical NWPU-RESISC45 collection~\cite{cheng2017}. Selecting 20 training and 5 validation sources per class yields 900 and 225 independent images. RGB is converted to grayscale, and squared grayscale is the clean intensity proxy. A deterministic 100,000-step online schedule balances \(L\in\{1,2,4,8\}\) with 25,000 presentations per look; validation uses four fixed realizations per source (900 pairs). Paired flips and right-angle rotations require no interpolation.
 
@@ -225,26 +211,18 @@ All learned models use batch size one and Adam with learning rate \(10^{-3}\), w
 
 Synthetic PSNR and SSIM are computed per image and averaged equally across classes and looks. For real SAR, five nonoverlapping \(32\times32\) regions are selected once from each noisy input on a fixed grid by the lowest squared coefficient of variation after rejecting dark, zero-dominated, or saturated candidates; the same 2,960 regions are reused for all methods. ENL is a smoothness diagnostic rather than a one-direction quality score. The M-index follows ratio-image first-order and texture residuals~\cite{gomez2017}, while EPI uses fixed adjacent differences~\cite{ma2024epi}. ENL and ratio behavior are interpreted jointly because smoothing may inflate ENL while erasing structure~\cite{vasquez2025ratio}; whole-image M-index and EPI provide complementary checks.
 
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig4_buildings.pdf}
+  % Panel names follow the author-confirmed renamed image files.
+  \caption{Qualitative comparison on a single UCMerced buildings scene. Panels are arranged in row-major order: (a) Clean, (b) Noisy, (c) LEE (Lee-MMSE), (d) SAR-BM3D, (e) SAR-CAM, (f) Trans-SAR, (g) Ours, and (h) Ours ratio. All panels show the same field of view and retain their original grayscale renderings; (h) is a ratio visualization and is interpreted separately from the restored images.}
+  \label{fig:synthetic_qual}
+\end{figure*}
+
 \subsection{Synthetic Comparison}
 Table~\ref{tab:main} shows the highest PSNR at every look, with margins of 0.40, 0.72, 0.43, and 0.35~dB over the strongest competing point estimate for \(L=1,2,4,8\). The macro result is 28.14~dB/0.7791 SSIM, improving on Trans-SAR by 0.48~dB/0.0755 and oracle-\(L\) SAR-BM3D by 0.66~dB/0.0027. The SSIM claim is qualified: SAR-BM3D leads at \(L=1,4\), while ours leads at \(L=2,8\).
 
 One parameter set handles all looks without an external \(L\) estimate in the quantitative evaluation. Fig.~\ref{fig:synthetic_qual} provides a qualitative illustration using one selected buildings scene. LEE suppresses visible fluctuations but blurs roof boundaries and small rooftop structures. SAR-BM3D, SAR-CAM, Trans-SAR, and Ours retain more of the roof outlines, with differences in edge sharpness and residual texture. The Ours output preserves the main roof contours and several rooftop structures while reducing speckle. Building outlines remain visible in the Ours ratio panel, indicating structure-related residuals; this example therefore does not demonstrate complete separation of scene structure and speckle.
-
-\begin{figure}[!t]
-  \centering
-  \begin{tabular}{@{}c@{\hspace{0.01\columnwidth}}c@{\hspace{0.01\columnwidth}}c@{\hspace{0.01\columnwidth}}c@{}}
-    \comparisonpanel{figures/fig4/00_Clean.png}{(a)}{Clean} &
-    \comparisonpanel{figures/fig4/01_Noisy.png}{(b)}{Noisy} &
-    \comparisonpanel{figures/fig4/LEE-MMSE.png}{(c)}{LEE} &
-    \comparisonpanel{figures/fig4/SAR-BM3D.png}{(d)}{SAR-BM3D} \\[3pt]
-    \comparisonpanel{figures/fig4/SAR-CAM.png}{(e)}{SAR-CAM} &
-    \comparisonpanel{figures/fig4/SAR-Trans.png}{(f)}{Trans-SAR} &
-    \comparisonpanel{figures/fig4/Ours-base.png}{(g)}{Ours} &
-    \comparisonpanel{figures/fig4/Ours-base_ratio.png}{(h)}{Ours ratio}
-  \end{tabular}
-  \caption{Qualitative comparison on one UCMerced buildings scene; LEE denotes Lee-MMSE. All panels retain the same field of view and original grayscale renderings. The Ours ratio in (h) is interpreted separately from the restored images.}
-  \label{fig:synthetic_qual}
-\end{figure}
 
 Across the four conditions, PSNR rises from 25.93~dB at one look to 30.13~dB at eight looks without changing model capacity. SSIM is not perfectly monotonic at intermediate looks, which motivates reporting both measures and all four noise levels. Improvements over local filtering are large, while the gaps to nonlocal and Transformer baselines are narrower. These aggregate comparisons are supported by Table~\ref{tab:main}; the single-scene visualization in Fig.~\ref{fig:synthetic_qual} illustrates local structure preservation and does not establish performance across scene classes or look numbers.
 
@@ -274,6 +252,14 @@ Full also exceeds Log-only by 5.9229~dB and 0.0670 SSIM. Together with the no-FD
 
 The two single-representation variants expose a different trade-off: Log-only has lower PSNR but higher SSIM than Intensity-only. The strongest result therefore comes from combining compression, exact analytical inversion, same-domain compensation, and FDR rather than from a generic increase in decoder capacity or the log transform alone.
 
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig5_real_sar.pdf}
+  % Panel names follow the author-confirmed renamed image files.
+  \caption{Qualitative comparison on a single real-SAR scene. Panels are arranged in row-major order: (a) Noisy, (b) SAR-BM3D, (c) SAR2SAR, (d) SDUDNet, (e) Trans-SAR, (f) Ours-base, (g) Ours+AMS, and (h) Ours+AMS ratio. Ours-base denotes the pre-adaptation model. The original renderings are retained, including the red box for visual inspection in (a); (h) is interpreted separately from the restored images. No clean reference is shown.}
+  \label{fig:real_qual}
+\end{figure*}
+
 \subsection{Real-SAR Adaptation}
 Table~\ref{tab:real} evaluates all methods on the same 592 child patches from 148 held-out parents.
 \begin{table}[!t]
@@ -283,7 +269,7 @@ Table~\ref{tab:real} evaluates all methods on the same 592 child patches from 14
 \footnotesize
 \setlength{\tabcolsep}{3.0pt}
 \renewcommand{\arraystretch}{1.06}
-\begin{tabular*}{0.82\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
+\begin{tabular}{@{\extracolsep{\fill}}lccc@{}}
 \toprule
 \textbf{Method} & \textbf{ENL} & \(\mathbf{M}\)\textbf{-index}$\downarrow$ & \textbf{EPI}$\uparrow$ \\
 \midrule
@@ -295,31 +281,15 @@ Trans-SAR   & 124.60 & 1.9455             & 0.5313 \\
 Ours-base   & 530.85 & 1.8213             & 0.4229 \\
 \textbf{Ours + AMS} & 84.72 & \textbf{1.3365} & \textbf{0.8214} \\
 \bottomrule
-\end{tabular*}
+\end{tabular}
 \vspace{1pt}
-\parbox{0.82\columnwidth}{\scriptsize ENL is a diagnostic and is not ranked. The Noisy EPI of 1.0000 is an identity check and is excluded from ranking. Bold and underlined values are the best and second best among filtered outputs.}
+\parbox{0.98\columnwidth}{\scriptsize ENL is a diagnostic and is not ranked. The Noisy EPI of 1.0000 is an identity check and is excluded from ranking. Bold and underlined values are the best and second best among filtered outputs.}
 \end{table}
 The base output combines ENL 530.85 with EPI 0.4229, indicating excessive smoothing. AMS changes ENL to 84.72, reduces the M-index from 1.8213 to 1.3365 (26.62\%), and raises EPI from 0.4229 to 0.8214 (94.23\%). It ranks first among filtered outputs on M-index and EPI, with SAR-BM3D second on both. SDUDNet has similar ENL but higher M-index and lower EPI; SAR2SAR has the largest filtered-output M-index, while Trans-SAR retains less edge energy. Because training assumptions differ, the controlled real-data claim is the Ours-base versus Ours+AMS change on identical parent-disjoint patches.
 
 For the quantitative evaluation, ROI coordinates are determined exclusively from each noisy image, stored once, and reused across outputs, which reduces method-dependent selection bias. ENL remains sensitive to whether a region is truly homogeneous, so it is interpreted only with the whole-image M-index, EPI, and ratio-image structure.
 
 Fig.~\ref{fig:real_qual} illustrates one selected real-SAR scene. SAR-BM3D retains pronounced granular texture, while SAR2SAR, SDUDNet, Trans-SAR, and Ours-base produce smoother reconstructions. Relative to Ours-base, Ours+AMS shows clearer local boundaries and bright structures, qualitatively consistent with the aggregate increase in edge preservation. Scene-aligned structures remain visible in the Ours+AMS ratio panel, indicating structure-related residuals. This single-scene illustration complements the dataset-level measurements in Table~\ref{tab:real}; it does not establish clean-reference fidelity or behavior across acquisitions.
-
-\begin{figure}[!t]
-  \centering
-  \begin{tabular}{@{}c@{\hspace{0.01\columnwidth}}c@{\hspace{0.01\columnwidth}}c@{\hspace{0.01\columnwidth}}c@{}}
-    \comparisonpanel{figures/fig5/noisy.png}{(a)}{Noisy} &
-    \comparisonpanel{figures/fig5/SAR-BM3D.png}{(b)}{SAR-BM3D} &
-    \comparisonpanel{figures/fig5/SAR2SAR.png}{(c)}{SAR2SAR} &
-    \comparisonpanel{figures/fig5/SDUDNet.png}{(d)}{SDUDNet} \\[3pt]
-    \comparisonpanel{figures/fig5/sar-trans.png}{(e)}{Trans-SAR} &
-    \comparisonpanel{figures/fig5/Ours-base.png}{(f)}{Ours-base} &
-    \comparisonpanel{figures/fig5/Ours-ams.png}{(g)}{Ours+AMS} &
-    \comparisonpanel{figures/fig5/Ours-ams-ratio.png}{(h)}{Ours+AMS ratio}
-  \end{tabular}
-  \caption{Qualitative comparison on one real-SAR scene. Ours-base is the pre-adaptation model. Original renderings, including the red box for visual inspection in (a), are retained. The Ours+AMS ratio in (h) is interpreted separately from restored images. No clean reference is shown.}
-  \label{fig:real_qual}
-\end{figure}
 
 \subsection{Limitations}
 Several limitations bound our claims. Optical NWPU and UCM sources make the synthetic results a controlled Gamma-restoration test, not a model of complete real-SAR statistics. The parent-disjoint real patches come from one acquisition, precluding cross-region or cross-sensor claims. Noisy-target masking is not theoretically unbiased under correlated speckle, so the adaptation evidence is empirical. We also report neither parameter count, operation count, runtime, nor variation across initializations and therefore make no efficiency or uncertainty-calibrated claim.
@@ -329,8 +299,7 @@ Future work should add independent acquisitions and paired source-cluster interv
 \section{Conclusion}
 This work presents a representation-consistent Fourier extension of the public Trans-SAR backbone for SAR intensity despeckling. Full-spectrum real--imaginary refinement is applied at six reconstruction scales, while a bounded log estimate is analytically returned to intensity before residual compensation. On the UCM-21 simulated test, the complete model obtains the highest macro PSNR and SSIM point estimates, and controlled ablations show clear reductions when Fourier refinement or intensity compensation is removed. On parent-disjoint real patches, encoder-frozen masked adaptation improves the M-index and edge preservation while reducing the extreme smoothness of the base output. The scope remains normalized single-image intensity restoration within the evaluated datasets; broader real-SAR claims require independent acquisitions and uncertainty analysis.
 
-% Balance the final bibliography columns with IEEEtran's native mechanism.
-\IEEEtriggeratref{16}
+% Let references flow naturally after the compact figure layout.
 \begin{thebibliography}{00}
 
 \bibitem{fracastoro2021overview}

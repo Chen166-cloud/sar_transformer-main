@@ -1,0 +1,96 @@
+\relax 
+\citation{fracastoro2021overview}
+\citation{lee1980}
+\citation{parrilli2012}
+\citation{chierchia2017,ko2022}
+\citation{perera2022,shen2025,zhang2025}
+\citation{zhao2024,ma2024}
+\citation{dalsasso2021,molini2022,lin2025,chen2026}
+\citation{lee1980}
+\citation{parrilli2012}
+\citation{chierchia2017}
+\citation{ko2022}
+\citation{perera2022}
+\citation{shen2025,zhang2025}
+\citation{zhao2024}
+\citation{ma2024}
+\citation{dalsasso2021}
+\citation{molini2022}
+\citation{lin2025}
+\citation{chen2026}
+\citation{bo2025}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Model-Based and Supervised Despeckling}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Frequency- and Representation-Aware Restoration}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Learning from Real SAR Observations}{1}{}\protected@file@percent }
+\citation{perera2022}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall architecture. Gray regions identify inherited Trans-SAR operators; colored regions identify the added Fourier, skip-fusion, guidance, and representation operations. Decoder cards contain both inherited and added components. Four encoder skips feed the corresponding decoder stages. Six FDR blocks use independent parameters, while one latent guidance map modulates all five decoder stages. Output reconstruction and AMS are detailed in Fig.\nobreakspace  {}3\hbox {}(a) and (b), respectively.}}{2}{}\protected@file@percent }
+\newlabel{fig:overview}{{1}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Proposed Method}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Observation Model and Bounded Log Representation}{2}{}\protected@file@percent }
+\newlabel{eq:observation}{{1}{2}}
+\newlabel{eq:log}{{2}{2}}
+\newlabel{eq:inverse}{{3}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Trans-SAR-Derived Reconstruction Path}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Full-Spectrum Fourier Residual Refinement}{2}{}\protected@file@percent }
+\newlabel{eq:fft}{{4}{3}}
+\newlabel{eq:fdr}{{5}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Guidance Modulation and Intensity Compensation}{3}{}\protected@file@percent }
+\newlabel{eq:compensation}{{6}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Supervised Training and Masked Post-Adaptation}{3}{}\protected@file@percent }
+\newlabel{eq:supervised}{{7}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Full-spectrum Fourier residual refinement (FDR). A depthwise--pointwise spatial branch complements a spectral branch. The one-sided rFFT representation retains all nonredundant frequencies. Shared real-valued \(1\times 1\) convolutions mix channels and real--imaginary components independently at each frequency coordinate, without convolution across neighboring frequencies. After inverse rFFT, spatial and spectral features are concatenated, projected, and added to the input.}}{3}{}\protected@file@percent }
+\newlabel{fig:fdr}{{2}{3}}
+\newlabel{eq:ams}{{8}{3}}
+\citation{cheng2017}
+\citation{yang2010}
+\citation{vasquez2024data}
+\citation{ko2022}
+\citation{perera2022}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces UCM-21 Gamma-Speckle Results on 8,400 Fixed Pairs}}{4}{}\protected@file@percent }
+\newlabel{tab:main}{{I}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces (a) Representation-consistent reconstruction: exact inversion precedes intensity residual compensation and clipping. (b) Masked post-adaptation (AMS): the entire model, including the compensator, receives $Y_m$, which replaces the generic input $Y$ in (a); unmasked $Y$ supplies the noisy target. Only the Transformer encoder is frozen. Training masks are resampled; fixed validation masks support checkpoint selection. Inference uses unmasked observations.}}{4}{}\protected@file@percent }
+\newlabel{fig:representation_ams}{{3}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Datasets and Evaluation Protocol}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Implementation, Baselines, and Metrics}{4}{}\protected@file@percent }
+\citation{gomez2017}
+\citation{ma2024epi}
+\citation{vasquez2025ratio}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Synthetic Comparison}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Ablation Study}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Qualitative comparison on one UCMerced buildings scene; LEE denotes Lee-MMSE. All panels retain the same field of view and original grayscale renderings. The Ours ratio in (h) is interpreted separately from the restored images.}}{5}{}\protected@file@percent }
+\newlabel{fig:synthetic_qual}{{4}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Compact Ablation on UCM-21}}{6}{}\protected@file@percent }
+\newlabel{tab:ablation}{{II}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces No-Reference Results on 592 Real-SAR Patches}}{6}{}\protected@file@percent }
+\newlabel{tab:real}{{III}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Real-SAR Adaptation}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Qualitative comparison on one real-SAR scene. Ours-base is the pre-adaptation model. Original renderings, including the red box for visual inspection in (a), are retained. The Ours+AMS ratio in (h) is interpreted separately from restored images. No clean reference is shown.}}{6}{}\protected@file@percent }
+\newlabel{fig:real_qual}{{5}{6}}
+\bibcite{fracastoro2021overview}{1}
+\bibcite{lee1980}{2}
+\bibcite{parrilli2012}{3}
+\bibcite{chierchia2017}{4}
+\bibcite{ko2022}{5}
+\bibcite{perera2022}{6}
+\bibcite{shen2025}{7}
+\bibcite{zhang2025}{8}
+\bibcite{zhao2024}{9}
+\bibcite{ma2024}{10}
+\bibcite{dalsasso2021}{11}
+\bibcite{molini2022}{12}
+\bibcite{lin2025}{13}
+\bibcite{chen2026}{14}
+\bibcite{bo2025}{15}
+\bibcite{gomez2017}{16}
+\bibcite{ma2024epi}{17}
+\bibcite{vasquez2025ratio}{18}
+\bibcite{cheng2017}{19}
+\bibcite{yang2010}{20}
+\bibcite{vasquez2024data}{21}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Limitations}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{7}{}\protected@file@percent }
+\gdef \@abspage@last{7}
