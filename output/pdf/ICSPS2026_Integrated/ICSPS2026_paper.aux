@@ -1,0 +1,96 @@
+\relax 
+\citation{fracastoro2021overview}
+\citation{lee1980}
+\citation{parrilli2012}
+\citation{chierchia2017,ko2022}
+\citation{perera2022,shen2025,zhang2025}
+\citation{zhao2024,ma2024}
+\citation{dalsasso2021,molini2022,lin2025,chen2026}
+\citation{lee1980}
+\citation{parrilli2012}
+\citation{chierchia2017}
+\citation{ko2022}
+\citation{perera2022}
+\citation{shen2025,zhang2025}
+\citation{zhao2024}
+\citation{ma2024}
+\citation{dalsasso2021}
+\citation{molini2022}
+\citation{lin2025}
+\citation{chen2026}
+\citation{bo2025}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Model-Based and Supervised Despeckling}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Frequency- and Representation-Aware Restoration}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Learning from Real SAR Observations}{1}{}\protected@file@percent }
+\citation{perera2022}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overall architecture of the proposed Trans-SAR-based despeckling model. (a) Gray components denote inherited operators; colored components denote the extensions used in this work. Four encoder skips enter learned decoder fusion. Six stage-specific Fourier residual refinement (FDR) blocks and a shared latent guidance map support reconstruction. Exact inverse mapping precedes intensity residual compensation. Shapes are $H\times W\times C$ for a normalized input $Y\in [0,1]$. (b) Masked post-adaptation freezes the encoder and updates the reconstruction modules; inference uses unmasked observations.}}{2}{}\protected@file@percent }
+\newlabel{fig:overview}{{1}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Proposed Method}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Observation Model and Bounded Log Representation}{2}{}\protected@file@percent }
+\newlabel{eq:observation}{{1}{2}}
+\newlabel{eq:log}{{2}{2}}
+\newlabel{eq:inverse}{{3}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Trans-SAR-Derived Reconstruction Path}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Full-Spectrum Fourier Residual Refinement}{3}{}\protected@file@percent }
+\newlabel{eq:fft}{{4}{3}}
+\newlabel{eq:fdr}{{5}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Guidance Modulation and Intensity Compensation}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Full-spectrum Fourier residual refinement (FDR). A depthwise--pointwise spatial branch complements a spectral branch. The one-sided rFFT representation retains all nonredundant frequencies. Shared real-valued \(1\times 1\) convolutions mix channels and real--imaginary components independently at each frequency coordinate, without convolution across neighboring frequencies. After inverse rFFT, spatial and spectral features are concatenated, projected, and added to the input.}}{3}{}\protected@file@percent }
+\newlabel{fig:fdr}{{2}{3}}
+\newlabel{eq:compensation}{{6}{3}}
+\citation{cheng2017}
+\citation{yang2010}
+\citation{vasquez2024data}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Supervised Training and Masked Post-Adaptation}{4}{}\protected@file@percent }
+\newlabel{eq:supervised}{{7}{4}}
+\newlabel{eq:ams}{{8}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Datasets and Evaluation Protocol}{4}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Representation-consistent output reconstruction and masked post-adaptation (AMS). (a) A bounded log prediction is exactly inverted before residual compensation and addition in the intensity domain. (b) During adaptation, the whole model receives the masked observation \(\mathbf  {Y}_{m}\), including the compensator; the original observation supplies the noisy target. Only the Transformer encoder is frozen. Training masks are resampled, validation masks are fixed for checkpoint selection, and inference uses the complete unmasked observation.}}{4}{}\protected@file@percent }
+\newlabel{fig:representation_ams}{{3}{4}}
+\citation{ko2022}
+\citation{perera2022}
+\citation{gomez2017}
+\citation{ma2024epi}
+\citation{vasquez2025ratio}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces UCM-21 Gamma-Speckle Results on 8,400 Fixed Pairs}}{5}{}\protected@file@percent }
+\newlabel{tab:main}{{I}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Implementation, Baselines, and Metrics}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Synthetic Comparison}{5}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Compact Ablation on UCM-21}}{5}{}\protected@file@percent }
+\newlabel{tab:ablation}{{II}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Ablation Study}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Qualitative comparison on a single UCMerced buildings scene. Panels are arranged in row-major order: (a) Clean, (b) Noisy, (c) LEE (Lee-MMSE), (d) SAR-BM3D, (e) SAR-CAM, (f) Trans-SAR, (g) Ours, and (h) Ours ratio. All panels show the same field of view and retain their original grayscale renderings; (h) is a ratio visualization and is interpreted separately from the restored images.}}{6}{}\protected@file@percent }
+\newlabel{fig:synthetic_qual}{{4}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces No-Reference Results on 592 Real-SAR Patches}}{6}{}\protected@file@percent }
+\newlabel{tab:real}{{III}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Real-SAR Adaptation}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Limitations}{6}{}\protected@file@percent }
+\bibcite{fracastoro2021overview}{1}
+\bibcite{lee1980}{2}
+\bibcite{parrilli2012}{3}
+\bibcite{chierchia2017}{4}
+\bibcite{ko2022}{5}
+\bibcite{perera2022}{6}
+\bibcite{shen2025}{7}
+\bibcite{zhang2025}{8}
+\bibcite{zhao2024}{9}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Qualitative comparison on a single real-SAR scene. Panels are arranged in row-major order: (a) Noisy, (b) SAR-BM3D, (c) SAR2SAR, (d) SDUDNet, (e) Trans-SAR, (f) Ours-base, (g) Ours+AMS, and (h) Ours+AMS ratio. Ours-base denotes the pre-adaptation model. The original renderings are retained, including the red box for visual inspection in (a); (h) is interpreted separately from the restored images. No clean reference is shown.}}{7}{}\protected@file@percent }
+\newlabel{fig:real_qual}{{5}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{7}{}\protected@file@percent }
+\bibcite{ma2024}{10}
+\bibcite{dalsasso2021}{11}
+\bibcite{molini2022}{12}
+\bibcite{lin2025}{13}
+\bibcite{chen2026}{14}
+\bibcite{bo2025}{15}
+\bibcite{gomez2017}{16}
+\bibcite{ma2024epi}{17}
+\bibcite{vasquez2025ratio}{18}
+\bibcite{cheng2017}{19}
+\bibcite{yang2010}{20}
+\bibcite{vasquez2024data}{21}
+\gdef \@abspage@last{8}

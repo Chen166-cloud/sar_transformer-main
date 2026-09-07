@@ -1,0 +1,76 @@
+{
+  "status": "Author naming decision received: retain renamed filenames in the final composition",
+  "evidence_file": "test_results\\trn_buildings43_with_ratios_metrics\\metrics.json",
+  "evidence_sha256": "2669a33eef8ff6241e14e6c974ad5ab608ae6bc80ba610412246b83b4ae9079a",
+  "numeric_domain": "legacy_amplitude_v0",
+  "preprocessing": "sqrt(clip(stored intensity, 0, 1)); identical noisy input for all weights",
+  "png_display": "Clean/Noisy/denoised and absolute errors: fixed [0,1]; SAR intensity ratios: fixed [0.5,1.5]; 8-bit grayscale, no text, axes or border",
+  "matched_records": [
+    {
+      "supplied_file": "00_Clean.png",
+      "sha256": "d5dad4531adcd36d5bb66f46e6d7ffac77fc5395c7fde20453815180d1af7085",
+      "record_section": "rows",
+      "checkpoint": null,
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\00_Clean.png",
+      "record_label": "Clean"
+    },
+    {
+      "supplied_file": "01_Noisy.png",
+      "sha256": "a3d3ea0a5abf3a7d3cbcf9f5a397131ada3dc63016764d03074c7738d441b3f3",
+      "record_section": "rows",
+      "checkpoint": null,
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\01_Noisy.png",
+      "record_label": "Noisy"
+    },
+    {
+      "supplied_file": "LEE-MMSE.png",
+      "sha256": "9e2bcbad71c7f4015d4634af858862aa94b07b109a3ee7c19f9ca286d893a269",
+      "record_section": "rows",
+      "checkpoint": "TransSARV2_resultsmodel_untracked.pth",
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\10_TransSARV2_resultsmodel_untracked.png",
+      "record_label": "TransSARV2_resultsmodel_untracked"
+    },
+    {
+      "supplied_file": "Ours-base.png",
+      "sha256": "5670008017f7893bf118460126a3f43cdedddbb700efa01a76724b5035b987d9",
+      "record_section": "rows",
+      "checkpoint": "TransSARV2_FreqNG_Bottle_best_e45.pth",
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\06_TransSARV2_FreqNG_Bottle_best_e45.png",
+      "record_label": "TransSARV2_FreqNG_Bottle_best_e45"
+    },
+    {
+      "supplied_file": "Ours-base_ratio.png",
+      "sha256": "5ca8dbabafa54f2da8268f47d1ec3cb6be8bb88dc877af37d74fc0bd1dedf84a",
+      "record_section": "ratio_images",
+      "checkpoint": "TransSARV2_FreqNG_Bottle_best_e45.pth",
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\06_TransSARV2_FreqNG_Bottle_best_e45_ratio.png",
+      "record_label": "TransSARV2_FreqNG_Bottle_best_e45"
+    },
+    {
+      "supplied_file": "SAR-BM3D.png",
+      "sha256": "9ca74ede6f66d4533314a389893bcddd94d8e37f3957017717c60bbc70e1921a",
+      "record_section": "rows",
+      "checkpoint": "TransSARV2_FreqNG_best_e50.pth",
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\05_TransSARV2_FreqNG_best_e50.png",
+      "record_label": "TransSARV2_FreqNG_best_e50"
+    },
+    {
+      "supplied_file": "SAR-CAM.png",
+      "sha256": "04972e2888cbf9b634b4bc77d7a343f8c9aecb02da11d5984198b9d98833eb46",
+      "record_section": "rows",
+      "checkpoint": "TransSARV2_best_e25.pth",
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\02_TransSARV2_best_e25.png",
+      "record_label": "TransSARV2_best_e25"
+    },
+    {
+      "supplied_file": "SAR-Trans.png",
+      "sha256": "d993982658247cb23ea16d779e773ffb8d3a8d8cb431d42b5be0a2a3c3bb5e35",
+      "record_section": "rows",
+      "checkpoint": "TransSARV2_DualFreqNG_Bottle_best_e47.pth",
+      "original_file": "test_results\\trn_buildings43_with_ratios_trained_models\\07_TransSARV2_DualFreqNG_Bottle_best_e47.png",
+      "record_label": "TransSARV2_DualFreqNG_Bottle_best_e47"
+    }
+  ],
+  "author_instruction": "按重命名的记录为准，不需要本地效验",
+  "scope": "Earlier archived-output matches retained as a record; no further source identity audit performed after author instruction"
+}

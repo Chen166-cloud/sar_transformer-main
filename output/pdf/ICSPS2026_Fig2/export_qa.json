@@ -1,0 +1,38 @@
+{
+  "pdf_width_pt": 251.0585305106,
+  "pdf_height_pt": 412.0,
+  "pdf_raster_image_count": 0,
+  "embedded_fonts": [
+    {
+      "name": "/ELUGPM+ArialMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/ELUGPM+Arial-BoldMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/DTWKUJ+Arial-ItalicMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    }
+  ],
+  "svg_editable_text_elements": 31,
+  "svg_raster_image_count": 0,
+  "svg_grouped_module_count": 10,
+  "svg_math_position_lists_expanded": true,
+  "column_width_mm": 88.56787048567871,
+  "figure_height_mm": 145.34444444444443,
+  "caption_height_pt": 66.5,
+  "proof_page_size_pt": [
+    612,
+    792
+  ],
+  "model_checks_passed": 155,
+  "model_fdr_instances": 6,
+  "pypdf_version": "6.10.0",
+  "reportlab_version": "4.4.9",
+  "manual_review": "Final PDF and independently rendered grouped SVG were opened and inspected; see README.md."
+}

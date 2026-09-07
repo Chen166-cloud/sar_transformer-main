@@ -1,0 +1,29 @@
+{
+  "figure": "Fig. 1",
+  "width_mm": 181.3532586135326,
+  "height_mm": 152.39999999999998,
+  "width_tex_pt": 516,
+  "width_pdf_pt": 514.0722291407224,
+  "minimum_base_font_pt": 8,
+  "font": "Arial",
+  "font_file_used": "C:\\Windows\\Fonts\\arial.ttf",
+  "png_dpi": 600,
+  "line_width_pt": {
+    "module": 0.75,
+    "arrow": 0.85
+  },
+  "matplotlib_version": "3.8.4",
+  "boxed_text_overflows": [],
+  "data": "Architecture only; no experimental image or metric is plotted.",
+  "source_sha256": {
+    "transform_main.py": "9405bb05d68405848c9966f4b093ea078208ad70856d3583672c70a3aa7c82fb",
+    "arch/trans_basenetworks.py": "f91f04ebfe8455360f48e7f5c0bf38190e766ff98d66df0f38b7eea1f85dbe9c",
+    "model_registry.py": "7f32fdd81f06c148d357eadb684d3f4a3dcd8e81b733efd376a2d2a3a708f38a",
+    "ablation_config.py": "c51fa89433d4f9f12e440fa1915fee041c38fbe51accd89d1d793a4a7fbc3e29",
+    "numeric_domain.py": "d250a6c6b95058e3d8bf711514bebe8a254f7bdd2b3261ae1cb78241a0f170ee",
+    "train_icsps2026_ams.py": "142da31a3306a50c62fffb814e61a52528451e3caa6ee26830f23b5af45e260d",
+    "configs/icsps2026_frozen_v2.json": "75177763e514ba7e25958c8ab6a041ab4d235cddbdc9a37f61347d5e9a8ad423",
+    "docs/ICSPS2026_LaTeX/IEEEtran.cls": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex": "c8aebb8fa1c0f6d0b404a3207c104837597e19a74435fa15090a163f7a0ec243"
+  }
+}

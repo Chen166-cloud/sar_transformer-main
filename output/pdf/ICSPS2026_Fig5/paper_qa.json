@@ -1,0 +1,16 @@
+{
+  "compiler": "Tectonic 0.17.0",
+  "paper_pages": 7,
+  "figure4_page": 5,
+  "figure5_page": 6,
+  "figure5_label": "fig:real_qual",
+  "all_eight_panel_labels_present": true,
+  "undefined_cross_references": false,
+  "overfull_boxes": false,
+  "visual_review": "Composite and affected pages 5-7 inspected; panels aligned, original red box retained, labels and caption legible; no clipping or overlap",
+  "first_four_pages": "Text unchanged from the previously reviewed Figure 4 manuscript",
+  "layout_adjustment": "IEEEtriggeratref{17} balances the current last-page references",
+  "remaining_compile_notices": "Underfull paragraph/vertical spacing and XeTeX initialization font substitution notices; no missing content observed",
+  "scope": "Composition and manuscript layout only; labels follow the supplied renamed files, with no historical-source or model-identity audit",
+  "latest_update": "Panel (f), caption, and related real-SAR discussion consistently use Ours-base; recompiled and inspected page 6"
+}

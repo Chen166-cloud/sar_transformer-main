@@ -1,0 +1,49 @@
+{
+  "pdf_width_pt": 251.0585305106,
+  "pdf_height_pt": 516.0,
+  "pdf_raster_image_count": 0,
+  "embedded_fonts": [
+    {
+      "name": "/ELUGPM+ArialMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/ELUGPM+Arial-BoldMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/DTWKUJ+Arial-ItalicMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/CZRBLR+STIXGeneral-Regular",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/GYKUUQ+STIXSizeTwoSym-Regular",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    }
+  ],
+  "svg_editable_text_elements": 46,
+  "svg_raster_image_count": 0,
+  "svg_grouped_module_count": 16,
+  "svg_outlined_math_symbol_count": 10,
+  "svg_math_position_lists_expanded": true,
+  "column_width_mm": 88.56787048567871,
+  "figure_height_mm": 182.03333333333333,
+  "caption_height_pt": 76.0,
+  "proof_page_size_pt": [
+    612,
+    792
+  ],
+  "model_checks_passed": 88,
+  "model_forward_count": 2,
+  "pypdf": "6.10.0",
+  "reportlab": "4.4.9",
+  "manual_review": "Final PDF and independently rendered SVG were opened and visually inspected; see README.md."
+}

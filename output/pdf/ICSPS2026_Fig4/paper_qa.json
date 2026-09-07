@@ -1,0 +1,14 @@
+{
+  "compiler": "Tectonic 0.17.0",
+  "paper_pages": 6,
+  "figure4_page": 5,
+  "figure4_label": "fig:synthetic_qual",
+  "all_eight_panel_labels_present": true,
+  "undefined_cross_references": false,
+  "overfull_boxes": false,
+  "visual_review": "All six pages inspected; Figure 4 aligned, labels legible, no clipping or overlap",
+  "layout_adjustment": "Removed obsolete IEEEtriggeratref{12}; references now remain on page 6",
+  "remaining_compile_notices": "Underfull paragraph/vertical spacing and XeTeX initialization font substitution notices; no missing content observed",
+  "scope": "Figure composition, author-confirmed labels, related manuscript text and layout",
+  "paper_sha256": "91a2ce5831188b9995dec81d925627f891e554c25f3a36032a50c5247e77d211"
+}

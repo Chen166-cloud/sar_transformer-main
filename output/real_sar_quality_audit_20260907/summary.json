@@ -1,0 +1,97 @@
+{
+  "manifest_sha256": "3d2161938861dddd66aed2950160b355bf067143564a35af51f6209dba659ec0",
+  "total": 5876,
+  "errors": [],
+  "shapes": [
+    "256x256"
+  ],
+  "dtypes": [
+    "float32"
+  ],
+  "all_finite": true,
+  "unique_values": {
+    "min": 24.0,
+    "p25": 66.0,
+    "median": 158.0,
+    "p75": 174.0,
+    "p95": 214.0,
+    "max": 242.0
+  },
+  "patches_at_most_64_values": 1448,
+  "patches_at_most_256_values": 5876,
+  "patches_min_zero_max_one": 5735,
+  "mean_zero_fraction": 0.012046008957251957,
+  "mean_one_fraction": 0.014543010070260647,
+  "one_fraction": {
+    "min": 0.0,
+    "p25": 0.008392333984375,
+    "median": 0.0105743408203125,
+    "p75": 0.0131378173828125,
+    "p95": 0.035736083984375,
+    "max": 0.526153564453125
+  },
+  "sqrt_grid_fit_count": 5626,
+  "note": "sqrt grid is an observed numeric pattern, not proof of the processing history.",
+  "selected_patch": {
+    "path": "test/4608_3584_y0_x256.mat",
+    "split": "train",
+    "shape": "256x256",
+    "dtype": "float32",
+    "finite": true,
+    "unique_values": 213,
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "mean": 0.5965437889099121,
+    "std": 0.2272341400384903,
+    "zero_fraction": 0.0145111083984375,
+    "one_fraction": 0.0917816162109375,
+    "sqrt_grid_n": 212,
+    "sqrt_grid_max_error": 2.841220424443236e-05,
+    "sqrt_grid_fit": true
+  },
+  "selected_export_comparisons": [
+    {
+      "path": "test_results/real_sar/TransSARV2_DualFreqNG_Bottle/texture/05_45_texture_4608_3584_y0_x256_noisy.png",
+      "shape": [
+        256,
+        256
+      ],
+      "exactly_round_raw_times_255": true,
+      "unique_values": 179,
+      "max_absolute_error_unit": 0.0019607843137254832
+    },
+    {
+      "path": "test_results/real_sar/TransSARV2_DualFreqNG_Bottle_AMS/texture/05_45_texture_4608_3584_y0_x256_noisy.png",
+      "shape": [
+        256,
+        256
+      ],
+      "exactly_round_raw_times_255": true,
+      "unique_values": 179,
+      "max_absolute_error_unit": 0.0019607843137254832
+    }
+  ],
+  "existing_example_image_sizes": {
+    "02_42_texture_4096_6656_y0_x0_TransSARV2_DualFreqNG_Bottle_AMS_triplet_labeled.png": [
+      788,
+      288
+    ],
+    "05_45_texture_4608_3584_y0_x256_TransSARV2_DualFreqNG_Bottle_AMS_triplet_labeled.png": [
+      788,
+      288
+    ],
+    "05_45_texture_4608_3584_y0_x256_triplet.png": [
+      792,
+      312
+    ],
+    "05_45_texture_4608_3584_y0_x256_triplet_labeled.png": [
+      788,
+      288
+    ],
+    "three_types_noisy.png": [
+      2958,
+      1021
+    ]
+  },
+  "elapsed_seconds": 92.5
+}

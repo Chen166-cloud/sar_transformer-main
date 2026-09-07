@@ -1,0 +1,454 @@
+{
+  "paper_pdf_sha256": "2bf8a942890d62db6605ef8f72254cfc691e1cfd7f12059828fbe1d8fc6726e0",
+  "tex_sha256": "4b9b57fca918f7fc1a09a34cf75c4ca3fe0342da2a23c432f08d3640e24ba5c7",
+  "page_count": 8,
+  "figures": [
+    {
+      "number": 1,
+      "file": "fig1_overall_architecture.pdf",
+      "sha256": "d8ad07bbff7614dde3c6f8848e8244c2226ef3d890d19447b6cf4de224f89748",
+      "matches_delivered_original": true,
+      "width_mm": 181.3532586135247,
+      "height_mm": 152.39999999999998
+    },
+    {
+      "number": 2,
+      "file": "fig2_fdr_block.pdf",
+      "sha256": "3ce738ad1e5e40be05bc2e858dc37fdcf7d45a287330f12144408b5c7a7e46f0",
+      "matches_delivered_original": true,
+      "width_mm": 88.56787048568388,
+      "height_mm": 145.34444444444443
+    },
+    {
+      "number": 3,
+      "file": "fig3_representation_ams.pdf",
+      "sha256": "9f78dfeaae4d1711ed4a65072e8e38777db30d31e494d5f5d1dad6309a524112",
+      "matches_delivered_original": true,
+      "width_mm": 88.56787048568388,
+      "height_mm": 182.03333333333333
+    },
+    {
+      "number": 4,
+      "file": "fig4_buildings.pdf",
+      "sha256": "0eacf52f32f29e9eef374268aad5eb7018c639b4a33d58c133da9b1ef8a5e473",
+      "matches_delivered_original": true,
+      "width_mm": 181.3532483333333,
+      "height_mm": 101.89495749999999
+    },
+    {
+      "number": 5,
+      "file": "fig5_real_sar.pdf",
+      "sha256": "45535d2dd3ebc68fcfb51293770898a6eea6ae3aa77116eaa7be0481da00e104",
+      "matches_delivered_original": true,
+      "width_mm": 181.3532483333333,
+      "height_mm": 101.89495749999999
+    }
+  ],
+  "labels": {
+    "fig:overview": {
+      "number": "1",
+      "page": 2
+    },
+    "eq:observation": {
+      "number": "1",
+      "page": 2
+    },
+    "eq:log": {
+      "number": "2",
+      "page": 2
+    },
+    "eq:inverse": {
+      "number": "3",
+      "page": 2
+    },
+    "eq:fft": {
+      "number": "4",
+      "page": 3
+    },
+    "eq:fdr": {
+      "number": "5",
+      "page": 3
+    },
+    "fig:fdr": {
+      "number": "2",
+      "page": 3
+    },
+    "eq:compensation": {
+      "number": "6",
+      "page": 3
+    },
+    "eq:supervised": {
+      "number": "7",
+      "page": 4
+    },
+    "eq:ams": {
+      "number": "8",
+      "page": 4
+    },
+    "fig:representation_ams": {
+      "number": "3",
+      "page": 4
+    },
+    "tab:main": {
+      "number": "I",
+      "page": 5
+    },
+    "tab:ablation": {
+      "number": "II",
+      "page": 5
+    },
+    "fig:synthetic_qual": {
+      "number": "4",
+      "page": 6
+    },
+    "tab:real": {
+      "number": "III",
+      "page": 6
+    },
+    "fig:real_qual": {
+      "number": "5",
+      "page": 7
+    }
+  },
+  "pages": [
+    {
+      "page": 1,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 4772,
+      "bounds_pt": [
+        48.96,
+        52.24,
+        563.05,
+        718.44
+      ]
+    },
+    {
+      "page": 2,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 2261,
+      "bounds_pt": [
+        48.96,
+        56.08,
+        563.05,
+        721.51
+      ]
+    },
+    {
+      "page": 3,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 3642,
+      "bounds_pt": [
+        48.96,
+        50.82,
+        563.04,
+        718.44
+      ]
+    },
+    {
+      "page": 4,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 3607,
+      "bounds_pt": [
+        48.96,
+        50.94,
+        563.05,
+        718.44
+      ]
+    },
+    {
+      "page": 5,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 4437,
+      "bounds_pt": [
+        48.96,
+        52.5,
+        563.05,
+        718.44
+      ]
+    },
+    {
+      "page": 6,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 2593,
+      "bounds_pt": [
+        48.96,
+        179.59,
+        563.05,
+        718.44
+      ]
+    },
+    {
+      "page": 7,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 3414,
+      "bounds_pt": [
+        48.96,
+        179.59,
+        563.05,
+        718.44
+      ]
+    },
+    {
+      "page": 8,
+      "width_pt": 612,
+      "height_pt": 792,
+      "character_count": 2433,
+      "bounds_pt": [
+        48.96,
+        52.5,
+        563.04,
+        266.7
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "name": "/IHAIZV+NimbusRomNo9L-Regu",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/BZIVMZ+NimbusRomNo9L-MediItal",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/IXFAWU+NimbusRomNo9L-Medi",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/TQTHRL+NimbusRomNo9L-ReguItal",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/YEUUOC+CMMI8",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/AKHCZK+CMSY8",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/VDVGTR+CMR8",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/CAFSZL+CMMIB10",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/DDIEWW+CMMI10",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/FKPJSN+CMR10",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/PVTTLK+CMSY10",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/JAGKKY+CMMI7",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/NOMARO+CMSY7",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/KPXLOM+CMR7",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/UTACNV+MSBM10",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/FZDNHS+CMEX10",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/ELUGPM+ArialMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/ELUGPM+Arial-BoldMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/DTWKUJ+Arial-ItalicMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/CGMMQU+Cmex10",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/CGMMQU+Cmsy10",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/ELUGPM+ArialMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/ELUGPM+Arial-BoldMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/DTWKUJ+Arial-ItalicMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/DZGKAF+NimbusMonL-Regu",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/GJMHKB+CMBX8",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/NITCSQ+CMMI6",
+      "subtype": "/Type1",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/ELUGPM+ArialMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/ELUGPM+Arial-BoldMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/DTWKUJ+Arial-ItalicMT",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/CZRBLR+STIXGeneral-Regular",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/GYKUUQ+STIXSizeTwoSym-Regular",
+      "subtype": "/Type0",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/Helvetica",
+      "subtype": "/Type1",
+      "embedded": false,
+      "used_for_visible_text": false
+    },
+    {
+      "name": "/AAAAAA+ArialMT",
+      "subtype": "/TrueType",
+      "embedded": true,
+      "used_for_visible_text": true
+    },
+    {
+      "name": "/Helvetica",
+      "subtype": "/Type1",
+      "embedded": false,
+      "used_for_visible_text": false
+    },
+    {
+      "name": "/AAAAAA+ArialMT",
+      "subtype": "/TrueType",
+      "embedded": true,
+      "used_for_visible_text": true
+    }
+  ],
+  "all_fonts_embedded": false,
+  "all_rendered_fonts_embedded": true,
+  "unused_unembedded_font_resources": [
+    {
+      "name": "/Helvetica",
+      "subtype": "/Type1",
+      "embedded": false,
+      "used_for_visible_text": false
+    },
+    {
+      "name": "/Helvetica",
+      "subtype": "/Type1",
+      "embedded": false,
+      "used_for_visible_text": false
+    }
+  ],
+  "text_outside_page": [],
+  "underfull_warnings": [
+    "Underfull \\hbox (badness 1430) in paragraph at lines 288--289"
+  ],
+  "serious_warnings": [],
+  "placeholder_count": 0,
+  "bibliography_column_bottom_difference_pt": 8.97,
+  "unchanged_content_outside_fig123_and_formatting": true,
+  "manual_review": "See LAYOUT_CHECK.md for full-page visual review and warning interpretation."
+}

@@ -1,0 +1,40 @@
+{
+  "figure": "Fig. 2",
+  "width_mm": 88.56787048567871,
+  "height_mm": 145.34444444444443,
+  "width_tex_pt": 252,
+  "width_pdf_pt": 251.0585305105853,
+  "minimum_base_font_pt": 8,
+  "font": "Arial",
+  "font_file": "C:\\Windows\\Fonts\\arial.ttf",
+  "dpi": 600,
+  "matplotlib": "3.8.4",
+  "line_width_pt": {
+    "module": 0.75,
+    "arrow": 0.85
+  },
+  "text_overflows": [],
+  "svg_grouped_modules": [
+    "spatial-dwconv",
+    "spatial-pointwise",
+    "spatial-gelu",
+    "rfft",
+    "real-imag-concat",
+    "frequency-mixing",
+    "complex-reconstruction",
+    "irfft",
+    "spatial-spectral-concat",
+    "output-projection"
+  ],
+  "shape_notation": "H x W x C; batch omitted",
+  "data": "Architecture only; no experimental image or metric is plotted.",
+  "source_sha256": {
+    "transform_main.py": "9405bb05d68405848c9966f4b093ea078208ad70856d3583672c70a3aa7c82fb",
+    "model_registry.py": "7f32fdd81f06c148d357eadb684d3f4a3dcd8e81b733efd376a2d2a3a708f38a",
+    "ablation_config.py": "c51fa89433d4f9f12e440fa1915fee041c38fbe51accd89d1d793a4a7fbc3e29",
+    "configs/icsps2026_frozen_v2.json": "75177763e514ba7e25958c8ab6a041ab4d235cddbdc9a37f61347d5e9a8ad423",
+    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex": "c8aebb8fa1c0f6d0b404a3207c104837597e19a74435fa15090a163f7a0ec243",
+    "docs/ICSPS2026_LaTeX/IEEEtran.cls": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+    "output/pdf/ICSPS2026_英文论文_LaTeX无图初稿.pdf": "4bedf87c9be71937b133309d14a4478f1da609018af6a7bdbe9dc1bd83635c39"
+  }
+}

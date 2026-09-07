@@ -1,0 +1,3856 @@
+{
+  "purpose": "Fig. 2 structural verification only; random weights and synthetic inputs; not an experiment or restoration result.",
+  "checkpoint_loaded": false,
+  "training_performed": false,
+  "model_source_modified": false,
+  "device": "cpu",
+  "inference_mode": true,
+  "entry_point": "model_registry.build_model(\"ours\", variant=\"full\", numeric_domain=\"intensity_v1\")",
+  "model_class": "TransSARV2_DualFreqNG_Bottle",
+  "registry_metadata": {
+    "registry_schema_version": 1,
+    "method": "ours",
+    "class_name": "TransSARV2_DualFreqNG_Bottle",
+    "variant": "full"
+  },
+  "variant_config": {
+    "representation": "log",
+    "compensation": true,
+    "msf": true,
+    "decoder_fdr": true,
+    "gate": true,
+    "bottleneck_local": true,
+    "bottleneck_fdr": true
+  },
+  "seed_for_structure_check_only": 2026,
+  "python_version": "3.12.3",
+  "package_versions": {
+    "torch": "2.9.1",
+    "torchvision": "0.24.1",
+    "timm": "1.0.22",
+    "numpy": "1.26.4"
+  },
+  "threads": 4,
+  "model_inference_count": 1,
+  "model_input": {
+    "shape": [
+      1,
+      1,
+      256,
+      256
+    ],
+    "dtype": "torch.float32",
+    "finite": true
+  },
+  "model_output": {
+    "shape": [
+      1,
+      1,
+      256,
+      256
+    ],
+    "dtype": "torch.float32",
+    "finite": true
+  },
+  "model_forward_seconds_this_machine": 0.2656468000022869,
+  "fft_api": "torch.fft.rfft2 / torch.fft.irfft2",
+  "fft_norm": "ortho",
+  "retained_frequency_bins": "all bins returned by rfft2; no mask, truncation, or fftshift in FFTRefineBlock.forward",
+  "spectral_width_formula": "W_f = floor(W / 2) + 1",
+  "tolerance": {
+    "rtol": 1e-05,
+    "atol": 1e-06
+  },
+  "sources_sha256": {
+    "transform_main.py": "9405bb05d68405848c9966f4b093ea078208ad70856d3583672c70a3aa7c82fb",
+    "model_registry.py": "7f32fdd81f06c148d357eadb684d3f4a3dcd8e81b733efd376a2d2a3a708f38a",
+    "ablation_config.py": "c51fa89433d4f9f12e440fa1915fee041c38fbe51accd89d1d793a4a7fbc3e29",
+    "numeric_domain.py": "d250a6c6b95058e3d8bf711514bebe8a254f7bdd2b3261ae1cb78241a0f170ee"
+  },
+  "cases": [
+    {
+      "module": "log_branch.bottleneck_refine.freq",
+      "is_registered_model_instance": true,
+      "class": "FFTRefineBlock",
+      "input": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "rfft2_output": {
+        "shape": [
+          1,
+          512,
+          8,
+          5
+        ],
+        "dtype": "torch.complex64",
+        "finite": true
+      },
+      "packed_real_imag": {
+        "shape": [
+          1,
+          1024,
+          8,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "frequency_mlp_output": {
+        "shape": [
+          1,
+          1024,
+          8,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_real": {
+        "shape": [
+          1,
+          512,
+          8,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_imag": {
+        "shape": [
+          1,
+          512,
+          8,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "irfft2_output": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "spatial_output": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fusion_input": {
+        "shape": [
+          1,
+          1024,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fused_residual": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "output": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "reconstruction_max_abs_error": 0.0,
+      "observed_module_io": {
+        "spatial.0": {
+          "input": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.1": {
+          "input": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.2": {
+          "input": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial": {
+          "input": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.0": {
+          "input": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.1": {
+          "input": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.2": {
+          "input": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq": {
+          "input": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              1024,
+              8,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.0": {
+          "input": {
+            "shape": [
+              1,
+              1024,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.1": {
+          "input": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.2": {
+          "input": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse": {
+          "input": {
+            "shape": [
+              1,
+              1024,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "block": {
+          "input": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        }
+      },
+      "convolution_specs": {
+        "spatial.0": {
+          "in_channels": 512,
+          "out_channels": 512,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 512,
+          "bias": true
+        },
+        "spatial.1": {
+          "in_channels": 512,
+          "out_channels": 512,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.0": {
+          "in_channels": 1024,
+          "out_channels": 1024,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.2": {
+          "in_channels": 1024,
+          "out_channels": 1024,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.0": {
+          "in_channels": 1024,
+          "out_channels": 512,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.2": {
+          "in_channels": 512,
+          "out_channels": 512,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": true
+        }
+      },
+      "checks": {
+        "actual_block_executed_once": true,
+        "actual_input_expected_shape": true,
+        "actual_output_same_shape": true,
+        "actual_output_finite": true,
+        "real_fft_half_spectrum_shape": true,
+        "frequency_packed_2C_shape": true,
+        "actual_frequency_input_is_full_real_imag_concat": true,
+        "frequency_mlp_preserves_packed_shape": true,
+        "actual_frequency_output_matches_reconstruction": true,
+        "split_real_and_imag_have_C_channels": true,
+        "explicit_irfft_restores_original_HW": true,
+        "spatial_branch_matches_reconstruction": true,
+        "fuse_input_is_spatial_then_inverse_fft_concat": true,
+        "fuse_input_has_2C_channels_at_original_HW": true,
+        "fuse_output_has_C_channels_at_original_HW": true,
+        "actual_fuse_residual_matches_reconstruction": true,
+        "actual_output_equals_input_plus_fuse_output": true,
+        "actual_output_matches_independent_reconstruction": true,
+        "spatial_is_depthwise3x3_then_pointwise1x1_then_GELU": true,
+        "freq_is_pointwise1x1_then_GELU_then_pointwise1x1": true,
+        "fuse_is_pointwise1x1_then_GELU_then_conv3x3": true,
+        "no_activation_after_residual_sum": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "module": "log_branch.convproj.freq4",
+      "is_registered_model_instance": true,
+      "class": "FFTRefineBlock",
+      "input": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "rfft2_output": {
+        "shape": [
+          1,
+          320,
+          16,
+          9
+        ],
+        "dtype": "torch.complex64",
+        "finite": true
+      },
+      "packed_real_imag": {
+        "shape": [
+          1,
+          640,
+          16,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "frequency_mlp_output": {
+        "shape": [
+          1,
+          640,
+          16,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_real": {
+        "shape": [
+          1,
+          320,
+          16,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_imag": {
+        "shape": [
+          1,
+          320,
+          16,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "irfft2_output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "spatial_output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fusion_input": {
+        "shape": [
+          1,
+          640,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fused_residual": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "reconstruction_max_abs_error": 0.0,
+      "observed_module_io": {
+        "spatial.0": {
+          "input": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.1": {
+          "input": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.2": {
+          "input": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial": {
+          "input": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.0": {
+          "input": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.1": {
+          "input": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.2": {
+          "input": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq": {
+          "input": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              640,
+              16,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.0": {
+          "input": {
+            "shape": [
+              1,
+              640,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.1": {
+          "input": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.2": {
+          "input": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse": {
+          "input": {
+            "shape": [
+              1,
+              640,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "block": {
+          "input": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        }
+      },
+      "convolution_specs": {
+        "spatial.0": {
+          "in_channels": 320,
+          "out_channels": 320,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 320,
+          "bias": true
+        },
+        "spatial.1": {
+          "in_channels": 320,
+          "out_channels": 320,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.0": {
+          "in_channels": 640,
+          "out_channels": 640,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.2": {
+          "in_channels": 640,
+          "out_channels": 640,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.0": {
+          "in_channels": 640,
+          "out_channels": 320,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.2": {
+          "in_channels": 320,
+          "out_channels": 320,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": true
+        }
+      },
+      "checks": {
+        "actual_block_executed_once": true,
+        "actual_input_expected_shape": true,
+        "actual_output_same_shape": true,
+        "actual_output_finite": true,
+        "real_fft_half_spectrum_shape": true,
+        "frequency_packed_2C_shape": true,
+        "actual_frequency_input_is_full_real_imag_concat": true,
+        "frequency_mlp_preserves_packed_shape": true,
+        "actual_frequency_output_matches_reconstruction": true,
+        "split_real_and_imag_have_C_channels": true,
+        "explicit_irfft_restores_original_HW": true,
+        "spatial_branch_matches_reconstruction": true,
+        "fuse_input_is_spatial_then_inverse_fft_concat": true,
+        "fuse_input_has_2C_channels_at_original_HW": true,
+        "fuse_output_has_C_channels_at_original_HW": true,
+        "actual_fuse_residual_matches_reconstruction": true,
+        "actual_output_equals_input_plus_fuse_output": true,
+        "actual_output_matches_independent_reconstruction": true,
+        "spatial_is_depthwise3x3_then_pointwise1x1_then_GELU": true,
+        "freq_is_pointwise1x1_then_GELU_then_pointwise1x1": true,
+        "fuse_is_pointwise1x1_then_GELU_then_conv3x3": true,
+        "no_activation_after_residual_sum": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "module": "log_branch.convproj.freq3",
+      "is_registered_model_instance": true,
+      "class": "FFTRefineBlock",
+      "input": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "rfft2_output": {
+        "shape": [
+          1,
+          128,
+          32,
+          17
+        ],
+        "dtype": "torch.complex64",
+        "finite": true
+      },
+      "packed_real_imag": {
+        "shape": [
+          1,
+          256,
+          32,
+          17
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "frequency_mlp_output": {
+        "shape": [
+          1,
+          256,
+          32,
+          17
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_real": {
+        "shape": [
+          1,
+          128,
+          32,
+          17
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_imag": {
+        "shape": [
+          1,
+          128,
+          32,
+          17
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "irfft2_output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "spatial_output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fusion_input": {
+        "shape": [
+          1,
+          256,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fused_residual": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "reconstruction_max_abs_error": 0.0,
+      "observed_module_io": {
+        "spatial.0": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.1": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.2": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.0": {
+          "input": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.1": {
+          "input": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.2": {
+          "input": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq": {
+          "input": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              256,
+              32,
+              17
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.0": {
+          "input": {
+            "shape": [
+              1,
+              256,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.1": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.2": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse": {
+          "input": {
+            "shape": [
+              1,
+              256,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "block": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        }
+      },
+      "convolution_specs": {
+        "spatial.0": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 128,
+          "bias": true
+        },
+        "spatial.1": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.0": {
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.2": {
+          "in_channels": 256,
+          "out_channels": 256,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.0": {
+          "in_channels": 256,
+          "out_channels": 128,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.2": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": true
+        }
+      },
+      "checks": {
+        "actual_block_executed_once": true,
+        "actual_input_expected_shape": true,
+        "actual_output_same_shape": true,
+        "actual_output_finite": true,
+        "real_fft_half_spectrum_shape": true,
+        "frequency_packed_2C_shape": true,
+        "actual_frequency_input_is_full_real_imag_concat": true,
+        "frequency_mlp_preserves_packed_shape": true,
+        "actual_frequency_output_matches_reconstruction": true,
+        "split_real_and_imag_have_C_channels": true,
+        "explicit_irfft_restores_original_HW": true,
+        "spatial_branch_matches_reconstruction": true,
+        "fuse_input_is_spatial_then_inverse_fft_concat": true,
+        "fuse_input_has_2C_channels_at_original_HW": true,
+        "fuse_output_has_C_channels_at_original_HW": true,
+        "actual_fuse_residual_matches_reconstruction": true,
+        "actual_output_equals_input_plus_fuse_output": true,
+        "actual_output_matches_independent_reconstruction": true,
+        "spatial_is_depthwise3x3_then_pointwise1x1_then_GELU": true,
+        "freq_is_pointwise1x1_then_GELU_then_pointwise1x1": true,
+        "fuse_is_pointwise1x1_then_GELU_then_conv3x3": true,
+        "no_activation_after_residual_sum": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "module": "log_branch.convproj.freq2",
+      "is_registered_model_instance": true,
+      "class": "FFTRefineBlock",
+      "input": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "rfft2_output": {
+        "shape": [
+          1,
+          64,
+          64,
+          33
+        ],
+        "dtype": "torch.complex64",
+        "finite": true
+      },
+      "packed_real_imag": {
+        "shape": [
+          1,
+          128,
+          64,
+          33
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "frequency_mlp_output": {
+        "shape": [
+          1,
+          128,
+          64,
+          33
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_real": {
+        "shape": [
+          1,
+          64,
+          64,
+          33
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_imag": {
+        "shape": [
+          1,
+          64,
+          64,
+          33
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "irfft2_output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "spatial_output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fusion_input": {
+        "shape": [
+          1,
+          128,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fused_residual": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "reconstruction_max_abs_error": 0.0,
+      "observed_module_io": {
+        "spatial.0": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.1": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.2": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.0": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.1": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.2": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              128,
+              64,
+              33
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.0": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.1": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.2": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse": {
+          "input": {
+            "shape": [
+              1,
+              128,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "block": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        }
+      },
+      "convolution_specs": {
+        "spatial.0": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 64,
+          "bias": true
+        },
+        "spatial.1": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.0": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.2": {
+          "in_channels": 128,
+          "out_channels": 128,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.0": {
+          "in_channels": 128,
+          "out_channels": 64,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.2": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": true
+        }
+      },
+      "checks": {
+        "actual_block_executed_once": true,
+        "actual_input_expected_shape": true,
+        "actual_output_same_shape": true,
+        "actual_output_finite": true,
+        "real_fft_half_spectrum_shape": true,
+        "frequency_packed_2C_shape": true,
+        "actual_frequency_input_is_full_real_imag_concat": true,
+        "frequency_mlp_preserves_packed_shape": true,
+        "actual_frequency_output_matches_reconstruction": true,
+        "split_real_and_imag_have_C_channels": true,
+        "explicit_irfft_restores_original_HW": true,
+        "spatial_branch_matches_reconstruction": true,
+        "fuse_input_is_spatial_then_inverse_fft_concat": true,
+        "fuse_input_has_2C_channels_at_original_HW": true,
+        "fuse_output_has_C_channels_at_original_HW": true,
+        "actual_fuse_residual_matches_reconstruction": true,
+        "actual_output_equals_input_plus_fuse_output": true,
+        "actual_output_matches_independent_reconstruction": true,
+        "spatial_is_depthwise3x3_then_pointwise1x1_then_GELU": true,
+        "freq_is_pointwise1x1_then_GELU_then_pointwise1x1": true,
+        "fuse_is_pointwise1x1_then_GELU_then_conv3x3": true,
+        "no_activation_after_residual_sum": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "module": "log_branch.convproj.freq1",
+      "is_registered_model_instance": true,
+      "class": "FFTRefineBlock",
+      "input": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "rfft2_output": {
+        "shape": [
+          1,
+          32,
+          128,
+          65
+        ],
+        "dtype": "torch.complex64",
+        "finite": true
+      },
+      "packed_real_imag": {
+        "shape": [
+          1,
+          64,
+          128,
+          65
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "frequency_mlp_output": {
+        "shape": [
+          1,
+          64,
+          128,
+          65
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_real": {
+        "shape": [
+          1,
+          32,
+          128,
+          65
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_imag": {
+        "shape": [
+          1,
+          32,
+          128,
+          65
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "irfft2_output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "spatial_output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fusion_input": {
+        "shape": [
+          1,
+          64,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fused_residual": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "reconstruction_max_abs_error": 0.0,
+      "observed_module_io": {
+        "spatial.0": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.1": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.2": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.0": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.1": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.2": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              64,
+              128,
+              65
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.0": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.1": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.2": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse": {
+          "input": {
+            "shape": [
+              1,
+              64,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "block": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        }
+      },
+      "convolution_specs": {
+        "spatial.0": {
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 32,
+          "bias": true
+        },
+        "spatial.1": {
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.0": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.2": {
+          "in_channels": 64,
+          "out_channels": 64,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.0": {
+          "in_channels": 64,
+          "out_channels": 32,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.2": {
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": true
+        }
+      },
+      "checks": {
+        "actual_block_executed_once": true,
+        "actual_input_expected_shape": true,
+        "actual_output_same_shape": true,
+        "actual_output_finite": true,
+        "real_fft_half_spectrum_shape": true,
+        "frequency_packed_2C_shape": true,
+        "actual_frequency_input_is_full_real_imag_concat": true,
+        "frequency_mlp_preserves_packed_shape": true,
+        "actual_frequency_output_matches_reconstruction": true,
+        "split_real_and_imag_have_C_channels": true,
+        "explicit_irfft_restores_original_HW": true,
+        "spatial_branch_matches_reconstruction": true,
+        "fuse_input_is_spatial_then_inverse_fft_concat": true,
+        "fuse_input_has_2C_channels_at_original_HW": true,
+        "fuse_output_has_C_channels_at_original_HW": true,
+        "actual_fuse_residual_matches_reconstruction": true,
+        "actual_output_equals_input_plus_fuse_output": true,
+        "actual_output_matches_independent_reconstruction": true,
+        "spatial_is_depthwise3x3_then_pointwise1x1_then_GELU": true,
+        "freq_is_pointwise1x1_then_GELU_then_pointwise1x1": true,
+        "fuse_is_pointwise1x1_then_GELU_then_conv3x3": true,
+        "no_activation_after_residual_sum": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "module": "log_branch.convproj.freq0",
+      "is_registered_model_instance": true,
+      "class": "FFTRefineBlock",
+      "input": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "rfft2_output": {
+        "shape": [
+          1,
+          16,
+          256,
+          129
+        ],
+        "dtype": "torch.complex64",
+        "finite": true
+      },
+      "packed_real_imag": {
+        "shape": [
+          1,
+          32,
+          256,
+          129
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "frequency_mlp_output": {
+        "shape": [
+          1,
+          32,
+          256,
+          129
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_real": {
+        "shape": [
+          1,
+          16,
+          256,
+          129
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_imag": {
+        "shape": [
+          1,
+          16,
+          256,
+          129
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "irfft2_output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "spatial_output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fusion_input": {
+        "shape": [
+          1,
+          32,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fused_residual": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "reconstruction_max_abs_error": 0.0,
+      "observed_module_io": {
+        "spatial.0": {
+          "input": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.1": {
+          "input": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.2": {
+          "input": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial": {
+          "input": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.0": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.1": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.2": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              32,
+              256,
+              129
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.0": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.1": {
+          "input": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.2": {
+          "input": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse": {
+          "input": {
+            "shape": [
+              1,
+              32,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "block": {
+          "input": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              16,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        }
+      },
+      "convolution_specs": {
+        "spatial.0": {
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 16,
+          "bias": true
+        },
+        "spatial.1": {
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.0": {
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.2": {
+          "in_channels": 32,
+          "out_channels": 32,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.0": {
+          "in_channels": 32,
+          "out_channels": 16,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.2": {
+          "in_channels": 16,
+          "out_channels": 16,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": true
+        }
+      },
+      "checks": {
+        "actual_block_executed_once": true,
+        "actual_input_expected_shape": true,
+        "actual_output_same_shape": true,
+        "actual_output_finite": true,
+        "real_fft_half_spectrum_shape": true,
+        "frequency_packed_2C_shape": true,
+        "actual_frequency_input_is_full_real_imag_concat": true,
+        "frequency_mlp_preserves_packed_shape": true,
+        "actual_frequency_output_matches_reconstruction": true,
+        "split_real_and_imag_have_C_channels": true,
+        "explicit_irfft_restores_original_HW": true,
+        "spatial_branch_matches_reconstruction": true,
+        "fuse_input_is_spatial_then_inverse_fft_concat": true,
+        "fuse_input_has_2C_channels_at_original_HW": true,
+        "fuse_output_has_C_channels_at_original_HW": true,
+        "actual_fuse_residual_matches_reconstruction": true,
+        "actual_output_equals_input_plus_fuse_output": true,
+        "actual_output_matches_independent_reconstruction": true,
+        "spatial_is_depthwise3x3_then_pointwise1x1_then_GELU": true,
+        "freq_is_pointwise1x1_then_GELU_then_pointwise1x1": true,
+        "fuse_is_pointwise1x1_then_GELU_then_conv3x3": true,
+        "no_activation_after_residual_sum": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "module": "diagnostic_odd_width_only",
+      "is_registered_model_instance": false,
+      "class": "FFTRefineBlock",
+      "input": {
+        "shape": [
+          1,
+          4,
+          7,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "rfft2_output": {
+        "shape": [
+          1,
+          4,
+          7,
+          5
+        ],
+        "dtype": "torch.complex64",
+        "finite": true
+      },
+      "packed_real_imag": {
+        "shape": [
+          1,
+          8,
+          7,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "frequency_mlp_output": {
+        "shape": [
+          1,
+          8,
+          7,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_real": {
+        "shape": [
+          1,
+          4,
+          7,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "split_imag": {
+        "shape": [
+          1,
+          4,
+          7,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "irfft2_output": {
+        "shape": [
+          1,
+          4,
+          7,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "spatial_output": {
+        "shape": [
+          1,
+          4,
+          7,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fusion_input": {
+        "shape": [
+          1,
+          8,
+          7,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "fused_residual": {
+        "shape": [
+          1,
+          4,
+          7,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "output": {
+        "shape": [
+          1,
+          4,
+          7,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "reconstruction_max_abs_error": 0.0,
+      "observed_module_io": {
+        "spatial.0": {
+          "input": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.1": {
+          "input": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial.2": {
+          "input": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "spatial": {
+          "input": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.0": {
+          "input": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.1": {
+          "input": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq.2": {
+          "input": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "freq": {
+          "input": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              8,
+              7,
+              5
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.0": {
+          "input": {
+            "shape": [
+              1,
+              8,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.1": {
+          "input": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse.2": {
+          "input": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "fuse": {
+          "input": {
+            "shape": [
+              1,
+              8,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        },
+        "block": {
+          "input": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          },
+          "output": {
+            "shape": [
+              1,
+              4,
+              7,
+              9
+            ],
+            "dtype": "torch.float32",
+            "finite": true
+          }
+        }
+      },
+      "convolution_specs": {
+        "spatial.0": {
+          "in_channels": 4,
+          "out_channels": 4,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 4,
+          "bias": true
+        },
+        "spatial.1": {
+          "in_channels": 4,
+          "out_channels": 4,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.0": {
+          "in_channels": 8,
+          "out_channels": 8,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "freq.2": {
+          "in_channels": 8,
+          "out_channels": 8,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.0": {
+          "in_channels": 8,
+          "out_channels": 4,
+          "kernel_size": [
+            1,
+            1
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            0,
+            0
+          ],
+          "groups": 1,
+          "bias": true
+        },
+        "fuse.2": {
+          "in_channels": 4,
+          "out_channels": 4,
+          "kernel_size": [
+            3,
+            3
+          ],
+          "stride": [
+            1,
+            1
+          ],
+          "padding": [
+            1,
+            1
+          ],
+          "groups": 1,
+          "bias": true
+        }
+      },
+      "checks": {
+        "actual_block_executed_once": true,
+        "actual_input_expected_shape": true,
+        "actual_output_same_shape": true,
+        "actual_output_finite": true,
+        "real_fft_half_spectrum_shape": true,
+        "frequency_packed_2C_shape": true,
+        "actual_frequency_input_is_full_real_imag_concat": true,
+        "frequency_mlp_preserves_packed_shape": true,
+        "actual_frequency_output_matches_reconstruction": true,
+        "split_real_and_imag_have_C_channels": true,
+        "explicit_irfft_restores_original_HW": true,
+        "spatial_branch_matches_reconstruction": true,
+        "fuse_input_is_spatial_then_inverse_fft_concat": true,
+        "fuse_input_has_2C_channels_at_original_HW": true,
+        "fuse_output_has_C_channels_at_original_HW": true,
+        "actual_fuse_residual_matches_reconstruction": true,
+        "actual_output_equals_input_plus_fuse_output": true,
+        "actual_output_matches_independent_reconstruction": true,
+        "spatial_is_depthwise3x3_then_pointwise1x1_then_GELU": true,
+        "freq_is_pointwise1x1_then_GELU_then_pointwise1x1": true,
+        "fuse_is_pointwise1x1_then_GELU_then_conv3x3": true,
+        "no_activation_after_residual_sum": true,
+        "odd_width_requires_explicit_size_to_recover_original_width": true
+      },
+      "irfft2_without_explicit_size_shape": [
+        1,
+        4,
+        7,
+        8
+      ],
+      "all_checks_passed": true
+    }
+  ],
+  "registered_FDR_instance_count": 6,
+  "diagnostic_case_count": 1,
+  "check_count": 155,
+  "all_checks_passed": true
+}

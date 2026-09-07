@@ -1,0 +1,43 @@
+{
+  "pdf_width_pt": 514.0722291407,
+  "pdf_height_pt": 432.0,
+  "pdf_raster_image_count": 0,
+  "embedded_fonts": [
+    {
+      "name": "/ELUGPM+ArialMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/ELUGPM+Arial-BoldMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/DTWKUJ+Arial-ItalicMT",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/CGMMQU+Cmex10",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    },
+    {
+      "name": "/CGMMQU+Cmsy10",
+      "embedded": true,
+      "subtype": "/CIDFontType2"
+    }
+  ],
+  "svg_editable_text_elements": 80,
+  "svg_raster_image_count": 0,
+  "proof_page_size_pt": [
+    612,
+    792
+  ],
+  "proof_figure_width_mm": 181.3532586135326,
+  "caption_height_pt": 38.0,
+  "pypdf_version": "6.10.0",
+  "reportlab_version": "4.4.9",
+  "manual_review": "See README.md for the final Poppler-rendered visual inspection record."
+}

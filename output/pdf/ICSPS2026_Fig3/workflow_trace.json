@@ -1,0 +1,786 @@
+{
+  "purpose": "Fig. 3 structural and workflow diagnostics only; random weights and synthetic inputs; not experimental results.",
+  "checkpoint_loaded": false,
+  "dataset_loaded": false,
+  "training_performed": false,
+  "backward_performed": false,
+  "optimizer_created": false,
+  "optimizer_step_performed": false,
+  "model_source_modified": false,
+  "device": "cpu",
+  "inference_mode": true,
+  "entry_point": "model_registry.build_model(\"ours\", variant=\"full\", numeric_domain=\"intensity_v1\")",
+  "model_class": "TransSARV2_DualFreqNG_Bottle",
+  "registry_metadata": {
+    "registry_schema_version": 1,
+    "method": "ours",
+    "class_name": "TransSARV2_DualFreqNG_Bottle",
+    "variant": "full"
+  },
+  "variant_config": {
+    "representation": "log",
+    "compensation": true,
+    "msf": true,
+    "decoder_fdr": true,
+    "gate": true,
+    "bottleneck_local": true,
+    "bottleneck_fdr": true
+  },
+  "synthetic_seed": 2026,
+  "python_version": "3.12.3",
+  "package_versions": {
+    "torch": "2.9.1",
+    "torchvision": "0.24.1",
+    "timm": "1.0.22",
+    "numpy": "1.26.4"
+  },
+  "threads": 4,
+  "model_inference_count": 2,
+  "tolerance": {
+    "rtol": 1e-05,
+    "atol": 1e-06
+  },
+  "sources_sha256": {
+    "transform_main.py": "9405bb05d68405848c9966f4b093ea078208ad70856d3583672c70a3aa7c82fb",
+    "numeric_domain.py": "d250a6c6b95058e3d8bf711514bebe8a254f7bdd2b3261ae1cb78241a0f170ee",
+    "model_registry.py": "7f32fdd81f06c148d357eadb684d3f4a3dcd8e81b733efd376a2d2a3a708f38a",
+    "ablation_config.py": "c51fa89433d4f9f12e440fa1915fee041c38fbe51accd89d1d793a4a7fbc3e29",
+    "train_icsps2026_ams.py": "142da31a3306a50c62fffb814e61a52528451e3caa6ee26830f23b5af45e260d",
+    "evaluate_icsps2026_real.py": "cf8e2bc3782ef90c2f666d9b0b8461af898b84b1baffe384fdfede907b8f7405",
+    "configs/icsps2026_frozen_v2.json": "75177763e514ba7e25958c8ab6a041ab4d235cddbdc9a37f61347d5e9a8ad423"
+  },
+  "AMS_function_extraction": {
+    "stable_seed": {
+      "file": "train_icsps2026_ams.py",
+      "start_line": 61,
+      "end_line": 63,
+      "body_sha256": "021beb002f02e27e15268b0869d033b10a0c5554a1f6063b58762e2f704efb46",
+      "execution": "original unmodified AST node; full module/entry point not imported"
+    },
+    "make_mask": {
+      "file": "train_icsps2026_ams.py",
+      "start_line": 104,
+      "end_line": 107,
+      "body_sha256": "37308f8518d24c733373e04d4a69fac9a9e2f2ec7779684a5a2444f89235814e",
+      "execution": "original unmodified AST node; full module/entry point not imported"
+    },
+    "masked_l1": {
+      "file": "train_icsps2026_ams.py",
+      "start_line": 110,
+      "end_line": 111,
+      "body_sha256": "955f89d022c8ae849daa672a8ed1dcdadad193c6a2cef94cb0f7df14dc0662b0",
+      "execution": "original unmodified AST node; full module/entry point not imported"
+    },
+    "total_variation": {
+      "file": "train_icsps2026_ams.py",
+      "start_line": 114,
+      "end_line": 118,
+      "body_sha256": "ccfa60593be0bd7515ef726c626c425f800837492a54801f61e4dc32ad52f3c9",
+      "execution": "original unmodified AST node; full module/entry point not imported"
+    }
+  },
+  "freeze_execution": {
+    "method": "original AST loop on disposable random model; requires_grad flags only",
+    "line": 307
+  },
+  "source_evidence": {
+    "AMS_training_input_is_zero_masked_before_entire_model": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        460
+      ],
+      "statement": "prediction = model(noisy * (1.0 - mask))",
+      "file": "train_icsps2026_ams.py"
+    },
+    "AMS_validation_input_uses_same_masking_rule": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        185
+      ],
+      "statement": "prediction = model(noisy * (1.0 - mask))",
+      "file": "train_icsps2026_ams.py"
+    },
+    "AMS_training_loss_uses_original_noisy_target_and_whole_prediction_TV": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        461
+      ],
+      "statement": "loss = masked_l1(prediction, noisy, mask) + lambda_tv * total_variation(prediction)",
+      "file": "train_icsps2026_ams.py"
+    },
+    "AMS_validation_uses_same_objective": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        186
+      ],
+      "statement": "loss = masked_l1(prediction, noisy, mask) + lambda_tv * total_variation(prediction)",
+      "file": "train_icsps2026_ams.py"
+    },
+    "training_mask_seed_contains_epoch_and_sample_id": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        458
+      ],
+      "statement": "mask_seed = stable_seed(PROTOCOL_ID, \"ams-train-mask\", args.seed, epoch, sample_id)",
+      "file": "train_icsps2026_ams.py"
+    },
+    "validation_mask_seed_excludes_epoch_and_is_per_sample": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        254
+      ],
+      "statement": "mask_seed = stable_seed(PROTOCOL_ID, \"ams-validation-mask\", args.seed, sample_id)",
+      "file": "train_icsps2026_ams.py"
+    },
+    "training_sets_model_to_train_mode": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        452
+      ],
+      "statement": "model.train()",
+      "file": "train_icsps2026_ams.py"
+    },
+    "training_keeps_Tenc_in_eval_mode": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        453
+      ],
+      "statement": "model.log_branch.Tenc.eval()",
+      "file": "train_icsps2026_ams.py"
+    },
+    "only_encoder_parameters_explicitly_frozen": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        307
+      ],
+      "statement": "for parameter in model.log_branch.Tenc.parameters():\n    parameter.requires_grad = False",
+      "file": "train_icsps2026_ams.py"
+    },
+    "optimizer_selects_only_trainable_parameters": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        310
+      ],
+      "statement": "optimizer = torch.optim.Adam([parameter for parameter in model.parameters() if parameter.requires_grad], lr=learning_rate, weight_decay=weight_decay)",
+      "file": "train_icsps2026_ams.py"
+    },
+    "checkpoint_selection_minimizes_fixed_mask_validation_loss": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        472
+      ],
+      "statement": "is_best = fixed_val_loss < float(best[\"fixed_val_masked_loss\"])",
+      "file": "train_icsps2026_ams.py"
+    },
+    "selection_initially_has_no_adapted_best_epoch": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        388
+      ],
+      "statement": "best = {\"epoch\": None, \"fixed_val_masked_loss\": math.inf}",
+      "file": "train_icsps2026_ams.py"
+    },
+    "adapted_epochs_start_at_one_and_end_at_configured_epoch": {
+      "lines": [
+        443
+      ],
+      "expression": "range(start_epoch + 1, epochs + 1)",
+      "loop_executed": false,
+      "file": "train_icsps2026_ams.py"
+    },
+    "real_evaluation_calls_model_on_unmasked_tensor": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        481
+      ],
+      "statement": "prediction_tensor = model(tensor)",
+      "file": "evaluate_icsps2026_real.py"
+    },
+    "evaluation_tensor_is_directly_made_from_noisy_image": {
+      "expected_occurrences": 1,
+      "actual_occurrences": 1,
+      "lines": [
+        479
+      ],
+      "statement": "tensor = torch.from_numpy(noisy)[None, None].to(device)",
+      "file": "evaluate_icsps2026_real.py"
+    }
+  },
+  "ams_configuration": {
+    "name": "encoder_frozen_masked_post_adaptation",
+    "epochs": 8,
+    "batch_size": 1,
+    "crop_height": 256,
+    "crop_width": 256,
+    "optimizer": {
+      "name": "Adam",
+      "learning_rate": 1e-06,
+      "weight_decay": 1e-05
+    },
+    "mask": {
+      "distribution": "Bernoulli",
+      "ratio": 0.2,
+      "validation_policy": "fixed_seed_or_persisted_binary_mask_per_sample"
+    },
+    "loss": {
+      "reconstruction": "masked_l1_on_masked_pixels",
+      "tv_definition": "mean_total_variation",
+      "lambda_tv": 0.001
+    },
+    "frozen_modules": [
+      "model.log_branch.Tenc"
+    ],
+    "trainable_modules": [
+      "bottleneck",
+      "decoder",
+      "guidance",
+      "head",
+      "compensator"
+    ],
+    "checkpoint_selection": {
+      "selection_metric": "fixed_real_validation_masked_loss",
+      "selection_mode": "min",
+      "candidate_epochs": "adapted_epochs_1_to_8"
+    },
+    "inference_mask": "none"
+  },
+  "parameter_groups_after_source_freeze_loop": {
+    "encoder": {
+      "parameter_tensors": 360,
+      "parameter_scalars": 18412576,
+      "trainable_tensors": 0,
+      "trainable_scalars": 0
+    },
+    "guidance_estimator": {
+      "parameter_tensors": 8,
+      "parameter_scalars": 19105,
+      "trainable_tensors": 8,
+      "trainable_scalars": 19105
+    },
+    "bottleneck": {
+      "parameter_tensors": 21,
+      "parameter_scalars": 8141825,
+      "trainable_tensors": 21,
+      "trainable_scalars": 8141825
+    },
+    "decoder_including_guidance_gates": {
+      "parameter_tensors": 133,
+      "parameter_scalars": 12769053,
+      "trainable_tensors": 133,
+      "trainable_scalars": 12769053
+    },
+    "reconstruction_head": {
+      "parameter_tensors": 2,
+      "parameter_scalars": 73,
+      "trainable_tensors": 2,
+      "trainable_scalars": 73
+    },
+    "intensity_compensator": {
+      "parameter_tensors": 7,
+      "parameter_scalars": 10146,
+      "trainable_tensors": 7,
+      "trainable_scalars": 10146
+    }
+  },
+  "log_inverse_roundtrip_max_abs_error": 1.1920928955078125e-07,
+  "compensator_gamma_initial_value": 0.10000000149011612,
+  "diagnostic_mask_realized_fraction_not_experiment": 0.2025146484375,
+  "diagnostic_loss_values_not_experiment": {
+    "masked_L1": 2.5,
+    "whole_image_TV": 3.0
+  },
+  "check_groups": {
+    "source_static_checks": {
+      "AMS_training_input_is_zero_masked_before_entire_model": true,
+      "AMS_validation_input_uses_same_masking_rule": true,
+      "AMS_training_loss_uses_original_noisy_target_and_whole_prediction_TV": true,
+      "AMS_validation_uses_same_objective": true,
+      "training_mask_seed_contains_epoch_and_sample_id": true,
+      "validation_mask_seed_excludes_epoch_and_is_per_sample": true,
+      "training_sets_model_to_train_mode": true,
+      "training_keeps_Tenc_in_eval_mode": true,
+      "only_encoder_parameters_explicitly_frozen": true,
+      "no_other_requires_grad_assignment_in_AMS_main": true,
+      "optimizer_selects_only_trainable_parameters": true,
+      "checkpoint_selection_minimizes_fixed_mask_validation_loss": true,
+      "selection_initially_has_no_adapted_best_epoch": true,
+      "adapted_epochs_start_at_one_and_end_at_configured_epoch": true,
+      "real_evaluation_calls_model_on_unmasked_tensor": true,
+      "evaluation_tensor_is_directly_made_from_noisy_image": true
+    },
+    "frozen_config_checks": {
+      "eight_adaptation_epochs": true,
+      "AMS_learning_rate_1e_minus_6": true,
+      "AMS_mask_is_Bernoulli_probability_0_2": true,
+      "AMS_TV_weight_1e_minus_3": true,
+      "AMS_batch_one_and_256_square": true,
+      "config_encoder_is_only_frozen_module": true,
+      "config_adapted_checkpoint_candidates_1_to_8": true,
+      "config_inference_has_no_mask": true
+    },
+    "parameter_freeze_checks": {
+      "encoder_parameters_are_all_frozen": true,
+      "every_parameter_outside_encoder_remains_trainable": true,
+      "compensator_gamma_is_trainable": true,
+      "compensator_gamma_initial_value_is_0_1": true,
+      "verification_keeps_entire_model_in_eval_mode": true
+    },
+    "representation_checks": {
+      "formal_domain_is_intensity_v1": true,
+      "formal_full_model_uses_log_representation": true,
+      "log_alpha_is_ten": true,
+      "normalized_log_and_inverse_roundtrip": true,
+      "log_maps_zero_and_one_to_zero_and_one": true,
+      "log_transform_is_monotone_on_normalized_input": true,
+      "transform_clamps_out_of_range_input": true,
+      "branch_reconstruction_activation_is_sigmoid": true
+    },
+    "mask_checks": {
+      "mask_matches_input_shape": true,
+      "mask_is_binary": true,
+      "fixed_validation_seed_reproduces_identical_mask": true,
+      "training_seed_changes_with_epoch": true,
+      "training_mask_changes_with_epoch": true,
+      "masked_positions_are_zero_at_entire_model_input": true,
+      "unmasked_positions_retain_original_noisy_values": true
+    },
+    "loss_checks": {
+      "masked_L1_uses_mask_one_pixels_and_normalizes_by_mask_count": true,
+      "changing_prediction_only_outside_mask_does_not_change_masked_L1": true,
+      "empty_mask_yields_zero_finite_reconstruction_loss": true,
+      "TV_is_sum_of_vertical_and_horizontal_absolute_difference_means": true,
+      "TV_depends_on_pixels_outside_reconstruction_mask": true
+    },
+    "compensator_and_read_only_checks": {
+      "compensator_is_three_3x3_convolutions_with_two_GELUs": true,
+      "compensator_channel_sequence_is_2_32_32_1": true,
+      "compensator_gamma_is_one_shared_scalar": true,
+      "no_parameter_gradients_computed": true,
+      "all_source_files_remain_unchanged": true
+    }
+  },
+  "forward_cases": [
+    {
+      "name": "unmasked_inference",
+      "input": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.0010000000474974513,
+        "max": 0.9990000128746033
+      },
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.16901028156280518,
+        "max": 0.3614254295825958
+      },
+      "observed_module_io": {
+        "log_branch.clean": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                8,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": -1.4451076984405518,
+              "max": 1.7061315774917603
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -0.35133692622184753,
+            "max": 0.5640112161636353
+          }
+        },
+        "log_branch.active": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": -0.35133692622184753,
+              "max": 0.5640112161636353
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": 0.41305822134017944,
+            "max": 0.6373801827430725
+          }
+        },
+        "log_branch": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.004149610176682472,
+              "max": 0.9996206760406494
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": 0.41305822134017944,
+            "max": 0.6373801827430725
+          }
+        },
+        "dual_fusion.fusion": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                2,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.0010000000474974513,
+              "max": 0.9990000128746033
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -0.012336205691099167,
+            "max": 0.030799809843301773
+          }
+        },
+        "dual_fusion": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.0010000000474974513,
+              "max": 0.9990000128746033
+            },
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.16925007104873657,
+              "max": 0.36106598377227783
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": 0.16901028156280518,
+            "max": 0.3614254295825958
+          }
+        }
+      },
+      "checks": {
+        "output_shape_is_B_1_H_W": true,
+        "model_output_is_finite": true,
+        "final_output_in_unit_interval": true,
+        "branch_receives_log_of_bounded_entire_input": true,
+        "head_input_has_eight_channels": true,
+        "head_output_has_one_channel": true,
+        "head_sigmoid_receives_reconstruction_logits": true,
+        "head_sigmoid_matches_actual_branch_output": true,
+        "normalized_log_estimate_is_in_unit_interval": true,
+        "compensator_first_argument_is_bounded_actual_input": true,
+        "compensator_second_argument_is_inverse_log_intensity": true,
+        "compensator_concatenates_actual_input_then_inverse_log_result": true,
+        "compensator_input_has_two_intensity_channels": true,
+        "compensator_residual_has_one_channel": true,
+        "compensator_adds_gamma_scaled_residual_to_inverse_log_base": true,
+        "final_model_applies_clip_after_residual_addition": true
+      },
+      "forward_seconds": 0.18739620000269497,
+      "preclip_reconstruction_max_abs_error": 0.0,
+      "clip_reconstruction_max_abs_error": 0.0
+    },
+    {
+      "name": "masked_AMS_input",
+      "input": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.0,
+        "max": 0.998969554901123
+      },
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.16896115243434906,
+        "max": 0.36235231161117554
+      },
+      "observed_module_io": {
+        "log_branch.clean": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                8,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": -1.450329303741455,
+              "max": 1.695711612701416
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -0.3516722023487091,
+            "max": 0.5676290392875671
+          }
+        },
+        "log_branch.active": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": -0.3516722023487091,
+              "max": 0.5676290392875671
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": 0.4129769802093506,
+            "max": 0.6382158994674683
+          }
+        },
+        "log_branch": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.0,
+              "max": 0.9996091723442078
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": 0.4129769802093506,
+            "max": 0.6382158994674683
+          }
+        },
+        "dual_fusion.fusion": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                2,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.0,
+              "max": 0.998969554901123
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -0.056527286767959595,
+            "max": 0.05375811830163002
+          }
+        },
+        "dual_fusion": {
+          "inputs": [
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.0,
+              "max": 0.998969554901123
+            },
+            {
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "dtype": "torch.float32",
+              "finite": true,
+              "min": 0.16919761896133423,
+              "max": 0.3619908392429352
+            }
+          ],
+          "output": {
+            "shape": [
+              1,
+              1,
+              256,
+              256
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": 0.16896115243434906,
+            "max": 0.36235231161117554
+          }
+        }
+      },
+      "checks": {
+        "output_shape_is_B_1_H_W": true,
+        "model_output_is_finite": true,
+        "final_output_in_unit_interval": true,
+        "branch_receives_log_of_bounded_entire_input": true,
+        "head_input_has_eight_channels": true,
+        "head_output_has_one_channel": true,
+        "head_sigmoid_receives_reconstruction_logits": true,
+        "head_sigmoid_matches_actual_branch_output": true,
+        "normalized_log_estimate_is_in_unit_interval": true,
+        "compensator_first_argument_is_bounded_actual_input": true,
+        "compensator_second_argument_is_inverse_log_intensity": true,
+        "compensator_concatenates_actual_input_then_inverse_log_result": true,
+        "compensator_input_has_two_intensity_channels": true,
+        "compensator_residual_has_one_channel": true,
+        "compensator_adds_gamma_scaled_residual_to_inverse_log_base": true,
+        "final_model_applies_clip_after_residual_addition": true,
+        "compensator_bypass_also_zero_at_masked_pixels": true,
+        "original_noisy_target_is_not_fed_to_compensator": true
+      },
+      "forward_seconds": 0.16498019999926328,
+      "preclip_reconstruction_max_abs_error": 0.0,
+      "clip_reconstruction_max_abs_error": 0.0
+    }
+  ],
+  "check_count": 88,
+  "passed_count": 88,
+  "all_checks_passed": true
+}

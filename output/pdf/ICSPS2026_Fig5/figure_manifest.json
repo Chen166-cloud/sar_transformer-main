@@ -1,0 +1,137 @@
+{
+  "layout": "2 rows x 4 columns, row-major reading order, matched to Figure 4",
+  "panel_label_basis": "Author-confirmed renamed filenames",
+  "scope": "Composition and layout only; no historical-output or model-identity audit",
+  "width_pdf_pt": 514.0722291407224,
+  "height_pdf_pt": 288.8361145703612,
+  "width_mm": 181.3532586135326,
+  "height_mm": 101.89496264009964,
+  "label_font": "Arial",
+  "label_font_pt": 8.5,
+  "native_effective_dpi_at_textwidth": 149.1044302490397,
+  "assembly_processing": "Original images embedded without raster edits",
+  "existing_annotation": "Red rectangle in Noisy retained from the input PNG",
+  "ratio_panel": "Supplied Ours+AMS ratio visualization; no new display mapping applied",
+  "panels": [
+    {
+      "file": "noisy.png",
+      "label": "(a) Noisy",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "image_rect_pdf_pt": [
+        0.8,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "SAR-BM3D.png",
+      "label": "(b) SAR-BM3D",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        130.4180572851806,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "SAR2SAR.png",
+      "label": "(c) SAR2SAR",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        260.0361145703612,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "SDUDNet.png",
+      "label": "(d) SDUDNet",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        389.65417185554173,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "sar-trans.png",
+      "label": "(e) Trans-SAR",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        0.8,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "Ours-base.png",
+      "label": "(f) Ours-base",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        130.4180572851806,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "Ours-ams.png",
+      "label": "(g) Ours+AMS",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        260.0361145703612,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "Ours-ams-ratio.png",
+      "label": "(h) Ours+AMS ratio",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        389.65417185554173,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    }
+  ]
+}

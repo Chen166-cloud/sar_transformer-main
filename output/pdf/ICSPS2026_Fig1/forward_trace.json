@@ -1,0 +1,1978 @@
+{
+  "purpose": "Fig. 1 structural verification only; random weights and synthetic input; not an experiment or restoration result.",
+  "checkpoint_loaded": false,
+  "training_performed": false,
+  "entry_point": "model_registry.build_model(\"ours\", variant=\"full\", numeric_domain=\"intensity_v1\")",
+  "model_class": "TransSARV2_DualFreqNG_Bottle",
+  "registry_metadata": {
+    "registry_schema_version": 1,
+    "method": "ours",
+    "class_name": "TransSARV2_DualFreqNG_Bottle",
+    "variant": "full"
+  },
+  "variant_config": {
+    "representation": "log",
+    "compensation": true,
+    "msf": true,
+    "decoder_fdr": true,
+    "gate": true,
+    "bottleneck_local": true,
+    "bottleneck_fdr": true
+  },
+  "log_alpha": 10.0,
+  "device": "cpu",
+  "eval_mode": true,
+  "inference_mode": true,
+  "seed_for_structure_check_only": 2026,
+  "threads": 4,
+  "python": "3.12.3",
+  "package_versions": {
+    "torch": "2.9.1",
+    "torchvision": "0.24.1",
+    "timm": "1.0.22",
+    "numpy": "1.26.4",
+    "huggingface-hub": "0.36.0",
+    "safetensors": "0.6.2",
+    "PyYAML": "6.0.2"
+  },
+  "input_definition": "torch.linspace(0, 1, 256 * 256, dtype=float32).reshape(1, 1, 256, 256)",
+  "input": {
+    "shape": [
+      1,
+      1,
+      256,
+      256
+    ],
+    "dtype": "torch.float32",
+    "finite": true,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "output": {
+    "shape": [
+      1,
+      1,
+      256,
+      256
+    ],
+    "dtype": "torch.float32",
+    "finite": true,
+    "min": 0.16911324858665466,
+    "max": 0.3614543378353119
+  },
+  "forward_seconds_this_machine": 0.3445695999998861,
+  "fdr_modules": [
+    "log_branch.bottleneck_refine.freq",
+    "log_branch.convproj.freq4",
+    "log_branch.convproj.freq3",
+    "log_branch.convproj.freq2",
+    "log_branch.convproj.freq1",
+    "log_branch.convproj.freq0"
+  ],
+  "checks": {
+    "guidance_receives_log_input": true,
+    "encoder_receives_log_input": true,
+    "compensator_receives_original_intensity": true,
+    "compensator_receives_inverse_log_reconstruction": true,
+    "encoder_five_stage_shapes": true,
+    "bottleneck_shape": true,
+    "guidance_shape": true,
+    "decoder_stage_4_concatenation": true,
+    "decoder_stage_4_shapes": true,
+    "decoder_stage_4_resized_guidance": true,
+    "decoder_stage_3_concatenation": true,
+    "decoder_stage_3_shapes": true,
+    "decoder_stage_3_resized_guidance": true,
+    "decoder_stage_2_concatenation": true,
+    "decoder_stage_2_shapes": true,
+    "decoder_stage_2_resized_guidance": true,
+    "decoder_stage_1_concatenation": true,
+    "decoder_stage_1_shapes": true,
+    "decoder_stage_1_resized_guidance": true,
+    "decoder_stage_0_shapes": true,
+    "decoder_stage_0_resized_guidance": true,
+    "tail_shape": true,
+    "reconstruction_head_shape": true,
+    "reconstruction_head_sigmoid": true,
+    "compensator_concatenation_shape": true,
+    "output_shape": true,
+    "output_finite_and_in_unit_interval": true,
+    "six_fdr_instances": true,
+    "each_fdr_executed_once": true,
+    "inherited_operator_definition_comparisons": true
+  },
+  "inherited_definition_comparisons": {
+    "encoder_same_module_definition": true,
+    "convd32x_same_module_definition": true,
+    "convd16x_same_module_definition": true,
+    "convd8x_same_module_definition": true,
+    "convd4x_same_module_definition": true,
+    "convd2x_same_module_definition": true,
+    "convd1x_same_module_definition": true,
+    "refine0_same_residual_definition_as_dense_1": true,
+    "refine1_same_residual_definition_as_dense_2": true,
+    "refine2_same_residual_definition_as_dense_3": true,
+    "refine3_same_residual_definition_as_dense_4": true,
+    "refine4_same_residual_definition_as_dense_5": true,
+    "clean_same_module_definition": true,
+    "note": "Definition equivalence only: residual blocks are repositioned; additive skip merging is replaced by concatenation/fusion, and the formal branch uses sigmoid instead of baseline tanh."
+  },
+  "sources_sha256": {
+    "model_registry.py": "7f32fdd81f06c148d357eadb684d3f4a3dcd8e81b733efd376a2d2a3a708f38a",
+    "ablation_config.py": "c51fa89433d4f9f12e440fa1915fee041c38fbe51accd89d1d793a4a7fbc3e29",
+    "numeric_domain.py": "d250a6c6b95058e3d8bf711514bebe8a254f7bdd2b3261ae1cb78241a0f170ee",
+    "transform_main.py": "9405bb05d68405848c9966f4b093ea078208ad70856d3583672c70a3aa7c82fb",
+    "arch/trans_basenetworks.py": "f91f04ebfe8455360f48e7f5c0bf38190e766ff98d66df0f38b7eea1f85dbe9c"
+  },
+  "forward_completion_events": [
+    {
+      "event": 1,
+      "module": "log_branch.noise_estimator",
+      "class": "NoiseEstimator",
+      "input": [
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.48607924580574036,
+        "max": 0.49550947546958923
+      }
+    },
+    {
+      "event": 2,
+      "module": "log_branch.Tenc.norm1",
+      "class": "LayerNorm",
+      "input": [
+        {
+          "shape": [
+            1,
+            16384,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.2022273540496826,
+          "max": 2.442653179168701
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          16384,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.207810163497925,
+        "max": 2.433828830718994
+      }
+    },
+    {
+      "event": 3,
+      "module": "log_branch.Tenc.norm2",
+      "class": "LayerNorm",
+      "input": [
+        {
+          "shape": [
+            1,
+            4096,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -2.8720147609710693,
+          "max": 2.8716838359832764
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          4096,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -2.8552451133728027,
+        "max": 2.853858232498169
+      }
+    },
+    {
+      "event": 4,
+      "module": "log_branch.Tenc.norm3",
+      "class": "LayerNorm",
+      "input": [
+        {
+          "shape": [
+            1,
+            1024,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.3341572284698486,
+          "max": 3.35880446434021
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1024,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.2854714393615723,
+        "max": 3.3176469802856445
+      }
+    },
+    {
+      "event": 5,
+      "module": "log_branch.Tenc.norm4",
+      "class": "LayerNorm",
+      "input": [
+        {
+          "shape": [
+            1,
+            256,
+            320
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -4.5375847816467285,
+          "max": 3.7971818447113037
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          256,
+          320
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -4.008164882659912,
+        "max": 3.4041945934295654
+      }
+    },
+    {
+      "event": 6,
+      "module": "log_branch.Tenc.norm5",
+      "class": "LayerNorm",
+      "input": [
+        {
+          "shape": [
+            1,
+            64,
+            512
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.656806707382202,
+          "max": 4.7002105712890625
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          512
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.271937847137451,
+        "max": 4.156233310699463
+      }
+    },
+    {
+      "event": 7,
+      "module": "log_branch.Tenc",
+      "class": "EncoderTransformerV2",
+      "input": [
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ],
+      "output": [
+        {
+          "shape": [
+            1,
+            32,
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.207810163497925,
+          "max": 2.433828830718994
+        },
+        {
+          "shape": [
+            1,
+            64,
+            64,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -2.8552451133728027,
+          "max": 2.853858232498169
+        },
+        {
+          "shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.2854714393615723,
+          "max": 3.3176469802856445
+        },
+        {
+          "shape": [
+            1,
+            320,
+            16,
+            16
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -4.008164882659912,
+          "max": 3.4041945934295654
+        },
+        {
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.271937847137451,
+          "max": 4.156233310699463
+        }
+      ]
+    },
+    {
+      "event": 8,
+      "module": "log_branch.bottleneck_refine.local",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.271937847137451,
+          "max": 4.156233310699463
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.16997112333774567,
+        "max": 1.1180294752120972
+      }
+    },
+    {
+      "event": 9,
+      "module": "log_branch.bottleneck_refine.freq.freq",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            1024,
+            8,
+            5
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -21.304555892944336,
+          "max": 28.971925735473633
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1024,
+          8,
+          5
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.389664888381958,
+        "max": 3.732891082763672
+      }
+    },
+    {
+      "event": 10,
+      "module": "log_branch.bottleneck_refine.freq",
+      "class": "FFTRefineBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.271937847137451,
+          "max": 4.156233310699463
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.282580852508545,
+        "max": 4.146543502807617
+      }
+    },
+    {
+      "event": 11,
+      "module": "log_branch.bottleneck_refine.fuse",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.290985584259033,
+          "max": 4.162549018859863
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.8352527022361755,
+        "max": 0.776274561882019
+      }
+    },
+    {
+      "event": 12,
+      "module": "log_branch.bottleneck_refine",
+      "class": "BottleneckRefine",
+      "input": [
+        {
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.271937847137451,
+          "max": 4.156233310699463
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          512,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.251647710800171,
+        "max": 4.196011066436768
+      }
+    },
+    {
+      "event": 13,
+      "module": "log_branch.convproj.convd32x",
+      "class": "UpsampleConvLayer",
+      "input": [
+        {
+          "shape": [
+            1,
+            512,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.251647710800171,
+          "max": 4.196011066436768
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.262766718864441,
+        "max": 1.4388823509216309
+      }
+    },
+    {
+      "event": 14,
+      "module": "log_branch.convproj.fuse4",
+      "class": "FusionBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            640,
+            16,
+            16
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -4.008164882659912,
+          "max": 3.4041945934295654
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.0,
+        "max": 0.6887925863265991
+      }
+    },
+    {
+      "event": 15,
+      "module": "log_branch.convproj.freq4.freq",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            640,
+            16,
+            9
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.9469974040985107,
+          "max": 7.5401458740234375
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          640,
+          16,
+          9
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.7864920496940613,
+        "max": 0.844990074634552
+      }
+    },
+    {
+      "event": 16,
+      "module": "log_branch.convproj.freq4",
+      "class": "FFTRefineBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            320,
+            16,
+            16
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 0.6887925863265991
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.06538132578134537,
+        "max": 0.6919697523117065
+      }
+    },
+    {
+      "event": 17,
+      "module": "log_branch.convproj.refine4",
+      "class": "ResidualBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            320,
+            16,
+            16
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.06538132578134537,
+          "max": 0.6919697523117065
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.06392863392829895,
+        "max": 0.6916425228118896
+      }
+    },
+    {
+      "event": 18,
+      "module": "log_branch.convproj.ng4.gate",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            321,
+            16,
+            16
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.06392863392829895,
+          "max": 0.6916425228118896
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.09256593137979507,
+        "max": 0.09653201699256897
+      }
+    },
+    {
+      "event": 19,
+      "module": "log_branch.convproj.ng4",
+      "class": "NoiseGuidedGate",
+      "input": [
+        {
+          "shape": [
+            1,
+            320,
+            16,
+            16
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.06392863392829895,
+          "max": 0.6916425228118896
+        },
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.48607924580574036,
+          "max": 0.49550947546958923
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          320,
+          16,
+          16
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.0639805868268013,
+        "max": 0.6919224262237549
+      }
+    },
+    {
+      "event": 20,
+      "module": "log_branch.convproj.convd16x",
+      "class": "UpsampleConvLayer",
+      "input": [
+        {
+          "shape": [
+            1,
+            320,
+            16,
+            16
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.0639805868268013,
+          "max": 0.6919224262237549
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.23330043256282806,
+        "max": 0.21440018713474274
+      }
+    },
+    {
+      "event": 21,
+      "module": "log_branch.convproj.fuse3",
+      "class": "FusionBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            256,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.2854714393615723,
+          "max": 3.3176469802856445
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.0,
+        "max": 0.44964179396629333
+      }
+    },
+    {
+      "event": 22,
+      "module": "log_branch.convproj.freq3.freq",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            256,
+            32,
+            17
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.4675513505935669,
+          "max": 11.350305557250977
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          256,
+          32,
+          17
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.6219496726989746,
+        "max": 2.1782209873199463
+      }
+    },
+    {
+      "event": 23,
+      "module": "log_branch.convproj.freq3",
+      "class": "FFTRefineBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 0.44964179396629333
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.18655292689800262,
+        "max": 0.48913314938545227
+      }
+    },
+    {
+      "event": 24,
+      "module": "log_branch.convproj.refine3",
+      "class": "ResidualBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.18655292689800262,
+          "max": 0.48913314938545227
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.18861596286296844,
+        "max": 0.49177882075309753
+      }
+    },
+    {
+      "event": 25,
+      "module": "log_branch.convproj.ng3.gate",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            129,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.18861596286296844,
+          "max": 0.4948371350765228
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.0948466956615448,
+        "max": 0.08942656219005585
+      }
+    },
+    {
+      "event": 26,
+      "module": "log_branch.convproj.ng3",
+      "class": "NoiseGuidedGate",
+      "input": [
+        {
+          "shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.18861596286296844,
+          "max": 0.49177882075309753
+        },
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.48607924580574036,
+          "max": 0.49550947546958923
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          128,
+          32,
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.18874898552894592,
+        "max": 0.4920557141304016
+      }
+    },
+    {
+      "event": 27,
+      "module": "log_branch.convproj.convd8x",
+      "class": "UpsampleConvLayer",
+      "input": [
+        {
+          "shape": [
+            1,
+            128,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.18874898552894592,
+          "max": 0.4920557141304016
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.18067097663879395,
+        "max": 0.16946011781692505
+      }
+    },
+    {
+      "event": 28,
+      "module": "log_branch.convproj.fuse2",
+      "class": "FusionBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            128,
+            64,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -2.8552451133728027,
+          "max": 2.853858232498169
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.0,
+        "max": 0.5167021751403809
+      }
+    },
+    {
+      "event": 29,
+      "module": "log_branch.convproj.freq2.freq",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            128,
+            64,
+            33
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.6018742322921753,
+          "max": 21.00882911682129
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          128,
+          64,
+          33
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -2.98116397857666,
+        "max": 2.6868252754211426
+      }
+    },
+    {
+      "event": 30,
+      "module": "log_branch.convproj.freq2",
+      "class": "FFTRefineBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            64,
+            64,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 0.5167021751403809
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.5004123449325562,
+        "max": 0.6979629993438721
+      }
+    },
+    {
+      "event": 31,
+      "module": "log_branch.convproj.refine2",
+      "class": "ResidualBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            64,
+            64,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.5004123449325562,
+          "max": 0.6979629993438721
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.5050671696662903,
+        "max": 0.6940332651138306
+      }
+    },
+    {
+      "event": 32,
+      "module": "log_branch.convproj.ng2.gate",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            65,
+            64,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.5050671696662903,
+          "max": 0.6940332651138306
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.11320868134498596,
+        "max": 0.09788844734430313
+      }
+    },
+    {
+      "event": 33,
+      "module": "log_branch.convproj.ng2",
+      "class": "NoiseGuidedGate",
+      "input": [
+        {
+          "shape": [
+            1,
+            64,
+            64,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.5050671696662903,
+          "max": 0.6940332651138306
+        },
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.48607924580574036,
+          "max": 0.49550947546958923
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          64,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.5061407089233398,
+        "max": 0.6907331347465515
+      }
+    },
+    {
+      "event": 34,
+      "module": "log_branch.convproj.convd4x",
+      "class": "UpsampleConvLayer",
+      "input": [
+        {
+          "shape": [
+            1,
+            64,
+            64,
+            64
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.5061407089233398,
+          "max": 0.6907331347465515
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.21184378862380981,
+        "max": 0.2465767115354538
+      }
+    },
+    {
+      "event": 35,
+      "module": "log_branch.convproj.fuse1",
+      "class": "FusionBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            64,
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.207810163497925,
+          "max": 2.433828830718994
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.0,
+        "max": 0.4270930290222168
+      }
+    },
+    {
+      "event": 36,
+      "module": "log_branch.convproj.freq1.freq",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            64,
+            128,
+            65
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.7014681100845337,
+          "max": 37.567626953125
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          64,
+          128,
+          65
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -2.945159673690796,
+        "max": 4.100770473480225
+      }
+    },
+    {
+      "event": 37,
+      "module": "log_branch.convproj.freq1",
+      "class": "FFTRefineBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            32,
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 0.4270930290222168
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -2.5611588954925537,
+        "max": 2.2656567096710205
+      }
+    },
+    {
+      "event": 38,
+      "module": "log_branch.convproj.refine1",
+      "class": "ResidualBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            32,
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -2.5611588954925537,
+          "max": 2.2656567096710205
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -2.5683350563049316,
+        "max": 2.2673544883728027
+      }
+    },
+    {
+      "event": 39,
+      "module": "log_branch.convproj.ng1.gate",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            33,
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -2.5683350563049316,
+          "max": 2.2673544883728027
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.26271340250968933,
+        "max": 0.34904253482818604
+      }
+    },
+    {
+      "event": 40,
+      "module": "log_branch.convproj.ng1",
+      "class": "NoiseGuidedGate",
+      "input": [
+        {
+          "shape": [
+            1,
+            32,
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -2.5683350563049316,
+          "max": 2.2673544883728027
+        },
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.48607924580574036,
+          "max": 0.49550947546958923
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          32,
+          128,
+          128
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -2.5648014545440674,
+        "max": 2.257869005203247
+      }
+    },
+    {
+      "event": 41,
+      "module": "log_branch.convproj.convd2x",
+      "class": "UpsampleConvLayer",
+      "input": [
+        {
+          "shape": [
+            1,
+            32,
+            128,
+            128
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -2.5648014545440674,
+          "max": 2.257869005203247
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.0814528465270996,
+        "max": 0.9163100719451904
+      }
+    },
+    {
+      "event": 42,
+      "module": "log_branch.convproj.freq0.freq",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            32,
+            256,
+            129
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -15.141247749328613,
+          "max": 18.095170974731445
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          32,
+          256,
+          129
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.1910879611968994,
+        "max": 4.3358235359191895
+      }
+    },
+    {
+      "event": 43,
+      "module": "log_branch.convproj.freq0",
+      "class": "FFTRefineBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            16,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -1.0814528465270996,
+          "max": 0.9163100719451904
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.4703221321105957,
+        "max": 4.007343292236328
+      }
+    },
+    {
+      "event": 44,
+      "module": "log_branch.convproj.refine0",
+      "class": "ResidualBlock",
+      "input": [
+        {
+          "shape": [
+            1,
+            16,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.4703221321105957,
+          "max": 4.007343292236328
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.4733047485351562,
+        "max": 3.958019495010376
+      }
+    },
+    {
+      "event": 45,
+      "module": "log_branch.convproj.ng0.gate",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            17,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.4733047485351562,
+          "max": 3.958019495010376
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.6375882029533386,
+        "max": 0.5610176920890808
+      }
+    },
+    {
+      "event": 46,
+      "module": "log_branch.convproj.ng0",
+      "class": "NoiseGuidedGate",
+      "input": [
+        {
+          "shape": [
+            1,
+            16,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.4733047485351562,
+          "max": 3.958019495010376
+        },
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.48607924580574036,
+          "max": 0.49550947546958923
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          16,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -3.4906041622161865,
+        "max": 4.029518127441406
+      }
+    },
+    {
+      "event": 47,
+      "module": "log_branch.convproj.convd1x",
+      "class": "UpsampleConvLayer",
+      "input": [
+        {
+          "shape": [
+            1,
+            16,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -3.4906041622161865,
+          "max": 4.029518127441406
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.4456167221069336,
+        "max": 1.705857753753662
+      }
+    },
+    {
+      "event": 48,
+      "module": "log_branch.convproj",
+      "class": "convprojection_freq_ng",
+      "input": [
+        [
+          {
+            "shape": [
+              1,
+              32,
+              128,
+              128
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -3.207810163497925,
+            "max": 2.433828830718994
+          },
+          {
+            "shape": [
+              1,
+              64,
+              64,
+              64
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -2.8552451133728027,
+            "max": 2.853858232498169
+          },
+          {
+            "shape": [
+              1,
+              128,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -3.2854714393615723,
+            "max": 3.3176469802856445
+          },
+          {
+            "shape": [
+              1,
+              320,
+              16,
+              16
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -4.008164882659912,
+            "max": 3.4041945934295654
+          },
+          {
+            "shape": [
+              1,
+              512,
+              8,
+              8
+            ],
+            "dtype": "torch.float32",
+            "finite": true,
+            "min": -3.251647710800171,
+            "max": 4.196011066436768
+          }
+        ],
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.48607924580574036,
+          "max": 0.49550947546958923
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          8,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.4456167221069336,
+        "max": 1.705857753753662
+      }
+    },
+    {
+      "event": 49,
+      "module": "log_branch.clean",
+      "class": "ConvLayer",
+      "input": [
+        {
+          "shape": [
+            1,
+            8,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -1.4456167221069336,
+          "max": 1.705857753753662
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.35067522525787354,
+        "max": 0.5641180276870728
+      }
+    },
+    {
+      "event": 50,
+      "module": "log_branch.active",
+      "class": "Sigmoid",
+      "input": [
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": -0.35067522525787354,
+          "max": 0.5641180276870728
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.4132186770439148,
+        "max": 0.6374047994613647
+      }
+    },
+    {
+      "event": 51,
+      "module": "log_branch",
+      "class": "TransSARV2_FreqNG_Bottle",
+      "input": [
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.4132186770439148,
+        "max": 0.6374047994613647
+      }
+    },
+    {
+      "event": 52,
+      "module": "dual_fusion.fusion",
+      "class": "Sequential",
+      "input": [
+        {
+          "shape": [
+            1,
+            2,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.012347320094704628,
+        "max": 0.03084605559706688
+      }
+    },
+    {
+      "event": 53,
+      "module": "dual_fusion",
+      "class": "DualDomainFusion",
+      "input": [
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.1693536937236786,
+          "max": 0.3610931932926178
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.16911324858665466,
+        "max": 0.3614543378353119
+      }
+    },
+    {
+      "event": 54,
+      "module": "model",
+      "class": "TransSARV2_DualFreqNG_Bottle",
+      "input": [
+        {
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "dtype": "torch.float32",
+          "finite": true,
+          "min": 0.0,
+          "max": 1.0
+        }
+      ],
+      "output": {
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.16911324858665466,
+        "max": 0.3614543378353119
+      }
+    }
+  ],
+  "all_checks_passed": true
+}

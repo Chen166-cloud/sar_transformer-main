@@ -1,0 +1,153 @@
+{
+  "layout": "2 rows x 4 columns, row-major reading order",
+  "width_pdf_pt": 514.0722291407224,
+  "height_pdf_pt": 288.8361145703612,
+  "width_mm": 181.3532586135326,
+  "height_mm": 101.89496264009964,
+  "label_font": "Arial",
+  "label_font_pt": 8.5,
+  "native_effective_dpi_at_textwidth": 149.1044302490397,
+  "assembly_processing": "Original PNGs embedded losslessly without pixel changes",
+  "ratio_panel": "Supplied visualization; its mapping is separate from restoration panels",
+  "panels": [
+    {
+      "file": "00_Clean.png",
+      "label": "(a) Clean",
+      "sha256": "d5dad4531adcd36d5bb66f46e6d7ffac77fc5395c7fde20453815180d1af7085",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        0.8,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "01_Noisy.png",
+      "label": "(b) Noisy",
+      "sha256": "a3d3ea0a5abf3a7d3cbcf9f5a397131ada3dc63016764d03074c7738d441b3f3",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        130.4180572851806,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "LEE-MMSE.png",
+      "label": "(c) LEE",
+      "sha256": "9e2bcbad71c7f4015d4634af858862aa94b07b109a3ee7c19f9ca286d893a269",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        260.0361145703612,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "SAR-BM3D.png",
+      "label": "(d) SAR-BM3D",
+      "sha256": "9ca74ede6f66d4533314a389893bcddd94d8e37f3957017717c60bbc70e1921a",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        389.65417185554173,
+        164.4180572851806,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "SAR-CAM.png",
+      "label": "(e) SAR-CAM",
+      "sha256": "04972e2888cbf9b634b4bc77d7a343f8c9aecb02da11d5984198b9d98833eb46",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        0.8,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "SAR-Trans.png",
+      "label": "(f) Trans-SAR",
+      "sha256": "d993982658247cb23ea16d779e773ffb8d3a8d8cb431d42b5be0a2a3c3bb5e35",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        130.4180572851806,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "Ours-base.png",
+      "label": "(g) Ours",
+      "sha256": "5670008017f7893bf118460126a3f43cdedddbb700efa01a76724b5035b987d9",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        260.0361145703612,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    },
+    {
+      "file": "Ours-base_ratio.png",
+      "label": "(h) Ours ratio",
+      "sha256": "5ca8dbabafa54f2da8268f47d1ec3cb6be8bb88dc877af37d74fc0bd1dedf84a",
+      "native_pixels": [
+        256,
+        256
+      ],
+      "mode": "L",
+      "image_rect_pdf_pt": [
+        389.65417185554173,
+        16.80000000000001,
+        123.61805728518058,
+        123.61805728518058
+      ]
+    }
+  ],
+  "checks": {
+    "all_eight_embedded_images_pixel_identical": true,
+    "all_eight_labels_present": true,
+    "one_page": true
+  },
+  "outputs": {
+    "fig4_buildings.pdf": "0eacf52f32f29e9eef374268aad5eb7018c639b4a33d58c133da9b1ef8a5e473",
+    "fig4_buildings.png": "40de830865963c418b1a5ffae9521fc79c1b27ed1a9c1c73c70daa66da989498",
+    "fig4_buildings_preview.png": "3a2652aa94eef77b0a3c734c93e612944bd680eb5df614ac170f201b0b24d505"
+  },
+  "panel_label_basis": "Author-confirmed renamed filenames; composition does not validate method identity"
+}
