@@ -3,13 +3,14 @@
 ## Current manuscript with scene-wise experiments
 
 Main manuscript: `ICSPS2026_paper.tex`.
-**Current compiled PDF: `ICSPS2026_paper_with_average.pdf` (7 pages).**
-The existing `build.ps1` / Tectonic workflow has compiled the manuscript with both scene-wise tables, all source Average values, and their English analysis from `../实验结果表.md`. The canonical `ICSPS2026_paper.pdf` is currently locked by a viewer and retains the preceding version without the real-scene Average rows, so the updated build is saved as `ICSPS2026_paper_with_average.pdf`. Use this latest PDF; the named layout copies are historical versions. A later `build.ps1` run can update the canonical PDF once the viewer releases it.
+**Current compiled PDF: `ICSPS2026_paper.pdf` (7 pages).**
+The existing `build.ps1` / Tectonic workflow has rebuilt the canonical PDF with all corrected scene values and the revised Table IV layout. Use `ICSPS2026_paper.pdf`. The `ICSPS2026_paper_with_average.pdf` copy is currently locked by a viewer and retains the preceding Table IV layout; its experimental values are already corrected. The named layout copies are historical versions.
 
 - Section IV-D and Table II add UCMerced agricultural, buildings, and residential results (100 samples per group), including the reported average of 29.0909 dB / 0.7757 for Ours-base.
 - Section IV-G and Table V add real-SAR homogeneous, structural, and texture results (20 patches per group), including the source Average rows for 60 patches, comparing Ours-base and Ours+AMS with ENL, M-index, and EPI.
 - The conclusion now reflects both scene evaluations. Their summaries remain separate from the four-look UCM-21 macro benchmark and the 592-patch real-SAR benchmark; the fixed-ROI description is explicitly scoped to the latter.
-- All included scene values retain the source precision. Original experiment tables, equations, figures, and bibliography entries are unchanged.
+- Table IV now spans the full column, uses right-aligned numeric columns, adds a small gap before the direction arrows, and sets its note flush left. It appears after the Real-SAR Adaptation introduction and before the analysis paragraph, using normal `!htbp` placement with paragraph boundaries around the float.
+- All included scene values retain the source precision. Experimental data, equations, figures, and bibliography entries are unchanged by the Table IV layout revision.
 
 As confirmed by the author, `../实验结果表.md` is authoritative for all scene and Average values. Table V reproduces both Average rows exactly: Ours-base ENL/M-index/EPI = 597.0446/1.740321/0.372438 and Ours+AMS = 72.7568/1.454366/0.798884, with Noisy ENL = 23.7477 for 60 patches. The table and discussion incorporate the author's corrected source values. The source Markdown has not been edited by this manuscript update. The supplied scene summaries do not specify their look aggregation or establish that they use the main benchmark's fixed-ROI protocol, so the text does not assume either.
 

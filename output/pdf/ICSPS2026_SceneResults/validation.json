@@ -11,24 +11,33 @@
     }
   },
   "included_scene_values_match_source": true,
-  "original_tables_equations_figures_bibliography_preserved": true,
   "missing_references_or_citations": false,
   "overfull_warnings": 0,
   "underfull_hbox_warnings": 0,
   "underfull_vbox_warnings": 1,
   "real_average_rows_omitted": false,
-  "visual_review": "Corrected pages 6-7 reviewed; table and discussion contain ENL 72.7568 and EPI 0.798884; no clipped or overlapping content.",
-  "current_pdf": "docs/ICSPS2026_LaTeX/ICSPS2026_paper_with_average.pdf",
-  "canonical_pdf_update_blocked_by_viewer": true,
+  "visual_review": "Final pages 6-7 independently reviewed. Table IV has consistent full-column width, aligned numbers, readable note, and appropriate placement. No clipping, overlap, or excessive new whitespace; 7 pages retained.",
+  "current_pdf": "docs/ICSPS2026_LaTeX/ICSPS2026_paper.pdf",
+  "canonical_pdf_update_blocked_by_viewer": false,
   "real_average_values_match_authoritative_source": true,
   "source_markdown_edited_by_assistant": false,
   "all_five_result_tables_checked_against_latest_source": true,
   "source_sha256": "2fbb2b640a6eb21a823fbd6e3e95544fa5f41bf41e7c6e851f03f7d6dc4feb7d",
-  "current_pdf_sha256": "b04cf3b8ad9f3fee31879166601377197dd0d3549878651449534e43047c32e0",
+  "current_pdf_sha256": "b2a8ed16925e3a93e44da103bffe9b514d2c8ac28f4cb31f83001beaa8268df5",
   "real_average_ams": {
     "ENL": 72.7568,
     "M_index": 1.454366,
     "EPI": 0.798884
   },
-  "obsolete_average_values_remaining": false
+  "obsolete_average_values_remaining": false,
+  "with_average_copy_has_previous_layout_due_to_viewer_lock": true,
+  "table_iv_all_data_rows_preserved": true,
+  "content_outside_table_iv_preserved": true,
+  "table_iv_layout": {
+    "page": 6,
+    "width": "columnwidth",
+    "numeric_alignment": "right",
+    "note_alignment": "left",
+    "placement": "after Real-SAR Adaptation introduction, before analysis"
+  }
 }

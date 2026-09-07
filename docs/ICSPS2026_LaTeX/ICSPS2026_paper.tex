@@ -305,16 +305,17 @@ The two single-representation variants expose a different trade-off: Log-only ha
 
 \subsection{Real-SAR Adaptation}
 Table~\ref{tab:real} evaluates all methods on the same 592 child patches from 148 held-out parents.
-\begin{table}[!t]
+
+\begin{table}[!htbp]
 \caption{No-Reference Results on 592 Real-SAR Patches}
 \label{tab:real}
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3.0pt}
-\renewcommand{\arraystretch}{1.06}
-\begin{tabular*}{0.82\columnwidth}{@{\extracolsep{\fill}}lccc@{}}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrr@{}}
 \toprule
-\textbf{Method} & \textbf{ENL} & \(\mathbf{M}\)\textbf{-index}$\downarrow$ & \textbf{EPI}$\uparrow$ \\
+\textbf{Method} & \textbf{ENL} & \textbf{M-index}\,$\downarrow$ & \textbf{EPI}\,$\uparrow$ \\
 \midrule
 Noisy       & 26.25  & --                 & 1.0000 \\
 SAR2SAR     & 158.39 & 2.4566             & 0.5643 \\
@@ -326,8 +327,9 @@ Ours-base   & 530.85 & 1.8213             & 0.4229 \\
 \bottomrule
 \end{tabular*}
 \vspace{1pt}
-\parbox{0.82\columnwidth}{\scriptsize ENL is a diagnostic and is not ranked. The Noisy EPI of 1.0000 is an identity check and is excluded from ranking. Bold and underlined values are the best and second best among filtered outputs.}
+\parbox{\columnwidth}{\scriptsize\raggedright ENL is a diagnostic and is not ranked. The Noisy EPI of 1.0000 is an identity check and is excluded from ranking. Bold and underlined values are the best and second best among filtered outputs.}
 \end{table}
+
 The base output combines ENL 530.85 with EPI 0.4229, indicating excessive smoothing. AMS changes ENL to 84.72, reduces the M-index from 1.8213 to 1.3365 (26.62\%), and raises EPI from 0.4229 to 0.8214 (94.23\%). It ranks first among filtered outputs on M-index and EPI, with SAR-BM3D second on both. SDUDNet has similar ENL but higher M-index and lower EPI; SAR2SAR has the largest filtered-output M-index, while Trans-SAR retains less edge energy. Because training assumptions differ, the controlled real-data claim is the Ours-base versus Ours+AMS change on identical parent-disjoint patches.
 
 For this 592-patch comparison, ROI coordinates are determined exclusively from each noisy image, stored once, and reused across outputs, which reduces method-dependent selection bias. ENL remains sensitive to whether a region is truly homogeneous, so it is interpreted only with the whole-image M-index, EPI, and ratio-image structure.
