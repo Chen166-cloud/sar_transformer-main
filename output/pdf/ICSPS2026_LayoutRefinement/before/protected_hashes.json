@@ -1,0 +1,32 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "D8AD07BBFF7614DDE3C6F8848E8244C2226EF3D890D19447B6CF4DE224F89748",
+    "Path": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\figures\\fig1_overall_architecture.pdf"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "3CE738AD1E5E40BE05BC2E858DC37FDCF7D45A287330F12144408B5C7A7E46F0",
+    "Path": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\figures\\fig2_fdr_block.pdf"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "9F78DFEAAE4D1711ED4A65072E8E38777DB30D31E494D5F5D1DAD6309A524112",
+    "Path": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\figures\\fig3_representation_ams.pdf"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "0EACF52F32F29E9EEF374268AAD5EB7018C639B4A33D58C133DA9B1EF8A5E473",
+    "Path": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\figures\\fig4_buildings.pdf"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "45535D2DD3EBC68FCFB51293770898A6EEA6AE3AA77116EAA7BE0481DA00E104",
+    "Path": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\figures\\fig5_real_sar.pdf"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C972ACA108FDA004C3514D63658E02816DA2E54D9A1451E870B9BD970E003F55",
+    "Path": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\IEEEtran.cls"
+  }
+]

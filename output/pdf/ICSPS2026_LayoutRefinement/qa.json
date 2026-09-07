@@ -1,0 +1,1815 @@
+{
+  "status": "structural_checks_passed_pending_manual_diff_and_visual_review",
+  "failures": [],
+  "scope": "Read-only comparison of saved baseline and final artifacts; no rendering or visual approval is implied.",
+  "source": {
+    "preamble_exactly_unchanged": true,
+    "displayed_equation_environments_exactly_unchanged": true,
+    "displayed_equation_count": 8,
+    "standalone_display_math_exactly_unchanged": true,
+    "tables_exactly_unchanged": true,
+    "table_count": 3,
+    "bibliography_exactly_unchanged": true,
+    "protected_figure_environments": {
+      "fig:fdr": {
+        "unchanged": true,
+        "present_before_and_after": true
+      },
+      "fig:synthetic_qual": {
+        "unchanged": true,
+        "present_before_and_after": true
+      },
+      "fig:real_qual": {
+        "unchanged": true,
+        "present_before_and_after": true
+      }
+    },
+    "all_original_inline_math_preserved": true,
+    "inline_math_changes": [],
+    "duplicate_source_labels": {},
+    "unresolved_source_references": [],
+    "missing_graphics": [],
+    "invalid_old_fig1_subpanel_references": [],
+    "remaining_long_form_figure_references": [],
+    "residual_text_changes": [
+      {
+        "operation": "replace",
+        "before_line": 126,
+        "after_line": 126,
+        "before": "The compensator comprises two \\(3\\times3\\), 32-channel GELU layers and a single-channel residual head. Both operands in~\\eqref{eq:compensation} are intensities, so the historical name ``dual-domain fusion'' denotes a limited post-inversion correction, not two restoration branches or direct log/intensity addition. Conditioning on both the observation and inverse-mapped estimate permits a small correction of radiometric contrast and bright-scatterer neighborhoods without asking the compensator to repeat despeckling independently. Clamping follows the residual update.",
+        "after": "The compensator comprises two \\(3\\times3\\), 32-channel GELU layers and a single-channel residual head. Both operands in~\\eqref{eq:compensation} are intensities, so the historical name ``dual-domain fusion'' denotes a limited post-inversion correction, not two restoration branches or direct log/intensity addition. Conditioning on both the observation and inverse-mapped estimate permits a small correction of radiometric contrast and bright-scatterer neighborhoods without asking the compensator to repeat despeckling independently. Clamping follows the residual update, as shown in Fig.~\\ref{fig:representation_ams}(a).",
+        "contains_direct_figure_reference": true,
+        "review": "Review exact wording: only directly related method references/input clarification are authorized."
+      },
+      {
+        "operation": "replace",
+        "before_line": 146,
+        "after_line": 146,
+        "before": "During eight adaptation epochs at a learning rate of \\(10^{-6}\\), the inherited Transformer encoder is frozen while the bottleneck, decoder, guidance branch, output head, and compensator remain trainable. Training masks are stochastic; one fixed mask per validation sample is reused for checkpoint selection so the validation target does not change between epochs. Inference uses the complete unmasked image. Freezing limits drift in the representation learned from controlled synthetic data while allowing output statistics to adjust. Because the target remains noisy and focused speckle may be spatially correlated, this is constrained post-adaptation rather than an independence guarantee. Fig.~\\ref{fig:representation_ams} summarizes the numerical-domain and training/inference paths.",
+        "after": "During eight adaptation epochs at a learning rate of \\(10^{-6}\\), the inherited Transformer encoder is frozen while the bottleneck, decoder, guidance branch, output head, and compensator remain trainable. Training masks are stochastic; one fixed mask per validation sample is reused for checkpoint selection so the validation target does not change between epochs. Inference uses the complete unmasked image. Freezing limits drift in the representation learned from controlled synthetic data while allowing output statistics to adjust. Because the target remains noisy and focused speckle may be spatially correlated, this is constrained post-adaptation rather than an independence guarantee. Fig.~\\ref{fig:representation_ams}(b) summarizes the AMS training and unmasked inference paths.",
+        "contains_direct_figure_reference": true,
+        "review": "Review exact wording: only directly related method references/input clarification are authorized."
+      },
+      {
+        "operation": "replace",
+        "before_line": 281,
+        "after_line": 281,
+        "before": "% Balance the final page for the current five-figure layout.\n\\IEEEtriggeratref{15}",
+        "after": "% Let references flow naturally after the compact figure layout.",
+        "contains_direct_figure_reference": false,
+        "review": "Review exact wording: only directly related method references/input clarification are authorized."
+      }
+    ],
+    "residual_diff_file": "output/pdf/ICSPS2026_LayoutRefinement/textual_diff.patch",
+    "residual_changes_require_manual_review": true,
+    "permitted_automatically": [
+      "Only fig:overview and fig:representation_ams figure environments",
+      "Figure~\\ref to Fig.~\\ref globally"
+    ]
+  },
+  "recorded_protected_hashes": [
+    {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig1_overall_architecture.pdf",
+      "expected_sha256": "d8ad07bbff7614dde3c6f8848e8244c2226ef3d890d19447b6cf4de224f89748",
+      "actual_sha256": "8c442baa299530f0eae10db2b2fb5e7054f733729ab12a2e5859818799792fcf",
+      "unchanged": false,
+      "authorized_figure_change": true
+    },
+    {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig2_fdr_block.pdf",
+      "expected_sha256": "3ce738ad1e5e40be05bc2e858dc37fdcf7d45a287330f12144408b5c7a7e46f0",
+      "actual_sha256": "3ce738ad1e5e40be05bc2e858dc37fdcf7d45a287330f12144408b5c7a7e46f0",
+      "unchanged": true,
+      "authorized_figure_change": false
+    },
+    {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig3_representation_ams.pdf",
+      "expected_sha256": "9f78dfeaae4d1711ed4a65072e8e38777db30d31e494d5f5d1dad6309a524112",
+      "actual_sha256": "3b57e934b8a5967c49b3646ba436df2c81ecde11dea1a3e319e50d5a2fd15c28",
+      "unchanged": false,
+      "authorized_figure_change": true
+    },
+    {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig4_buildings.pdf",
+      "expected_sha256": "0eacf52f32f29e9eef374268aad5eb7018c639b4a33d58c133da9b1ef8a5e473",
+      "actual_sha256": "0eacf52f32f29e9eef374268aad5eb7018c639b4a33d58c133da9b1ef8a5e473",
+      "unchanged": true,
+      "authorized_figure_change": false
+    },
+    {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig5_real_sar.pdf",
+      "expected_sha256": "45535d2dd3ebc68fcfb51293770898a6eea6ae3aa77116eaa7be0481da00e104",
+      "actual_sha256": "45535d2dd3ebc68fcfb51293770898a6eea6ae3aa77116eaa7be0481da00e104",
+      "unchanged": true,
+      "authorized_figure_change": false
+    },
+    {
+      "file": "docs/ICSPS2026_LaTeX/IEEEtran.cls",
+      "expected_sha256": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+      "actual_sha256": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+      "unchanged": true,
+      "authorized_figure_change": false
+    }
+  ],
+  "figures_before": {
+    "1": {
+      "file": "output/pdf/ICSPS2026_LayoutRefinement/before/figures/fig1_overall_architecture.pdf",
+      "sha256": "d8ad07bbff7614dde3c6f8848e8244c2226ef3d890d19447b6cf4de224f89748",
+      "page_count": 1,
+      "width_pt": 514.0722291407,
+      "height_pt": 432.0,
+      "width_mm": 181.3532586135247,
+      "height_mm": 152.39999999999998,
+      "content_stream_sha256": "6a55320ceeecb14334754b007e9c7647cd8d76aab5d5cc29036c1153ceab786b",
+      "drawn_raster_image_count": 0,
+      "visible_character_sizes": [
+        {
+          "size_pt": 5.09,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.4,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 5.56,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.6,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.67,
+          "visible_character_count": 12
+        },
+        {
+          "size_pt": 5.95,
+          "visible_character_count": 14
+        },
+        {
+          "size_pt": 6.09,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 8.0,
+          "visible_character_count": 119
+        },
+        {
+          "size_pt": 8.1,
+          "visible_character_count": 151
+        },
+        {
+          "size_pt": 8.2,
+          "visible_character_count": 181
+        },
+        {
+          "size_pt": 8.3,
+          "visible_character_count": 46
+        },
+        {
+          "size_pt": 8.4,
+          "visible_character_count": 18
+        },
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 222
+        },
+        {
+          "size_pt": 8.7,
+          "visible_character_count": 3
+        },
+        {
+          "size_pt": 9.3,
+          "visible_character_count": 38
+        },
+        {
+          "size_pt": 10.0,
+          "visible_character_count": 42
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "2": {
+      "file": "output/pdf/ICSPS2026_LayoutRefinement/before/figures/fig2_fdr_block.pdf",
+      "sha256": "3ce738ad1e5e40be05bc2e858dc37fdcf7d45a287330f12144408b5c7a7e46f0",
+      "page_count": 1,
+      "width_pt": 251.0585305106,
+      "height_pt": 412.0,
+      "width_mm": 88.56787048568388,
+      "height_mm": 145.34444444444443,
+      "content_stream_sha256": "de2568d577c5a50db98c48aa152dbee2f39dfaf99426a5be8e7b6a606d468618",
+      "drawn_raster_image_count": 0,
+      "visible_character_sizes": [
+        {
+          "size_pt": 5.6,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.67,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.81,
+          "visible_character_count": 3
+        },
+        {
+          "size_pt": 6.3,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 8.0,
+          "visible_character_count": 107
+        },
+        {
+          "size_pt": 8.1,
+          "visible_character_count": 28
+        },
+        {
+          "size_pt": 8.2,
+          "visible_character_count": 9
+        },
+        {
+          "size_pt": 8.3,
+          "visible_character_count": 64
+        },
+        {
+          "size_pt": 8.4,
+          "visible_character_count": 98
+        },
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 15
+        },
+        {
+          "size_pt": 9.0,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 9.2,
+          "visible_character_count": 24
+        },
+        {
+          "size_pt": 12.0,
+          "visible_character_count": 1
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "3": {
+      "file": "output/pdf/ICSPS2026_LayoutRefinement/before/figures/fig3_representation_ams.pdf",
+      "sha256": "9f78dfeaae4d1711ed4a65072e8e38777db30d31e494d5f5d1dad6309a524112",
+      "page_count": 1,
+      "width_pt": 251.0585305106,
+      "height_pt": 516.0,
+      "width_mm": 88.56787048568388,
+      "height_mm": 182.03333333333333,
+      "content_stream_sha256": "7ccfeb53e4183acb5946380b60fb9ff78aa9cb07ef44a30d4e3979073f581ca8",
+      "drawn_raster_image_count": 0,
+      "visible_character_sizes": [
+        {
+          "size_pt": 1.8,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 2.22,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 2.25,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 2.7,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 4.02,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 4.05,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 4.45,
+          "visible_character_count": 5
+        },
+        {
+          "size_pt": 4.5,
+          "visible_character_count": 4
+        },
+        {
+          "size_pt": 5.12,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 5.4,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.59,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 5.65,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 5.67,
+          "visible_character_count": 3
+        },
+        {
+          "size_pt": 5.74,
+          "visible_character_count": 5
+        },
+        {
+          "size_pt": 5.79,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.85,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.95,
+          "visible_character_count": 6
+        },
+        {
+          "size_pt": 6.02,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 6.09,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 8.0,
+          "visible_character_count": 118
+        },
+        {
+          "size_pt": 8.1,
+          "visible_character_count": 96
+        },
+        {
+          "size_pt": 8.2,
+          "visible_character_count": 169
+        },
+        {
+          "size_pt": 8.3,
+          "visible_character_count": 63
+        },
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 45
+        },
+        {
+          "size_pt": 8.6,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 8.7,
+          "visible_character_count": 26
+        },
+        {
+          "size_pt": 9.2,
+          "visible_character_count": 63
+        },
+        {
+          "size_pt": 12.0,
+          "visible_character_count": 1
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "4": {
+      "file": "output/pdf/ICSPS2026_LayoutRefinement/before/figures/fig4_buildings.pdf",
+      "sha256": "0eacf52f32f29e9eef374268aad5eb7018c639b4a33d58c133da9b1ef8a5e473",
+      "page_count": 1,
+      "width_pt": 514.0722,
+      "height_pt": 288.8361,
+      "width_mm": 181.3532483333333,
+      "height_mm": 101.89495749999999,
+      "content_stream_sha256": "6c008c7def73467c9796060152b4852cda2bb1e7e16d6b5d2609724ee347a99c",
+      "drawn_raster_image_count": 8,
+      "visible_character_sizes": [
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 74
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "5": {
+      "file": "output/pdf/ICSPS2026_LayoutRefinement/before/figures/fig5_real_sar.pdf",
+      "sha256": "45535d2dd3ebc68fcfb51293770898a6eea6ae3aa77116eaa7be0481da00e104",
+      "page_count": 1,
+      "width_pt": 514.0722,
+      "height_pt": 288.8361,
+      "width_mm": 181.3532483333333,
+      "height_mm": 101.89495749999999,
+      "content_stream_sha256": "3db858ab4acd751d623ad7f92ba27ce286e8ea22d799a504fee35ea62038108a",
+      "drawn_raster_image_count": 8,
+      "visible_character_sizes": [
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 90
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    }
+  },
+  "figures_after": {
+    "1": {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig1_overall_architecture.pdf",
+      "sha256": "8c442baa299530f0eae10db2b2fb5e7054f733729ab12a2e5859818799792fcf",
+      "page_count": 1,
+      "width_pt": 514.0722291407,
+      "height_pt": 262.0,
+      "width_mm": 181.3532586135247,
+      "height_mm": 92.42777777777776,
+      "content_stream_sha256": "226f90d4ab4cd59967eb588eab059763a4e47a6967847931903b9135744dfa0a",
+      "drawn_raster_image_count": 0,
+      "visible_character_sizes": [
+        {
+          "size_pt": 5.46,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.96,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 6.3,
+          "visible_character_count": 11
+        },
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 226
+        },
+        {
+          "size_pt": 9.0,
+          "visible_character_count": 355
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "2": {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig2_fdr_block.pdf",
+      "sha256": "3ce738ad1e5e40be05bc2e858dc37fdcf7d45a287330f12144408b5c7a7e46f0",
+      "page_count": 1,
+      "width_pt": 251.0585305106,
+      "height_pt": 412.0,
+      "width_mm": 88.56787048568388,
+      "height_mm": 145.34444444444443,
+      "content_stream_sha256": "de2568d577c5a50db98c48aa152dbee2f39dfaf99426a5be8e7b6a606d468618",
+      "drawn_raster_image_count": 0,
+      "visible_character_sizes": [
+        {
+          "size_pt": 5.6,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.67,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.81,
+          "visible_character_count": 3
+        },
+        {
+          "size_pt": 6.3,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 8.0,
+          "visible_character_count": 107
+        },
+        {
+          "size_pt": 8.1,
+          "visible_character_count": 28
+        },
+        {
+          "size_pt": 8.2,
+          "visible_character_count": 9
+        },
+        {
+          "size_pt": 8.3,
+          "visible_character_count": 64
+        },
+        {
+          "size_pt": 8.4,
+          "visible_character_count": 98
+        },
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 15
+        },
+        {
+          "size_pt": 9.0,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 9.2,
+          "visible_character_count": 24
+        },
+        {
+          "size_pt": 12.0,
+          "visible_character_count": 1
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "3": {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig3_representation_ams.pdf",
+      "sha256": "3b57e934b8a5967c49b3646ba436df2c81ecde11dea1a3e319e50d5a2fd15c28",
+      "page_count": 1,
+      "width_pt": 251.0585305106,
+      "height_pt": 378.0,
+      "width_mm": 88.56787048568388,
+      "height_mm": 133.35,
+      "content_stream_sha256": "12339df63386f02e903efd84931bdb20ce272c35ed9737815a546932a2817ca7",
+      "drawn_raster_image_count": 0,
+      "visible_character_sizes": [
+        {
+          "size_pt": 2.28,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 2.39,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 2.86,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 4.21,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 4.56,
+          "visible_character_count": 5
+        },
+        {
+          "size_pt": 4.78,
+          "visible_character_count": 3
+        },
+        {
+          "size_pt": 5.25,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.36,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.48,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.74,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 5.85,
+          "visible_character_count": 2
+        },
+        {
+          "size_pt": 5.99,
+          "visible_character_count": 3
+        },
+        {
+          "size_pt": 6.02,
+          "visible_character_count": 4
+        },
+        {
+          "size_pt": 6.16,
+          "visible_character_count": 15
+        },
+        {
+          "size_pt": 6.23,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 8.2,
+          "visible_character_count": 65
+        },
+        {
+          "size_pt": 8.4,
+          "visible_character_count": 101
+        },
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 1
+        },
+        {
+          "size_pt": 8.6,
+          "visible_character_count": 68
+        },
+        {
+          "size_pt": 8.8,
+          "visible_character_count": 149
+        },
+        {
+          "size_pt": 8.9,
+          "visible_character_count": 25
+        },
+        {
+          "size_pt": 9.2,
+          "visible_character_count": 77
+        },
+        {
+          "size_pt": 12.0,
+          "visible_character_count": 1
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "4": {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig4_buildings.pdf",
+      "sha256": "0eacf52f32f29e9eef374268aad5eb7018c639b4a33d58c133da9b1ef8a5e473",
+      "page_count": 1,
+      "width_pt": 514.0722,
+      "height_pt": 288.8361,
+      "width_mm": 181.3532483333333,
+      "height_mm": 101.89495749999999,
+      "content_stream_sha256": "6c008c7def73467c9796060152b4852cda2bb1e7e16d6b5d2609724ee347a99c",
+      "drawn_raster_image_count": 8,
+      "visible_character_sizes": [
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 74
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    },
+    "5": {
+      "file": "docs/ICSPS2026_LaTeX/figures/fig5_real_sar.pdf",
+      "sha256": "45535d2dd3ebc68fcfb51293770898a6eea6ae3aa77116eaa7be0481da00e104",
+      "page_count": 1,
+      "width_pt": 514.0722,
+      "height_pt": 288.8361,
+      "width_mm": 181.3532483333333,
+      "height_mm": 101.89495749999999,
+      "content_stream_sha256": "3db858ab4acd751d623ad7f92ba27ce286e8ea22d799a504fee35ea62038108a",
+      "drawn_raster_image_count": 8,
+      "visible_character_sizes": [
+        {
+          "size_pt": 8.5,
+          "visible_character_count": 90
+        }
+      ],
+      "font_size_note": "Character heights include mathematical subscripts/superscripts; review ordinary labels visually."
+    }
+  },
+  "before_pdf": {
+    "file": "output/pdf/ICSPS2026_LayoutRefinement/before/ICSPS2026_paper.pdf",
+    "sha256": "2bf8a942890d62db6605ef8f72254cfc691e1cfd7f12059828fbe1d8fc6726e0",
+    "page_count": 8,
+    "placements": [
+      {
+        "figure": 1,
+        "page": 2,
+        "form_path": [
+          "/Fm0"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          309.582628264
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          309.582628264,
+          563.087522751914,
+          741.625828264
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          50.374171735999994,
+          563.087522751914,
+          482.417371736
+        ],
+        "width_pt": 514.123636362914,
+        "height_pt": 432.0432,
+        "width_mm": 181.3713939391391,
+        "height_mm": 152.41523999999998,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 2,
+        "page": 3,
+        "form_path": [
+          "/Fm1"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.00006,
+          0.0,
+          0.0,
+          1.00006,
+          311.9775886554,
+          329.60357621540004
+        ],
+        "scale_x": 1.00006,
+        "scale_y": 1.00006,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          311.9775886554,
+          329.60357621540004,
+          563.0511826772306,
+          741.6282962154
+        ],
+        "bbox_top_origin_pt": [
+          311.9775886554,
+          50.37170378459996,
+          563.0511826772306,
+          462.39642378459996
+        ],
+        "width_pt": 251.07359402183062,
+        "height_pt": 412.02472,
+        "width_mm": 88.57318455770135,
+        "height_mm": 145.3531651111111,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 3,
+        "page": 4,
+        "form_path": [
+          "/Fm2"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.00006,
+          0.0,
+          0.0,
+          1.00006,
+          311.9775886554,
+          225.59750585120008
+        ],
+        "scale_x": 1.00006,
+        "scale_y": 1.00006,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          311.9775886554,
+          225.59750585120008,
+          563.0511826772306,
+          741.6284658512
+        ],
+        "bbox_top_origin_pt": [
+          311.9775886554,
+          50.37153414880004,
+          563.0511826772306,
+          566.4024941487999
+        ],
+        "width_pt": 251.07359402183062,
+        "height_pt": 516.0309599999998,
+        "width_mm": 88.57318455770135,
+        "height_mm": 182.04425533333327,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 4,
+        "page": 6,
+        "form_path": [
+          "/Fm3"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          452.761466148
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          452.761466148,
+          563.0874936089999,
+          741.626449758
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          50.373550241999965,
+          563.0874936089999,
+          339.238533852
+        ],
+        "width_pt": 514.1236072199999,
+        "height_pt": 288.86498361,
+        "width_mm": 181.37138365816662,
+        "height_mm": 101.90514699575,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 5,
+        "page": 7,
+        "form_path": [
+          "/Fm4"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          452.761466148
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          452.761466148,
+          563.0874936089999,
+          741.626449758
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          50.373550241999965,
+          563.0874936089999,
+          339.238533852
+        ],
+        "width_pt": 514.1236072199999,
+        "height_pt": 288.86498361,
+        "width_mm": 181.37138365816662,
+        "height_mm": 101.90514699575,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4772,
+        "text_bounds_pt": [
+          48.96389000000001,
+          52.24495691200002,
+          563.0460806400002,
+          718.4370828799994
+        ]
+      },
+      {
+        "page": 2,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 2261,
+        "text_bounds_pt": [
+          48.963889999999935,
+          56.08067982975001,
+          563.0460806400002,
+          721.5134465119996
+        ]
+      },
+      {
+        "page": 3,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 3642,
+        "text_bounds_pt": [
+          48.963880000000046,
+          50.82056120000004,
+          563.03637,
+          718.4370728799997
+        ]
+      },
+      {
+        "page": 4,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 3607,
+        "text_bounds_pt": [
+          48.96387999999993,
+          50.940112880000015,
+          563.0460806400001,
+          718.4370628799998
+        ]
+      },
+      {
+        "page": 5,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4437,
+        "text_bounds_pt": [
+          48.96387999999999,
+          52.50026230399999,
+          563.0460806400001,
+          718.4370628799996
+        ]
+      },
+      {
+        "page": 6,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 2593,
+        "text_bounds_pt": [
+          48.96389,
+          179.5932891238199,
+          563.0460806400001,
+          718.4370528799992
+        ]
+      },
+      {
+        "page": 7,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 3414,
+        "text_bounds_pt": [
+          48.963879999999996,
+          179.5932891238199,
+          563.0460706400002,
+          718.4370528799996
+        ]
+      },
+      {
+        "page": 8,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 2433,
+        "text_bounds_pt": [
+          48.96387999999998,
+          52.50026230399999,
+          563.044660656,
+          266.6971143039999
+        ]
+      }
+    ],
+    "fonts": [
+      {
+        "name": "IHAIZV+NimbusRomNo9L-Regu",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "BZIVMZ+NimbusRomNo9L-MediItal",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "IXFAWU+NimbusRomNo9L-Medi",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "TQTHRL+NimbusRomNo9L-ReguItal",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "YEUUOC+CMMI8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "AKHCZK+CMSY8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "VDVGTR+CMR8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CAFSZL+CMMIB10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DDIEWW+CMMI10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "FKPJSN+CMR10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "PVTTLK+CMSY10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "JAGKKY+CMMI7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "NOMARO+CMSY7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "KPXLOM+CMR7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "UTACNV+MSBM10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "FZDNHS+CMEX10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CGMMQU+Cmex10",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CGMMQU+Cmsy10",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DZGKAF+NimbusMonL-Regu",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "GJMHKB+CMBX8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "NITCSQ+CMMI6",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CZRBLR+STIXGeneral-Regular",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "GYKUUQ+STIXSizeTwoSym-Regular",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "AAAAAA+ArialMT",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "AAAAAA+ArialMT",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "used_for_visible_text": true
+      }
+    ],
+    "unmatched_visible_font_names": [],
+    "all_visible_fonts_embedded": true,
+    "unused_unembedded_font_resources": [
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      }
+    ],
+    "text_outside_page": [],
+    "double_question_mark_pages": [],
+    "all_five_figures_identified_once": true
+  },
+  "after_pdf": {
+    "file": "docs/ICSPS2026_LaTeX/ICSPS2026_paper.pdf",
+    "sha256": "015805385fd640181f9beddfdf105827601d1d652559e325c02be50a2e2145e1",
+    "page_count": 7,
+    "placements": [
+      {
+        "figure": 1,
+        "page": 2,
+        "form_path": [
+          "/Fm0"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          479.60039004000004
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          479.60039004000004,
+          563.087522751914,
+          741.6265900400001
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          50.37340995999989,
+          563.087522751914,
+          312.39960995999996
+        ],
+        "width_pt": 514.123636362914,
+        "height_pt": 262.0262000000001,
+        "width_mm": 181.3713939391391,
+        "height_mm": 92.43702055555558,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 2,
+        "page": 3,
+        "form_path": [
+          "/Fm1"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.00006,
+          0.0,
+          0.0,
+          1.00006,
+          311.9775886554,
+          329.60357621540004
+        ],
+        "scale_x": 1.00006,
+        "scale_y": 1.00006,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          311.9775886554,
+          329.60357621540004,
+          563.0511826772306,
+          741.6282962154
+        ],
+        "bbox_top_origin_pt": [
+          311.9775886554,
+          50.37170378459996,
+          563.0511826772306,
+          462.39642378459996
+        ],
+        "width_pt": 251.07359402183062,
+        "height_pt": 412.02472,
+        "width_mm": 88.57318455770135,
+        "height_mm": 145.3531651111111,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 3,
+        "page": 4,
+        "form_path": [
+          "/Fm2"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.00006,
+          0.0,
+          0.0,
+          1.00006,
+          48.963887833399994,
+          363.6055663348
+        ],
+        "scale_x": 1.00006,
+        "scale_y": 1.00006,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.963887833399994,
+          363.6055663348,
+          300.03748185523057,
+          741.6282463348
+        ],
+        "bbox_top_origin_pt": [
+          48.963887833399994,
+          50.3717536652,
+          300.03748185523057,
+          428.3944336652
+        ],
+        "width_pt": 251.07359402183056,
+        "height_pt": 378.02268,
+        "width_mm": 88.57318455770134,
+        "height_mm": 133.35800099999997,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 4,
+        "page": 5,
+        "form_path": [
+          "/Fm3"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          310.0029903000001
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          310.0029903000001,
+          563.0874936089999,
+          598.86797391
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          193.13202608999995,
+          563.0874936089999,
+          481.9970096999999
+        ],
+        "width_pt": 514.1236072199999,
+        "height_pt": 288.86498360999997,
+        "width_mm": 181.37138365816662,
+        "height_mm": 101.90514699574999,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 5,
+        "page": 7,
+        "form_path": [
+          "/Fm4"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          452.761466148
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          452.761466148,
+          563.0874936089999,
+          741.626449758
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          50.373550241999965,
+          563.0874936089999,
+          339.238533852
+        ],
+        "width_pt": 514.1236072199999,
+        "height_pt": 288.86498361,
+        "width_mm": 181.37138365816662,
+        "height_mm": 101.90514699575,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4769,
+        "text_bounds_pt": [
+          48.96389000000001,
+          52.24495691200002,
+          563.0460806400002,
+          718.4370828799994
+        ]
+      },
+      {
+        "page": 2,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 3167,
+        "text_bounds_pt": [
+          48.96387999999999,
+          53.87107219125005,
+          563.04608064,
+          718.4370328799996
+        ]
+      },
+      {
+        "page": 3,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 3231,
+        "text_bounds_pt": [
+          48.963870000000014,
+          50.71097215999998,
+          563.0379111999999,
+          720.0910165119997
+        ]
+      },
+      {
+        "page": 4,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4153,
+        "text_bounds_pt": [
+          48.96387999999999,
+          50.94015287999969,
+          563.0461006400002,
+          718.4371328799995
+        ]
+      },
+      {
+        "page": 5,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 2436,
+        "text_bounds_pt": [
+          48.96388999999999,
+          52.50026230399999,
+          563.0460906400002,
+          718.4370528799991
+        ]
+      },
+      {
+        "page": 6,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4743,
+        "text_bounds_pt": [
+          48.96389,
+          50.940172879999636,
+          563.0460806400001,
+          718.4370628799996
+        ]
+      },
+      {
+        "page": 7,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4149,
+        "text_bounds_pt": [
+          48.963889999999985,
+          179.5932891238199,
+          563.044670656,
+          718.0047543039997
+        ]
+      }
+    ],
+    "fonts": [
+      {
+        "name": "IHAIZV+NimbusRomNo9L-Regu",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "BZIVMZ+NimbusRomNo9L-MediItal",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "IXFAWU+NimbusRomNo9L-Medi",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "TQTHRL+NimbusRomNo9L-ReguItal",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "YEUUOC+CMMIB10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "AKHCZK+CMMI10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "VDVGTR+CMR10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CAFSZL+CMSY10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DDIEWW+CMMI7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "FKPJSN+CMSY7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "PVTTLK+CMR7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "JAGKKY+MSBM10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "NOMARO+CMEX10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CGMMQU+Cmex10",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "KPXLOM+CMR8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "UTACNV+CMSY8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "FZDNHS+CMMI8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DZGKAF+CMMI6",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "GJMHKB+NimbusMonL-Regu",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CZRBLR+STIXGeneral-Regular",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "GYKUUQ+STIXSizeTwoSym-Regular",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "AAAAAA+ArialMT",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "NITCSQ+CMBX8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "AAAAAA+ArialMT",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "used_for_visible_text": true
+      }
+    ],
+    "unmatched_visible_font_names": [],
+    "all_visible_fonts_embedded": true,
+    "unused_unembedded_font_resources": [
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      }
+    ],
+    "text_outside_page": [],
+    "double_question_mark_pages": [],
+    "all_five_figures_identified_once": true
+  },
+  "page_count_before": 8,
+  "page_count_after": 7,
+  "compilation": {
+    "warnings": {
+      "overfull": {
+        "before": [],
+        "after": [],
+        "new_normalized": []
+      },
+      "underfull": {
+        "before": [
+          "Underfull \\hbox (badness 1430) in paragraph at lines 288--289"
+        ],
+        "after": [
+          "Underfull \\vbox (badness 10000) has occurred while \\output is active []"
+        ],
+        "new_normalized": [
+          "Underfull \\vbox (badness 10000) has occurred while \\output is active []"
+        ]
+      },
+      "font": {
+        "before": [],
+        "after": [],
+        "new_normalized": []
+      },
+      "reference": {
+        "before": [],
+        "after": [],
+        "new_normalized": []
+      },
+      "errors": {
+        "before": [],
+        "after": [],
+        "new_normalized": []
+      }
+    },
+    "aux_labels": {
+      "fig:overview": {
+        "number": "1",
+        "page": "2"
+      },
+      "eq:observation": {
+        "number": "1",
+        "page": "2"
+      },
+      "eq:log": {
+        "number": "2",
+        "page": "2"
+      },
+      "eq:inverse": {
+        "number": "3",
+        "page": "2"
+      },
+      "eq:fft": {
+        "number": "4",
+        "page": "3"
+      },
+      "eq:fdr": {
+        "number": "5",
+        "page": "3"
+      },
+      "eq:compensation": {
+        "number": "6",
+        "page": "3"
+      },
+      "eq:supervised": {
+        "number": "7",
+        "page": "3"
+      },
+      "fig:fdr": {
+        "number": "2",
+        "page": "3"
+      },
+      "eq:ams": {
+        "number": "8",
+        "page": "3"
+      },
+      "fig:representation_ams": {
+        "number": "3",
+        "page": "4"
+      },
+      "tab:main": {
+        "number": "I",
+        "page": "5"
+      },
+      "fig:synthetic_qual": {
+        "number": "4",
+        "page": "5"
+      },
+      "tab:ablation": {
+        "number": "II",
+        "page": "6"
+      },
+      "tab:real": {
+        "number": "III",
+        "page": "6"
+      },
+      "fig:real_qual": {
+        "number": "5",
+        "page": "7"
+      }
+    },
+    "duplicate_aux_labels": {},
+    "output_pdf_line": [
+      "Output written on ICSPS2026_paper.xdv (7 pages, 44804 bytes)."
+    ]
+  },
+  "known_unchanged_source_discrepancy": "AMS paper denominator is ||M||_1+epsilon; train_icsps2026_ams.py:111 uses mask.sum().clamp_min(1.0). This script does not alter either.",
+  "manual_review_required": [
+    "Exact residual prose diff",
+    "Rendered figures at final publication size",
+    "Arrow meaning, overlaps, clipping, spacing and pagination whitespace"
+  ]
+}

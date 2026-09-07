@@ -1,10 +1,10 @@
 {
   "figure": "Fig. 1",
   "width_mm": 181.3532586135326,
-  "height_mm": 152.39999999999998,
+  "height_mm": 92.42777777777778,
   "width_tex_pt": 516,
   "width_pdf_pt": 514.0722291407224,
-  "minimum_base_font_pt": 8,
+  "minimum_base_font_pt": 8.5,
   "font": "Arial",
   "font_file_used": "C:\\Windows\\Fonts\\arial.ttf",
   "png_dpi": 600,
@@ -24,6 +24,6 @@
     "train_icsps2026_ams.py": "142da31a3306a50c62fffb814e61a52528451e3caa6ee26830f23b5af45e260d",
     "configs/icsps2026_frozen_v2.json": "75177763e514ba7e25958c8ab6a041ab4d235cddbdc9a37f61347d5e9a8ad423",
     "docs/ICSPS2026_LaTeX/IEEEtran.cls": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
-    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex": "c8aebb8fa1c0f6d0b404a3207c104837597e19a74435fa15090a163f7a0ec243"
+    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex": "fa11299eaef49eb55880744f0794299b348bdb2be138d79c9ec4f8df2a73a5f7"
   }
 }

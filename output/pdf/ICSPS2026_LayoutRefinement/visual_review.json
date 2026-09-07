@@ -1,0 +1,62 @@
+{
+  "status": "passed_with_one_documented_underfull_warning",
+  "paper_sha256": "015805385fd640181f9beddfdf105827601d1d652559e325c02be50a2e2145e1",
+  "tex_sha256": "fa11299eaef49eb55880744f0794299b348bdb2be138d79c9ec4f8df2a73a5f7",
+  "reviewed_final_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "independent_review_pages": [
+    2,
+    4,
+    5,
+    7
+  ],
+  "baseline_pages_rendered": 8,
+  "final_pages_rendered": 7,
+  "rendering": "Poppler; baseline100dpi, final110dpi full pages; figures100/150dpi and source600dpi previews.",
+  "visual_checks": {
+    "readable_at_final_placement": true,
+    "no_overlap_or_clipping": true,
+    "no_arrow_through_text": true,
+    "correct_connections": true,
+    "caption_spacing_acceptable": true,
+    "no_abnormal_blank_pages": true
+  },
+  "manual_text_diff_review": "Approved: compensation cross-reference, AMS cross-reference wording, obsolete bibliography column break removal. No unrelated prose changes.",
+  "remaining_warning": "One Underfull vbox badness10000 on page5; modest paragraph separation, no serious blank area.",
+  "scope_check": "Initial git status was clean; tracked changes restricted to paper/figure1/figure3 delivery and documentation paths. Model, experiments, data and references preserved.",
+  "identical_source_and_installed_exports": true,
+  "report": "REPORT.md",
+  "structural_checks": "qa.json",
+  "changed_tracked_files": [
+    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.pdf",
+    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex",
+    "docs/ICSPS2026_LaTeX/README.md",
+    "docs/ICSPS2026_LaTeX/figures/fig1_overall_architecture.pdf",
+    "docs/ICSPS2026_LaTeX/figures/fig3_representation_ams.pdf",
+    "output/pdf/ICSPS2026_Fig1/README.md",
+    "output/pdf/ICSPS2026_Fig1/caption.txt",
+    "output/pdf/ICSPS2026_Fig1/draw_fig1.py",
+    "output/pdf/ICSPS2026_Fig1/fig1_actual_size_150dpi.png",
+    "output/pdf/ICSPS2026_Fig1/fig1_insert.tex",
+    "output/pdf/ICSPS2026_Fig1/fig1_overall_architecture.pdf",
+    "output/pdf/ICSPS2026_Fig1/fig1_overall_architecture.png",
+    "output/pdf/ICSPS2026_Fig1/fig1_overall_architecture.svg",
+    "output/pdf/ICSPS2026_Fig1/figure_manifest.json",
+    "output/pdf/ICSPS2026_Fig3/README.md",
+    "output/pdf/ICSPS2026_Fig3/caption.txt",
+    "output/pdf/ICSPS2026_Fig3/draw_fig3.py",
+    "output/pdf/ICSPS2026_Fig3/fig3_actual_size_150dpi.png",
+    "output/pdf/ICSPS2026_Fig3/fig3_insert.tex",
+    "output/pdf/ICSPS2026_Fig3/fig3_representation_ams.pdf",
+    "output/pdf/ICSPS2026_Fig3/fig3_representation_ams.png",
+    "output/pdf/ICSPS2026_Fig3/fig3_representation_ams.svg",
+    "output/pdf/ICSPS2026_Fig3/figure_manifest.json"
+  ]
+}

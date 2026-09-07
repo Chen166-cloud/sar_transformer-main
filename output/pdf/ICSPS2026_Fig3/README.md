@@ -1,3 +1,5 @@
+> 2026-09-07 紧凑排版更新：当前 `draw_fig3.py`、SVG、PDF、PNG 和 `figure_manifest.json` 已按本轮要求更新。下面原交付说明及旧 layout proof/export QA 作为历史记录保留，其旧尺寸与布局描述不再适用于当前图。当前论文、实际尺寸、编译及验收结果见 [本轮报告](../ICSPS2026_LayoutRefinement/REPORT.md)。
+
 # ICSPS 2026 — Fig. 3: Representation-consistent reconstruction and AMS
 
 本交付完成指定初稿 `output/pdf/ICSPS2026_英文论文_LaTeX无图初稿.pdf` 中的 Fig. 3，依据当前论文源码、正式 Full 模型、数值域函数和 AMS 协议绘制可编辑矢量流程图。面板 (a) 解释 bounded log prediction 如何先精确逆变换，再进行同 intensity 域的残差补偿；面板 (b) 解释 noisy observation、mask、模型、masked objective、参数更新、固定验证选模和完整输入推理之间的关系。本图不重复 Fig. 1 的完整主干、Fig. 2 的 FDR 内部结构或实验表格。

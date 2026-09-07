@@ -1,0 +1,30 @@
+--- before/ICSPS2026_paper.tex (Fig1/Fig3 hidden; reference spelling normalized)
++++ after/ICSPS2026_paper.tex (same normalization)
+@@ -123,7 +123,7 @@
+ \end{aligned}
+ \label{eq:compensation}
+ \end{equation}
+-The compensator comprises two \(3\times3\), 32-channel GELU layers and a single-channel residual head. Both operands in~\eqref{eq:compensation} are intensities, so the historical name ``dual-domain fusion'' denotes a limited post-inversion correction, not two restoration branches or direct log/intensity addition. Conditioning on both the observation and inverse-mapped estimate permits a small correction of radiometric contrast and bright-scatterer neighborhoods without asking the compensator to repeat despeckling independently. Clamping follows the residual update.
++The compensator comprises two \(3\times3\), 32-channel GELU layers and a single-channel residual head. Both operands in~\eqref{eq:compensation} are intensities, so the historical name ``dual-domain fusion'' denotes a limited post-inversion correction, not two restoration branches or direct log/intensity addition. Conditioning on both the observation and inverse-mapped estimate permits a small correction of radiometric contrast and bright-scatterer neighborhoods without asking the compensator to repeat despeckling independently. Clamping follows the residual update, as shown in Fig.~\ref{fig:representation_ams}(a).
+ 
+ \subsection{Supervised Training and Masked Post-Adaptation}
+ The supervised objective is defined on normalized linear intensity:
+@@ -143,7 +143,7 @@
+ \end{aligned}
+ \label{eq:ams}
+ \end{equation}
+-During eight adaptation epochs at a learning rate of \(10^{-6}\), the inherited Transformer encoder is frozen while the bottleneck, decoder, guidance branch, output head, and compensator remain trainable. Training masks are stochastic; one fixed mask per validation sample is reused for checkpoint selection so the validation target does not change between epochs. Inference uses the complete unmasked image. Freezing limits drift in the representation learned from controlled synthetic data while allowing output statistics to adjust. Because the target remains noisy and focused speckle may be spatially correlated, this is constrained post-adaptation rather than an independence guarantee. Fig.~\ref{fig:representation_ams} summarizes the numerical-domain and training/inference paths.
++During eight adaptation epochs at a learning rate of \(10^{-6}\), the inherited Transformer encoder is frozen while the bottleneck, decoder, guidance branch, output head, and compensator remain trainable. Training masks are stochastic; one fixed mask per validation sample is reused for checkpoint selection so the validation target does not change between epochs. Inference uses the complete unmasked image. Freezing limits drift in the representation learned from controlled synthetic data while allowing output statistics to adjust. Because the target remains noisy and focused speckle may be spatially correlated, this is constrained post-adaptation rather than an independence guarantee. Fig.~\ref{fig:representation_ams}(b) summarizes the AMS training and unmasked inference paths.
+ 
+ % QA: permitted figure environment fig:representation_ams
+ 
+@@ -278,8 +278,7 @@
+ \section{Conclusion}
+ This work presents a representation-consistent Fourier extension of the public Trans-SAR backbone for SAR intensity despeckling. Full-spectrum real--imaginary refinement is applied at six reconstruction scales, while a bounded log estimate is analytically returned to intensity before residual compensation. On the UCM-21 simulated test, the complete model obtains the highest macro PSNR and SSIM point estimates, and controlled ablations show clear reductions when Fourier refinement or intensity compensation is removed. On parent-disjoint real patches, encoder-frozen masked adaptation improves the M-index and edge preservation while reducing the extreme smoothness of the base output. The scope remains normalized single-image intensity restoration within the evaluated datasets; broader real-SAR claims require independent acquisitions and uncertainty analysis.
+ 
+-% Balance the final page for the current five-figure layout.
+-\IEEEtriggeratref{15}
++% Let references flow naturally after the compact figure layout.
+ \begin{thebibliography}{00}
+ 
+ \bibitem{fracastoro2021overview}

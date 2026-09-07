@@ -1,1 +1,7 @@
-Representation-consistent output reconstruction and masked post-adaptation (AMS). (a) A bounded log prediction is exactly inverted before residual compensation and addition in the intensity domain. (b) During adaptation, the whole model receives the masked observation Y_m, including the compensator; the original observation supplies the noisy target. Only the Transformer encoder is frozen. Training masks are resampled, validation masks are fixed for checkpoint selection, and inference uses the complete unmasked observation.
+Overall architecture. Gray regions identify inherited Trans-SAR
+  operators; colored regions identify the added Fourier, skip-fusion, guidance,
+  and representation operations. Decoder cards contain both inherited and added
+  components. Four encoder skips feed the corresponding decoder stages. Six FDR
+  blocks use independent parameters, while one latent guidance map modulates all
+  five decoder stages. Output reconstruction and AMS are detailed in
+  Fig.~\ref{fig:representation_ams}(a) and (b), respectively.

@@ -1,3 +1,5 @@
+> 2026-09-07 紧凑排版更新：当前 `draw_fig1.py`、SVG、PDF、PNG 和 `figure_manifest.json` 已按本轮要求更新。下面原交付说明及旧 layout proof/export QA 作为历史记录保留，其旧尺寸与布局描述不再适用于当前图。当前论文、实际尺寸、编译及验收结果见 [本轮报告](../ICSPS2026_LayoutRefinement/REPORT.md)。
+
 # Fig. 1 交付说明
 
 本次仅完成指定初稿的 Fig. 1。已阅读原 PDF 第 2 页、对应 LaTeX 方法段、正式配置与模型 forward，完成源码核验、矢量绘图、单次结构前向验证、PDF 渲染与实际版心尺寸检查。未更改论文正文、模型、配置、实验数据或 checkpoint，未重新训练。

@@ -1,7 +1,7 @@
 # ICSPS 2026 LaTeX manuscript with Figures 1-5
 
 Main manuscript: `ICSPS2026_paper.tex`
-Compiled manuscript: `ICSPS2026_paper.pdf` (8 pages in the verified build).
+Compiled manuscript: `ICSPS2026_paper_arrowfix.pdf` (7 pages, including the corrected Figure 3 target arrow). The original `ICSPS2026_paper.pdf` is currently locked by another process and retains the preceding seven-page version. Source and figure files are updated.
 
 The directory includes the exact `IEEEtran.cls` distributed in the official
 ICSPS 2026 LaTeX package. `official_conference_101719.tex` is retained only as
@@ -47,22 +47,45 @@ caption-style or page-geometry overrides have been added.
 | 1 | `fig1_overall_architecture.pdf` | text width, 181.353 mm | 2 |
 | 2 | `fig2_fdr_block.pdf` | column width, 88.568 mm | 3 |
 | 3 | `fig3_representation_ams.pdf` | column width, 88.568 mm | 4 |
-| 4 | `fig4_buildings.pdf` | text width, 181.353 mm | 6 |
+| 4 | `fig4_buildings.pdf` | text width, 181.353 mm | 5 |
 | 5 | `fig5_real_sar.pdf` | text width, 181.353 mm | 7 |
 
-Figures 1-3 retain their original 8 pt or larger base labels and embedded
-fonts. Their source code, SVGs, captions, and model/source audits are in
-`../../output/pdf/ICSPS2026_Fig1`, `ICSPS2026_Fig2`, and `ICSPS2026_Fig3`.
-The original figure placeholders and their unused macro have been removed.
-The reference-column break is set at entry 15 for the current eight-page
-layout; review that setting after changing text or figure sizes.
+Figures 1 and 3 have been compactly redrawn from their existing editable
+Matplotlib sources. Copies of `draw_fig1.py`, `draw_fig3.py`, and both editable
+SVGs are included in `figures/` beside the PDFs actually used by the manuscript.
+Figure 2 is unchanged. Figure 1 is a single architecture diagram; AMS appears
+only in Figure 3(b). The old reference break at entry 15 was removed because
+it left an unnecessary final page after this layout change.
 
-Full-paper checks, page previews, and the QA script are in
-`../../output/pdf/ICSPS2026_Integrated`. The eight-page result is a layout
-check, not verification of a conference page allowance. No model code,
-experimental results, table values, or existing Figures 4-5 were changed
-as part of integrating Figures 1-3. The previously documented AMS loss
-denominator difference is unchanged; this task does not revise that formula.
+The final placed Figure 1 measures 181.371 × 92.437 mm (page 2); Figure 3
+measures 88.573 × 133.358 mm (page 4), excluding captions. Labels are mainly
+9 pt / 8.8 pt, with minimum ordinary labels 8.5 pt / 8.2 pt respectively.
+The slight difference from native widths comes from Tectonic's PDF placement
+rounding; the manuscript still uses only `width=\textwidth` / `\columnwidth`.
+
+To regenerate the editable vector exports from the repository root:
+
+```powershell
+python output/pdf/ICSPS2026_Fig1/draw_fig1.py
+python output/pdf/ICSPS2026_Fig3/draw_fig3.py
+Copy-Item output/pdf/ICSPS2026_Fig1/fig1_overall_architecture.pdf docs/ICSPS2026_LaTeX/figures/
+Copy-Item output/pdf/ICSPS2026_Fig3/fig3_representation_ams.pdf docs/ICSPS2026_LaTeX/figures/
+.\docs\ICSPS2026_LaTeX\build.ps1
+```
+
+The script copies under `figures/` are identical and also accept `--output-dir`.
+Drawing requires Matplotlib and fontTools with Arial installed (or use the
+`--font` option). The verified drawing runtime is Matplotlib 3.8.4.
+
+The current baseline, final page renders, strict preservation checks and report
+are in `../../output/pdf/ICSPS2026_LayoutRefinement/`. See also
+`LAYOUT_REFINEMENT_REPORT.md`. The original integrated QA and prior figure proof
+PDFs remain historical records, not checks of the current layout. The final
+build has one Underfull vbox warning on page 5, with no visible serious blank
+region; no overfull, missing references, missing images or font warnings remain.
+The recorded AMS denominator discrepancy remains unchanged. All formulas,
+tables, bibliography, model code, template settings and Figure 2/4/5 contents
+are preserved.
 
 Figure 4 sources, a reproducible composition script, a PNG preview, and the
 source-pixel verification record are in `../../output/pdf/ICSPS2026_Fig4`.

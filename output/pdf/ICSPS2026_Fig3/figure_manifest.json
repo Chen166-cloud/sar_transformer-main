@@ -1,10 +1,11 @@
 {
   "figure": "Fig. 3",
   "width_mm": 88.56787048567871,
-  "height_mm": 182.03333333333333,
+  "height_mm": 133.35,
   "width_tex_pt": 252,
   "width_pdf_pt": 251.0585305105853,
-  "minimum_base_font_pt": 8,
+  "minimum_base_font_pt": 8.2,
+  "default_label_font_pt": 8.8,
   "font": "Arial",
   "font_file": "C:\\Windows\\Fonts\\arial.ttf",
   "dpi": 600,
@@ -19,7 +20,6 @@
     "bounded-log",
     "log-predictor",
     "inverse-log",
-    "intensity-concat",
     "compensator",
     "output-clipping",
     "real-observation",
@@ -27,12 +27,11 @@
     "frozen-encoder",
     "trainable-reconstruction",
     "masked-objective",
-    "validation-selection",
     "inference-observation",
     "selected-model",
     "inference-output"
   ],
-  "svg_outlined_math_symbols": 10,
+  "svg_outlined_math_symbols": 9,
   "data": "Architecture and protocol only; no experimental images or metrics are plotted.",
   "source_sha256": {
     "transform_main.py": "9405bb05d68405848c9966f4b093ea078208ad70856d3583672c70a3aa7c82fb",
@@ -43,7 +42,7 @@
     "prepare_icsps2026_real.py": "0ba7e1652fc7adf31ba34cb7fd1c960651c2e3177bf5b0a46dc988767219d0c7",
     "evaluate_icsps2026_real.py": "cf8e2bc3782ef90c2f666d9b0b8461af898b84b1baffe384fdfede907b8f7405",
     "configs/icsps2026_frozen_v2.json": "75177763e514ba7e25958c8ab6a041ab4d235cddbdc9a37f61347d5e9a8ad423",
-    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex": "c8aebb8fa1c0f6d0b404a3207c104837597e19a74435fa15090a163f7a0ec243",
+    "docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex": "fa11299eaef49eb55880744f0794299b348bdb2be138d79c9ec4f8df2a73a5f7",
     "docs/ICSPS2026_LaTeX/IEEEtran.cls": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
     "output/pdf/ICSPS2026_英文论文_LaTeX无图初稿.pdf": "4bedf87c9be71937b133309d14a4478f1da609018af6a7bdbe9dc1bd83635c39"
   }

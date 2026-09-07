@@ -1,0 +1,40 @@
+{
+  "page_size_bp": [
+    251.0585305106,
+    378.0
+  ],
+  "pdf_raster_images": 0,
+  "pdf_fonts": [
+    {
+      "name": "/ELUGPM+ArialMT",
+      "subtype": "/Type0",
+      "embedded": true
+    },
+    {
+      "name": "/ELUGPM+Arial-BoldMT",
+      "subtype": "/Type0",
+      "embedded": true
+    },
+    {
+      "name": "/DTWKUJ+Arial-ItalicMT",
+      "subtype": "/Type0",
+      "embedded": true
+    },
+    {
+      "name": "/CZRBLR+STIXGeneral-Regular",
+      "subtype": "/Type0",
+      "embedded": true
+    },
+    {
+      "name": "/GYKUUQ+STIXSizeTwoSym-Regular",
+      "subtype": "/Type0",
+      "embedded": true
+    }
+  ],
+  "svg_raster_images": 0,
+  "svg_editable_text_nodes": 38,
+  "svg_groups": 100,
+  "pdf_render": "fig3_pdf_render_check.png",
+  "visual_review": "Arrow geometry corrected after user feedback. Independent SVG and PDF renders at150dpi and final paper page4 inspected. The former 2pt upward segment is replaced with a27pt horizontal entry to loss lower-left port. Text/font/canvas unchanged.",
+  "followup_record": "../ICSPS2026_LayoutRefinement/arrow_fix/qa.json"
+}

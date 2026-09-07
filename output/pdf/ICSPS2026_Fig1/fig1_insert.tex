@@ -1,17 +1,13 @@
-% Replace only the current fig:overview figure* environment.
-% From docs/ICSPS2026_LaTeX/ICSPS2026_paper.tex, this relative path resolves
-% to the delivered figure. For Overleaf, upload the PDF into figures/ and
-% change the includegraphics path to figures/fig1_overall_architecture.pdf.
+% Current compact figure; use the existing manuscript label.
 \begin{figure*}[!t]
   \centering
-  \includegraphics[width=\textwidth]{../../output/pdf/ICSPS2026_Fig1/fig1_overall_architecture.pdf}
-  \caption{Overall architecture of the proposed Trans-SAR-based despeckling model.
-  (a) Gray components denote inherited operators; colored components denote the
-  extensions used in this work. Four encoder skips enter learned decoder fusion.
-  Six stage-specific Fourier residual refinement (FDR) blocks and a shared latent
-  guidance map support reconstruction. Exact inverse mapping precedes intensity
-  residual compensation. Shapes are $H\times W\times C$ for a normalized input
-  $Y\in[0,1]$. (b) Masked post-adaptation freezes the encoder and updates the
-  reconstruction modules; inference uses unmasked observations.}
+  \includegraphics[width=\textwidth]{figures/fig1_overall_architecture.pdf}
+  \caption{Overall architecture. Gray regions identify inherited Trans-SAR
+  operators; colored regions identify the added Fourier, skip-fusion, guidance,
+  and representation operations. Decoder cards contain both inherited and added
+  components. Four encoder skips feed the corresponding decoder stages. Six FDR
+  blocks use independent parameters, while one latent guidance map modulates all
+  five decoder stages. Output reconstruction and AMS are detailed in
+  Fig.~\ref{fig:representation_ams}(a) and (b), respectively.}
   \label{fig:overview}
 \end{figure*}

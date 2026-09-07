@@ -1,0 +1,535 @@
+{
+  "status": "passed",
+  "cause": "2 pt terminal segment shorter than 2.4 pt arrowhead; geometry overran final bend, not a CSS/SVG syntax conflict.",
+  "fix": "Target Y enters loss left edge at (58,317), below update route at y310; final segment 27 pt.",
+  "svg_unique_ids": true,
+  "changed_svg_path_count": 2,
+  "changed_paths": [
+    {
+      "before": "M 31 209  L 31 325  L 107 325  L 107 323.950329  ",
+      "after": "M 31 209  L 31 317  L 57.049671 317  "
+    },
+    {
+      "before": "M 105.8 326.350329  L 107 323.950329  L 108.2 326.350329  z ",
+      "after": "M 54.649671 315.8  L 57.049671 317  L 54.649671 318.2  z "
+    }
+  ],
+  "svg_text_positions_fonts_canvas_unchanged": true,
+  "paper_text_pagination_unchanged": true,
+  "other_figures_unchanged": true,
+  "main_tex_unchanged": true,
+  "visual_review": "Independently rendered SVG with sharp/librsvg and vector PDF with Poppler at150dpi. Inspected both and final paper page4. Arrowhead clear, no line near lower note, target input separate from dashed update route.",
+  "paper_pdf": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\ICSPS2026_paper_arrowfix.pdf",
+  "paper_sha256": "9c96a4f434ba09bd80452ad372fa7fc02fb9f6a6b99a35b0cf440276d44a07c8",
+  "page_count": 7,
+  "canonical_pdf_status": "Locked by another process; compiled revised paper saved as ICSPS2026_paper_arrowfix.pdf.",
+  "after_pdf": {
+    "file": "docs/ICSPS2026_LaTeX/ICSPS2026_paper_arrowfix.pdf",
+    "sha256": "9c96a4f434ba09bd80452ad372fa7fc02fb9f6a6b99a35b0cf440276d44a07c8",
+    "page_count": 7,
+    "placements": [
+      {
+        "figure": 1,
+        "page": 2,
+        "form_path": [
+          "/Fm0"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          479.60039004000004
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          479.60039004000004,
+          563.087522751914,
+          741.6265900400001
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          50.37340995999989,
+          563.087522751914,
+          312.39960995999996
+        ],
+        "width_pt": 514.123636362914,
+        "height_pt": 262.0262000000001,
+        "width_mm": 181.3713939391391,
+        "height_mm": 92.43702055555558,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 2,
+        "page": 3,
+        "form_path": [
+          "/Fm1"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.00006,
+          0.0,
+          0.0,
+          1.00006,
+          311.9775886554,
+          329.60357621540004
+        ],
+        "scale_x": 1.00006,
+        "scale_y": 1.00006,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          311.9775886554,
+          329.60357621540004,
+          563.0511826772306,
+          741.6282962154
+        ],
+        "bbox_top_origin_pt": [
+          311.9775886554,
+          50.37170378459996,
+          563.0511826772306,
+          462.39642378459996
+        ],
+        "width_pt": 251.07359402183062,
+        "height_pt": 412.02472,
+        "width_mm": 88.57318455770135,
+        "height_mm": 145.3531651111111,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 3,
+        "page": 4,
+        "form_path": [
+          "/Fm2"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.00006,
+          0.0,
+          0.0,
+          1.00006,
+          48.963887833399994,
+          363.6055663348
+        ],
+        "scale_x": 1.00006,
+        "scale_y": 1.00006,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.963887833399994,
+          363.6055663348,
+          300.03748185523057,
+          741.6282463348
+        ],
+        "bbox_top_origin_pt": [
+          48.963887833399994,
+          50.3717536652,
+          300.03748185523057,
+          428.3944336652
+        ],
+        "width_pt": 251.07359402183056,
+        "height_pt": 378.02268,
+        "width_mm": 88.57318455770134,
+        "height_mm": 133.35800099999997,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 4,
+        "page": 5,
+        "form_path": [
+          "/Fm3"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          310.0029903000001
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          310.0029903000001,
+          563.0874936089999,
+          598.86797391
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          193.13202608999995,
+          563.0874936089999,
+          481.9970096999999
+        ],
+        "width_pt": 514.1236072199999,
+        "height_pt": 288.86498360999997,
+        "width_mm": 181.37138365816662,
+        "height_mm": 101.90514699574999,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      },
+      {
+        "figure": 5,
+        "page": 7,
+        "form_path": [
+          "/Fm4"
+        ],
+        "identification": "Exact decoded source-page stream SHA-256 equals placed Form stream SHA-256",
+        "placement_matrix": [
+          1.0001,
+          0.0,
+          0.0,
+          1.0001,
+          48.96388638900001,
+          452.761466148
+        ],
+        "scale_x": 1.0001,
+        "scale_y": 1.0001,
+        "uniform_scale": true,
+        "bbox_pdf_pt": [
+          48.96388638900001,
+          452.761466148,
+          563.0874936089999,
+          741.626449758
+        ],
+        "bbox_top_origin_pt": [
+          48.96388638900001,
+          50.373550241999965,
+          563.0874936089999,
+          339.238533852
+        ],
+        "width_pt": 514.1236072199999,
+        "height_pt": 288.86498361,
+        "width_mm": 181.37138365816662,
+        "height_mm": 101.90514699575,
+        "within_page": true,
+        "ordinary_label_size_scaling": "Multiply native figure text sizes by scale_x (uniform drawing)."
+      }
+    ],
+    "pages": [
+      {
+        "page": 1,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4769,
+        "text_bounds_pt": [
+          48.96389000000001,
+          52.24495691200002,
+          563.0460806400002,
+          718.4370828799994
+        ]
+      },
+      {
+        "page": 2,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 3167,
+        "text_bounds_pt": [
+          48.96387999999999,
+          53.87107219125005,
+          563.04608064,
+          718.4370328799996
+        ]
+      },
+      {
+        "page": 3,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 3231,
+        "text_bounds_pt": [
+          48.963870000000014,
+          50.71097215999998,
+          563.0379111999999,
+          720.0910165119997
+        ]
+      },
+      {
+        "page": 4,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4153,
+        "text_bounds_pt": [
+          48.96387999999999,
+          50.94015287999969,
+          563.0461006400002,
+          718.4371328799995
+        ]
+      },
+      {
+        "page": 5,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 2436,
+        "text_bounds_pt": [
+          48.96388999999999,
+          52.50026230399999,
+          563.0460906400002,
+          718.4370528799991
+        ]
+      },
+      {
+        "page": 6,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4743,
+        "text_bounds_pt": [
+          48.96389,
+          50.940172879999636,
+          563.0460806400001,
+          718.4370628799996
+        ]
+      },
+      {
+        "page": 7,
+        "width_pt": 612,
+        "height_pt": 792,
+        "visible_character_count": 4149,
+        "text_bounds_pt": [
+          48.963889999999985,
+          179.5932891238199,
+          563.044670656,
+          718.0047543039997
+        ]
+      }
+    ],
+    "fonts": [
+      {
+        "name": "IHAIZV+NimbusRomNo9L-Regu",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "BZIVMZ+NimbusRomNo9L-MediItal",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "IXFAWU+NimbusRomNo9L-Medi",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "TQTHRL+NimbusRomNo9L-ReguItal",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "YEUUOC+CMMIB10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "AKHCZK+CMMI10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "VDVGTR+CMR10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CAFSZL+CMSY10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DDIEWW+CMMI7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "FKPJSN+CMSY7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "PVTTLK+CMR7",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "JAGKKY+MSBM10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "NOMARO+CMEX10",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CGMMQU+Cmex10",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "KPXLOM+CMR8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "UTACNV+CMSY8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "FZDNHS+CMMI8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DZGKAF+CMMI6",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "GJMHKB+NimbusMonL-Regu",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+ArialMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "ELUGPM+Arial-BoldMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "DTWKUJ+Arial-ItalicMT",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "CZRBLR+STIXGeneral-Regular",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "GYKUUQ+STIXSizeTwoSym-Regular",
+        "subtype": "/Type0",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "AAAAAA+ArialMT",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "NITCSQ+CMBX8",
+        "subtype": "/Type1",
+        "embedded": true,
+        "used_for_visible_text": true
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "AAAAAA+ArialMT",
+        "subtype": "/TrueType",
+        "embedded": true,
+        "used_for_visible_text": true
+      }
+    ],
+    "unmatched_visible_font_names": [],
+    "all_visible_fonts_embedded": true,
+    "unused_unembedded_font_resources": [
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      },
+      {
+        "name": "Helvetica",
+        "subtype": "/Type1",
+        "embedded": false,
+        "used_for_visible_text": false
+      }
+    ],
+    "text_outside_page": [],
+    "double_question_mark_pages": [],
+    "all_five_figures_identified_once": true
+  }
+}
