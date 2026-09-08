@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "source_changed_only_for_final_page_balancing": true,
+    "first_six_pages_identical": true,
+    "all_printed_nonspace_characters_fonts_and_sizes_preserved": true,
+    "seven_pages": true,
+    "column_bottoms_aligned_within_0_1_pt": true,
+    "no_overfull_or_underfull_hboxes": true,
+    "no_undefined_references": true
+  },
+  "all_checks_passed": true,
+  "before": {
+    "pdf": "D:\\research\\sar_transformer-main\\tmp\\pdfs\\final_column_balance\\before.pdf",
+    "pages": 7,
+    "table_v_to_text_gap_pt": 14.267,
+    "table_v_to_text_gap_mm": 5.033,
+    "last_page_left_bottom_pt": 669.586,
+    "last_page_right_bottom_pt": 652.252,
+    "last_page_column_bottom_difference_pt": 17.335,
+    "last_page_column_bottom_difference_mm": 6.115
+  },
+  "more_references_on_left_trial": {
+    "pdf": "D:\\research\\sar_transformer-main\\tmp\\pdfs\\final_column_balance\\trial_more_left.pdf",
+    "pages": 7,
+    "table_v_to_text_gap_pt": 14.267,
+    "table_v_to_text_gap_mm": 5.033,
+    "last_page_left_bottom_pt": 705.452,
+    "last_page_right_bottom_pt": 616.386,
+    "last_page_column_bottom_difference_pt": 89.066,
+    "last_page_column_bottom_difference_mm": 31.42
+  },
+  "final": {
+    "pdf": "D:\\research\\sar_transformer-main\\tmp\\pdfs\\paper_fig123\\build\\ICSPS2026_paper.pdf",
+    "pages": 7,
+    "table_v_to_text_gap_pt": 14.267,
+    "table_v_to_text_gap_mm": 5.033,
+    "last_page_left_bottom_pt": 664.406,
+    "last_page_right_bottom_pt": 664.406,
+    "last_page_column_bottom_difference_pt": 0.0,
+    "last_page_column_bottom_difference_mm": 0.0
+  },
+  "template_bottom_margin_mm": 26.714,
+  "last_page_unused_body_height_mm": 18.298,
+  "canonical_pdf_updated": true,
+  "pdf_sha256": "f7d93d9b0047cf7105fa1302163cc6b73f58255760089e4f43be01e44f7708d3",
+  "remaining_warning": "Existing Underfull vbox on page 4; unchanged visually."
+}

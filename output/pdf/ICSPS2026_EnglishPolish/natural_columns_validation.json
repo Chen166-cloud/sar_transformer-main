@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "only_removed_final_page_balancing": true,
+    "first_six_pages_identical": true,
+    "seven_pages": true
+  },
+  "layout": "Fill left column naturally, then continue in right column; right column may end earlier.",
+  "pdf_sha256": "87d5822f3f95896a72580a2e18ce43eb740825188fbfc8ef1485e6fb50c3ecfd"
+}

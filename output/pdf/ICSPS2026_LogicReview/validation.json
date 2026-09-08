@@ -1,0 +1,148 @@
+{
+  "date": "2026-09-08",
+  "scope": "Manuscript logic/language revision and document consistency; no experiment rerun or complete result provenance audit.",
+  "author_confirmed": {
+    "ucm_scene_looks": 4,
+    "residential_class": "dense residential",
+    "enl_aggregation": "mean",
+    "both_real_sar_tables": {
+      "EPI": "Ma et al. 2024, 16, 1992, Eq. (16)",
+      "M": "Gomez et al. 2017, 9, 389",
+      "implementation_source": "implementations from the two cited papers, confirmed by author"
+    }
+  },
+  "checks": {
+    "five_table_data_rows_preserved": true,
+    "five_figure_environments_preserved": true,
+    "source_results_unchanged_from_git": true,
+    "figure_files_unchanged_from_git": true,
+    "seven_pages": true,
+    "ucm_scene_L4_and_dense": true,
+    "corrected_real_average_in_pdf": true,
+    "no_obsolete_real_average": true,
+    "enl_mean_explicit_in_both_tables": true,
+    "all_21_bibliography_items_resolved": true,
+    "stable_log_no_errors_or_overflow": true,
+    "historical_deleted_pdfs_not_restored": true
+  },
+  "table_data_preservation": {
+    "tab:main": true,
+    "tab:ucm_scenes": true,
+    "tab:ablation": true,
+    "tab:real": true,
+    "tab:real_scenes": true
+  },
+  "page_count": 7,
+  "labels": {
+    "fig:overview": {
+      "number": "1",
+      "page": 2
+    },
+    "eq:observation": {
+      "number": "1",
+      "page": 2
+    },
+    "eq:log": {
+      "number": "2",
+      "page": 2
+    },
+    "eq:inverse": {
+      "number": "3",
+      "page": 2
+    },
+    "eq:fft": {
+      "number": "4",
+      "page": 3
+    },
+    "eq:fdr": {
+      "number": "5",
+      "page": 3
+    },
+    "eq:compensation": {
+      "number": "6",
+      "page": 3
+    },
+    "eq:supervised": {
+      "number": "7",
+      "page": 3
+    },
+    "fig:fdr": {
+      "number": "2",
+      "page": 3
+    },
+    "eq:ams": {
+      "number": "8",
+      "page": 3
+    },
+    "fig:representation_ams": {
+      "number": "3",
+      "page": 4
+    },
+    "tab:main": {
+      "number": "I",
+      "page": 4
+    },
+    "fig:synthetic_qual": {
+      "number": "4",
+      "page": 5
+    },
+    "tab:ucm_scenes": {
+      "number": "II",
+      "page": 5
+    },
+    "tab:ablation": {
+      "number": "III",
+      "page": 5
+    },
+    "tab:real": {
+      "number": "IV",
+      "page": 6
+    },
+    "fig:real_qual": {
+      "number": "5",
+      "page": 6
+    },
+    "tab:real_scenes": {
+      "number": "V",
+      "page": 6
+    }
+  },
+  "stable_log_warnings": {
+    "overfull": 0,
+    "underfull_hbox": 0,
+    "underfull_vbox": 1,
+    "undefined": 0
+  },
+  "visual_review": {
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "inspected; no overlap, missing content, or table overflow",
+    "renders": "tmp/pdfs/logic_review/page-1.png through page-7.png"
+  },
+  "sha256": {
+    "tex": "5faf2c258eead2d69b06371cc367f5d8083c1e9fa26caad041bf8c3bdce6563d",
+    "pdf": "1e0d7341198562643298a2b47a3bef6ff60569c43b6f38474fa600c72e055630",
+    "source_results": "2fbb2b640a6eb21a823fbd6e3e95544fa5f41bf41e7c6e851f03f7d6dc4feb7d"
+  },
+  "open_provenance_items": [
+    "M first-order normalization: printed half-sum versus current repository half-mean",
+    "M-index valid counts per method",
+    "real baseline settings/checkpoints and 60-patch selection lineage",
+    "UCM scene SSIM implementation/checkpoint linkage"
+  ],
+  "fig3_spacing_fix": {
+    "cause": "IEEEtran flushbottom stretched textfloatsep in a sparse column above a double-column bottom table",
+    "change": "preserve nominal gap and shrink allowance; remove stretch",
+    "visible_gap_mm_before": 20.117780219866653,
+    "visible_gap_mm_after": 7.420708275422218,
+    "document_body_unchanged_from_spacing_baseline": true,
+    "all_float_page_numbers_unchanged": true
+  }
+}

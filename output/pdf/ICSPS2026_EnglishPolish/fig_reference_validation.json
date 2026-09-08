@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "only_boxed_first_figure_reference": true,
+    "pages_2_to_7_identical": true,
+    "seven_pages": true
+  },
+  "before_gap_pt": 5.469,
+  "after_gap_pt": 3.487,
+  "pdf_sha256": "8207522468f4ba0e009e54b720cc0596f30fa969232543b13eb3678019c1b70a",
+  "canonical_pdf_updated": false
+}

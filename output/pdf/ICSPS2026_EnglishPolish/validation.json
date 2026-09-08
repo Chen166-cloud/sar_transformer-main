@@ -1,0 +1,67 @@
+{
+  "scope": "English polish relative to the task-start manuscript; prior numerical and logic corrections are the baseline.",
+  "checks": {
+    "all_five_table_bodies_identical": true,
+    "all_eight_equations_identical": true,
+    "bibliography_identical": true,
+    "all_twenty_one_references_retained": true,
+    "citation_keys_and_counts_identical": true,
+    "five_figures_preserved_except_edited_captions": true,
+    "preamble_title_and_keywords_identical": true,
+    "all_labels_identical": true,
+    "seven_pdf_pages": true,
+    "no_overfull_boxes": true,
+    "no_underfull_hboxes": true,
+    "no_undefined_references_or_citations": true,
+    "no_tex_errors": true,
+    "correct_scene_ams_average_preserved": true,
+    "mean_enl_and_dense_residential_retained": true
+  },
+  "all_checks_passed": true,
+  "pages": 7,
+  "float_pages": {
+    "fig:overview": {
+      "number": "1",
+      "page": 2
+    },
+    "fig:fdr": {
+      "number": "2",
+      "page": 3
+    },
+    "fig:representation_ams": {
+      "number": "3",
+      "page": 4
+    },
+    "tab:main": {
+      "number": "I",
+      "page": 4
+    },
+    "fig:synthetic_qual": {
+      "number": "4",
+      "page": 5
+    },
+    "tab:ucm_scenes": {
+      "number": "II",
+      "page": 5
+    },
+    "tab:ablation": {
+      "number": "III",
+      "page": 5
+    },
+    "tab:real": {
+      "number": "IV",
+      "page": 6
+    },
+    "fig:real_qual": {
+      "number": "5",
+      "page": 6
+    },
+    "tab:real_scenes": {
+      "number": "V",
+      "page": 6
+    }
+  },
+  "remaining_warning": "Underfull vbox on page 4; retained IEEE layout and visually inspected.",
+  "pdf_sha256": "87d5822f3f95896a72580a2e18ce43eb740825188fbfc8ef1485e6fb50c3ecfd",
+  "similarity_screening": "Not performed. No Turnitin/iThenticate percentage or reduction is claimed."
+}

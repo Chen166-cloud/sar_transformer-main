@@ -13,6 +13,9 @@
 \usepackage{cite}
 \usepackage{url}
 
+% Keep the IEEE figure-to-text gap from stretching in sparse columns.
+\setlength{\textfloatsep}{1.55\baselineskip minus 0.4\baselineskip}
+
 \newcommand{\vect}[1]{\bm{#1}}
 
 % Original comparison images, placed without resampling; labels remain 8 pt.
@@ -36,7 +39,7 @@ Representation-Consistent Reconstruction}
 \maketitle
 
 \begin{abstract}
-Speckle obscures radiometric contrast and structural detail in synthetic aperture radar (SAR) images, while models trained with simulated noise often transfer poorly to real observations. This paper develops a transparent extension of the public Trans-SAR backbone for normalized-intensity despeckling. The method inserts full-spectrum Fourier residual refinement at the bottleneck and five decoder resolutions, processes real and imaginary spectral components with shared real-valued channel mixing, and predicts a bounded log-intensity image. The prediction is analytically returned to the intensity domain before a lightweight residual compensator combines it with the original observation, avoiding arithmetic between incompatible representations. A masked post-adaptation stage further calibrates the reconstruction modules on real SAR data without clean targets while freezing the inherited Transformer encoder. On 8,400 simulated test pairs from all 21 UCMerced classes and four look numbers, one blind model obtains a macro PSNR of 28.14~dB and a macro SSIM of 0.7791. Removing all Fourier blocks lowers the two measures by 1.68~dB and 0.0179. On 592 parent-disjoint real patches, adaptation reduces the M-index from 1.8213 to 1.3365 and increases the edge-preservation index from 0.4229 to 0.8214. These results support representation-consistent spectral refinement and lightweight real-data calibration.
+The mismatch between simulated speckle and real synthetic aperture radar (SAR) observations limits the transfer of supervised restoration models. We extend the public Trans-SAR backbone with full-spectrum Fourier refinement and representation-consistent reconstruction. Residual blocks at the bottleneck and five decoder resolutions mix real and imaginary coefficients through shared real-valued channel projections. The bounded log-intensity prediction is inverted before intensity residual compensation. Masked post-adaptation then updates reconstruction on real SAR images without clean targets while freezing the inherited Transformer encoder. On 8,400 simulated pairs spanning all 21 UCMerced classes and four look numbers, one model without a look-number input achieves a macro-averaged peak signal-to-noise ratio (PSNR) of 28.14~dB and structural similarity index (SSIM) of 0.7791. PSNR is highest among the evaluated methods at every look. Removing all Fourier blocks reduces PSNR by 1.68~dB and SSIM by 0.0179. On 592 parent-disjoint real patches, adaptation lowers the M-index from 1.8213 to 1.3365 and raises the edge-preservation index from 0.4229 to 0.8214. These results establish the benefits of the evaluated reconstruction design and encoder-frozen adaptation.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -44,41 +47,42 @@ synthetic aperture radar, despeckling, Transformer, Fourier refinement, self-sup
 \end{IEEEkeywords}
 
 \section{Introduction}
-Synthetic aperture radar (SAR) offers day-and-night, weath\-er-independent observation, but signal-dependent speckle degrades homogeneous contrast and competes with edges and bright scatterers. Unit-mean Gamma noise supports controlled multilook simulation, whereas focused real SAR also contains correlation, processing artifacts, and scene-dependent statistics. Despeckling must therefore suppress fluctuations without erasing structure or assuming unavailable clean targets~\cite{fracastoro2021overview}.
+Synthetic aperture radar (SAR) supports day-and-night observation largely independent of weather, but signal-dependent speckle obscures contrast, edges, and bright scatterers. Unit-mean Gamma noise provides a controlled multilook simulation model; focused real observations also exhibit spatial correlation, processing artifacts, and scene-dependent statistics. Despeckling must preserve scene structure under these conditions, often without clean reference images~\cite{fracastoro2021overview}.
 
-Lee filters use local statistics~\cite{lee1980}; SAR-BM3D exploits nonlocal recurrence but requires noise information~\cite{parrilli2012}. CNNs learn paired image priors~\cite{chierchia2017,ko2022}, while Trans-SAR and later Transformers introduce long-range, multiscale, gated, or noise-guided processing~\cite{perera2022,shen2025,zhang2025}. Yet spatial reconstruction must still separate speckle from structures with overlapping frequency content.
+Local statistics underpin Lee filtering~\cite{lee1980}, while SAR-BM3D exploits nonlocal recurrence using supplied noise information~\cite{parrilli2012}. CNNs learn paired image priors~\cite{chierchia2017,ko2022}; Trans-SAR and later Transformers introduce long-range interactions, multiscale reconstruction, gating, and noise guidance~\cite{perera2022,shen2025,zhang2025}. Speckle and meaningful structure nevertheless overlap in frequency, leaving an ambiguity for spatial reconstruction.
 
-Frequency-aware networks and transformed diffusion provide alternative representations~\cite{zhao2024,ma2024}. We focus on two implementation constraints: full-spectrum complex mixing is not a high/low-band decomposition, and a log-domain estimate should be inverted before intensity-domain fusion. For real-data transfer, multitemporal, blind-spot, masked, and intensity-only methods reduce clean-target dependence under different assumptions~\cite{dalsasso2021,molini2022,lin2025,chen2026}. We therefore use masking only for post-adaptation and do not claim unbiased blind-spot learning.
+Frequency-aware networks and transformed diffusion offer alternative reconstruction representations~\cite{zhao2024,ma2024}. We combine spectral context with local features without fixed high/low bands and invert log predictions before intensity-domain fusion. To address real-data transfer, multitemporal, blind-spot, masked, and intensity-only methods relax clean-target requirements under different assumptions~\cite{dalsasso2021,molini2022,lin2025,chen2026}. Our approach uses masked self-supervision after supervised pretraining.
 
-We make three contributions: (1) a public Trans-SAR extension with real--imaginary Fourier residual refinement (FDR) at the bottleneck and five decoder scales; (2) bounded log prediction with exact inversion before residual intensity compensation; and (3) a blind four-look evaluation plus encoder-frozen masked adaptation on a parent-disjoint real-SAR split. Inherited Trans-SAR components are identified explicitly; FDR denotes full-spectrum coordinate-wise mixing, guidance an unsupervised latent map, and adaptation masked calibration rather than a new blind-spot architecture.
+The contributions are threefold: (1) a public Trans-SAR extension with real--imaginary Fourier residual refinement (FDR) at the bottleneck and five decoder scales; (2) bounded log-intensity prediction followed by exact inversion and residual intensity compensation; and (3) evaluation of one model across four look numbers, with encoder-frozen masked adaptation on a real-SAR split with disjoint parent images. We explicitly identify inherited Trans-SAR components and use controlled ablations to assess the added refinement and compensation modules.
 
-Fig.~\ref{fig:overview} summarizes the resulting pipeline and its attribution boundary.
+\mbox{Fig.~\ref{fig:overview}} presents the complete pipeline and separates the inherited operators from the proposed additions.
 \begin{figure*}[!t]
   \centering
   \includegraphics[width=\textwidth]{figures/fig1_overall_architecture.pdf}
-  \caption{Overall architecture. Gray regions identify inherited Trans-SAR
-  operators; colored regions identify the added Fourier, skip-fusion, guidance,
-  and representation operations. Decoder cards contain both inherited and added
-  components. Four encoder skips feed the corresponding decoder stages. Six FDR
-  blocks use independent parameters, while one latent guidance map modulates all
-  five decoder stages. Output reconstruction and AMS are detailed in
-  Fig.~\ref{fig:representation_ams}(a) and (b), respectively.}
+  \caption{Overview of the reconstruction architecture. Gray regions denote
+  inherited Trans-SAR operators; colored regions denote the added Fourier,
+  skip-fusion, guidance, and representation operations. Decoder cards include
+  both inherited and added components. Four encoder skips connect to the
+  corresponding decoder stages. The six FDR blocks have independent parameters,
+  whereas a single latent guidance map modulates all five decoder stages.
+  Fig.~\ref{fig:representation_ams}(a) and (b) detail the output reconstruction
+  and masked post-adaptation (AMS), respectively.}
   \label{fig:overview}
 \end{figure*}
 
 \section{Related Work}
 \subsection{Model-Based and Supervised Despeckling}
-Lee filtering estimates local statistics under a multiplicative-noise model~\cite{lee1980}, whereas SAR-BM3D combines nonlocal grouping with transform-domain shrinkage~\cite{parrilli2012}. Deep CNNs learn paired mappings~\cite{chierchia2017}; SAR-CAM uses continuous multiscale attention~\cite{ko2022}; and Trans-SAR couples a five-stage spatial-reduction Transformer encoder with convolutional reconstruction~\cite{perera2022}. Later systems add dynamic gates and noise-guided multiscale fusion~\cite{shen2025,zhang2025}. These modules establish the value of hierarchical processing, but do not remove the tension between smoothing speckle and retaining fine structure. We therefore extend rather than replace the public Trans-SAR backbone, and attribute its encoder and basic reconstruction operators explicitly.
+Classical methods encode statistical assumptions directly: Lee filtering uses local estimates under a multiplicative-noise model~\cite{lee1980}, and SAR-BM3D combines nonlocal grouping with transform-domain shrinkage~\cite{parrilli2012}. Supervised CNNs learn from paired examples~\cite{chierchia2017}, while SAR-CAM introduces continuous multiscale attention~\cite{ko2022}. Trans-SAR pairs a five-stage spatial-reduction Transformer encoder with convolutional reconstruction~\cite{perera2022}; later systems add dynamic gates and noise-guided multiscale fusion~\cite{shen2025,zhang2025}. We build on this hierarchical framework, retaining and explicitly attributing the public Trans-SAR encoder and basic reconstruction operators.
 
-\subsection{Frequency- and Representation-Aware Restoration}
-SAR-FDD decomposes frequency information into interacting branches~\cite{zhao2024}, while conditional diffusion with a Log-Yeo--Johnson transform addresses multiplicative statistics generatively~\cite{ma2024}. Unlike explicit high/low-band decomposition, our block applies shared real-valued channel mixing to concatenated real and imaginary coefficients at every rFFT coordinate, then couples the spatial result with a local branch. The associated output path is deterministic and analytically invertible rather than a second restoration network.
+\subsection{Frequency Processing and Image Representation}
+SAR-FDD exchanges information between low- and high-frequency branches~\cite{zhao2024}; DATNet uses Fourier band decomposition with frequency-domain experts~\cite{shen2025}. Conditional diffusion with a Log-Yeo--Johnson transform instead handles multiplicative statistics through a generative formulation~\cite{ma2024}. Our refinement retains the full spectrum represented by the real fast Fourier transform (rFFT). Shared real-valued channel mixing acts on concatenated real and imaginary coefficients at each frequency coordinate, and the inverse-transformed features are fused with a local branch. At the output, the analytic inverse of the bounded log mapping restores intensity before learned compensation.
 
 \subsection{Learning from Real SAR Observations}
-Real-data methods operate under different assumptions. SAR2SAR uses multitemporal acquisitions~\cite{dalsasso2021}, whereas Speckle2Void combines a blind-spot likelihood with decorrelation~\cite{molini2022}. Speckle2Self uses masking and attention~\cite{lin2025}. SDS-SAR constructs intensity-only pairs with correlation-aware sampling~\cite{chen2026}, and SDUDNet learns from unpaired clean and noisy data~\cite{bo2025}. Our lighter masked stage freezes the inherited encoder and calibrates reconstruction from single noisy images; it is deployment adaptation, not a new blind-spot theory.
+Available supervision determines the assumptions for learning from real SAR. SAR2SAR uses multitemporal acquisitions~\cite{dalsasso2021}, whereas Speckle2Void couples a blind-spot likelihood with decorrelation~\cite{molini2022}. Speckle2Self combines masking with attention~\cite{lin2025}. SDS-SAR forms intensity-only pairs through correlation-aware sampling~\cite{chen2026}, and SDUDNet uses unpaired clean and noisy images~\cite{bo2025}. Following synthetic-data pretraining, our masked stage adapts reconstruction from individual noisy observations while retaining the inherited encoder parameters, providing empirical calibration to real SAR data.
 
 \section{Proposed Method}
 \subsection{Observation Model and Bounded Log Representation}
-Let \(\vect{X}\) denote a normalized clean intensity proxy and \(\vect{Y}\) its observed counterpart. Controlled synthetic experiments use independent unit-mean Gamma speckle \(\vect{N}\) with equivalent number of looks \(L\). Clipping is applied after multiplication:
+We formulate restoration in normalized linear intensity, with \(\vect{X}\) denoting the clean intensity proxy and \(\vect{Y}\) the corrupted observation. Synthetic corruption consists of independent unit-mean Gamma speckle \(\vect{N}\) with equivalent number of looks \(L\), followed by clipping:
 \begin{equation}
 \begin{aligned}
 \vect{Y} &= \operatorname{clip}(\vect{X}\odot\vect{N},0,1),\\
@@ -86,7 +90,7 @@ N_{ij} &\sim \operatorname{Gamma}(L,L^{-1}).
 \end{aligned}
 \label{eq:observation}
 \end{equation}
-Before clipping, \(\mathbb{E}[N_{ij}]=1\) and \(\operatorname{Var}(N_{ij})=L^{-1}\). Equation~\eqref{eq:observation} is used only to construct controlled pairs; it is not asserted as an exact formation model for focused real SAR. The network input is transformed using \(\alpha=10\):
+The Gamma distribution uses shape and scale parameters, giving \(\mathbb{E}[N_{ij}]=1\) and \(\operatorname{Var}(N_{ij})=L^{-1}\) before clipping. Equation~\eqref{eq:observation} defines controlled image pairs; it does not capture the full image-formation process of focused real SAR. We transform the observation with \(\alpha=10\):
 \begin{equation}
 T_{\alpha}(\vect{Y})=
 \frac{\log(1+\alpha\vect{Y})}{\log(1+\alpha)},
@@ -99,17 +103,17 @@ T_{\alpha}^{-1}(\widehat{\vect{Z}})=
 \frac{\exp[\widehat{\vect{Z}}\log(1+\alpha)]-1}{\alpha}.
 \label{eq:inverse}
 \end{equation}
-This bounded \(\log1p\) mapping compresses bright scatterers and partially reduces the signal dependence of speckle, but it does not strictly convert multiplicative speckle into additive Gaussian noise.
+The bounded \(\log1p\) mapping reduces the relative influence of bright scatterers and moderates the signal dependence of speckle. It does not imply that the transformed noise is additive Gaussian.
 
 \subsection{Trans-SAR-Derived Reconstruction Path}
-The transformed observation enters the inherited five-stage Trans-SAR encoder. Channel widths are 32, 64, 128, 320, and 512 from \(128^2\) to \(8^2\); heads are 1, 1, 2, 4, and 8, with depths 3, 3, 4, 6, and 3. These settings, overlap embedding, spatial-reduction attention, and basic upsampling are inherited from Trans-SAR~\cite{perera2022}. The log input also feeds a lightweight guidance generator.
+We retain Trans-SAR's five-stage encoder~\cite{perera2022}, overlap embeddings, spatial-reduction attention, and basic upsampling operators. From resolutions \(128^2\) to \(8^2\), channel widths are 32, 64, 128, 320, and 512; head counts are 1, 1, 2, 4, and 8; and depths are 3, 3, 4, 6, and 3. A separate guidance branch receives the same log input.
 
-A local--spectral bottleneck refines the deepest feature. Each decoder stage then performs upsampling, skip fusion where available, FDR, residual convolution, and guidance modulation. A sigmoid head predicts bounded log intensity; after exact inversion, a shallow compensator estimates an intensity residual from the observation and preliminary restoration.
+Reconstruction begins with local--spectral refinement of the deepest feature. Each decoder stage applies upsampling, skip fusion where available, FDR, residual convolution, and guidance modulation, in that order. A sigmoid head predicts bounded log intensity. Exact inversion then yields a preliminary intensity estimate, which a shallow compensator refines using the original observation.
 
-The bottleneck combines Fourier and local depthwise-convolution features before a residual projection whose scale is initialized to 0.1. Decoder FDR blocks follow the same principle at progressively finer resolutions but use stage-specific parameters. Coarse features therefore receive global spectral correction, while skip-fused fine features recover local boundaries. After the inverse FFT, the remaining decoder operations are ordinary real-valued convolutions.
+At the bottleneck, an additional local residual wrapper surrounds the FDR block. The FDR output is summed with a separate local feature, projected, and scaled by a learnable factor initialized to 0.1 before addition to the bottleneck input. The five decoder blocks apply the same FDR mapping with independent parameters.
 
 \subsection{Full-Spectrum Fourier Residual Refinement}
-For an input feature \(\vect{F}\), the spatial branch applies a depthwise \(3\times3\) convolution, a pointwise projection, and GELU. In parallel, an orthonormal two-dimensional real FFT produces \(\vect{Q}\). Its real and imaginary parts are concatenated along channels:
+FDR couples local filtering with full-spectrum channel mixing. For input \(\vect{F}\), the spatial branch applies a depthwise \(3\times3\) convolution, a pointwise projection, and GELU. In parallel, an orthonormal two-dimensional real FFT yields \(\vect{Q}\), whose real and imaginary parts are concatenated along channels:
 \begin{equation}
 \begin{aligned}
 \vect{Q} &= \operatorname{rFFT2}(\vect{F}),\\
@@ -118,7 +122,7 @@ For an input feature \(\vect{F}\), the spatial branch applies a depthwise \(3\ti
 \end{aligned}
 \label{eq:fft}
 \end{equation}
-Two real-valued \(1\times1\) convolutions with an intermediate GELU mix channels and real--imaginary components independently at every frequency coordinate. Splitting the result and applying the inverse real FFT gives the spectral feature \(\vect{F}_{f}\). The spatial feature \(\vect{F}_{s}\) and \(\vect{F}_{f}\) are concatenated, projected, and added to the input:
+Two real-valued \(1\times1\) convolutions separated by GELU mix channels and real--imaginary components at each frequency coordinate. Splitting the output and applying the inverse real FFT yields \(\vect{F}_{f}\). The spatial and spectral features, \(\vect{F}_{s}\) and \(\vect{F}_{f}\), are then concatenated and projected before residual addition:
 \begin{equation}
 \begin{aligned}
 \vect{U} &= \operatorname{GELU}
@@ -128,16 +132,16 @@ Two real-valued \(1\times1\) convolutions with an intermediate GELU mix channels
 \end{aligned}
 \label{eq:fdr}
 \end{equation}
-One block is used in the bottleneck and five at decoder resolutions \(16^2\), \(32^2\), \(64^2\), \(128^2\), and \(256^2\). As Fig.~\ref{fig:fdr} emphasizes, the \(1\times1\) weights share channel mixing over frequency coordinates but do not convolve across adjacent frequencies. The inverse real FFT maps the mixed coefficients back to a real feature before spatial fusion. We therefore describe this operation as full-spectrum real--imaginary refinement, not high-frequency enhancement, magnitude--phase processing, band decomposition, or complex-valued convolution.
+One block operates at the bottleneck; the other five act at decoder resolutions \(16^2\), \(32^2\), \(64^2\), \(128^2\), and \(256^2\). As shown in Fig.~\ref{fig:fdr}, the \(1\times1\) layers share weights across frequency coordinates while mixing channels within each coordinate. They do not couple neighboring frequencies. This operation refines the full spectrum through real--imaginary mixing without explicit band separation, magnitude--phase processing, or complex-valued convolution.
 \begin{figure}[!t]
   \centering
   \includegraphics[width=0.94\columnwidth,trim=0 5bp 0 6bp,clip]{figures/fig2_fdr_block.pdf}
-  \caption{Full-spectrum Fourier residual refinement (FDR). A depthwise--pointwise spatial branch complements a spectral branch. The one-sided rFFT representation retains all nonredundant frequencies. Shared real-valued \(1\times1\) convolutions mix channels and real--imaginary components independently at each frequency coordinate, without convolution across neighboring frequencies. After inverse rFFT, spatial and spectral features are concatenated, projected, and added to the input.}
+  \caption{Full-spectrum Fourier residual refinement (FDR). Local depthwise--pointwise filtering runs in parallel with spectral refinement. The one-sided rFFT contains all nonredundant frequencies. Real-valued \(1\times1\) convolutions share weights across frequency coordinates and mix the real and imaginary channels at each coordinate. An inverse rFFT restores spatial features, which are concatenated with the local features, projected, and added to the input.}
   \label{fig:fdr}
 \end{figure}
 
 \subsection{Guidance Modulation and Intensity Compensation}
-The log input produces an unsupervised single-channel guidance map. At each decoder scale, the resized map is concatenated with the feature and passed through pointwise and \(3\times3\) convolutions to a \(\tanh\) modulation, scaled by a learnable factor initialized to 0.1. With no noise-map or look-number supervision, it is latent guidance rather than a noise estimator. Let \(\widehat{\vect{Z}}\) be the sigmoid prediction and \(\widetilde{\vect{X}}=T_{\alpha}^{-1}(\widehat{\vect{Z}})\). A 2-to-32-to-32-to-1 compensator receives \(\vect{Y}\) and \(\widetilde{\vect{X}}\), with \(\gamma_c\) initialized to 0.1:
+The guidance branch learns a single-channel latent map from the log observation jointly with the restoration network, without dedicated noise-map or look-number targets. At each decoder scale, the resized map and feature are concatenated. Pointwise and \(3\times3\) convolutions produce a \(\tanh\) modulation, scaled by a learnable factor initialized to 0.1. Let \(\widehat{\vect{Z}}\) denote the sigmoid prediction and \(\widetilde{\vect{X}}=T_{\alpha}^{-1}(\widehat{\vect{Z}})\). A 2-to-32-to-32-to-1 compensator takes \(\vect{Y}\) and \(\widetilde{\vect{X}}\) as inputs, with \(\gamma_c\) initialized to 0.1:
 \begin{equation}
 \begin{aligned}
 \vect{R}_{c} &= F_{\mathrm{comp}}
@@ -147,9 +151,43 @@ The log input produces an unsupervised single-channel guidance map. At each deco
 \end{aligned}
 \label{eq:compensation}
 \end{equation}
-The compensator comprises two \(3\times3\), 32-channel GELU layers and a single-channel residual head. Both operands in~\eqref{eq:compensation} are intensities, so the historical name ``dual-domain fusion'' denotes a limited post-inversion correction, not two restoration branches or direct log/intensity addition. Conditioning on both the observation and inverse-mapped estimate permits a small correction of radiometric contrast and bright-scatterer neighborhoods without asking the compensator to repeat despeckling independently. Clamping follows the residual update, as shown in Fig.~\ref{fig:representation_ams}(a).
+Two \(3\times3\), 32-channel GELU layers and a single-channel residual head form the compensator. Because inversion precedes compensation, both terms added in~\eqref{eq:compensation} are in the intensity domain. The residual depends on both the observation and the preliminary restoration. The scale starts at 0.1 and remains trainable, so its initialization does not bound the correction amplitude. Final clipping constrains the output intensity, as illustrated in Fig.~\ref{fig:representation_ams}(a).
 
-% Declare the wide results table early for the experiments page bottom.
+
+
+\subsection{Supervised Training and Masked Post-Adaptation}
+For each \(H\times W\) image, supervised training combines mean squared intensity error with total variation regularization:
+\begin{equation}
+\mathcal{L}_{\mathrm{sup}}=
+\frac{1}{HW}\lVert\widehat{\vect{X}}-\vect{X}\rVert_2^2
++5\!\times\!10^{-7}\operatorname{TV}(\widehat{\vect{X}}).
+\label{eq:supervised}
+\end{equation}
+TV denotes the sum of the mean absolute horizontal and vertical neighbor differences. For masked post-adaptation (AMS), we mask each pixel independently with probability 0.2 and form \(\vect{Y}_{m}=\vect{Y}\odot(1-\vect{M})\). Only masked positions contribute to the data term, with their original noisy values serving as targets:
+\begin{equation}
+\begin{aligned}
+\mathcal{L}_{\mathrm{AMS}}={}&
+\frac{\lVert\vect{M}\odot[f_{\theta}(\vect{Y}_{m})-\vect{Y}]\rVert_1}
+{\max(\lVert\vect{M}\rVert_1,1)}\\
+&+10^{-3}\operatorname{TV}(f_{\theta}(\vect{Y}_{m})).
+\end{aligned}
+\label{eq:ams}
+\end{equation}
+AMS runs for eight epochs at a learning rate of \(10^{-6}\). We freeze the inherited Transformer encoder and update the bottleneck, decoder, guidance branch, output head, and compensator. Training masks are resampled, whereas one fixed mask per validation image keeps checkpoint selection based on the same pixel locations across epochs. Inference uses the complete unmasked observation. The masked loss does not guarantee an unbiased clean-image estimate under correlated speckle. Figure~\ref{fig:representation_ams}(b) depicts the adaptation and inference paths.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=0.98\columnwidth,trim=0 2bp 0 5bp,clip]{figures/fig3_representation_ams.pdf}
+  \caption{(a) Reconstruction applies exact inversion before intensity residual
+  compensation and clipping. (b) In AMS, the complete network, including the
+  compensator, receives $Y_m$ in place of the generic input $Y$ in (a);
+  unmasked $Y$ provides the noisy target. The Transformer encoder alone is
+  frozen. Resampled training masks drive adaptation, fixed validation masks
+  guide checkpoint selection, and inference uses unmasked observations.}
+  \label{fig:representation_ams}
+\end{figure}
+
+% Place the wide results table with the experimental protocol.
 \begin{table*}[!b]
 \caption{UCM-21 Gamma-Speckle Results on 8,400 Fixed Pairs}
 \label{tab:main}
@@ -178,57 +216,27 @@ Trans-SAR   & blind             & \underline{25.53} / 0.6446 & \underline{27.22}
 \parbox{0.86\textwidth}{\scriptsize PSNR is in dB. Best and second-best values among despeckling methods are bold and underlined, respectively. Oracle-\(L\) methods receive the nominal look number; blind methods do not.}
 \end{table*}
 
-\subsection{Supervised Training and Masked Post-Adaptation}
-The supervised objective is defined on normalized linear intensity:
-\begin{equation}
-\mathcal{L}_{\mathrm{sup}}=
-\lVert\widehat{\vect{X}}-\vect{X}\rVert_2^2
-+5\!\times\!10^{-7}\operatorname{TV}(\widehat{\vect{X}}).
-\label{eq:supervised}
-\end{equation}
-For real data, a Bernoulli mask \(\vect{M}\) removes 20\% of observed pixels, with \(\vect{Y}_{m}=\vect{Y}\odot(1-\vect{M})\). The model regresses the original noisy values only at masked positions:
-\begin{equation}
-\begin{aligned}
-\mathcal{L}_{\mathrm{AMS}}={}&
-\frac{\lVert\vect{M}\odot[f_{\theta}(\vect{Y}_{m})-\vect{Y}]\rVert_1}
-{\lVert\vect{M}\rVert_1+\epsilon}\\
-&+10^{-3}\operatorname{TV}(f_{\theta}(\vect{Y}_{m})).
-\end{aligned}
-\label{eq:ams}
-\end{equation}
-During eight adaptation epochs at a learning rate of \(10^{-6}\), the inherited Transformer encoder is frozen while the bottleneck, decoder, guidance branch, output head, and compensator remain trainable. Training masks are stochastic; one fixed mask per validation sample is reused for checkpoint selection so the validation target does not change between epochs. Inference uses the complete unmasked image. Freezing limits drift in the representation learned from controlled synthetic data while allowing output statistics to adjust. Because the target remains noisy and focused speckle may be spatially correlated, this is constrained post-adaptation rather than an independence guarantee. Fig.~\ref{fig:representation_ams}(b) summarizes the AMS training and unmasked inference paths.
-
-\begin{figure}[!t]
-  \centering
-  \includegraphics[width=0.98\columnwidth,trim=0 2bp 0 5bp,clip]{figures/fig3_representation_ams.pdf}
-  \caption{(a) Representation-consistent reconstruction: exact inversion precedes
-  intensity residual compensation and clipping. (b) Masked post-adaptation (AMS):
-  the entire model, including the compensator, receives $Y_m$, which replaces the
-  generic input $Y$ in (a); unmasked $Y$ supplies the noisy target. Only the
-  Transformer encoder is frozen. Training masks are resampled; fixed validation
-  masks support checkpoint selection. Inference uses unmasked observations.}
-  \label{fig:representation_ams}
-\end{figure}
-
 \section{Experiments}
 \subsection{Datasets and Evaluation Protocol}
-For supervised development, we use the optical NWPU-RESISC45 collection~\cite{cheng2017}. Selecting 20 training and 5 validation sources per class yields 900 and 225 independent images. RGB is converted to grayscale, and squared grayscale is the clean intensity proxy. A deterministic 100,000-step online schedule balances \(L\in\{1,2,4,8\}\) with 25,000 presentations per look; validation uses four fixed realizations per source (900 pairs). Paired flips and right-angle rotations require no interpolation.
+We develop the supervised models using optical imagery from NWPU-RESISC45~\cite{cheng2017}. For each class, 20 training and 5 validation sources provide 900 and 225 independent images, respectively. RGB images are converted to grayscale, and the squared grayscale values serve as clean intensity proxies. A deterministic online schedule allocates 100,000 presentations equally to \(L\in\{1,2,4,8\}\), with 25,000 per look. Validation uses four fixed noise realizations per source, yielding 900 pairs. Paired flips and right-angle rotations provide augmentation without interpolation.
 
-External testing uses all 2,100 UCMerced sources across 21 classes~\cite{yang2010}, each corrupted once per look to give 8,400 fixed pairs. UCM data are excluded from model selection. This evaluates transfer between optical remote-sensing collections under simulated Gamma speckle, not real-SAR generalization. Gamma noise is sampled before clipping, and no additive, impulse, shift, stripe, or gain corruption is added.
+The external test set comprises all 2,100 UCMerced images from 21 classes~\cite{yang2010}. Corrupting each image once at each look produces 8,400 fixed pairs. Images not already \(256\times256\) are bilinearly resized before noise synthesis. UCMerced is excluded from model selection, so this test measures transfer between optical remote-sensing collections under simulated Gamma speckle. Noise is sampled before clipping, and no further corruption is applied.
 
-Real data are normalized intensity patches from Mendeley dataset fs455tz88y version~1~\cite{vasquez2024data}. Only \texttt{Noisy} is used; GT16 contributes to neither adaptation, model selection, measurement, nor visualization. The 1,469 parent images split into 1,175/146/148 train/validation/test parents, corresponding to 4,700/584/592 child patches. Parent grouping ensures that four children from one \(512\times512\) image cannot cross splits. The test is parent-disjoint within one acquisition, not cross-region or cross-sensor.
+Real-SAR evaluation uses normalized intensity patches from version~1 of Mendeley dataset fs455tz88y~\cite{vasquez2024data}. Only noisy images are used; reference images are excluded from adaptation, model selection, measurement, and visualization. The 1,469 parent images are divided into 1,175/146/148 training/validation/test parents, yielding 4,700/584/592 child patches. All four children of a \(512\times512\) parent remain in the same split. This grouping prevents overlap between parents across splits, while the evaluation remains within one data collection and does not test generalization to other regions or sensors.
 
-Identical test IDs are used for all methods. Unsigned 8-bit inputs are divided by 255, while normalized floating-point inputs are retained; per-image percentile normalization is excluded because it would alter relative intensity scales.
+All methods use identical test IDs. Unsigned 8-bit inputs are divided by 255, whereas normalized floating-point inputs are left unchanged. Per-image percentile normalization is excluded to preserve relative intensity scales.
 
 \subsection{Implementation, Baselines, and Metrics}
-All learned models use batch size one and Adam with learning rate \(10^{-3}\), weight decay \(10^{-5}\), and 100,000 successful updates. Validation occurs every 5,000 updates; the lowest class-by-look macro intensity MSE selects the checkpoint. One proposed-model checkpoint handles all four \(L\). Lee-MMSE uses a window selected on NWPU validation, while SAR-BM3D receives nominal \(L\) and follows its square-root-input/squared-output chain; both are \emph{oracle-\(L\)}. SAR-CAM~\cite{ko2022}, the inherited Trans-SAR baseline~\cite{perera2022}, and our model receive only corrupted intensity. All outputs are measured in normalized linear intensity without display stretching.
+Supervised training on synthetic data uses Adam, a batch size of one, an initial learning rate of \(10^{-3}\), weight decay of \(10^{-5}\), and 100,000 updates. Checkpoints are evaluated every 5,000 updates and selected by the lowest validation intensity MSE, macro-averaged by class and look. A plateau scheduler halves the learning rate with a patience of four validation events and a minimum of \(10^{-6}\). A single checkpoint of the proposed model handles all four \(L\) values; Ours (Full) and Ours-base both denote the configuration before real-SAR adaptation. Lee-MMSE uses a window chosen on NWPU validation. SAR-BM3D follows its square-root-input/squared-output procedure and receives the nominal \(L\); both methods are \emph{oracle-\(L\)}. SAR-CAM~\cite{ko2022}, the inherited Trans-SAR baseline~\cite{perera2022}, and our model receive only corrupted intensity. All outputs are evaluated in normalized linear intensity without display stretching.
 
-For the four-look UCM-21 benchmark, PSNR and SSIM are computed per image and averaged equally across classes and looks. For the 592-patch real-SAR benchmark, five nonoverlapping \(32\times32\) regions are selected once from each noisy input on a fixed grid by the lowest squared coefficient of variation after rejecting dark, zero-dominated, or saturated candidates; the same 2,960 regions are reused for all methods. ENL is a smoothness diagnostic rather than a one-direction quality score. The M-index follows ratio-image first-order and texture residuals~\cite{gomez2017}, while EPI uses fixed adjacent differences~\cite{ma2024epi}. ENL and ratio behavior are interpreted jointly because smoothing may inflate ENL while erasing structure~\cite{vasquez2025ratio}; whole-image M-index and EPI provide complementary checks.
+For UCM-21, per-image PSNR and SSIM are averaged with equal weight across classes and the four looks. In the 592-patch real-SAR benchmark, five nonoverlapping \(32\times32\) regions are chosen from a fixed grid on each noisy input. Dark, zero-dominated, and saturated candidates are rejected; the remaining candidates are ranked by increasing squared coefficient of variation. The resulting 2,960 regions are fixed across methods. ENL is the mean of their ROI-level values, \(\mu^2/\sigma^2\).
+
+Both real-SAR evaluations use the same metric definitions. The M-index combines deviations in ratio-image mean and ENL with residual structure, assessed through changes in homogeneity under random permutation; lower values indicate better performance~\cite{gomez2017}. EPI follows Eq.~(16) of~\cite{ma2024epi}: it divides the summed absolute diagonal-neighbor differences of the output by those of the noisy input. Because residual speckle can also raise EPI, we interpret it alongside ENL, M-index, and ratio-image structure~\cite{vasquez2025ratio}.
 
 \subsection{Synthetic Comparison}
-Table~\ref{tab:main} shows the highest PSNR at every look, with margins of 0.40, 0.72, 0.43, and 0.35~dB over the strongest competing point estimate for \(L=1,2,4,8\). The macro result is 28.14~dB/0.7791 SSIM, improving on Trans-SAR by 0.48~dB/0.0755 and oracle-\(L\) SAR-BM3D by 0.66~dB/0.0027. The SSIM claim is qualified: SAR-BM3D leads at \(L=1,4\), while ours leads at \(L=2,8\).
+A single blind model achieves the highest PSNR point estimate at all four looks in Table~\ref{tab:main}, without an external \(L\) estimate. Its margins over the strongest competing method are 0.40, 0.72, 0.43, and 0.35~dB for \(L=1,2,4,8\), respectively. Macro performance reaches 28.14~dB/0.7791 SSIM, exceeding Trans-SAR by 0.48~dB/0.0755 and oracle-\(L\) SAR-BM3D by 0.66~dB/0.0027. SSIM rankings vary with look: SAR-BM3D leads at \(L=1,4\), whereas our method leads at \(L=2,8\).
 
-One parameter set handles all looks without an external \(L\) estimate in the quantitative evaluation. Fig.~\ref{fig:synthetic_qual} provides a qualitative illustration using one selected buildings scene. LEE suppresses visible fluctuations but blurs roof boundaries and small rooftop structures. SAR-BM3D, SAR-CAM, Trans-SAR, and Ours retain more of the roof outlines, with differences in edge sharpness and residual texture. The Ours output preserves the main roof contours and several rooftop structures while reducing speckle. Building outlines remain visible in the Ours ratio panel, indicating structure-related residuals; this example therefore does not demonstrate complete separation of scene structure and speckle.
+The selected buildings scene in Fig.~\ref{fig:synthetic_qual} illustrates local restoration behavior. LEE suppresses visible fluctuations but blurs roof boundaries and small rooftop structures. SAR-BM3D, SAR-CAM, Trans-SAR, and our method preserve more roof outlines, although edge sharpness and residual texture differ. Our restoration retains the main roof contours and several rooftop structures while reducing speckle. Building outlines remain visible in its ratio image, revealing structure-related residuals and incomplete separation of scene content from speckle.
 
 \begin{figure}[!t]
   \centering
@@ -242,17 +250,17 @@ One parameter set handles all looks without an external \(L\) estimate in the qu
     \comparisonpanel{figures/fig4/Ours-base.png}{(g)}{Ours} &
     \comparisonpanel{figures/fig4/Ours-base_ratio.png}{(h)}{Ours ratio}
   \end{tabular}
-  \caption{Qualitative comparison on one UCMerced buildings scene; LEE denotes Lee-MMSE. All panels retain the same field of view and original grayscale renderings. The Ours ratio in (h) is interpreted separately from the restored images.}
+  \caption{Visual comparison for a UCMerced buildings scene. LEE denotes Lee-MMSE. All panels show the same field of view in their original grayscale renderings. Panel (h) shows the ratio image for Ours and is assessed separately from the restorations.}
   \label{fig:synthetic_qual}
 \end{figure}
 
-Across the four conditions, PSNR rises from 25.93~dB at one look to 30.13~dB at eight looks without changing model capacity. SSIM is not perfectly monotonic at intermediate looks, which motivates reporting both measures and all four noise levels. Improvements over local filtering are large, while the gaps to nonlocal and Transformer baselines are narrower. These aggregate comparisons are supported by Table~\ref{tab:main}; the single-scene visualization in Fig.~\ref{fig:synthetic_qual} illustrates local structure preservation and does not establish performance across scene classes or look numbers.
+PSNR rises from 25.93~dB at \(L=1\) to 30.13~dB at \(L=8\), whereas SSIM is nonmonotonic. Table~\ref{tab:main} reports both metrics at each look to capture this difference.
 
 \subsection{Generalization across Three UCMerced Scene Types}
-Table~\ref{tab:ucm_scenes} complements the full UCM-21 benchmark with 100 samples each from agricultural, buildings, and residential scenes. These groups emphasize smooth land cover, regular boundaries, and dense texture, respectively. Their source is excluded from supervised development. This three-scene evaluation is reported separately from the four-look macro results in Table~\ref{tab:main}.
+The scene-level analysis in Table~\ref{tab:ucm_scenes} supplements the full UCM-21 benchmark with 100 samples each from agricultural, buildings, and dense residential scenes at \(L=4\). These categories emphasize smooth land cover, regular boundaries, and dense texture, respectively. Their source images are excluded from supervised development. We report this fixed-look comparison separately from the four-look macro results in Table~\ref{tab:main}.
 
 \begin{table}[!t]
-\caption{Generalization Results on Three UCMerced Scene Types}
+\caption{Generalization on Three UCMerced Scene Types at \(L=4\)}
 \label{tab:ucm_scenes}
 \centering
 \footnotesize
@@ -266,19 +274,19 @@ Table~\ref{tab:ucm_scenes} complements the full UCM-21 benchmark with 100 sample
 \midrule
 Agricultural & 100 & 17.7573 / 0.4218 & \textbf{29.1523 / 0.7446} \\
 Buildings    & 100 & 16.6583 / 0.4625 & \textbf{27.6827 / 0.7883} \\
-Residential  & 100 & 17.5475 / 0.4557 & \textbf{30.4376 / 0.7941} \\
+Dense residential & 100 & 17.5475 / 0.4557 & \textbf{30.4376 / 0.7941} \\
 \midrule
 Average      & 300 & 17.3211 / 0.4467 & \textbf{29.0909 / 0.7757} \\
 \bottomrule
 \end{tabular*}
 \vspace{1pt}
-\parbox{\columnwidth}{\scriptsize PSNR is in dB. Ours-base is the model before real-SAR adaptation. Bold values indicate improvements over the noisy input; the three-scene average is distinct from the UCM-21 macro result.}
+\parbox{\columnwidth}{\scriptsize PSNR is in dB. All 300 samples use \(L=4\), and Average summarizes the three scene groups. Ours-base denotes the model before real-SAR adaptation. Bold values mark improvements over the noisy input.}
 \end{table}
 
-Ours-base improves PSNR over noisy inputs by 11.02--12.89~dB and SSIM by 0.3228--0.3384 across the three groups. Average performance reaches 29.0909~dB/0.7757, versus 17.3211~dB/0.4467 for noisy inputs. Residential scenes attain the highest restored PSNR and SSIM; buildings yield the lowest PSNR, and agricultural scenes the lowest SSIM. These consistent gains support transfer across varied scene structures under synthetic speckle. Module contributions are evaluated separately by the ablations below.
+Ours-base gains 11.02--12.89~dB in PSNR and 0.3228--0.3384 in SSIM across the three categories. Mean PSNR increases from 17.3211 to 29.0909~dB, and mean SSIM from 0.4467 to 0.7757. Dense residential scenes achieve the highest restored PSNR and SSIM; buildings have the lowest PSNR, and agricultural scenes the lowest SSIM. These consistent gains demonstrate restoration across the evaluated structures at \(L=4\). The ablations below assess individual module contributions.
 
 \subsection{Ablation Study}
-The compact comparison in Table~\ref{tab:ablation} isolates the representation chain and the six Fourier blocks.
+Table~\ref{tab:ablation} examines the representation and compensation choices, together with the effect of removing all six Fourier blocks.
 \begin{table}[!t]
 \caption{Compact Ablation on UCM-21}
 \label{tab:ablation}
@@ -297,14 +305,14 @@ Full w/o all FDR & Log, inverse, comp. & \underline{26.4634} & \underline{0.7612
 \bottomrule
 \end{tabularx}
 \end{table}
-Removing all Fourier residual refinement decreases macro PSNR from 28.1425 to 26.4634~dB and SSIM from 0.7791 to 0.7612, differences of 1.6791~dB and 0.0179. This comparison keeps the log transform, exact inverse, and intensity compensator active, directly supporting spectral refinement within the shared reconstruction path.
+With all Fourier residual blocks removed, macro PSNR falls from 28.1425 to 26.4634~dB and SSIM from 0.7791 to 0.7612, a decrease of 1.6791~dB and 0.0179, respectively. The log transform, exact inverse, and intensity compensator remain active in both configurations. The difference therefore favors retaining spectral refinement within this reconstruction path.
 
-Full also exceeds Log-only by 5.9229~dB and 0.0670 SSIM. Together with the no-FDR comparison, this indicates complementary benefits from same-domain compensation and spectral refinement; the isolated log representation is not claimed to be universally superior.
+Full outperforms Log-only by 5.9229~dB and 0.0670 SSIM, indicating a benefit from intensity compensation when FDR is present. Conversely, removing FDR tests the Fourier blocks with compensation retained. Each comparison measures a component's contribution within the tested configuration; neither quantifies the interaction between refinement and compensation.
 
-The two single-representation variants expose a different trade-off: Log-only has lower PSNR but higher SSIM than Intensity-only. The strongest result therefore comes from combining compression, exact analytical inversion, same-domain compensation, and FDR rather than from a generic increase in decoder capacity or the log transform alone.
+The single-representation variants reveal a trade-off: Log-only yields lower PSNR but higher SSIM than Intensity-only. Full achieves the highest point estimates among the tested variants. Because module removal also reduces model capacity, these comparisons cannot distinguish the effect of spectral processing from that of parameter count.
 
 \subsection{Real-SAR Adaptation}
-Table~\ref{tab:real} evaluates all methods on the same 592 child patches from 148 held-out parents.
+Table~\ref{tab:real} compares all methods on 592 shared test patches drawn from 148 held-out parent images.
 
 \begin{table}[!htbp]
 \caption{No-Reference Results on 592 Real-SAR Patches}
@@ -327,14 +335,14 @@ Ours-base   & 530.85 & 1.8213             & 0.4229 \\
 \bottomrule
 \end{tabular*}
 \vspace{1pt}
-\parbox{\columnwidth}{\scriptsize\raggedright ENL is a diagnostic and is not ranked. The Noisy EPI of 1.0000 is an identity check and is excluded from ranking. Bold and underlined values are the best and second best among filtered outputs.}
+\parbox{\columnwidth}{\scriptsize\raggedright Mean ENL is reported as a smoothness diagnostic and is not ranked. For Noisy in this evaluation, M-index is undefined and EPI equals 1.0000 by identity. Bold and underlined values mark the best and second-best filtered results.}
 \end{table}
 
-The base output combines ENL 530.85 with EPI 0.4229, indicating excessive smoothing. AMS changes ENL to 84.72, reduces the M-index from 1.8213 to 1.3365 (26.62\%), and raises EPI from 0.4229 to 0.8214 (94.23\%). It ranks first among filtered outputs on M-index and EPI, with SAR-BM3D second on both. SDUDNet has similar ENL but higher M-index and lower EPI; SAR2SAR has the largest filtered-output M-index, while Trans-SAR retains less edge energy. Because training assumptions differ, the controlled real-data claim is the Ours-base versus Ours+AMS change on identical parent-disjoint patches.
+Ours+AMS achieves the best M-index and EPI among the filtered outputs, followed by SAR-BM3D on both measures. Relative to Ours-base, adaptation lowers M-index from 1.8213 to 1.3365 (26.62\%) and raises EPI from 0.4229 to 0.8214 (94.23\%). ENL decreases from 530.85 to 84.72, consistent with reduced smoothing. SDUDNet has a similar ENL but a higher M-index and lower EPI, showing that comparable smoothness need not imply comparable ratio-image or edge behavior. Because training assumptions differ across methods, the direct comparison between Ours-base and Ours+AMS on identical parent-disjoint patches provides the clearest evidence of the adaptation benefit.
 
-For this 592-patch comparison, ROI coordinates are determined exclusively from each noisy image, stored once, and reused across outputs, which reduces method-dependent selection bias. ENL remains sensitive to whether a region is truly homogeneous, so it is interpreted only with the whole-image M-index, EPI, and ratio-image structure.
+Reusing input-selected ROI coordinates limits method-dependent selection bias in the 592-patch evaluation. ENL still depends on regional homogeneity, so its interpretation requires the whole-image M-index, EPI, and ratio-image evidence.
 
-Fig.~\ref{fig:real_qual} illustrates one selected real-SAR scene. SAR-BM3D retains pronounced granular texture, while SAR2SAR, SDUDNet, Trans-SAR, and Ours-base produce smoother reconstructions. Relative to Ours-base, Ours+AMS shows clearer local boundaries and bright structures, qualitatively consistent with the aggregate increase in edge preservation. Scene-aligned structures remain visible in the Ours+AMS ratio panel, indicating structure-related residuals. This single-scene illustration complements the dataset-level measurements in Table~\ref{tab:real}; it does not establish clean-reference fidelity or behavior across acquisitions.
+The real-SAR example in Fig.~\ref{fig:real_qual} shows pronounced granular texture after SAR-BM3D, whereas SAR2SAR, SDUDNet, Trans-SAR, and Ours-base produce smoother images. Compared with Ours-base, Ours+AMS preserves clearer local boundaries and bright structures, in qualitative agreement with the aggregate increase in EPI. Its ratio image still contains structures aligned with the scene, indicating structure-related residuals. This selected example complements the dataset-level measurements in Table~\ref{tab:real}; a clean reference would be required to assess restoration fidelity directly.
 
 \begin{figure}[!t]
   \centering
@@ -348,12 +356,12 @@ Fig.~\ref{fig:real_qual} illustrates one selected real-SAR scene. SAR-BM3D retai
     \comparisonpanel{figures/fig5/Ours-ams.png}{(g)}{Ours+AMS} &
     \comparisonpanel{figures/fig5/Ours-ams-ratio.png}{(h)}{Ours+AMS ratio}
   \end{tabular}
-  \caption{Qualitative comparison on one real-SAR scene. Ours-base is the pre-adaptation model. Original renderings, including the red box for visual inspection in (a), are retained. The Ours+AMS ratio in (h) is interpreted separately from restored images. No clean reference is shown.}
+  \caption{Visual comparison for a real-SAR scene. Ours-base denotes the model before adaptation. The original renderings are retained, including the red inspection box in (a). Panel (h) shows the Ours+AMS ratio image, which is assessed separately from the restorations. No clean reference is shown.}
   \label{fig:real_qual}
 \end{figure}
 
 \subsection{Scene-Wise No-Reference Evaluation on Real SAR}
-Table~\ref{tab:real_scenes} examines a complementary 60-patch real-SAR test subset, with 20 patches each from homogeneous, structural, and texture scenes. These groups emphasize uniform-region speckle suppression, geometric boundary preservation, and texture retention, respectively. The scene summaries provide a separate descriptive evaluation and are not pooled with the 592-patch results in Table~\ref{tab:real}.
+A complementary 60-patch real-SAR subset in Table~\ref{tab:real_scenes} contains 20 patches each from homogeneous, structural, and texture scenes. The three groups emphasize speckle suppression in uniform regions, preservation of geometric boundaries, and retention of texture, respectively. These scene-level summaries provide a separate descriptive assessment and are not pooled with the 592-patch measurements in Table~\ref{tab:real}.
 
 % Source: ../实验结果表.md. All scene and Average entries are reproduced
 % from the experimental-results table, as confirmed by the author.
@@ -386,21 +394,21 @@ Ours+AMS  & 72.7568  & \textbf{1.454366} & \textbf{0.798884} \\
 \bottomrule
 \end{tabular*}
 \vspace{1pt}
-\parbox{\columnwidth}{\scriptsize The same 20 patches per category are compared before and after AMS. Bold values identify the better M-index and EPI in each comparison. ENL is a smoothness diagnostic and is not ranked.}
+\parbox{\columnwidth}{\scriptsize Each category uses the same 20 patches before and after AMS. Bold values mark the better M-index and EPI for each comparison. ENL is reported as a mean and is not ranked.}
+% Tighten only this table's gap to the following text.
+\par\vspace{-8pt}
 \end{table}
 
-AMS reduces the M-index by 14.67\%, 23.49\%, and 35.43\% in homogeneous, structural, and texture scenes, respectively, and increases EPI in all three groups. The reported Average results show a lower M-index (1.740321 to 1.454366) and higher EPI (0.372438 to 0.798884), with ENL changing from 597.0446 to 72.7568. In every group, AMS reduces ENL relative to Ours-base while retaining values above the noisy input. Together, these changes are consistent with reduced oversmoothing and improved edge retention across scene structures. The no-reference measures support this adaptation trend without establishing clean-image fidelity.
+The adaptation gains extend to all three scene categories. AMS lowers the M-index by 14.67\%, 23.49\%, and 35.43\% for homogeneous, structural, and texture scenes, respectively, while increasing EPI in every group. The reported Average values change from 1.740321 to 1.454366 for M-index, from 0.372438 to 0.798884 for EPI, and from 597.0446 to 72.7568 for ENL. ENL decreases relative to Ours-base in each category but remains above the noisy-input value. Together, these no-reference measurements show a consistent adaptation trend compatible with less oversmoothing and better edge retention across the evaluated scene structures.
 
 \subsection{Limitations}
-Several limitations bound our claims. Optical NWPU and UCM sources make the synthetic results a controlled Gamma-restoration test, not a model of complete real-SAR statistics. The parent-disjoint real patches come from one acquisition, precluding cross-region or cross-sensor claims. Noisy-target masking is not theoretically unbiased under correlated speckle, so the adaptation evidence is empirical. We also report neither parameter count, operation count, runtime, nor variation across initializations and therefore make no efficiency or uncertainty-calibrated claim.
+The evaluation has several limitations. Because the synthetic images originate from optical NWPU and UCM collections, they test restoration under controlled Gamma speckle without reproducing the full statistics of real SAR. The real-data split covers one collection and does not assess transfer to independent acquisitions, regions, or sensors. Masking noisy targets does not guarantee an unbiased estimate under correlated speckle, so the adaptation findings remain empirical. Parameter counts, operation counts, runtimes, and variation across initializations are not reported, leaving computational efficiency and statistical uncertainty unquantified.
 
-Future work should add independent acquisitions and paired source-cluster intervals for UCM and parent-cluster intervals for real SAR, without treating four looks or sibling patches as independent observations. Accordingly, the evidence supports fixed-Gamma transfer across the two optical datasets, the representation/FDR ablation under a shared budget, and within-collection masked calibration. It does not establish universal speckle statistics, absolute radiometric fidelity, or state-of-the-art performance across unmatched training pipelines.
+Further evaluation should include independent acquisitions and paired confidence intervals that cluster UCM samples by source image and real-SAR patches by parent. These intervals should account for dependence among different looks and sibling patches. Matched training pipelines, together with model-size and runtime measurements, would permit more direct comparisons of restoration quality and computational cost.
 
 \section{Conclusion}
-This work presents a representation-consistent Fourier extension of the public Trans-SAR backbone for SAR intensity despeckling. Full-spectrum real--imaginary refinement is applied at six reconstruction scales, while a bounded log estimate is analytically returned to intensity before residual compensation. On the UCM-21 simulated test, the complete model obtains the highest macro PSNR and SSIM point estimates, and controlled ablations show clear reductions when Fourier refinement or intensity compensation is removed. On parent-disjoint real patches, encoder-frozen masked adaptation improves the M-index and edge preservation while reducing the extreme smoothness of the base output. Complementary scene evaluations show PSNR/SSIM gains over noisy inputs in all three UCMerced categories and consistent M-index/EPI improvements after AMS in all three real-SAR categories. The scope remains normalized single-image intensity restoration within the evaluated datasets; broader real-SAR claims require independent acquisitions and uncertainty analysis.
+We extend the public Trans-SAR backbone with Fourier refinement and representation-consistent reconstruction for SAR intensity despeckling. Six reconstruction scales apply full-spectrum real--imaginary refinement, and a bounded log estimate is analytically inverted before intensity residual compensation. On the simulated UCM-21 test, the complete model achieves the highest macro PSNR and SSIM point estimates among the compared methods. Controlled ablations show lower scores when either Fourier refinement or intensity compensation is removed. For parent-disjoint real patches, masked adaptation with a frozen encoder improves M-index and EPI while tempering the strong smoothing of the base model. Scene-level evaluations likewise show PSNR/SSIM gains in all three UCMerced categories and M-index/EPI improvements after AMS in all three real-SAR categories. These findings concern normalized single-image intensity restoration on the evaluated datasets; broader conclusions require independent real-SAR acquisitions and uncertainty analysis.
 
-% Balance the final bibliography columns with IEEEtran's native mechanism.
-\IEEEtriggeratref{3}
 \begin{thebibliography}{00}
 
 \bibitem{fracastoro2021overview}
@@ -452,7 +460,7 @@ F. Bo, X. Ma, S. Hu, G. An, Y. Li, and Y. Cen, ``Speckle-driven unsupervised des
 L. G\'omez, R. Ospina, and A. C. Frery, ``Unassisted quantitative evaluation of despeckling filters,'' \emph{Remote Sens.}, vol.~9, no.~4, Art. no.~389, 2017, doi: 10.3390/rs9040389.
 
 \bibitem{ma2024epi}
-X. Ma, L. Li, and G. Wang, ``Blind edge-retention indicator for assessing the quality of filtered PolSAR images based on a ratio gradient operator and confidence interval estimation,'' \emph{Remote Sens.}, vol.~16, no.~11, Art. no.~1992, 2024, doi: 10.3390/rs16111992.
+X. Ma, L. Li, and G. Wang, ``Blind edge-retention indicator for assessing the quality of filtered (Pol)SAR images based on a ratio gradient operator and confidence interval estimation,'' \emph{Remote Sens.}, vol.~16, no.~11, Art. no.~1992, 2024, doi: 10.3390/rs16111992.
 
 \bibitem{vasquez2025ratio}
 R. D. V\'asquez-Salazar, W. S. Puche, A. C. Frery, and L. G\'omez, ``Quality assessment of despeckling filters based on the analysis of ratio images,'' \emph{Remote Sens.}, vol.~17, no.~24, Art. no.~4048, 2025, doi: 10.3390/rs17244048.

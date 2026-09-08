@@ -1,36 +1,39 @@
-# ICSPS 2026 LaTeX manuscript with Figures 1-5 and scene-wise results
+# ICSPS 2026 LaTeX manuscript
 
-## Current manuscript with scene-wise experiments
+## Current manuscript: complete English polish (2026-09-08)
 
 Main manuscript: `ICSPS2026_paper.tex`.
 **Current compiled PDF: `ICSPS2026_paper.pdf` (7 pages).**
-The existing `build.ps1` / Tectonic workflow has rebuilt the canonical PDF with all corrected scene values and the revised Table IV layout. Use `ICSPS2026_paper.pdf`. The `ICSPS2026_paper_with_average.pdf` copy is currently locked by a viewer and retains the preceding Table IV layout; its experimental values are already corrected. The named layout copies are historical versions.
+The existing `build.ps1` / Tectonic workflow has rebuilt the canonical PDF after a complete English polish, informed by eight first-party writing sources. Use `ICSPS2026_paper.pdf`; the previously named layout and Average PDF copies are not current deliverables. The current Chinese report is `ENGLISH_POLISH_REPORT.md`, covering the prose changes, sources, and final validation. `LOGIC_LANGUAGE_REVIEW.md` retains the preceding review's implementation evidence and unresolved experiment-provenance questions.
 
-- Section IV-D and Table II add UCMerced agricultural, buildings, and residential results (100 samples per group), including the reported average of 29.0909 dB / 0.7757 for Ours-base.
+The abstract, introduction, related work, method, results, conclusion, and all five figure captions have been revised for clarity and independent expression. Quantified advantages are stated with their comparison conditions. No external similarity screening was performed, and no similarity percentage is claimed. Relative to the start of this English-polish pass, all five table bodies, eight equations, 21 bibliography entries, citation keys and counts, and figure content/layout commands are identical. Title, keywords, and global typography settings are preserved. Following the author's clarified preference, final-page balancing is disabled: fill the left column before continuing in the right column.
+
+- Section IV-D and Table II report UCMerced agricultural, buildings, and **dense residential** results at **L=4**, as last confirmed by the author (100 samples per group), including the average of 29.0909 dB / 0.7757 for Ours-base.
 - Section IV-G and Table V add real-SAR homogeneous, structural, and texture results (20 patches per group), including the source Average rows for 60 patches, comparing Ours-base and Ours+AMS with ENL, M-index, and EPI.
 - The conclusion now reflects both scene evaluations. Their summaries remain separate from the four-look UCM-21 macro benchmark and the 592-patch real-SAR benchmark; the fixed-ROI description is explicitly scoped to the latter.
 - Table IV now spans the full column, uses right-aligned numeric columns, adds a small gap before the direction arrows, and sets its note flush left. It appears after the Real-SAR Adaptation introduction and before the analysis paragraph, using normal `!htbp` placement with paragraph boundaries around the float.
-- All included scene values retain the source precision. Experimental data, equations, figures, and bibliography entries are unchanged by the Table IV layout revision.
+- Figure 3's caption-to-text gap on page 4 no longer stretches to fill a sparse column. The preamble retains IEEEtran's nominal `\textfloatsep` and shrink allowance but removes its stretch component. The earlier spacing-only fix reduced the then-current gap from about 20.1 mm to 7.4 mm; these are historical measurements, as subsequent English polishing changed the surrounding prose. The nonstretching gap setting is retained in the current PDF.
+- All five tables retain their experimental numbers and source precision. This review aligns equations (7) and (8) with the implemented mean MSE and masked-loss denominator, clarifies guidance and compensation, limits ablation conclusions, states the learning-rate schedule, and corrects the title of reference [17]. Figure contents, model code, global typography, and bibliography numbering are preserved.
 
-As confirmed by the author, `../实验结果表.md` is authoritative for all scene and Average values. Table V reproduces both Average rows exactly: Ours-base ENL/M-index/EPI = 597.0446/1.740321/0.372438 and Ours+AMS = 72.7568/1.454366/0.798884, with Noisy ENL = 23.7477 for 60 patches. The table and discussion incorporate the author's corrected source values. The source Markdown has not been edited by this manuscript update. The supplied scene summaries do not specify their look aggregation or establish that they use the main benchmark's fixed-ROI protocol, so the text does not assume either.
+As confirmed by the author, `../实验结果表.md` is authoritative for all scene and Average values. Table V reproduces both Average rows exactly: Ours-base ENL/M-index/EPI = 597.0446/1.740321/0.372438 and Ours+AMS = 72.7568/1.454366/0.798884, with Noisy ENL = 23.7477 for 60 patches. ENL is explicitly reported as a **mean** in the manuscript. The source Markdown has not been edited; its older median wording and generic Residential label are superseded by the author's current clarification. The author also confirms that both real-SAR tables implement EPI from Ma et al. (2024, 16, 1992), Eq. (16), and M from Gomez et al. (2017, 9, 389). Both supplied PDFs have been checked, and the manuscript explicitly applies the definitions to both evaluations. The earlier uncertainty about mixed metric families is resolved. The review separately records an M normalization difference between the printed formula and the current repository function, plus outstanding valid counts, baseline settings, and scene-result lineage. The fixed-ROI description remains scoped to the 592-patch benchmark.
 
 | Figure | Current placement | PDF page |
 |---|---|---|
 | 1 | Original full-width vector PDF, double column | 2 |
 | 2 | Original vector PDF, safely trimmed top/bottom, 0.94 column width | 3 |
 | 3 | Original vector PDF, safely trimmed top/bottom, 0.98 column width | 4 |
-| 4 | Eight independent PNGs, **2 rows by 4 columns within one column** | 5, left column |
+| 4 | Eight independent PNGs, **2 rows by 4 columns within one column** | 5, right column |
 | 5 | Eight independent PNGs, **2 rows by 4 columns within one column** | 6, right column |
 
 Each comparison panel is proportionally scaled to 0.24 column width (approximately 21.257 mm square); the original 256-by-256 pixels are unchanged. Two-line labels remain 8 pt. All eight panels, both ratio images, and Figure 5(a)'s red inspection box are retained.
 
 Table I remains across both columns at the bottom of page 4. Tables II (UCM scenes) and III (ablation) are in the right column of page 5; Tables IV (592 real patches) and V (real scenes) are in the left and right columns of page 6, respectively. The new tables use the existing IEEEtran, booktabs, and 8 pt table style.
 
-REFERENCES starts in the left column of page 7. IEEEtran's native `\IEEEtriggeratref{3}` balances the final columns after the added content. Template geometry, global type size, line spacing, and reference numbering are unchanged.
+REFERENCES starts in the left column of page 7. The author's final preference is natural column flow, with the left column filled before the right column. Both `flushend` and the earlier manual `\IEEEtriggeratref` break are absent. References [1]–[3] appear intact at the bottom of the left column, and the right column continues with [4]–[21] and may end earlier. Table V retains its local 8 pt end-of-float adjustment and approximately 5.0 mm note-to-text gap. The first six pages, global type size, template margins, and all reference entries are unchanged by this final adjustment. Current verification is in `../../output/pdf/ICSPS2026_EnglishPolish/natural_columns_validation.json`; earlier balancing records are historical.
 
-Build using `build.ps1` as documented below. Final checks have no errors, undefined references, missing citations, Overfull warnings, or Underfull hbox warnings; the existing Underfull vbox remains on page 4. The rendered experiment pages and final bibliography were visually checked. Scene-update verification is saved under `../../output/pdf/ICSPS2026_SceneResults/`; the earlier layout reports describe historical versions.
+Build using `build.ps1` as documented below. The final stable log has no errors, undefined references, missing citations, Overfull warnings, or Underfull hbox warnings; the existing Underfull vbox remains on page 4. All seven rendered pages were visually checked. Current verification is saved under `../../output/pdf/ICSPS2026_EnglishPolish/`; `../../output/pdf/ICSPS2026_LogicReview/` records the preceding audit. The scene-update and layout reports describe historical versions.
 
-The previous `ICSPS2026_paper_layout_4x2.pdf` and `LAYOUT_4X2_REPORT.md` are historical files, superseded by this 2-row by 4-column version.
+The records below retain historical build details. Their old PDF names, placements, and preservation statements do not describe the current manuscript; some historical PDFs have been removed.
 
 ## Original double-column 2-by-4 layout record (historical)
 

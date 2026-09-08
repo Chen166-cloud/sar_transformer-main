@@ -1,0 +1,35 @@
+{
+  "only_two_intended_layout_changes": true,
+  "pages_1_through_5_text_and_coordinates_identical": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "before": {
+    "pdf": "D:\\research\\sar_transformer-main\\tmp\\pdfs\\spacing_v_refs\\before.pdf",
+    "pages": 7,
+    "table_v_to_text_gap_pt": 22.238,
+    "table_v_to_text_gap_mm": 7.845,
+    "last_page_left_bottom_pt": 642.687,
+    "last_page_right_bottom_pt": 679.151,
+    "last_page_column_bottom_difference_pt": 36.464,
+    "last_page_column_bottom_difference_mm": 12.864
+  },
+  "after": {
+    "pdf": "D:\\research\\sar_transformer-main\\docs\\ICSPS2026_LaTeX\\ICSPS2026_paper.pdf",
+    "pages": 7,
+    "table_v_to_text_gap_pt": 14.267,
+    "table_v_to_text_gap_mm": 5.033,
+    "last_page_left_bottom_pt": 669.586,
+    "last_page_right_bottom_pt": 652.252,
+    "last_page_column_bottom_difference_pt": 17.335,
+    "last_page_column_bottom_difference_mm": 6.115
+  },
+  "visually_reviewed_pages": [
+    6,
+    7
+  ],
+  "pdf_sha256": "0f9496ef40abc3680f480264b3354fe5020e1e41f345586520603b3e232ee07f"
+}
