@@ -1,0 +1,39 @@
+{
+  "original_directory_unchanged": true,
+  "original_files_verified": 36,
+  "tables_preserved_verbatim": [
+    "tab:main",
+    "tab:ucm_scenes",
+    "tab:ablation",
+    "tab:real",
+    "tab:real_scenes"
+  ],
+  "experimental_figure_environments_preserved_verbatim": 2,
+  "experimental_panels_preserved": 16,
+  "unchanged_original_figure_assets": 22,
+  "redesigned_figure_1_assets": [
+    "figures/draw_fig1.py",
+    "figures/fig1_overall_architecture.pdf",
+    "figures/fig1_overall_architecture.svg"
+  ],
+  "equations_preserved": 8,
+  "bibliography_entries_preserved": 21,
+  "bibliography_reordered_by_first_citation": true,
+  "main_figure_count": 3,
+  "supplementary_method_diagram_count": 2,
+  "pdfs": {
+    "GRSL_paper": {
+      "pages": 5,
+      "sha256": "704e0d76df333fd1cd481c949d5e57e045a06bf68cce34a9d1184e9cc752a23f",
+      "underfull_vbox_notices": 1,
+      "errors_or_overfull_boxes": 0
+    },
+    "GRSL_method_diagrams": {
+      "pages": 1,
+      "sha256": "b0a81c77df2f4a1e31970ab1285360ef0e27eee8abb79baa4d246573de339741",
+      "underfull_vbox_notices": 0,
+      "errors_or_overfull_boxes": 0
+    }
+  },
+  "visual_review": "Final page renders reviewed separately; see previews."
+}

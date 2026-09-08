@@ -1,0 +1,30 @@
+{
+  "width_pdf_pt": 514.0722291407224,
+  "height_pdf_pt": 262,
+  "width_mm": 181.3532586135326,
+  "minimum_font_pt": 8.5,
+  "font": "Arial",
+  "font_file": "C:\\Windows\\Fonts\\arial.ttf",
+  "vector_pdf": true,
+  "editable_svg_text": true,
+  "png_dpi": 600,
+  "boxed_text_overflows": [],
+  "matplotlib_version": "3.8.4",
+  "six_independent_fdr_blocks": true,
+  "shared_guidance_map_only": true,
+  "skip_mapping": {
+    "E1": "D1",
+    "E2": "D2",
+    "E3": "D3",
+    "E4": "D4"
+  },
+  "decoder_order": [
+    "Upsample",
+    "Skip concatenation and fusion (D1-D4)",
+    "FDR",
+    "Residual convolution",
+    "Guidance modulation"
+  ],
+  "data": "Architecture only; no experimental image or metric is drawn.",
+  "drawing_source_sha256": "b8af324285bb635b7bd0ce6f6d9bbcef15333b060f57bc518bba63e96000332f"
+}
