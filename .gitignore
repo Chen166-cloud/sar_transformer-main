@@ -45,5 +45,20 @@ venv/
 /report_qa/
 /results
 
+# Author-provided SAR-BM3D binaries (license prohibits redistribution) and local runs
+/external/sarbm3d/
+/output/sarbm3d_local/
+
+# Local deep SAR baseline sources, runtimes, and reproduced outputs
+/external/SAR-CAM/
+/external/SAR2SAR/
+/.venv-sar-cam/
+/.venv-sar2sar/
+/output/sar_cam_local/
+/output/sar2sar_local/
+/external/SDUDNet/
+/.venv-sdudnet/
+/output/sdudnet_local/
+
 # Local session archives
 /codex_handoff_2026-09-03/

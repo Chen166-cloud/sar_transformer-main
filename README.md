@@ -5,6 +5,15 @@ figures. Datasets, model checkpoints, generated experiment outputs, and local
 transfer scripts are excluded from Git. Prepare the datasets and checkpoints
 separately before training or evaluation.
 
+For the original SAR-BM3D v1.0 on local Windows/MATLAB, see
+[SAR-BM3D 本地复现说明](docs/SAR_BM3D_LOCAL.md).
+
+For local SAR-CAM training/inference and SAR2SAR pretrained inference, see
+[SAR-CAM 与 SAR2SAR 本地运行](docs/SAR_CAM_SAR2SAR_LOCAL.md).
+
+For local SDUDNet inference with the authors' pretrained weights, see
+[SDUDNet 本地运行](docs/SDUDNET_LOCAL.md).
+
 ## Dataset location
 
 All datasets are stored under [`datasets/`](datasets/README.md). Use
