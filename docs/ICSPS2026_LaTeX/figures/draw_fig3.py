@@ -185,10 +185,10 @@ def draw(output_dir,font="Arial",dpi=600):
     box("frozen-encoder",64,240,172,14,"Frozen: Transformer encoder",GRAY,8.4)
     box("trainable-reconstruction",64,258,172,19,
         "Trainable: bottleneck, decoder, guidance;\nhead and intensity compensator",PURPLE,8.2)
-    arrow([(150,280),(150,291)])
-    text(163,286,"$P$",8.8)
-    box("masked-objective",58,291,184,32,
-        "Masked $L_1(P,Y;M)$\n$+\\,10^{-3}\\,\\mathrm{TV}(P)$",PURPLE,8.8)
+    arrow([(150,280),(150,288)])
+    text(163,284,"$P$",8.8)
+    box("masked-objective",58,288,184,38,
+        "Masked $L_1(P,Y;M)$\n$+\\,\\lambda_{\\mathrm{AMS}}\\,\\mathrm{TV}(P)$",PURPLE,8.2)
     # Mask selects supervised pixels; it is not an additional model input.
     arrow([(242,195),(248,195),(248,306),(242,306)],PURPLE[1])
     text(246,286,"$M$",8.5,color=PURPLE[1],ha="right")

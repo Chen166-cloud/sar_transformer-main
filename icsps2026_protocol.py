@@ -254,7 +254,8 @@ def _validate_effective_config(config: Mapping[str, Any]) -> None:
         str(optimizer["name"]) != "Adam"
         or float(optimizer["learning_rate"]) != 1e-3
         or float(optimizer["weight_decay"]) != 1e-5
-        or float(loss["lambda_tv"]) != 5e-7
+        or str(loss["tv_definition"]) != "mean_total_variation"
+        or float(loss["lambda_tv"]) != 0.03
     ):
         raise ValueError("Supervised optimizer/loss differs from ICSPS26-FROZEN-v2")
     if (

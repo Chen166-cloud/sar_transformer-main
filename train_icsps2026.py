@@ -125,13 +125,21 @@ def training_values(config: dict[str, Any]) -> dict[str, Any]:
     optimizer = section.get("optimizer", {})
     loss = section.get("loss", {})
     scheduler = section.get("scheduler", {})
+    if str(loss.get("tv_definition")) != "mean_total_variation":
+        raise ValueError("Formal supervised training requires mean_total_variation")
+    lambda_tv = float(loss.get("lambda_tv", 0.03))
+    if lambda_tv != 0.03:
+        raise ValueError(
+            "Formal supervised training requires lambda_tv=0.03; "
+            "regenerate PREP_ROOT so config_snapshot.json is current"
+        )
     return {
         "updates": int(section.get("optimizer_updates", schedule.get("updates", 100_000))),
         "batch_size": int(section.get("batch_size", 1)),
         "val_interval": int(section.get("validation_interval_updates", 5_000)),
         "learning_rate": float(optimizer.get("learning_rate", 1e-3)),
         "weight_decay": float(optimizer.get("weight_decay", 1e-5)),
-        "lambda_tv": float(loss.get("lambda_tv", 5e-7)),
+        "lambda_tv": lambda_tv,
         "scheduler_factor": float(scheduler.get("factor", 0.5)),
         "scheduler_patience": int(scheduler.get("patience_validation_events", 4)),
         "scheduler_min_lr": float(scheduler.get("min_lr", 1e-6)),

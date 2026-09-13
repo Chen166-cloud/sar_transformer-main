@@ -101,8 +101,8 @@ if args.start_epoch < 0 or args.start_epoch >= num_epochs:
 
 def total_variation(image_in):
 
-    tv_h = torch.sum(torch.abs(image_in[ :, :-1] - image_in[ :, 1:]))
-    tv_w = torch.sum(torch.abs(image_in[ :-1, :] - image_in[ 1:, :]))
+    tv_h = torch.mean(torch.abs(image_in[ :, :-1] - image_in[ :, 1:]))
+    tv_w = torch.mean(torch.abs(image_in[ :-1, :] - image_in[ 1:, :]))
     tv_loss = tv_h + tv_w
 
     return tv_loss 
@@ -319,7 +319,9 @@ def train_model(model, criterion, optimizer, dataloader, valloader, direc, num_e
                     loss = criterion(output, y_batch)
 
                     
-                    loss = loss + TV_loss(output,0.0000005)
+                    # Eq. (7) uses mean TV; synthetic validation selected 0.03
+                    # from {0, 0.01, 0.03, 0.05, 0.08, 0.1}.
+                    loss = loss + TV_loss(output, 0.03)
 
                     # ===================backward====================
                     optimizer.zero_grad()
@@ -441,11 +443,3 @@ def train_model(model, criterion, optimizer, dataloader, valloader, direc, num_e
 
 
 model_ft = train_model(model, criterion, optimizer, dataloader, valloader, direc, num_epochs, record_file)
-
-
-
-                
-
-
-
-    

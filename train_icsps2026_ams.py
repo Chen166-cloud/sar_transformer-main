@@ -208,6 +208,15 @@ def main() -> int:
     config = payload.get("effective_protocol", payload)
     if config.get("protocol_id") != PROTOCOL_ID:
         raise ValueError(f"Expected {PROTOCOL_ID}, found {config.get('protocol_id')!r}")
+    supervised_loss = config.get("training", {}).get("loss", {})
+    if (
+        str(supervised_loss.get("tv_definition")) != "mean_total_variation"
+        or float(supervised_loss.get("lambda_tv", float("nan"))) != 0.03
+    ):
+        raise ValueError(
+            "AMS requires the revised supervised lambda_tv=0.03; "
+            "regenerate PREP_ROOT so config_snapshot.json is current"
+        )
     ams = config.get("ams", {})
     ams_optimizer = ams.get("optimizer", {})
     ams_mask = ams.get("mask", {})

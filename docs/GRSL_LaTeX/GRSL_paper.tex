@@ -131,22 +131,22 @@ Supervised training minimizes mean squared intensity error and total variation (
 \begin{equation}
 \mathcal{L}_{\mathrm{sup}}=
 \frac{1}{HW}\lVert\widehat{\vect{X}}-\vect{X}\rVert_2^2
-+5\!\times\!10^{-7}\operatorname{TV}(\widehat{\vect{X}}).
++\lambda_{\mathrm{TV}}^{\mathrm{sup}}\operatorname{TV}(\widehat{\vect{X}}).
 \label{eq:supervised}
 \end{equation}
-TV sums the mean absolute horizontal and vertical neighbor differences. AMS masks pixels independently with probability 0.2, forming \(\vect{Y}_m=\vect{Y}\odot(1-\vect{M})\), and supervises only masked positions using their original noisy values:
+TV is the sum of the mean absolute horizontal and vertical neighbor differences. The two stage-specific weights are selected on their corresponding validation splits in Section~III-B. AMS masks pixels independently with probability 0.2 and supervises only masked positions using their original noisy values:
 \begin{equation}
-\begin{aligned}
-\mathcal{L}_{\mathrm{AMS}}={}&
-\frac{\lVert\vect{M}\odot[f_{\theta}(\vect{Y}_{m})-\vect{Y}]\rVert_1}
-{\max(\lVert\vect{M}\rVert_1,1)}\\
-&+10^{-3}\operatorname{TV}(f_{\theta}(\vect{Y}_{m})).
-\end{aligned}
+\begin{gathered}
+\vect{Y}_m=\vect{Y}\odot(1-\vect{M}),\qquad
+\widehat{\vect{X}}_m=f_{\theta}(\vect{Y}_m),\\[3pt]
+\mathcal{L}_{\mathrm{AMS}}=
+\frac{\lVert\vect{M}\odot(\widehat{\vect{X}}_m-\vect{Y})\rVert_1}
+{\max(\lVert\vect{M}\rVert_1,1)}
++\lambda_{\mathrm{AMS}}\operatorname{TV}(\widehat{\vect{X}}_m).
+\end{gathered}
 \label{eq:ams}
 \end{equation}
 Only the Transformer encoder is frozen; the bottleneck, decoder, guidance, head, and compensator adapt for eight epochs at learning rate \(10^{-6}\). Training masks are resampled, whereas fixed validation masks support checkpoint selection at identical locations. Inference uses unmasked observations. During AMS, \(\vect{Y}_m\) replaces \(\vect{Y}\) throughout the network, including the compensator.
-
-Supplementary Figs.~S1 and S2 illustrate the refinement and adaptation operations specified above.
 
 \begin{table*}[!b]
 \caption{UCM-21 Gamma-Speckle Results on 8,400 Fixed Pairs}
@@ -187,7 +187,7 @@ Real SAR uses only noisy images from Mendeley dataset fs455tz88y, version~1~\cit
 All methods share test IDs. Unsigned 8-bit inputs are divided by 255; normalized floating-point inputs remain unchanged. Evaluation uses normalized linear intensity without percentile normalization or display stretching.
 
 \subsection{Implementation, Baselines, and Metrics}
-Training uses Adam, batch size 1, initial learning rate \(10^{-3}\), weight decay \(10^{-5}\), and 100,000 updates. Every 5,000 updates, validation mean squared error (MSE) in intensity is averaged equally by class and look; the lowest value selects the checkpoint. A plateau scheduler halves the rate with patience four validation events and a \(10^{-6}\) floor. One checkpoint handles all looks; Full and Ours-base denote the pre-adaptation model. Lee-MMSE uses a window selected on NWPU validation. SAR-BM3D uses square-root input and squared output; both receive nominal \(L\) (oracle-\(L\)). SAR-CAM~\cite{ko2022}, Trans-SAR~\cite{perera2022}, and our model receive only corrupted intensity.
+Training uses Adam, batch size 1, initial learning rate \(10^{-3}\), weight decay \(10^{-5}\), and 100,000 updates. Every 5,000 updates, validation mean squared error (MSE) in intensity is averaged equally by class and look; the lowest value selects the checkpoint. A plateau scheduler halves the rate with patience four validation events and a \(10^{-6}\) floor. Before testing, synthetic validation selected \(\lambda_{\mathrm{TV}}^{\mathrm{sup}}=3\times10^{-2}\) from \(\{0,10^{-2},3\times10^{-2},5\times10^{-2},8\times10^{-2},10^{-1}\}\) (highest macro PSNR/SSIM); real-SAR validation selected \(\lambda_{\mathrm{AMS}}=10^{-3}\) from \(\{0,10^{-4},10^{-3},10^{-2},10^{-1}\}\) (best M-index/EPI tradeoff; ENL diagnostic only). Both were fixed thereafter. One checkpoint handles all looks; Full and Ours-base denote the pre-adaptation model. Lee-MMSE uses a window selected on NWPU validation. SAR-BM3D uses square-root input and squared output; both receive nominal \(L\) (oracle-\(L\)). SAR-CAM~\cite{ko2022}, Trans-SAR~\cite{perera2022}, and our model receive only corrupted intensity.
 
 UCM-21 PSNR and SSIM average per-image scores equally across classes and looks. For 592 real patches, each noisy input supplies five nonoverlapping \(32\times32\) regions of interest (ROIs) on a grid, ranked by increasing squared coefficient of variation after rejecting dark, zero-dominated, and saturated candidates. The equivalent number of looks (ENL) averages \(\mu^2/\sigma^2\) over these 2,960 method-shared ROIs.
 

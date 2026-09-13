@@ -59,7 +59,8 @@
     "loss": {
       "reconstruction": "mean_squared_error",
       "tv_definition": "mean_total_variation",
-      "lambda_tv": 5e-7
+      "lambda_tv": 0.03,
+      "lambda_tv_selection": "synthetic validation grid [0, 0.01, 0.03, 0.05, 0.08, 0.1]; selected 0.03 by the highest macro PSNR and SSIM; fixed for all supervised tests"
     },
     "scheduler": {
       "name": "ReduceLROnPlateau",
@@ -147,7 +148,8 @@
     "loss": {
       "reconstruction": "masked_l1_on_masked_pixels",
       "tv_definition": "mean_total_variation",
-      "lambda_tv": 0.001
+      "lambda_tv": 0.001,
+      "lambda_tv_selection": "real-SAR validation grid [0, 0.0001, 0.001, 0.01, 0.1]; selected 0.001 by the best M-index/EPI tradeoff with ENL diagnostic only; fixed for all AMS tests"
     },
     "frozen_modules": [
       "model.log_branch.Tenc"

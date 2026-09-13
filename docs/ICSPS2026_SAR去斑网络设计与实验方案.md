@@ -406,42 +406,30 @@ Decoder head 输出：
 
 \[
 \mathcal L_{\rm sup}
-=\underbrace{\|\widehat{\mathbf x}-\mathbf x\|_2^2}_{\mathcal L_{\rm MSE}}
-+\lambda_{\rm TV}\underbrace{\operatorname{TV}(\widehat{\mathbf x})}_{\text{mean TV}},
-\qquad \lambda_{\rm TV}=5\times10^{-7}.
+=\underbrace{\frac{1}{HW}\|\widehat{\mathbf x}-\mathbf x\|_2^2}_{\mathcal L_{\rm MSE}}
++\lambda_{\rm TV}^{\rm sup}\underbrace{\operatorname{TV}(\widehat{\mathbf x})}_{\text{mean TV}}.
 \]
 
-该损失是标准重建损失，不列为创新。若不重新做 loss ablation，不应声称其特别适合 SAR speckle。
+该损失是标准重建损失，不列为创新。$\lambda_{\rm TV}^{\rm sup}$ 的候选集、验证依据和最终取值统一在第 8.1 节说明。
 
 ### 3.11 AMS：受约束真实域后适应
 
-训练时生成 Bernoulli mask：
+训练时以 0.2 的概率独立生成 Bernoulli 掩膜，只在被遮挡位置回归原 noisy observation。掩膜输入、预测强度与目标函数统一写为：
 
 \[
-\mathbf y_m=\mathbf y\odot(1-\mathbf M),
-\qquad M_{ij}\sim\operatorname{Bernoulli}(\rho),
-\quad \rho=0.2.
-\]
-
-只在被遮挡位置回归原 noisy observation：
-
-\[
+\begin{gathered}
+\mathbf y_m=\mathbf y\odot(1-\mathbf M),\qquad
+\widehat{\mathbf x}_m=f_\theta(\mathbf y_m),\\
 \mathcal L_{\rm AMS}
-=\frac{\|\mathbf M\odot(f_\theta(\mathbf y_m)-\mathbf y)\|_1}
-{\|\mathbf M\|_1+\epsilon}
-+10^{-3}\operatorname{TV}(f_\theta(\mathbf y_m)).
+=\frac{\|\mathbf M\odot(\widehat{\mathbf x}_m-\mathbf y)\|_1}
+{\max(\|\mathbf M\|_1,1)}
++\lambda_{\rm AMS}\operatorname{TV}(\widehat{\mathbf x}_m).
+\end{gathered}
 \]
 
 冻结 `model.log_branch.Tenc`，其余 bottleneck、decoder、guidance、head 与 compensation 模块仍可更新。准确名称是 **encoder-frozen masked post-adaptation**，而不是严格的 decoder-only training 或 blind-spot network。
 
-先在固定 synthetic validation 上记录 base PSNR。每个 checkpoint 只有满足
-
-\[
-\Delta\operatorname{PSNR}_{\rm syn}
-=\operatorname{PSNR}_{\rm base}-\operatorname{PSNR}_{t}\le0.5\ \mathrm{dB}
-\]
-
-才有资格参与选择；在 eligible checkpoints 中选固定 real-validation masks 上 masked loss 最低者。该 0.5 dB 条件是 **checkpoint eligibility criterion**，不是 differentiable loss。
+每个候选权重的运行仍在固定 real-validation masks 上按 masked loss 最低选择 epoch；跨权重的选择规则见第 8.3 节。
 
 AMS 没有解决聚焦 SAR speckle 的空间相关性，也没有证明 masked target 与输入独立，故不能声称理论无偏。Speckle2Self 与 SDS-SAR 已专门讨论自监督与相关性问题，本文应把 AMS 定位为轻量部署校准。
 
@@ -681,7 +669,8 @@ SAR-BM3D 的作者发布包由 University of Naples Federico II GRIP 提供；�
 | Initial LR | $10^{-3}$ |
 | Weight decay | $10^{-5}$ |
 | LR scheduler | `ReduceLROnPlateau(mode=min, factor=0.5, patience=4, min_lr=1e-6)`；patience 按完整验证事件计数，并按 `val_macro_mse` 更新 |
-| Loss | MSE + $5\times10^{-7}$ mean-TV |
+| Loss | MSE + $\lambda_{\rm TV}^{\rm sup}$ mean-TV |
+| TV 权重选择 | 在 synthetic validation 比较 $\{0,10^{-2},3\times10^{-2},5\times10^{-2},8\times10^{-2},10^{-1}\}$；$3\times10^{-2}$ 的 macro PSNR 和 SSIM 最高，故选定并固定用于全部监督测试 |
 | 固定正式预算 | **100,000 successful optimizer updates** |
 | 完整验证 | 每 **5,000** updates，共 20 次；另在 step 0 记录初始模型指标 |
 | 选择规则 | NWPU validation 上 post-clip linear-intensity 的最低 `val_macro_mse`；TV 项不参与选模；并列时选更早 step |
@@ -713,7 +702,8 @@ batch 1 下，100k updates 等于 100k 次样本呈现，约为 $100000/900=111.
 | Batch/crop | 1 / 256 |
 | LR / weight decay | $10^{-6}/10^{-5}$ |
 | Mask ratio | 0.2 |
-| Loss | masked L1 + $10^{-3}$ TV |
+| Loss | masked L1 + $\lambda_{\rm AMS}$ mean-TV |
+| TV 权重选择 | 在 real-SAR validation 比较 $\{0,10^{-4},10^{-3},10^{-2},10^{-1}\}$；按 M-index/EPI 联合排序选择 $10^{-3}$，ENL 仅用于诊断平滑程度，并固定用于全部 AMS 测试 |
 | Frozen | TransSAR-derived encoder (`log_branch.Tenc`) |
 | Trainable | bottleneck、decoder、guidance、head、compensator |
 | Selection | 固定 real-validation masks 上 masked loss 最低；不读取合成 validation/test 结果 |
