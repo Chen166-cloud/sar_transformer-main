@@ -14,6 +14,16 @@ For local SAR-CAM training/inference and SAR2SAR pretrained inference, see
 For local SDUDNet inference with the authors' pretrained weights, see
 [SDUDNet 本地运行](docs/SDUDNET_LOCAL.md).
 
+For local CL-SAR and MuLoG-DRUNet inference with the authors' pretrained weights,
+see [CL-SAR 本地运行](docs/CL_SAR_LOCAL.md) and
+[MuLoG-DRUNet 本地运行](docs/MULOG_DRUNET_LOCAL.md).
+Both adapters require an explicit intensity/amplitude input domain; MuLoG-DRUNet
+also requires an explicit number of looks. Their local smoke tests do not change
+the frozen ICSPS/GRSL evaluation protocol or establish a new performance ranking.
+As of 2026-09-18, CL-SAR pretrained inference is verified; MuLoG-DRUNet's adapter
+and offline tests are ready, but its official weight download and model inference
+verification are still pending. See the method-specific document for status.
+
 ## Dataset location
 
 All datasets are stored under [`datasets/`](datasets/README.md). Use

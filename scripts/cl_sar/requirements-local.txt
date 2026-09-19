@@ -1,0 +1,4 @@
+# PyTorch/CUDA is inherited; install only into .venv-cl-sar.
+numpy==2.4.3
+Pillow==10.4.0
+scipy==1.17.0

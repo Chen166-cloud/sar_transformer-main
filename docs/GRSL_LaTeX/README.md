@@ -11,7 +11,7 @@
 - `build.ps1`：同时生成主稿和补充方法图 PDF。
 - `FIG1_DESIGN_NOTES.md`：图 1 的绘图依据、重绘说明及可编辑资源。
 
-作者顺序：Hongyu Chen；Peng Liu（Senior Member, IEEE）；Yaqiu Jin（Life Fellow, IEEE）。通讯作者：Peng Liu，邮箱 pliu@fudan.edu.cn。
+作者顺序：Hongyu Chen；Peng Liu（Senior Member, IEEE）。通讯作者：Peng Liu，邮箱 pliu@fudan.edu.cn。
 
 全体作者单位：Key Laboratory of Information Science of Electromagnetic Waves, Fudan University, Shanghai, China。
 
@@ -19,7 +19,7 @@
 
 5 张实验结果表及其所有数值、精度、粗体和下划线均保留在主稿中。两组实验结果图的全部 16 个面板、图注及绘图尺寸设置原样保留。总体架构图仍为 Fig. 1，现已按用户要求重绘为“网络总览、解码顺序、强度重构”三个分区；原 Fig. 4、5 在主稿中依次编号为 Fig. 2、3。
 
-原 Fig. 2、3 是局部方法示意图，现作为补充 Fig. S1、S2 单独保存。其必要运算、训练条件及 8 个公式均已写入主稿，主稿不依赖补充文件来说明关键方法或结果。21 条参考文献全部保留，并按正文首次引用顺序重新编号。
+原 Fig. 2、3 是局部方法示意图，现作为补充 Fig. S1、S2 单独保存。其必要运算、训练条件及 8 个公式均已写入主稿，主稿不依赖补充文件来说明关键方法或结果。22 条参考文献全部保留，并按正文首次引用顺序编号。
 
 采用 IEEEtran 期刊模式，保留标准 10 pt 正文字体及页边距。末页按先填左栏、再排右栏的顺序流动。
 

@@ -60,6 +60,33 @@ venv/
 /external/SDUDNet/
 /.venv-sdudnet/
 /output/sdudnet_local/
+/external/CL-SAR/
+/external/MuLoG-DRUNet/
+/.venv-cl-sar/
+/.venv-mulog-drunet/
+/output/cl_sar_local/
+/output/mulog_drunet_local/
+
+# Additional local baseline sources and virtual environments
+/external/deepdespeckling/
+/external/TransSAR_official/
+/.venv-merlin/
+/.venv-ours-legacy/
+
+# Browser automation caches and local manuscript review workspaces
+/.playwright-cli/
+/output/playwright/
+/output/V1_revision_20260909/
+/output/V1_sentence_clarification_20260910/
+/output/V1_teacher_minimal_20260910/
+/output/V2_comment_replies_20260911/
+/output/v3_figure3_inspection/
+/output/v3_figure3_reference/
+
+# Large local SAR inputs, intermediate arrays, and reproduced experiment outputs
+/output/cl_sar_umbra_buenos_aires/
+/output/umbra_buenos_aires_multimethod_1024/
+/output/umbra_buenos_aires_preview/
 
 # Local session archives
 /codex_handoff_2026-09-03/

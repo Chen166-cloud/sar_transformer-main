@@ -1,0 +1,3 @@
+# PyTorch/CUDA, NumPy and Pillow are inherited from the selected base environment.
+scipy==1.17.0
+ypstruct==0.0.2

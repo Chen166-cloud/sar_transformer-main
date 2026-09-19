@@ -4,7 +4,7 @@
 
 ## 本次结果
 
-从原会议稿另建独立 GRSL 目录，主稿压缩至 **5 页（含参考文献）**。作者顺序为 Hongyu Chen、Peng Liu（Senior Member, IEEE）、Yaqiu Jin（Life Fellow, IEEE）；通讯作者为 Peng Liu，邮箱 pliu@fudan.edu.cn。全体作者单位为 Key Laboratory of Information Science of Electromagnetic Waves, Fudan University, Shanghai, China。姓名、顺序、会员等级及通讯信息均按用户确认内容填写，主稿和补充材料已同步。保持原论文标题；转投期刊不要求仅为“缩写”而改文件名或缩成陌生缩略语。
+从原会议稿另建独立 GRSL 目录，主稿压缩至 **5 页（含参考文献）**。V3 同步后的作者顺序为 Hongyu Chen、Peng Liu（Senior Member, IEEE）；通讯作者为 Peng Liu，邮箱 pliu@fudan.edu.cn。全体作者单位为 Key Laboratory of Information Science of Electromagnetic Waves, Fudan University, Shanghai, China。姓名、顺序、会员等级及通讯信息已在主稿和补充材料中同步。保持原论文标题；转投期刊不要求仅为“缩写”而改文件名或缩成陌生缩略语。
 
 主要改动是压缩文字和重组内容：相关工作并入引言，集中交代研究问题与新增操作；方法保留实现所需的条件和公式，删去流程的重复解释；实验设置统一说明，分析围绕改进幅度、不同指标的取舍和结论边界展开。未新增实验、编造结果或扩大证据所支持的范围。
 
@@ -60,8 +60,8 @@
 - 5 张表的 tabular 表体逐字符一致，包括所有数字、精度、粗体和下划线。
 - 两组实验图的完整 LaTeX 环境一致；16 个实验面板全部未变。除图 1 的绘图源码、PDF 和 SVG 按用户要求更新外，其余 22 个原图资源文件的 SHA-256 一致。
 - 8 个公式去除空白后逐字符一致。
-- 21 条参考文献条目内容一致，顺序调整为正文首次引用顺序；交叉引用均有效。
-- 主稿 5 页，补充方法图 1 页。作者信息更新后，编译无错误、未定义引用、Overfull 或 Underfull hbox；主稿第 4 页左栏有一处 Underfull vbox 提示，已通过页面预览核对，无裁切或重叠。保留原稿正文和模板尺寸，未为消除提示改动实验内容。
+- V3 同步后共有 22 条参考文献，新增 Fast Fourier Convolution 条目并按正文首次引用顺序编号；交叉引用均有效。
+- 主稿 5 页，补充方法图 1 页。作者信息更新后，编译无错误、未定义引用或 Overfull；参考文献中有 3 处 Underfull hbox 提示，已通过页面预览核对，无裁切或重叠。保留原稿正文和模板尺寸，未为消除提示改动实验内容。
 - 已渲染检查主稿全部页面及补充页：无文字裁切、图表重叠或异常大空白。作者邮箱完整显示，末页保留先左后右的自然排版。
 
 可复查的 PDF、页面预览和校验记录存放于仓库 `output/pdf/GRSL_Submission/`。

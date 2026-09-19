@@ -109,7 +109,7 @@ def make_figure(output_dir, font='Arial', dpi=600):
     output_dir.mkdir(parents=True,exist_ok=True); base=output_dir/'fig1_overall_architecture'
     for ext in ('pdf','svg','png'):
         kwargs={'dpi':dpi,'facecolor':'white'}
-        if ext=='pdf': kwargs['metadata']={'Title':'SAR despeckling: architecture and reconstruction','Author':'Hongyu Chen, Peng Liu, Yaqiu Jin','Creator':'draw_fig1.py / Matplotlib','CreationDate':None,'ModDate':None}
+        if ext=='pdf': kwargs['metadata']={'Title':'SAR despeckling: architecture and reconstruction','Author':'Hongyu Chen, Peng Liu','Creator':'draw_fig1.py / Matplotlib','CreationDate':None,'ModDate':None}
         if ext=='svg': kwargs['metadata']={'Date':None}
         fig.savefig(base.with_suffix('.'+ext),**kwargs)
     fig.savefig(output_dir/'fig1_actual_size_150dpi.png',dpi=150,facecolor='white')

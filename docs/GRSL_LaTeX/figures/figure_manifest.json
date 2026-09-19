@@ -9,7 +9,7 @@
   "editable_svg_text": true,
   "png_dpi": 600,
   "boxed_text_overflows": [],
-  "matplotlib_version": "3.8.4",
+  "matplotlib_version": "3.10.8",
   "six_independent_fdr_blocks": true,
   "shared_guidance_map_only": true,
   "skip_mapping": {
@@ -26,5 +26,5 @@
     "Guidance modulation"
   ],
   "data": "Architecture only; no experimental image or metric is drawn.",
-  "drawing_source_sha256": "b8af324285bb635b7bd0ce6f6d9bbcef15333b060f57bc518bba63e96000332f"
+  "drawing_source_sha256": "21ff198d1a7d43a70e89043cc038416d954f392e5d007a0929a1ff04269706de"
 }
