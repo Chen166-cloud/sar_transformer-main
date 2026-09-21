@@ -1,0 +1,49 @@
+{
+  "status": "complete",
+  "provider": "Umbra Open Data on AWS",
+  "license": "CC BY 4.0",
+  "products": [
+    {
+      "scene": "Busan Port",
+      "acquisition_date": "2025-05-21",
+      "sicd": {
+        "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes\\01_Busan_Port\\target\\2025-05-21-12-38-53_UMBRA-07_SICD.nitf",
+        "bytes": 7065533109,
+        "sha256": "c2bd8e247e6c79ff61970e559266249131bf2ac5f07bc38df86b67e0df8bbd33"
+      },
+      "gec": {
+        "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes\\01_Busan_Port\\target\\2025-05-21-12-38-53_UMBRA-07_GEC.tif",
+        "bytes": 486856188,
+        "sha256": "d0c147ab2064f78324e3edba4dc3f3755e0a18904d705720a816ea4c67ea61f1"
+      }
+    },
+    {
+      "scene": "Bangkok Suvarnabhumi Airport",
+      "acquisition_date": "2025-10-31",
+      "sicd": {
+        "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes\\02_Bangkok_Suvarnabhumi_Airport\\target\\2025-10-31-03-18-43_UMBRA-07_SICD.nitf",
+        "bytes": 12522080481,
+        "sha256": "7c8132b05ea58874b0b8d53e9d9b05e886d9597c4ea69f8cadc1fd5a41e15985"
+      },
+      "gec": {
+        "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes\\02_Bangkok_Suvarnabhumi_Airport\\target\\2025-10-31-03-18-43_UMBRA-07_GEC.tif",
+        "bytes": 1101378085,
+        "sha256": "943ff819a2d18c095ba3036ff89eb134cae4de2bf22ffd1d08b3fa6db6d803e3"
+      }
+    },
+    {
+      "scene": "Newark Port",
+      "acquisition_date": "2025-05-03",
+      "sicd": {
+        "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes\\03_Newark_Port\\target\\2025-05-03-02-39-24_UMBRA-08_SICD.nitf",
+        "bytes": 6638993630,
+        "sha256": "b9c9185e2f147ae22ee602c86f5235cc1abdc7474fca7b675519516c2f5b43b9"
+      },
+      "gec": {
+        "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes\\03_Newark_Port\\target\\2025-05-03-02-39-24_UMBRA-08_GEC.tif",
+        "bytes": 492616577,
+        "sha256": "a9cbb93f606f62819585f2a3be7a84e93e67ac23e1fe8f810674dbe38c10eaf7"
+      }
+    }
+  ]
+}

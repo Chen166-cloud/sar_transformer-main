@@ -245,6 +245,12 @@ def main() -> None:
     parser.add_argument(
         "--reference-intensity", type=Path, default=DEFAULT_REFERENCE_INTENSITY
     )
+    parser.add_argument(
+        "--parent-run-json",
+        type=Path,
+        default=None,
+        help="Prepared-ROI run.json used to record the actual parent SICD and crop.",
+    )
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--patch-size", type=int, default=256)
     parser.add_argument("--stride-size", type=int, default=254)
@@ -257,6 +263,7 @@ def main() -> None:
 
     input_path = args.input.resolve()
     reference_intensity_path = args.reference_intensity.resolve()
+    parent_run_path = args.parent_run_json.resolve() if args.parent_run_json else None
     output_dir = args.output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -442,6 +449,24 @@ def main() -> None:
         }
         for name, path in paths.items()
     }
+    if parent_run_path is not None:
+        parent_run = json.loads(parent_run_path.read_text(encoding="utf-8"))
+        parent_sicd = {
+            "path": parent_run["source"]["path"],
+            "sha256": parent_run["source"]["sha256"],
+            "mode": parent_run["source"]["sicd"]["radar_mode"],
+            "polarization": parent_run["source"]["sicd"]["polarization"],
+        }
+        parent_roi = parent_run["roi"]
+    else:
+        parent_sicd = {
+            "path": "E:\\SAR_Data\\Umbra\\Buenos_Aires_20250131\\2025-01-31-14-10-46_UMBRA-08_SICD.nitf",
+            "sha256": "dfe8c9fb6adc1e0dd6efb93b29f076f192976c328037ca519d323221b0da1ac9",
+            "mode": "SPOTLIGHT",
+            "polarization": "V:V",
+        }
+        parent_roi = {"row_start": 7456, "col_start": 17256, "height": 1024, "width": 1024}
+
     run_record = {
         "method": "MERLIN",
         "scope": "official pretrained Spotlight inference on fixed native Umbra SICD complex ROI",
@@ -456,18 +481,9 @@ def main() -> None:
             ),
             "adapter_intensity_exactly_matches_reference": reference_exact,
             "adapter_intensity_reference_max_abs_error": reference_max_abs_error,
-            "parent_sicd": {
-                "path": "E:\\SAR_Data\\Umbra\\Buenos_Aires_20250131\\2025-01-31-14-10-46_UMBRA-08_SICD.nitf",
-                "sha256": "dfe8c9fb6adc1e0dd6efb93b29f076f192976c328037ca519d323221b0da1ac9",
-                "mode": "SPOTLIGHT",
-                "polarization": "V:V",
-            },
-            "roi": {
-                "row_start": 7456,
-                "col_start": 17256,
-                "height": 1024,
-                "width": 1024,
-            },
+            "parent_run_json": str(parent_run_path) if parent_run_path else None,
+            "parent_sicd": parent_sicd,
+            "roi": parent_roi,
         },
         "adapter": {
             "complex_to_network_input": "stack(real(S), imag(S), axis=-1) as float32 [H,W,2]",

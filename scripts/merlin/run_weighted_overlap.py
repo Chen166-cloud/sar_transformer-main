@@ -228,12 +228,19 @@ def main() -> None:
     parser.add_argument(
         "--reference-uniform-stride64", type=Path, default=REFERENCE_UNIFORM
     )
+    parser.add_argument(
+        "--parent-run-json",
+        type=Path,
+        default=None,
+        help="Prepared-ROI run.json used to record the actual parent SICD and crop.",
+    )
     parser.add_argument("--output-dir", type=Path, default=OUTPUT)
     args = parser.parse_args()
 
     input_path = args.input.resolve()
     reference_noisy_path = args.reference_noisy.resolve()
     reference_uniform_path = args.reference_uniform_stride64.resolve()
+    parent_run_path = args.parent_run_json.resolve() if args.parent_run_json else None
     output_dir = args.output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -364,6 +371,24 @@ def main() -> None:
     window_1d = np.asarray(primary["one_dimensional_window"])
     window_2d = np.asarray(primary["two_dimensional_window"])
     uniform_count = np.asarray(primary["uniform_count"])
+    if parent_run_path is not None:
+        parent_run = json.loads(parent_run_path.read_text(encoding="utf-8"))
+        parent_sicd = {
+            "path": parent_run["source"]["path"],
+            "sha256": parent_run["source"]["sha256"],
+            "mode": parent_run["source"]["sicd"]["radar_mode"],
+            "polarization": parent_run["source"]["sicd"]["polarization"],
+        }
+        parent_roi = parent_run["roi"]
+    else:
+        parent_sicd = {
+            "path": "E:\\SAR_Data\\Umbra\\Buenos_Aires_20250131\\2025-01-31-14-10-46_UMBRA-08_SICD.nitf",
+            "sha256": "dfe8c9fb6adc1e0dd6efb93b29f076f192976c328037ca519d323221b0da1ac9",
+            "mode": "SPOTLIGHT",
+            "polarization": "V:V",
+        }
+        parent_roi = {"row_start": 7456, "col_start": 17256, "height": 1024, "width": 1024}
+
     run_record = {
         "method": "MERLIN",
         "variant": "spotlight_stride64_positive_hann_weighted_overlap",
@@ -375,8 +400,9 @@ def main() -> None:
             "dtype": str(complex_roi.dtype),
             "reference_noisy_intensity_path": str(reference_noisy_path),
             "noisy_intensity_exact": bool(np.array_equal(noisy_intensity, reference_noisy)),
-            "parent_sicd_sha256": "dfe8c9fb6adc1e0dd6efb93b29f076f192976c328037ca519d323221b0da1ac9",
-            "roi": {"row_start": 7456, "col_start": 17256, "height": 1024, "width": 1024},
+            "parent_run_json": str(parent_run_path) if parent_run_path else None,
+            "parent_sicd": parent_sicd,
+            "roi": parent_roi,
         },
         "model": {
             "repository": "https://github.com/hi-paris/deepdespeckling",

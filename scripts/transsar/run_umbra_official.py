@@ -45,7 +45,7 @@ OFFICIAL_COMMIT = "b3ac845f96f2332aa4f1af94b455f71630978b17"
 EXPECTED_CHECKPOINT_SHA256 = (
     "cdab8293c7b6ea72ccd192c119b1368b6d661b739d52cc43611cc75755263a70"
 )
-FIXED_INTENSITY_SCALE = 120347.515625
+LEGACY_FIXED_INTENSITY_SCALE = 120347.515625
 
 
 def parse_args() -> argparse.Namespace:
@@ -89,6 +89,15 @@ def parse_args() -> argparse.Namespace:
         / "transsar",
     )
     parser.add_argument("--device", default="cuda")
+    parser.add_argument(
+        "--intensity-scale",
+        type=float,
+        default=None,
+        help=(
+            "Explicit raw-linear-intensity divisor. When omitted, use the exact "
+            "observed maximum of the supplied fixed ROI (the legacy Figure 3 rule)."
+        ),
+    )
     parser.add_argument("--tile-size", type=int, default=256)
     parser.add_argument("--overlap", type=int, default=64)
     parser.add_argument(
@@ -327,8 +336,10 @@ def main() -> None:
     noisy = np.load(input_path, allow_pickle=False)
     if noisy.dtype != np.float32:
         raise TypeError(f"Expected float32 input, got {noisy.dtype}")
-    if noisy.ndim != 2 or noisy.shape != (1024, 1024):
-        raise ValueError(f"Expected fixed 1024x1024 ROI, got {noisy.shape}")
+    if noisy.ndim != 2 or min(noisy.shape) < args.tile_size:
+        raise ValueError(
+            f"Expected a 2-D ROI at least {args.tile_size}x{args.tile_size}, got {noisy.shape}"
+        )
     if not np.isfinite(noisy).all() or np.any(noisy < 0):
         raise ValueError("Input must be finite nonnegative linear intensity")
 
@@ -339,11 +350,14 @@ def main() -> None:
         raise RuntimeError("Parent ROI metadata does not match intensity array")
     sicd_path = Path(parent["source"]["path"])
     observed_max = float(np.max(noisy))
-    if observed_max != FIXED_INTENSITY_SCALE:
+    intensity_scale = observed_max if args.intensity_scale is None else float(args.intensity_scale)
+    if not math.isfinite(intensity_scale) or intensity_scale <= 0:
+        raise ValueError("--intensity-scale must be finite and positive")
+    if intensity_scale != observed_max:
         raise RuntimeError(
-            f"Fixed scale {FIXED_INTENSITY_SCALE} no longer matches ROI maximum {observed_max}"
+            f"Fixed scale {intensity_scale} does not match ROI maximum {observed_max}"
         )
-    normalized_intensity = (noisy / np.float32(FIXED_INTENSITY_SCALE)).astype(
+    normalized_intensity = (noisy / np.float32(intensity_scale)).astype(
         np.float32
     )
     normalized_amplitude = np.sqrt(
@@ -390,7 +404,7 @@ def main() -> None:
         recovered_amplitude, dtype=np.float32
     )
     denoised = (
-        np.float32(FIXED_INTENSITY_SCALE) * denoised_normalized_intensity
+        np.float32(intensity_scale) * denoised_normalized_intensity
     ).astype(np.float32)
     if denoised.shape != noisy.shape or not np.isfinite(denoised).all():
         raise RuntimeError("Invalid recovered raw linear-intensity output")
@@ -451,8 +465,10 @@ def main() -> None:
         },
         "source_sicd": {
             "path": str(sicd_path),
-            "sha256_from_verified_parent_manifest": parent["source"]["download_manifest"]
-            ["products"][1]["sha256"],
+            "sha256_from_verified_parent_manifest": parent["source"].get(
+                "sha256",
+                parent["source"].get("download_manifest", {}).get("sicd_sha256"),
+            ),
             "roi": roi,
         },
         "official_model": {
@@ -510,7 +526,7 @@ def main() -> None:
                 "adapters"
             ),
             "forward": [
-                f"normalized_intensity = raw_intensity/{FIXED_INTENSITY_SCALE}",
+                f"normalized_intensity = raw_intensity/{intensity_scale}",
                 "normalized_amplitude = sqrt(max(normalized_intensity,0))",
                 "amplitude_clipped = clip(normalized_amplitude,0,1)",
                 "network_input = (255*amplitude_clipped+1)/256",
@@ -519,9 +535,9 @@ def main() -> None:
                 "DN_hat_unclipped = 256*network_output-1",
                 "amplitude_hat_unclipped = DN_hat_unclipped/255",
                 "amplitude_hat = clip(amplitude_hat_unclipped,0,1)",
-                f"denoised_raw_intensity = {FIXED_INTENSITY_SCALE}*amplitude_hat^2",
+                f"denoised_raw_intensity = {intensity_scale}*amplitude_hat^2",
             ],
-            "fixed_intensity_scale": FIXED_INTENSITY_SCALE,
+            "fixed_intensity_scale": intensity_scale,
             "scale_origin": "predeclared observed maximum of the fixed 1024x1024 ROI",
             "minimum_subtraction": False,
             "per_image_minmax": False,

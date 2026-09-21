@@ -72,6 +72,7 @@ venv/
 /external/TransSAR_official/
 /.venv-merlin/
 /.venv-ours-legacy/
+/.venv-umbra-stack/
 
 # Browser automation caches and local manuscript review workspaces
 /.playwright-cli/
@@ -87,6 +88,10 @@ venv/
 /output/cl_sar_umbra_buenos_aires/
 /output/umbra_buenos_aires_multimethod_1024/
 /output/umbra_buenos_aires_preview/
+/output/toronto_docx_build/
+/output/toronto_gt_benchmark/
+/output/umbra_scene_selection/
+/output/umbra_stability_3scenes/
 
 # Local session archives
 /codex_handoff_2026-09-03/

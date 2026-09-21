@@ -1,0 +1,641 @@
+{
+  "source": "https://github.com/pmuguda/open-sar-triad/blob/main/data/scenes.geojson",
+  "source_catalog": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/catalog.json",
+  "selection_rule": "same site, resolution, polarization, orbit state, look direction, and rounded incidence angle; one representative target held out",
+  "ground_truth_status": "No official speckle-free truth. Reference pool is for a co-registered temporal pseudo-ground-truth estimate after change masking.",
+  "selections": [
+    {
+      "site": "Busan Port",
+      "scene_type": "dense port, water, ships, and urban structures",
+      "grid_lat": 35.1,
+      "grid_lon": 129.1,
+      "resolution_m": 0.35,
+      "polarization": "['VV']",
+      "orbit_state": "ascending",
+      "look_dir": "left",
+      "incidence_bin_deg": 44,
+      "matching_acquisition_count": 13,
+      "reference_acquisition_count": 12,
+      "common_bbox_lonlat": [
+        129.05472699363105,
+        35.08248495883545,
+        129.10965364233596,
+        35.12762307260479
+      ],
+      "target": {
+        "id": "9901941f-c51d-468c-ac93-c1a212282908",
+        "date": "2025-05-21",
+        "incidence_angle_deg": 43.8,
+        "centroid": [
+          129.0821977369645,
+          35.10505412521509
+        ],
+        "bbox": [
+          129.05187365688707,
+          35.08012876692946,
+          129.11253653166492,
+          35.129980850270805
+        ],
+        "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-05/2025-05-21/9901941f-c51d-468c-ac93-c1a212282908/9901941f-c51d-468c-ac93-c1a212282908.json",
+        "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/c9ec16a9-2c11-4185-b240-79b619e8bb68/2025-05-21-12-38-53_UMBRA-07/2025-05-21-12-38-53_UMBRA-07.stac.v2.json",
+        "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/c9ec16a9-2c11-4185-b240-79b619e8bb68/2025-05-21-12-38-53_UMBRA-07/2025-05-21-12-38-53_UMBRA-07_SICD.nitf",
+        "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/c9ec16a9-2c11-4185-b240-79b619e8bb68/2025-05-21-12-38-53_UMBRA-07/2025-05-21-12-38-53_UMBRA-07_GEC.tif"
+      },
+      "reference_pool": [
+        {
+          "id": "cdeddfed-7cea-4c9d-a708-5323f64c1ecc",
+          "date": "2025-02-02",
+          "incidence_angle_deg": 43.9,
+          "centroid": [
+            129.08219786596752,
+            35.10505400671053
+          ],
+          "bbox": [
+            129.05472699363105,
+            35.08248495883545,
+            129.10965364233596,
+            35.12762307260479
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-02/2025-02-02/cdeddfed-7cea-4c9d-a708-5323f64c1ecc/cdeddfed-7cea-4c9d-a708-5323f64c1ecc.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/0ad819bb-16ff-4fbd-aa89-ff189201001a/2025-02-02-11-57-44_UMBRA-05/2025-02-02-11-57-44_UMBRA-05.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/0ad819bb-16ff-4fbd-aa89-ff189201001a/2025-02-02-11-57-44_UMBRA-05/2025-02-02-11-57-44_UMBRA-05_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/0ad819bb-16ff-4fbd-aa89-ff189201001a/2025-02-02-11-57-44_UMBRA-05/2025-02-02-11-57-44_UMBRA-05_GEC.tif"
+        },
+        {
+          "id": "eae986a1-6126-4602-9ffc-61b40365778d",
+          "date": "2025-02-02",
+          "incidence_angle_deg": 43.9,
+          "centroid": [
+            129.08219786596874,
+            35.10505400670952
+          ],
+          "bbox": [
+            129.0547269654659,
+            35.08248493569385,
+            129.10965367050366,
+            35.12762309575695
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-02/2025-02-02/eae986a1-6126-4602-9ffc-61b40365778d/eae986a1-6126-4602-9ffc-61b40365778d.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/0ad819bb-16ff-4fbd-aa89-ff189201001a/2025-02-02-11-57-39_UMBRA-05/2025-02-02-11-57-39_UMBRA-05.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/0ad819bb-16ff-4fbd-aa89-ff189201001a/2025-02-02-11-57-39_UMBRA-05/2025-02-02-11-57-39_UMBRA-05_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/0ad819bb-16ff-4fbd-aa89-ff189201001a/2025-02-02-11-57-39_UMBRA-05/2025-02-02-11-57-39_UMBRA-05_GEC.tif"
+        },
+        {
+          "id": "6eb43f5f-28cc-4d1c-b0e4-c26ef342701a",
+          "date": "2025-02-23",
+          "incidence_angle_deg": 43.7,
+          "centroid": [
+            129.08219760819964,
+            35.105054277881045
+          ],
+          "bbox": [
+            129.0489293991396,
+            35.077710805828474,
+            129.11547912328132,
+            35.132400640055906
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-02/2025-02-23/6eb43f5f-28cc-4d1c-b0e4-c26ef342701a/6eb43f5f-28cc-4d1c-b0e4-c26ef342701a.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/3620a5de-4be8-4064-ad83-4c5a4731f77f/2025-02-23-13-11-11_UMBRA-08/2025-02-23-13-11-11_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/3620a5de-4be8-4064-ad83-4c5a4731f77f/2025-02-23-13-11-11_UMBRA-08/2025-02-23-13-11-11_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/3620a5de-4be8-4064-ad83-4c5a4731f77f/2025-02-23-13-11-11_UMBRA-08/2025-02-23-13-11-11_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "d41a9849-70f2-41d1-a276-3673f3909943",
+          "date": "2025-02-23",
+          "incidence_angle_deg": 43.6,
+          "centroid": [
+            129.0821976081996,
+            35.1050542778811
+          ],
+          "bbox": [
+            129.04892939827732,
+            35.077710805120425,
+            129.11547912414292,
+            35.132400640764516
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-02/2025-02-23/d41a9849-70f2-41d1-a276-3673f3909943/d41a9849-70f2-41d1-a276-3673f3909943.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/3620a5de-4be8-4064-ad83-4c5a4731f77f/2025-02-23-13-11-05_UMBRA-08/2025-02-23-13-11-05_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/3620a5de-4be8-4064-ad83-4c5a4731f77f/2025-02-23-13-11-05_UMBRA-08/2025-02-23-13-11-05_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/3620a5de-4be8-4064-ad83-4c5a4731f77f/2025-02-23-13-11-05_UMBRA-08/2025-02-23-13-11-05_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "674b61be-634a-486b-a469-27bfa2a43098",
+          "date": "2025-03-23",
+          "incidence_angle_deg": 44.3,
+          "centroid": [
+            129.0821979586879,
+            35.105053936196555
+          ],
+          "bbox": [
+            129.05276574655184,
+            35.08087346267803,
+            129.11161524862626,
+            35.12923533563951
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-03/2025-03-23/674b61be-634a-486b-a469-27bfa2a43098/674b61be-634a-486b-a469-27bfa2a43098.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/caac236d-0fe7-4721-94b6-267ca67ebc8b/2025-03-23-13-22-37_UMBRA-09/2025-03-23-13-22-37_UMBRA-09.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/caac236d-0fe7-4721-94b6-267ca67ebc8b/2025-03-23-13-22-37_UMBRA-09/2025-03-23-13-22-37_UMBRA-09_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/caac236d-0fe7-4721-94b6-267ca67ebc8b/2025-03-23-13-22-37_UMBRA-09/2025-03-23-13-22-37_UMBRA-09_GEC.tif"
+        },
+        {
+          "id": "9abcceae-1dbc-4889-af36-f2034cbf7698",
+          "date": "2025-05-15",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            129.08219764735563,
+            35.105054226684324
+          ],
+          "bbox": [
+            129.04982478576517,
+            35.07844606944978,
+            129.11458438269716,
+            35.13166479588829
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-05/2025-05-15/9abcceae-1dbc-4889-af36-f2034cbf7698/9abcceae-1dbc-4889-af36-f2034cbf7698.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/8995b060-ab4c-4076-9a93-87dea37469bd/2025-05-15-12-40-35_UMBRA-07/2025-05-15-12-40-35_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/8995b060-ab4c-4076-9a93-87dea37469bd/2025-05-15-12-40-35_UMBRA-07/2025-05-15-12-40-35_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/8995b060-ab4c-4076-9a93-87dea37469bd/2025-05-15-12-40-35_UMBRA-07/2025-05-15-12-40-35_UMBRA-07_GEC.tif"
+        },
+        {
+          "id": "8e06e6f1-e371-4219-a070-a3d40315b3a6",
+          "date": "2025-05-15",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            129.08219764735514,
+            35.105054226684956
+          ],
+          "bbox": [
+            129.04982477413154,
+            35.078446059896166,
+            129.1145843943233,
+            35.1316648054493
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-05/2025-05-15/8e06e6f1-e371-4219-a070-a3d40315b3a6/8e06e6f1-e371-4219-a070-a3d40315b3a6.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/8995b060-ab4c-4076-9a93-87dea37469bd/2025-05-15-12-40-29_UMBRA-07/2025-05-15-12-40-29_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/8995b060-ab4c-4076-9a93-87dea37469bd/2025-05-15-12-40-29_UMBRA-07/2025-05-15-12-40-29_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/8995b060-ab4c-4076-9a93-87dea37469bd/2025-05-15-12-40-29_UMBRA-07/2025-05-15-12-40-29_UMBRA-07_GEC.tif"
+        },
+        {
+          "id": "ccab6311-7934-4943-9b08-11d5d7447afc",
+          "date": "2025-06-20",
+          "incidence_angle_deg": 44.3,
+          "centroid": [
+            129.0821979283542,
+            35.105053958119626
+          ],
+          "bbox": [
+            129.05337548547686,
+            35.08137447975365,
+            129.11100535720817,
+            35.12873407343223
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-06/2025-06-20/ccab6311-7934-4943-9b08-11d5d7447afc/ccab6311-7934-4943-9b08-11d5d7447afc.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/864137f6-d49f-4166-97cd-127ae2d1f377/2025-06-20-12-05-20_UMBRA-05/2025-06-20-12-05-20_UMBRA-05.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/864137f6-d49f-4166-97cd-127ae2d1f377/2025-06-20-12-05-20_UMBRA-05/2025-06-20-12-05-20_UMBRA-05_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/864137f6-d49f-4166-97cd-127ae2d1f377/2025-06-20-12-05-20_UMBRA-05/2025-06-20-12-05-20_UMBRA-05_GEC.tif"
+        },
+        {
+          "id": "e98d2b3e-158b-4d97-adda-f8733a3bc682",
+          "date": "2025-07-19",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            129.08219620433914,
+            35.1050557512989
+          ],
+          "bbox": [
+            129.0503789187984,
+            35.078903897615255,
+            129.11402765116443,
+            35.13120972625208
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-07/2025-07-19/e98d2b3e-158b-4d97-adda-f8733a3bc682/e98d2b3e-158b-4d97-adda-f8733a3bc682.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d80ea91f-d136-4cba-8954-a497dc7a081b/2025-07-19-13-19-52_UMBRA-08/2025-07-19-13-19-52_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d80ea91f-d136-4cba-8954-a497dc7a081b/2025-07-19-13-19-52_UMBRA-08/2025-07-19-13-19-52_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d80ea91f-d136-4cba-8954-a497dc7a081b/2025-07-19-13-19-52_UMBRA-08/2025-07-19-13-19-52_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "31a471c2-c399-4c88-b946-0dcfe42a1bf8",
+          "date": "2025-07-19",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            129.0821948121474,
+            35.105054954752234
+          ],
+          "bbox": [
+            129.0503777782494,
+            35.078903308539644,
+            129.11402600555257,
+            35.1312087226388
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-07/2025-07-19/31a471c2-c399-4c88-b946-0dcfe42a1bf8/31a471c2-c399-4c88-b946-0dcfe42a1bf8.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/d80ea91f-d136-4cba-8954-a497dc7a081b/2025-07-19-13-19-47_UMBRA-08/2025-07-19-13-19-47_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/d80ea91f-d136-4cba-8954-a497dc7a081b/2025-07-19-13-19-47_UMBRA-08/2025-07-19-13-19-47_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/d80ea91f-d136-4cba-8954-a497dc7a081b/2025-07-19-13-19-47_UMBRA-08/2025-07-19-13-19-47_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "59eb9dd7-2dfa-42b8-8450-85bbc0509b75",
+          "date": "2025-08-26",
+          "incidence_angle_deg": 43.9,
+          "centroid": [
+            129.0821962043394,
+            35.10505575129885
+          ],
+          "bbox": [
+            129.05206020875042,
+            35.08028489139718,
+            129.11234696664795,
+            35.12982788489659
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-08/2025-08-26/59eb9dd7-2dfa-42b8-8450-85bbc0509b75/59eb9dd7-2dfa-42b8-8450-85bbc0509b75.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/b3f333fd-73fb-44a4-8359-da6e8273ee98/2025-08-26-12-27-06_UMBRA-07/2025-08-26-12-27-06_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/b3f333fd-73fb-44a4-8359-da6e8273ee98/2025-08-26-12-27-06_UMBRA-07/2025-08-26-12-27-06_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/b3f333fd-73fb-44a4-8359-da6e8273ee98/2025-08-26-12-27-06_UMBRA-07/2025-08-26-12-27-06_UMBRA-07_GEC.tif"
+        },
+        {
+          "id": "8f3d86af-4e99-4e7c-8574-178ec393b25a",
+          "date": "2025-08-26",
+          "incidence_angle_deg": 43.9,
+          "centroid": [
+            129.0821948857431,
+            35.10505487427368
+          ],
+          "bbox": [
+            129.0520604719237,
+            35.08028531436626,
+            129.11234406505773,
+            35.12982570763619
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-08/2025-08-26/8f3d86af-4e99-4e7c-8574-178ec393b25a/8f3d86af-4e99-4e7c-8574-178ec393b25a.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/b3f333fd-73fb-44a4-8359-da6e8273ee98/2025-08-26-12-27-06_UMBRA-07/2025-08-26-12-27-06_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/b3f333fd-73fb-44a4-8359-da6e8273ee98/2025-08-26-12-27-06_UMBRA-07/2025-08-26-12-27-06_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Busan, South Korea/b3f333fd-73fb-44a4-8359-da6e8273ee98/2025-08-26-12-27-06_UMBRA-07/2025-08-26-12-27-06_UMBRA-07_GEC.tif"
+        }
+      ]
+    },
+    {
+      "site": "Bangkok Suvarnabhumi Airport",
+      "scene_type": "runways, terminals, grass, and peri-urban texture",
+      "grid_lat": 13.7,
+      "grid_lon": 100.75,
+      "resolution_m": 0.25,
+      "polarization": "['VV']",
+      "orbit_state": "descending",
+      "look_dir": "left",
+      "incidence_bin_deg": 44,
+      "matching_acquisition_count": 9,
+      "reference_acquisition_count": 8,
+      "common_bbox_lonlat": [
+        100.71987007331717,
+        13.661201032891011,
+        100.78016695255165,
+        13.72015744311564
+      ],
+      "target": {
+        "id": "341a0c75-300c-496f-8179-789a5bedee76",
+        "date": "2025-10-31",
+        "incidence_angle_deg": 43.9,
+        "centroid": [
+          100.75002080381853,
+          13.690678335215164
+        ],
+        "bbox": [
+          100.71976152353729,
+          13.661090999953137,
+          100.78028317174441,
+          13.720267182323203
+        ],
+        "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-10/2025-10-31/341a0c75-300c-496f-8179-789a5bedee76/341a0c75-300c-496f-8179-789a5bedee76.json",
+        "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/9d7ec93d-58e0-482d-aa86-5448087ddcc3/2025-10-31-03-18-43_UMBRA-07/2025-10-31-03-18-43_UMBRA-07.stac.v2.json",
+        "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/9d7ec93d-58e0-482d-aa86-5448087ddcc3/2025-10-31-03-18-43_UMBRA-07/2025-10-31-03-18-43_UMBRA-07_SICD.nitf",
+        "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/9d7ec93d-58e0-482d-aa86-5448087ddcc3/2025-10-31-03-18-43_UMBRA-07/2025-10-31-03-18-43_UMBRA-07_GEC.tif"
+      },
+      "reference_pool": [
+        {
+          "id": "5554a151-3d31-4f22-bea9-f305791d6e78",
+          "date": "2025-03-27",
+          "incidence_angle_deg": 44.0,
+          "centroid": [
+            100.75001694098647,
+            13.690678495529562
+          ],
+          "bbox": [
+            100.71987007331717,
+            13.661201032891011,
+            100.78016695255165,
+            13.72015744311564
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-03/2025-03-27/5554a151-3d31-4f22-bea9-f305791d6e78/5554a151-3d31-4f22-bea9-f305791d6e78.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/9ec51e95-6737-4481-9d66-75df39b91370/2025-03-27-04-05-54_UMBRA-08/2025-03-27-04-05-54_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/9ec51e95-6737-4481-9d66-75df39b91370/2025-03-27-04-05-54_UMBRA-08/2025-03-27-04-05-54_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/9ec51e95-6737-4481-9d66-75df39b91370/2025-03-27-04-05-54_UMBRA-08/2025-03-27-04-05-54_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "b37e10d9-9c42-4477-bf83-dc2264bfef5f",
+          "date": "2025-03-27",
+          "incidence_angle_deg": 44.0,
+          "centroid": [
+            100.75001694100371,
+            13.690678495489287
+          ],
+          "bbox": [
+            100.71986952132264,
+            13.661200493308952,
+            100.78016750430986,
+            13.720157982748987
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-03/2025-03-27/b37e10d9-9c42-4477-bf83-dc2264bfef5f/b37e10d9-9c42-4477-bf83-dc2264bfef5f.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/9ec51e95-6737-4481-9d66-75df39b91370/2025-03-27-04-05-48_UMBRA-08/2025-03-27-04-05-48_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/9ec51e95-6737-4481-9d66-75df39b91370/2025-03-27-04-05-48_UMBRA-08/2025-03-27-04-05-48_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/9ec51e95-6737-4481-9d66-75df39b91370/2025-03-27-04-05-48_UMBRA-08/2025-03-27-04-05-48_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "523c5129-944e-4056-97d9-dd606455e05d",
+          "date": "2025-05-25",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            100.75001698460422,
+            13.690678371295453
+          ],
+          "bbox": [
+            100.71847384914184,
+            13.659836298489678,
+            100.78156234987996,
+            13.721522270215361
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-05/2025-05-25/523c5129-944e-4056-97d9-dd606455e05d/523c5129-944e-4056-97d9-dd606455e05d.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/4b97bca3-7810-4d5c-85b1-4af2981e638c/2025-05-25-03-36-58_UMBRA-07/2025-05-25-03-36-58_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/4b97bca3-7810-4d5c-85b1-4af2981e638c/2025-05-25-03-36-58_UMBRA-07/2025-05-25-03-36-58_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/4b97bca3-7810-4d5c-85b1-4af2981e638c/2025-05-25-03-36-58_UMBRA-07/2025-05-25-03-36-58_UMBRA-07_GEC.tif"
+        },
+        {
+          "id": "cc7ddc6b-5ef1-4d4a-875d-28c05a4b07a7",
+          "date": "2025-05-25",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            100.75001698460345,
+            13.690678371298254
+          ],
+          "bbox": [
+            100.71847387401876,
+            13.659836322803182,
+            100.78156232502364,
+            13.721522245901243
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-05/2025-05-25/cc7ddc6b-5ef1-4d4a-875d-28c05a4b07a7/cc7ddc6b-5ef1-4d4a-875d-28c05a4b07a7.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/4b97bca3-7810-4d5c-85b1-4af2981e638c/2025-05-25-03-36-50_UMBRA-07/2025-05-25-03-36-50_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/4b97bca3-7810-4d5c-85b1-4af2981e638c/2025-05-25-03-36-50_UMBRA-07/2025-05-25-03-36-50_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/4b97bca3-7810-4d5c-85b1-4af2981e638c/2025-05-25-03-36-50_UMBRA-07/2025-05-25-03-36-50_UMBRA-07_GEC.tif"
+        },
+        {
+          "id": "bc28f44c-f016-4edb-9ced-2bedd07023b2",
+          "date": "2025-06-24",
+          "incidence_angle_deg": 43.7,
+          "centroid": [
+            100.75001696691758,
+            13.69067842827095
+          ],
+          "bbox": [
+            100.71904003920726,
+            13.660389692110972,
+            100.78099656167785,
+            13.720968850344173
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-06/2025-06-24/bc28f44c-f016-4edb-9ced-2bedd07023b2/bc28f44c-f016-4edb-9ced-2bedd07023b2.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/1e2d19f5-a57d-40fb-bbfa-58c35cdd68f9/2025-06-24-04-28-42_UMBRA-09/2025-06-24-04-28-42_UMBRA-09.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/1e2d19f5-a57d-40fb-bbfa-58c35cdd68f9/2025-06-24-04-28-42_UMBRA-09/2025-06-24-04-28-42_UMBRA-09_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/1e2d19f5-a57d-40fb-bbfa-58c35cdd68f9/2025-06-24-04-28-42_UMBRA-09/2025-06-24-04-28-42_UMBRA-09_GEC.tif"
+        },
+        {
+          "id": "df3327be-d114-444f-bea6-7626d1719a49",
+          "date": "2025-06-24",
+          "incidence_angle_deg": 43.7,
+          "centroid": [
+            100.75001696691552,
+            13.690678428276975
+          ],
+          "bbox": [
+            100.71904010553217,
+            13.660389756939459,
+            100.78099649539354,
+            13.720968785511454
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-06/2025-06-24/df3327be-d114-444f-bea6-7626d1719a49/df3327be-d114-444f-bea6-7626d1719a49.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/1e2d19f5-a57d-40fb-bbfa-58c35cdd68f9/2025-06-24-04-28-34_UMBRA-09/2025-06-24-04-28-34_UMBRA-09.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/1e2d19f5-a57d-40fb-bbfa-58c35cdd68f9/2025-06-24-04-28-34_UMBRA-09/2025-06-24-04-28-34_UMBRA-09_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/1e2d19f5-a57d-40fb-bbfa-58c35cdd68f9/2025-06-24-04-28-34_UMBRA-09/2025-06-24-04-28-34_UMBRA-09_GEC.tif"
+        },
+        {
+          "id": "ab686150-6cb0-4309-9ad7-3aa978ed5e0a",
+          "date": "2025-08-25",
+          "incidence_angle_deg": 44.0,
+          "centroid": [
+            100.75002080337218,
+            13.690678336282762
+          ],
+          "bbox": [
+            100.71977581069227,
+            13.661104965728626,
+            100.7802688909706,
+            13.720253215258674
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-08/2025-08-25/ab686150-6cb0-4309-9ad7-3aa978ed5e0a/ab686150-6cb0-4309-9ad7-3aa978ed5e0a.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d071a46e-5ca2-44fe-96c9-750cfb91c1ee/2025-08-25-03-26-43_UMBRA-07/2025-08-25-03-26-43_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d071a46e-5ca2-44fe-96c9-750cfb91c1ee/2025-08-25-03-26-43_UMBRA-07/2025-08-25-03-26-43_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d071a46e-5ca2-44fe-96c9-750cfb91c1ee/2025-08-25-03-26-43_UMBRA-07/2025-08-25-03-26-43_UMBRA-07_GEC.tif"
+        },
+        {
+          "id": "0ce0d872-abdc-445f-b9bc-e3f4a10421cf",
+          "date": "2025-08-25",
+          "incidence_angle_deg": 44.0,
+          "centroid": [
+            100.75002080337296,
+            13.69067833628088
+          ],
+          "bbox": [
+            100.71977578546328,
+            13.661104941067153,
+            100.78026891618835,
+            13.720253239922434
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-08/2025-08-25/0ce0d872-abdc-445f-b9bc-e3f4a10421cf/0ce0d872-abdc-445f-b9bc-e3f4a10421cf.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/d071a46e-5ca2-44fe-96c9-750cfb91c1ee/2025-08-25-03-26-43_UMBRA-07/2025-08-25-03-26-43_UMBRA-07.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/d071a46e-5ca2-44fe-96c9-750cfb91c1ee/2025-08-25-03-26-43_UMBRA-07/2025-08-25-03-26-43_UMBRA-07_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Suvarnabhumi International Airport, Thailand/d071a46e-5ca2-44fe-96c9-750cfb91c1ee/2025-08-25-03-26-43_UMBRA-07/2025-08-25-03-26-43_UMBRA-07_GEC.tif"
+        }
+      ]
+    },
+    {
+      "site": "Newark New York",
+      "scene_type": "dense urban, airport, port, and road network",
+      "grid_lat": 40.7,
+      "grid_lon": -74.15,
+      "resolution_m": 0.35,
+      "polarization": "['VV']",
+      "orbit_state": "ascending",
+      "look_dir": "left",
+      "incidence_bin_deg": 44,
+      "matching_acquisition_count": 8,
+      "reference_acquisition_count": 7,
+      "common_bbox_lonlat": [
+        -74.1675208435955,
+        40.655163167775385,
+        -74.10766335942262,
+        40.700734150794894
+      ],
+      "target": {
+        "id": "0c7937c0-56ae-4baa-8047-b5df63576d65",
+        "date": "2025-05-03",
+        "incidence_angle_deg": 44.2,
+        "centroid": [
+          -74.13758215512871,
+          40.67794856873052
+        ],
+        "bbox": [
+          -74.16752088387967,
+          40.65516313711312,
+          -74.10766331913351,
+          40.70073418147511
+        ],
+        "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-05/2025-05-03/0c7937c0-56ae-4baa-8047-b5df63576d65/0c7937c0-56ae-4baa-8047-b5df63576d65.json",
+        "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/d81309a6-6ef9-47de-b29d-41dfabcacc83/2025-05-03-02-39-24_UMBRA-08/2025-05-03-02-39-24_UMBRA-08.stac.v2.json",
+        "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/d81309a6-6ef9-47de-b29d-41dfabcacc83/2025-05-03-02-39-24_UMBRA-08/2025-05-03-02-39-24_UMBRA-08_SICD.nitf",
+        "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/d81309a6-6ef9-47de-b29d-41dfabcacc83/2025-05-03-02-39-24_UMBRA-08/2025-05-03-02-39-24_UMBRA-08_GEC.tif"
+      },
+      "reference_pool": [
+        {
+          "id": "d5eccc19-aced-4e5b-a13a-e26e7ac1eea6",
+          "date": "2025-04-16",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            -74.1375823456324,
+            40.67794873465942
+          ],
+          "bbox": [
+            -74.17114076381239,
+            40.65239370594351,
+            -74.10400487441191,
+            40.703505922560495
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-04/2025-04-16/d5eccc19-aced-4e5b-a13a-e26e7ac1eea6/d5eccc19-aced-4e5b-a13a-e26e7ac1eea6.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/dc6617d0-dc49-4da5-b32b-adb1b74884a5/2025-04-16-02-39-42_UMBRA-08/2025-04-16-02-39-42_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/dc6617d0-dc49-4da5-b32b-adb1b74884a5/2025-04-16-02-39-42_UMBRA-08/2025-04-16-02-39-42_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/dc6617d0-dc49-4da5-b32b-adb1b74884a5/2025-04-16-02-39-42_UMBRA-08/2025-04-16-02-39-42_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "e95bb652-bee0-4987-8ad9-9b7752399e67",
+          "date": "2025-04-16",
+          "incidence_angle_deg": 43.5,
+          "centroid": [
+            -74.1375823456314,
+            40.67794873465841
+          ],
+          "bbox": [
+            -74.17114074113357,
+            40.652393723197214,
+            -74.10400489707831,
+            40.703505905291735
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-04/2025-04-16/e95bb652-bee0-4987-8ad9-9b7752399e67/e95bb652-bee0-4987-8ad9-9b7752399e67.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/dc6617d0-dc49-4da5-b32b-adb1b74884a5/2025-04-16-02-39-37_UMBRA-08/2025-04-16-02-39-37_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/dc6617d0-dc49-4da5-b32b-adb1b74884a5/2025-04-16-02-39-37_UMBRA-08/2025-04-16-02-39-37_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/dc6617d0-dc49-4da5-b32b-adb1b74884a5/2025-04-16-02-39-37_UMBRA-08/2025-04-16-02-39-37_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "caafe51f-f878-4304-bd74-cd863a5a89de",
+          "date": "2025-05-03",
+          "incidence_angle_deg": 44.2,
+          "centroid": [
+            -74.13758215513052,
+            40.677948568731864
+          ],
+          "bbox": [
+            -74.1675208435955,
+            40.655163167775385,
+            -74.10766335942262,
+            40.700734150794894
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-05/2025-05-03/caafe51f-f878-4304-bd74-cd863a5a89de/caafe51f-f878-4304-bd74-cd863a5a89de.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d81309a6-6ef9-47de-b29d-41dfabcacc83/2025-05-03-02-39-29_UMBRA-08/2025-05-03-02-39-29_UMBRA-08.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d81309a6-6ef9-47de-b29d-41dfabcacc83/2025-05-03-02-39-29_UMBRA-08/2025-05-03-02-39-29_UMBRA-08_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/d81309a6-6ef9-47de-b29d-41dfabcacc83/2025-05-03-02-39-29_UMBRA-08/2025-05-03-02-39-29_UMBRA-08_GEC.tif"
+        },
+        {
+          "id": "684b030c-e3c2-491c-9ce0-9e342ad50775",
+          "date": "2025-07-17",
+          "incidence_angle_deg": 44.5,
+          "centroid": [
+            -74.13758226605584,
+            40.67794976102297
+          ],
+          "bbox": [
+            -74.17087060147433,
+            40.6526148252506,
+            -74.10431311295186,
+            40.703286689837924
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-07/2025-07-17/684b030c-e3c2-491c-9ce0-9e342ad50775/684b030c-e3c2-491c-9ce0-9e342ad50775.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/5441919e-113a-4327-8ae7-cc4c3a427fdf/2025-07-17-01-34-42_UMBRA-05/2025-07-17-01-34-42_UMBRA-05.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/5441919e-113a-4327-8ae7-cc4c3a427fdf/2025-07-17-01-34-42_UMBRA-05/2025-07-17-01-34-42_UMBRA-05_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/5441919e-113a-4327-8ae7-cc4c3a427fdf/2025-07-17-01-34-42_UMBRA-05/2025-07-17-01-34-42_UMBRA-05_GEC.tif"
+        },
+        {
+          "id": "0a5212c1-6e3e-4ada-b024-5c405dcc3bac",
+          "date": "2025-07-17",
+          "incidence_angle_deg": 44.5,
+          "centroid": [
+            -74.13758337428494,
+            40.67794865304667
+          ],
+          "bbox": [
+            -74.1708703477079,
+            40.65261475305625,
+            -74.10431558145777,
+            40.703284545959804
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-07/2025-07-17/0a5212c1-6e3e-4ada-b024-5c405dcc3bac/0a5212c1-6e3e-4ada-b024-5c405dcc3bac.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/5441919e-113a-4327-8ae7-cc4c3a427fdf/2025-07-17-01-34-38_UMBRA-05/2025-07-17-01-34-38_UMBRA-05.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/5441919e-113a-4327-8ae7-cc4c3a427fdf/2025-07-17-01-34-38_UMBRA-05/2025-07-17-01-34-38_UMBRA-05_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/5441919e-113a-4327-8ae7-cc4c3a427fdf/2025-07-17-01-34-38_UMBRA-05/2025-07-17-01-34-38_UMBRA-05_GEC.tif"
+        },
+        {
+          "id": "ad1eb270-66bb-447a-85a1-f472fb50715a",
+          "date": "2025-07-29",
+          "incidence_angle_deg": 44.3,
+          "centroid": [
+            -74.13758226605628,
+            40.67794976102293
+          ],
+          "bbox": [
+            -74.16916895530647,
+            40.6539100577718,
+            -74.10601528115208,
+            40.70199051245193
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-07/2025-07-29/ad1eb270-66bb-447a-85a1-f472fb50715a/ad1eb270-66bb-447a-85a1-f472fb50715a.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/72e042a3-02c6-4e39-9e13-5fcfe9a892fa/2025-07-29-02-56-35_UMBRA-10/2025-07-29-02-56-35_UMBRA-10.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/72e042a3-02c6-4e39-9e13-5fcfe9a892fa/2025-07-29-02-56-35_UMBRA-10/2025-07-29-02-56-35_UMBRA-10_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/task-data/72e042a3-02c6-4e39-9e13-5fcfe9a892fa/2025-07-29-02-56-35_UMBRA-10/2025-07-29-02-56-35_UMBRA-10_GEC.tif"
+        },
+        {
+          "id": "dab7cdf2-fbe7-4128-89d6-865bdf08c1b2",
+          "date": "2025-07-29",
+          "incidence_angle_deg": 44.3,
+          "centroid": [
+            -74.13758346585864,
+            40.67794870976391
+          ],
+          "bbox": [
+            -74.16916774798,
+            40.65391083783765,
+            -74.1060188865668,
+            40.70198762922278
+          ],
+          "stac": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/2025/2025-07/2025-07-29/dab7cdf2-fbe7-4128-89d6-865bdf08c1b2/dab7cdf2-fbe7-4128-89d6-865bdf08c1b2.json",
+          "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/72e042a3-02c6-4e39-9e13-5fcfe9a892fa/2025-07-29-02-56-30_UMBRA-10/2025-07-29-02-56-30_UMBRA-10.stac.v2.json",
+          "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/72e042a3-02c6-4e39-9e13-5fcfe9a892fa/2025-07-29-02-56-30_UMBRA-10/2025-07-29-02-56-30_UMBRA-10_SICD.nitf",
+          "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Newark (NY/NJ), United States/72e042a3-02c6-4e39-9e13-5fcfe9a892fa/2025-07-29-02-56-30_UMBRA-10/2025-07-29-02-56-30_UMBRA-10_GEC.tif"
+        }
+      ]
+    }
+  ]
+}
