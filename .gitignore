@@ -70,6 +70,7 @@ venv/
 # Additional local baseline sources and virtual environments
 /external/deepdespeckling/
 /external/TransSAR_official/
+/external/GammaBridge/
 /.venv-merlin/
 /.venv-ours-legacy/
 /.venv-umbra-stack/
@@ -92,6 +93,22 @@ venv/
 /output/toronto_gt_benchmark/
 /output/umbra_scene_selection/
 /output/umbra_stability_3scenes/
+
+# September 2026 local experiment arrays and rendering workspaces
+/output/_target_inventory_preview/
+/output/fig3_three_scenes_separate_8_20260925/
+/output/fig3_three_scenes_separate_8_20260925.zip
+/output/gamma_bridge_probe_20260926/
+/output/gamma_bridge_toronto_gt_20260926/
+/output/toronto_showcase_20260926/
+/output/umbra_stability_ground_v3/
+/output/umbra_stability_new_3scenes/
+/output/umbra_showcase_*/
+/output/umbra_showcase_*.pdf
+/output/umbra_showcase_*.png
+/output/umbra_source_7_visual_audit/
+/output/umbra_source_7_visual_audit.pdf
+/output/去噪效果展示_*.docx
 
 # Local session archives
 /codex_handoff_2026-09-03/

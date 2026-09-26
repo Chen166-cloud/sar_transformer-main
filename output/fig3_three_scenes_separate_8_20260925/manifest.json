@@ -1,0 +1,362 @@
+{
+  "reference_docx": "D:\\Users\\Chen\\Desktop\\V3修改答复.docx",
+  "reference_figure": "Figure 3; eight independent square PNGs, 4+4, with labels as separate Word text",
+  "word_picture_inches": 0.8291666666666667,
+  "pixel_operation": "none; source pixels unchanged; PNG DPI metadata only",
+  "scenes": [
+    {
+      "folder": "01_Hong_Kong_ground_v3",
+      "description": "Hong Kong v3: ground-proportion center square, 1024x1024 SICD method input",
+      "files": [
+        {
+          "name": "a_noisy.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\a_noisy.png",
+          "source_sha256": "10e30ed4b2206d6e7362a6b089518f523e6f5bf57ee342241e47a0fa055f3238",
+          "output_sha256": "f2ba62c3a14a864885cb6d38b5de49ec89e71dbdd300e17c9c921f2b9977bacf",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        },
+        {
+          "name": "b_sar-bm3d.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\b_sar-bm3d.png",
+          "source_sha256": "4bb5b5fe61796efc201a0df41c48af0ee7dc26d67d31e3180bb7fd096c03222a",
+          "output_sha256": "e138ba7777fe34082844c2c39a849c0f8090ed6a8ca55a6610179e7cfd1d341d",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        },
+        {
+          "name": "c_sar2sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\c_sar2sar.png",
+          "source_sha256": "6102b8dd8e5647c9e11820b9eb8c17872ba7f1160af931132d16c2115dd7d2d1",
+          "output_sha256": "87eaba7e0f20bc80126f4c179c10976c66e3b968accac0906fd64cc728534c39",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        },
+        {
+          "name": "d_sdudnet.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\d_sdudnet.png",
+          "source_sha256": "5236c0c077938ca5b02bf459330f2e8bf262cd7858bd2e7c3ba7fae92e24f30d",
+          "output_sha256": "c698d9591911151616617a46015fd9e96ead438ac6d251081f91e8e8abee0498",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        },
+        {
+          "name": "e_trans-sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\e_trans-sar.png",
+          "source_sha256": "76a2353cd3fde3f2adf3f38de480f83dd5db58bb7b4a4ffa88eedd876acbcf26",
+          "output_sha256": "9b2e1b285c3d3fb80da91e7ece397bff133b40652a21e4f06fce4bb45403db23",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        },
+        {
+          "name": "f_cl-sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\f_cl-sar.png",
+          "source_sha256": "043b445dfbe1e5329925a7ecf51b07edfcaa8d44c1db1aeedf426f884585bbf2",
+          "output_sha256": "48ca666a2b5336a499551d6e3a9c1b9f94b658a5d796147adba63679af1f3f74",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        },
+        {
+          "name": "g_merlin.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\g_merlin.png",
+          "source_sha256": "54a6b56a30086aaddeff37d25595c427beed8a0513213134d1bfa657f06f2138",
+          "output_sha256": "052c0ea4f9fb607648f938c83ed000637667c64b97f0b70d6ee5e5cc03a47e94",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        },
+        {
+          "name": "h_mulog-drunet.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\01_Hong_Kong_Port\\experiment\\figure3_ground_equal_scale\\panels_word_center_square\\h_mulog-drunet.png",
+          "source_sha256": "7c9c2c128d32e8a027633d30ffc37a107652badca9f71bc7a13e622a59f44f6f",
+          "output_sha256": "1bbdd5c3a209c8309200965984b9908e7a70a44ff995ea21ccea6beff31f70c3",
+          "pixels": [
+            502,
+            502
+          ],
+          "dpi_metadata": [
+            605.0026,
+            605.0026
+          ]
+        }
+      ]
+    },
+    {
+      "folder": "02_Nevada_from_report_v2",
+      "description": "Nevada v2: original SICD pixel grid, old report ROI",
+      "files": [
+        {
+          "name": "a_noisy.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\a_noisy.png",
+          "source_sha256": "03218d954c9d4f6d3f87c5802f010b7aaefd87e93cd1780488353ba0de9ad106",
+          "output_sha256": "c7801f38bffcfcf5003d79528624730889ec06f5471180c9dbfcc052e79b55e5",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "b_sar-bm3d.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\b_sar-bm3d.png",
+          "source_sha256": "bb19c70571811e42118b570cfa2b789aa0a07bcfb92c9787e76e86692a9fa377",
+          "output_sha256": "6ee799efcd99f05b48468bb66bc7128240a0889c6d9df0a0b79448aa56f2bf37",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "c_sar2sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\c_sar2sar.png",
+          "source_sha256": "de8275e0dc37d8a3ae5531a6acaeb36eec0c4c0e8a493c83ff9eb33f9e6d03be",
+          "output_sha256": "9f5a7e207974f98d13fe075f740f459fcfabf14e6721333a89df556cc6428e83",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "d_sdudnet.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\d_sdudnet.png",
+          "source_sha256": "72beb64de7abef202e1c2cbc18e8d42afdf4cf4c491b7da09e16208fdc47f88e",
+          "output_sha256": "8d9ec21a23deb9d4e872ed05494ff45bf4bd6f42e15a9e7f91e6366b1463e218",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "e_trans-sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\e_trans-sar.png",
+          "source_sha256": "60637fc2e7b1dc7244684eb95059cdd7fde5d06d0d5a91d8e84142820c2888b6",
+          "output_sha256": "3e5d972f72167efee76fd16f11e06bcb3c80a26d705e697ee207a3cca8d0298c",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "f_cl-sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\f_cl-sar.png",
+          "source_sha256": "1c02f817c6f0ba2b8cf5fa658c040af567aec3989cee83422d27819cf23c5e7e",
+          "output_sha256": "8bd8f94b6f29bf8ea94b847ae65d07541ccbfd83089395faa7e038e6f902c49c",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "g_merlin.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\g_merlin.png",
+          "source_sha256": "e13cfaa3729c2d191453bf0bf707b4d0a54e26b6c21b8a11c3477979e60b2243",
+          "output_sha256": "614313a553660756fbf778dae5ad1ef48577859a59a0b5e3e99987fcb00c3bab",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "h_mulog-drunet.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\02_Tesla_Semi_Factory\\experiment\\figure3_style\\panels\\h_mulog-drunet.png",
+          "source_sha256": "472eaf1f044f805bcbce2788908091e848da24ce8dc6ae8a69d8dd2c8351633f",
+          "output_sha256": "9b973fad248164bc45877ca1c45fb9e2b41913de577e344eb3bea584339d8df0",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        }
+      ]
+    },
+    {
+      "folder": "03_Melbourne_from_report_v2",
+      "description": "Melbourne v2: original SICD pixel grid, old report ROI",
+      "files": [
+        {
+          "name": "a_noisy.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\a_noisy.png",
+          "source_sha256": "977c8cf6539cdf7ac6d2c53ee3b161199328778740935a2f1ab3bf181be41631",
+          "output_sha256": "085b117e0ffa932f09fa3e9f171918d0e6fbf5eb90439d9a210db535425c71e5",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "b_sar-bm3d.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\b_sar-bm3d.png",
+          "source_sha256": "3ce6cc657e2d6f961103d55a343ac669d090888f1fbfda6ccbe9697daabd9107",
+          "output_sha256": "061e464cb11ed1f422c547b357a751493341a7c2a6a4272631ace8124031a067",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "c_sar2sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\c_sar2sar.png",
+          "source_sha256": "46f6c99bdbbb72f3461b9bf942e30f0ce5d5acd85beb831e7d7ca45028f24c72",
+          "output_sha256": "8ddbfc766f858a4e0bfcaa761332e45d06922e9c97a782268933eaf721daa0e0",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "d_sdudnet.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\d_sdudnet.png",
+          "source_sha256": "5d23256c6b5b715e93c0c47d152a72baea923efa92b5984b67cebdddf2ad1e45",
+          "output_sha256": "9a2edc6aae9578e96d63363a64489954e381c4fbb1a36ea39bae486cbb619b16",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "e_trans-sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\e_trans-sar.png",
+          "source_sha256": "e9e97dfcb0fa0879068ea8253852faf337c068ee6906f39f711cd5312a50335c",
+          "output_sha256": "5cd388375e79267f8ca53ba84e1e500284a3d277ab4c9fa05759c60ba6a9518b",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "f_cl-sar.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\f_cl-sar.png",
+          "source_sha256": "63e451ce9bf159f171088d5182c91f374fab5a2407e9d03cdc7949e3d32748b5",
+          "output_sha256": "cfecc9df63acfc0794bf5f3a65685339ea17d3e8011b7857b7e0f032019761e9",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "g_merlin.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\g_merlin.png",
+          "source_sha256": "23df3356edae8b21510fdc53d2182f6ae76d756910d2f88dccb4e062520b2b34",
+          "output_sha256": "e2fbcdda057a0bfa511723bf0f00b78536684a0b367e244b017106f0359362b3",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        },
+        {
+          "name": "h_mulog-drunet.png",
+          "source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_new_3scenes\\03_Melbourne\\experiment\\figure3_style\\panels\\h_mulog-drunet.png",
+          "source_sha256": "87573fd3497dd41742138250469e96c5567ea52b604b0d82cea70bfbf2b25893",
+          "output_sha256": "6538c402b5ca580d0fd48b96f4534c09e66403a0791c7194599c4af792688030",
+          "pixels": [
+            1024,
+            1024
+          ],
+          "dpi_metadata": [
+            1234.9987999999998,
+            1234.9987999999998
+          ]
+        }
+      ]
+    }
+  ]
+}

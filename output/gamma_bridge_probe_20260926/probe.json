@@ -1,0 +1,216 @@
+{
+  "source": "https://github.com/Teriri1999/GammaBridge",
+  "source_commit": "35d49ed2e7c3fbb3c7bb66fe0e3d859a1411f5ef",
+  "checkpoint": "E:\\SAR_Models\\GammaBridge\\gbridge_L1.pt",
+  "checkpoint_sha256": "3f9aae3e638e814a706852a8cd5896df279b2a74b7347ecd609d75e7baff9b2d",
+  "checkpoint_step": 15000,
+  "checkpoint_args": {
+    "out_dir": "checkpoints/combo_v1_L1",
+    "image_size": 256,
+    "batch_size": 2,
+    "T": 100,
+    "L_obs": 1.0,
+    "L_max": 10000.0,
+    "model_channels": 64,
+    "ndf": 64,
+    "nce_layer_ids": [
+      0,
+      2,
+      4
+    ],
+    "num_patches": 256,
+    "nce_T": 0.07,
+    "mode": "synthetic",
+    "lambda_GAN": 1.0,
+    "lambda_NCE": 1.0,
+    "lambda_mean": 10.0,
+    "lambda_ratio": 1.0,
+    "lambda_rec": 10.0,
+    "lr_G": 0.0001,
+    "lr_D": 0.0001,
+    "betas": [
+      0.5,
+      0.999
+    ],
+    "total_steps": 15000,
+    "log_every": 50,
+    "eval_every": 500,
+    "ckpt_every": 2000,
+    "dataset_length": 8000,
+    "num_workers": 4,
+    "grad_accum": 1,
+    "extra_roots": null,
+    "device": "cuda",
+    "min_step": 1,
+    "seed": 4,
+    "find_unused": false,
+    "ema_decay": 0.999,
+    "bridge_forward": true,
+    "cond_x1": true,
+    "lambda_consistency": 5.0,
+    "resume": null
+  },
+  "state": "G_ema",
+  "strict_load": true,
+  "missing_keys": [],
+  "unexpected_keys": [],
+  "parameter_count": 15194497,
+  "python": "3.12.13",
+  "torch": "2.5.1",
+  "numpy": "1.26.4",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+  "seed": 20260926,
+  "settings": {
+    "num_steps": 5,
+    "ot_ode": true,
+    "tile_size": 512,
+    "looks": "input-only 32x32 patch ENL P90, stride 16",
+    "mean_matching": true,
+    "dtype": "float32"
+  },
+  "input": "published 0..255 array divided by 255; no extra clipping/sqrt/resize",
+  "evaluation": "unclipped float outputs in published 0..255 units, fixed data_range=255",
+  "reference": "Toronto ten-acquisition average pseudo-reference, not noise-free physical truth",
+  "scope": "inference diagnostic, not training reproduction or formal seven-method benchmark",
+  "scenes": [
+    {
+      "scene": "01_city_roads",
+      "input_path": "E:\\SAR_Data\\Toronto_Paired_SAR\\showcase_selected_20260926\\01_city_roads\\noisy_intensity.npy",
+      "input_sha256": "3e1a65b6f8baf0f09f1c51ddb9cb81e9430b328522aa2f75fc0d7c3734061d5d",
+      "reference_sha256": "46c596f350c0fbd681865991ee47c8f58656dc8dbfc00ca663db907861de84b5",
+      "shape": [
+        512,
+        512
+      ],
+      "estimated_looks": 19.026975190108566,
+      "used_looks": 19.026975190108566,
+      "schedule_points": [
+        0,
+        17,
+        34,
+        50,
+        67
+      ],
+      "actual_network_calls": 4,
+      "inference_seconds": 1.123689000000013,
+      "peak_allocated_mib": 2497.85302734375,
+      "peak_reserved_mib": 2588.0,
+      "mean_matching_factor": 0.9997575904490636,
+      "input_mean": 132.39117431640625,
+      "output_mean": 132.39122009277344,
+      "metrics": {
+        "psnr_db": 21.130909381135766,
+        "ssim": 0.6724183101426061,
+        "mse": 501.175027356732,
+        "mae": 17.296247285048594,
+        "min": 29.904136657714844,
+        "max": 258.04815673828125,
+        "fraction_below_0": 0.0,
+        "fraction_above_255": 0.00031280517578125
+      },
+      "noisy_metrics": {
+        "psnr_db": 19.62747243045761,
+        "ssim": 0.6062215699447394,
+        "mse": 708.4890098571777,
+        "mae": 20.370868682861328,
+        "min": 20.0,
+        "max": 255.0,
+        "fraction_below_0": 0.0,
+        "fraction_above_255": 0.0
+      }
+    },
+    {
+      "scene": "02_waterfront",
+      "input_path": "E:\\SAR_Data\\Toronto_Paired_SAR\\showcase_selected_20260926\\02_waterfront\\noisy_intensity.npy",
+      "input_sha256": "fbc0b96eb4fa870d50f01bd08eb971428d12dbeccc78ee28af1c89eda7129faa",
+      "reference_sha256": "39dd4289d515b5697c90fcf45e416385bafbb80825e09b94943b31e5784423d8",
+      "shape": [
+        512,
+        512
+      ],
+      "estimated_looks": 31.362350430291013,
+      "used_looks": 31.362350430291013,
+      "schedule_points": [
+        0,
+        16,
+        31,
+        46,
+        62
+      ],
+      "actual_network_calls": 4,
+      "inference_seconds": 0.7865743999991537,
+      "peak_allocated_mib": 2497.85302734375,
+      "peak_reserved_mib": 2588.0,
+      "mean_matching_factor": 1.0029799125792636,
+      "input_mean": 69.33370971679688,
+      "output_mean": 69.33370208740234,
+      "metrics": {
+        "psnr_db": 25.246120550379622,
+        "ssim": 0.7560561975963607,
+        "mse": 194.29798908506578,
+        "mae": 9.944134360892349,
+        "min": 16.029808044433594,
+        "max": 260.3835754394531,
+        "fraction_below_0": 0.0,
+        "fraction_above_255": 9.5367431640625e-05
+      },
+      "noisy_metrics": {
+        "psnr_db": 23.901950286168105,
+        "ssim": 0.6716316759313302,
+        "mse": 264.7800941467285,
+        "mae": 11.422672271728516,
+        "min": 11.0,
+        "max": 255.0,
+        "fraction_below_0": 0.0,
+        "fraction_above_255": 0.0
+      }
+    },
+    {
+      "scene": "03_farmland",
+      "input_path": "E:\\SAR_Data\\Toronto_Paired_SAR\\showcase_selected_20260926\\03_farmland\\noisy_intensity.npy",
+      "input_sha256": "d17770f98ff8278ae31122109d97b9efdfeb912658ffa8ddf67e6003fb96663a",
+      "reference_sha256": "f57fdc60f2ee8906c6b1b341b155595d3972ac3a0f5686d72194571ad911e772",
+      "shape": [
+        512,
+        512
+      ],
+      "estimated_looks": 23.918004366798467,
+      "used_looks": 23.918004366798467,
+      "schedule_points": [
+        0,
+        16,
+        32,
+        49,
+        65
+      ],
+      "actual_network_calls": 4,
+      "inference_seconds": 0.766942399999607,
+      "peak_allocated_mib": 2497.85302734375,
+      "peak_reserved_mib": 2588.0,
+      "mean_matching_factor": 1.0006505335032343,
+      "input_mean": 90.19766235351562,
+      "output_mean": 90.1976547241211,
+      "metrics": {
+        "psnr_db": 24.6594866842444,
+        "ssim": 0.5908426164495196,
+        "mse": 222.39841739339616,
+        "mae": 11.539688679127721,
+        "min": 28.76322364807129,
+        "max": 244.9718017578125,
+        "fraction_below_0": 0.0,
+        "fraction_above_255": 0.0
+      },
+      "noisy_metrics": {
+        "psnr_db": 22.787262499893764,
+        "ssim": 0.4830024914287896,
+        "mse": 342.25839614868164,
+        "mae": 14.141368865966797,
+        "min": 22.0,
+        "max": 255.0,
+        "fraction_below_0": 0.0,
+        "fraction_above_255": 0.0
+      }
+    }
+  ]
+}

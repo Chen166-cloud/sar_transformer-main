@@ -97,14 +97,25 @@ def main() -> None:
     parser.add_argument("--roi", type=Path, required=True)
     parser.add_argument("--experiment", type=Path, required=True)
     parser.add_argument("--scene-name", required=True)
+    parser.add_argument(
+        "--display-percentiles",
+        type=float,
+        nargs=2,
+        metavar=("LOW", "HIGH"),
+        help="optional noisy-intensity dB percentiles for the shared display window",
+    )
     args = parser.parse_args()
+    if args.display_percentiles is not None:
+        lower_percentile, upper_percentile = args.display_percentiles
+        if not (0 <= lower_percentile < upper_percentile <= 100):
+            parser.error("--display-percentiles requires 0 <= LOW < HIGH <= 100")
     roi, experiment = args.roi.resolve(), args.experiment.resolve()
     runs, output = experiment / "runs", experiment / "figure3_style"
     panels, ratios = output / "panels", output / "ratios"
     panels.mkdir(parents=True, exist_ok=True)
     ratios.mkdir(parents=True, exist_ok=True)
     roi_report = json.loads((roi / "run.json").read_text(encoding="utf-8"))
-    low, high = (float(v) for v in roi_report["display"]["shared_db_limits"])
+    adapter_low, adapter_high = (float(v) for v in roi_report["display"]["shared_db_limits"])
 
     sources = {
         "Noisy": roi / "noisy_intensity.npy",
@@ -120,7 +131,7 @@ def main() -> None:
     if missing:
         raise FileNotFoundError("missing method outputs:\n" + "\n".join(missing))
     sdud_coordinate = array(np.load(sources["SDUDNet"], allow_pickle=False), "SDUDNet coordinate")
-    sdud_db = low + np.clip(sdud_coordinate.astype(np.float64), 0, 1) * (high - low)
+    sdud_db = adapter_low + np.clip(sdud_coordinate.astype(np.float64), 0, 1) * (adapter_high - adapter_low)
     values = {
         "Noisy": array(np.load(sources["Noisy"], allow_pickle=False), "Noisy"),
         "SAR-BM3D": array(mat_field(sources["SAR-BM3D"], "denoised_intensity"), "SAR-BM3D"),
@@ -131,6 +142,14 @@ def main() -> None:
         "MERLIN": array(np.load(sources["MERLIN"], allow_pickle=False), "MERLIN"),
         "MuLoG-DRUNet": array(np.load(sources["MuLoG-DRUNet"], allow_pickle=False), "MuLoG-DRUNet"),
     }
+    if args.display_percentiles is None:
+        low, high = adapter_low, adapter_high
+        display_percentiles = [1.0, 99.7]
+    else:
+        display_percentiles = [float(v) for v in args.display_percentiles]
+        low, high = (
+            float(v) for v in np.percentile(intensity_db(values["Noisy"]), display_percentiles)
+        )
     merlin_shift = float(np.median(intensity_db(values["MERLIN"])) - np.median(intensity_db(values["Noisy"])))
     paths, strict_paths = [], []
     for name, stem in zip(NAMES, STEMS, strict=True):
@@ -173,6 +192,8 @@ def main() -> None:
         "methods": {name: {"source": str(sources[name]), "statistics": stats(values[name])} for name in NAMES},
         "display": {
             "shared_db_limits": [low, high],
+            "shared_db_percentiles_from_noisy": display_percentiles,
+            "sdudnet_adapter_db_limits": [adapter_low, adapter_high],
             "merlin_display_only_median_shift_db": merlin_shift,
             "figure_pixels": figure_size,
             "figure_dpi": DPI,

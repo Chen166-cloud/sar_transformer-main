@@ -1,0 +1,71 @@
+{
+  "status": "prepared",
+  "source": {
+    "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes_V2\\02_Tesla_Semi_Factory\\target\\2025-02-21-19-06-10_UMBRA-08_SICD.nitf",
+    "bytes": 12855994948,
+    "sha256": "f56f0983214cb00cbbe374ee08edc2797f1dfe36e4709cecdf3b744b911d6ae3",
+    "sicd": {
+      "namespace": "urn:SICD:1.3.0",
+      "pixel_type": "RE32F_IM32F",
+      "full_shape": [
+        26620,
+        60368
+      ],
+      "row_sample_spacing_m": 0.15050447013753723,
+      "col_sample_spacing_m": 0.11114185497867217,
+      "row_impulse_response_width_m": 0.1666648876185553,
+      "col_impulse_response_width_m": 0.12307571165700709,
+      "polarization": "V:V",
+      "radar_mode": "SPOTLIGHT"
+    }
+  },
+  "roi": {
+    "row_start": 4800,
+    "col_start": 20500,
+    "height": 1024,
+    "width": 1024,
+    "center_latitude_deg": 39.544500257985405,
+    "center_longitude_deg": -119.47058206787123,
+    "center_hae_m": 1385.4701212734392,
+    "selection": "selected from original SICD noisy-only low-star preview; ground display separate"
+  },
+  "scientific_domain": {
+    "complex_to_intensity": "I = real(S)^2 + imag(S)^2",
+    "dtype": "float32",
+    "radiometric_calibration_added": false,
+    "spatial_resampling": false
+  },
+  "frozen_method_adapter": {
+    "intensity_scale": 48754.28125,
+    "scale_origin": "exact observed maximum of this fixed 1024x1024 ROI, matching the Figure 3 adapter rule",
+    "minimum_subtraction": false,
+    "per_tile_normalization": false
+  },
+  "display": {
+    "mapping": "10*log10(linear intensity), noisy percentiles 1.0 and 99.7",
+    "shared_db_limits": [
+      -16.57132911682129,
+      18.537512254714983
+    ],
+    "preview_only": true
+  },
+  "outputs": {
+    "sicd_complex_roi.npy": {
+      "bytes": 8388736,
+      "sha256": "2cc8d16d605c4f0d7540f212cb0e65e25173d7b99381c472cc85430fff8c050d"
+    },
+    "noisy_intensity.npy": {
+      "bytes": 4194432,
+      "sha256": "a70f31c272985273966743c49123711a5bbb9761d6535c3f0e3aeb78de36b4f4"
+    },
+    "input.mat": {
+      "bytes": 11599549,
+      "sha256": "6612e196599d14dd2ebf9ec14b9c0d49ebe533027f01f64629ab3504b7c21e56"
+    },
+    "noisy.png": {
+      "bytes": 994995,
+      "sha256": "33d3ed810256ced907196288df5086de3c63e52c30005148c4e5c7f16875acf8"
+    }
+  },
+  "created_utc": "2026-09-24T14:31:48Z"
+}

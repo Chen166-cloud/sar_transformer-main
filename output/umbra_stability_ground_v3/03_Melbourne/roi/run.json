@@ -1,0 +1,71 @@
+{
+  "status": "prepared",
+  "source": {
+    "path": "E:\\SAR_Data\\Umbra\\Stability_3Scenes_V2\\03_Melbourne\\target\\2025-06-28-23-34-53_UMBRA-05_SICD.nitf",
+    "bytes": 6655031476,
+    "sha256": "7503e7b6058166a0cd336f683d8695a50fe0e56fbb6a772bddb1f7fd00ec2113",
+    "sicd": {
+      "namespace": "urn:SICD:1.3.0",
+      "pixel_type": "RE32F_IM32F",
+      "full_shape": [
+        26620,
+        31250
+      ],
+      "row_sample_spacing_m": 0.153510218951075,
+      "col_sample_spacing_m": 0.21963768653338736,
+      "row_impulse_response_width_m": 0.1699933787109467,
+      "col_impulse_response_width_m": 0.24322128312490982,
+      "polarization": "V:V",
+      "radar_mode": "SPOTLIGHT"
+    }
+  },
+  "roi": {
+    "row_start": 8612,
+    "col_start": 5547,
+    "height": 1024,
+    "width": 1024,
+    "center_latitude_deg": -37.86085161973639,
+    "center_longitude_deg": 144.89145448063118,
+    "center_hae_m": 10.584147508192782,
+    "selection": "selected from original SICD noisy-only low-star preview; ground display separate"
+  },
+  "scientific_domain": {
+    "complex_to_intensity": "I = real(S)^2 + imag(S)^2",
+    "dtype": "float32",
+    "radiometric_calibration_added": false,
+    "spatial_resampling": false
+  },
+  "frozen_method_adapter": {
+    "intensity_scale": 817306.5625,
+    "scale_origin": "exact observed maximum of this fixed 1024x1024 ROI, matching the Figure 3 adapter rule",
+    "minimum_subtraction": false,
+    "per_tile_normalization": false
+  },
+  "display": {
+    "mapping": "10*log10(linear intensity), noisy percentiles 1.0 and 99.7",
+    "shared_db_limits": [
+      -4.419838547706604,
+      35.194973373413205
+    ],
+    "preview_only": true
+  },
+  "outputs": {
+    "sicd_complex_roi.npy": {
+      "bytes": 8388736,
+      "sha256": "ddd6049ea6e8a9e4e2128864a69cc76f54ea0a7b96cb3c1eb4cd54e25b59d291"
+    },
+    "noisy_intensity.npy": {
+      "bytes": 4194432,
+      "sha256": "02e2af3bd7a9077259a9d178b322845bb6820c5650952bf22717d9ad1d5d3268"
+    },
+    "input.mat": {
+      "bytes": 11639642,
+      "sha256": "0c981b10de1f25fe4335553af75c7c9d0e5ee09a09efa67292ca03d3f33a126a"
+    },
+    "noisy.png": {
+      "bytes": 977000,
+      "sha256": "0f4bc5ec2f1c91a3ceedb92a0b60e9f439f96276f40475b77dd75e8eb63f4113"
+    }
+  },
+  "created_utc": "2026-09-24T14:31:43Z"
+}

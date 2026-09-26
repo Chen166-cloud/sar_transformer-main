@@ -1,0 +1,24 @@
+{
+  "selection_basis": "Visual inspection of all 100 paired validation tiles before running any methods; chosen for distinct land-cover structures and clear Noisy_val/GTruth_val correspondence, not for output metrics.",
+  "dataset_doi": "10.17632/2xf5v5pwkr.2",
+  "scenes": [
+    {
+      "scene": "01_city_roads",
+      "label_zh": "城市路网与街区",
+      "filename": "5120_3072.tiff",
+      "visual_reason": "Dense street grid and oblique linear corridors with many small bright building responses."
+    },
+    {
+      "scene": "02_waterfront",
+      "label_zh": "水湾与滨水建成区",
+      "filename": "5632_20992.tiff",
+      "visual_reason": "Large dark water area, crisp curving shoreline, small island, and adjacent built-up fabric."
+    },
+    {
+      "scene": "03_farmland",
+      "label_zh": "规则农田",
+      "filename": "5120_22528.tiff",
+      "visual_reason": "Regular rectangular agricultural parcels and thin linear boundaries without dominant water."
+    }
+  ]
+}

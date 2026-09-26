@@ -84,14 +84,30 @@ def nested_value(payload: dict[str, object], keys: tuple[str, ...]) -> float:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=DEFAULT_ROOT)
+    parser.add_argument(
+        "--root", type=Path, default=DEFAULT_ROOT,
+        help="Directory for summary files and base for relative --scene paths.",
+    )
+    parser.add_argument(
+        "--scene", type=Path, action="append", dest="scenes", metavar="DIR",
+        help="Scene directory containing roi/ and experiment/; repeat for each scene. "
+             "Defaults to the original Busan, Bangkok, and Newark scenes.",
+    )
     args = parser.parse_args()
     experiment_root = args.root.resolve()
+    if args.scenes:
+        scene_specs = [
+            (path if path.is_absolute() else experiment_root / path, None)
+            for path in args.scenes
+        ]
+    else:
+        scene_specs = [(experiment_root / slug, name) for slug, name in SCENES.items()]
 
     rows: list[dict[str, object]] = []
     runtimes: list[dict[str, object]] = []
-    for slug, expected_name in SCENES.items():
-        scene_root = experiment_root / slug
+    for scene_root, expected_name in scene_specs:
+        scene_root = scene_root.resolve()
+        slug = scene_root.name
         roi_report_path = scene_root / "roi" / "run.json"
         figure_root = scene_root / "experiment" / "figure3_style"
         manifest_path = figure_root / "manifest.json"
@@ -108,7 +124,7 @@ def main() -> None:
             metrics = ratio_diagnostics(noisy, ratio)
             rows.append({
                 "scene_slug": slug,
-                "scene": manifest.get("scene", expected_name),
+                "scene": manifest.get("scene") or expected_name or slug.replace("_", " "),
                 "method": method,
                 "roi_row": roi_report["roi"]["row_start"],
                 "roi_col": roi_report["roi"]["col_start"],
@@ -119,7 +135,7 @@ def main() -> None:
             payload = json.loads((runs_root / relative_path).read_text(encoding="utf-8"))
             runtimes.append({
                 "scene_slug": slug,
-                "scene": manifest.get("scene", expected_name),
+                "scene": manifest.get("scene") or expected_name or slug.replace("_", " "),
                 "method": method,
                 "inference_seconds": nested_value(payload, keys),
                 "timing_scope": "model/algorithm inference recorded by the adapter; excludes common rendering and most process startup",
@@ -144,6 +160,7 @@ def main() -> None:
             record[f"{name}_range"] = float(values.max() - values.min())
         aggregate.append(record)
 
+    experiment_root.mkdir(parents=True, exist_ok=True)
     csv_path = experiment_root / "stability_diagnostics.csv"
     with csv_path.open("w", newline="", encoding="utf-8-sig") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))

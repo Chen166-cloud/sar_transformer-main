@@ -1,0 +1,52 @@
+{
+  "roi": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\roi",
+  "protocol": "same seven released-method adapters and L=1 setting as Figure 3",
+  "requested_methods": [
+    "sarbm3d"
+  ],
+  "methods": {
+    "cl_sar": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\runs\\cl_sar\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\logs\\cl_sar.log",
+      "finished_utc": "2026-09-24T14:36:14Z"
+    },
+    "transsar": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\runs\\transsar\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\logs\\transsar.log",
+      "finished_utc": "2026-09-24T14:36:22Z"
+    },
+    "sdudnet": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\runs\\sdudnet_db_display\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\logs\\sdudnet.log",
+      "finished_utc": "2026-09-24T14:36:27Z"
+    },
+    "merlin": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\runs\\merlin_stride64_weighted\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\logs\\merlin.log",
+      "finished_utc": "2026-09-24T14:36:53Z"
+    },
+    "sar2sar": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\runs\\sar2sar\\summary.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\logs\\sar2sar.log",
+      "finished_utc": "2026-09-24T14:37:20Z"
+    },
+    "mulog_drunet": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\runs\\mulog_drunet\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\logs\\mulog_drunet.log",
+      "finished_utc": "2026-09-24T14:37:53Z"
+    },
+    "sarbm3d": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\runs\\sarbm3d\\summary.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\02_Tesla_Semi_Factory\\experiment\\logs\\sarbm3d.log",
+      "finished_utc": "2026-09-24T14:45:55Z"
+    }
+  },
+  "updated_utc": "2026-09-24T14:45:55Z"
+}

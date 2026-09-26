@@ -593,6 +593,33 @@ def main() -> None:
             "sha256": sha256(Path(__file__).resolve()),
         },
     }
+    # This adapter is also used for the published Toronto Sentinel-1 benchmark.
+    # Keep its numerical path unchanged, but describe that input in its actual
+    # 8-bit GRD domain rather than inheriting Umbra/SICD provenance labels.
+    if parent.get("scientific_domain", {}).get("domain") == "published uint8 intensity":
+        report["scientific_output"]["domain"] = "published uint8 intensity, float32"
+        report["input"]["domain"] = "published rescaled Sentinel-1 GRD intensity"
+        source_sicd = report.pop("source_sicd")
+        report["source_image"] = {
+            "path": source_sicd["path"],
+            "sha256_from_verified_parent_manifest": source_sicd[
+                "sha256_from_verified_parent_manifest"
+            ],
+            "product": parent["source"].get("product", "Sentinel-1 GRD intensity"),
+            "roi": roi,
+        }
+        report["domain_conversion"]["purpose"] = (
+            "Bridge from the dataset's published 8-bit intensity units to the "
+            "released Trans-SAR amplitude-domain input convention"
+        )
+        report["domain_conversion"]["scale_origin"] = (
+            "fixed published 8-bit scale, verified equal to this ROI's observed maximum"
+        )
+        report["domain_conversion"]["cross_sensor_caveat"] = (
+            "The checkpoint was trained with synthetic single-look speckle over "
+            "BSDS grayscale reflectivity; Toronto is real Sentinel-1 GRD VV "
+            "rescaled to uint8. This domain shift remains."
+        )
     run_json_path = output_dir / "run.json"
     with run_json_path.open("w", encoding="utf-8") as handle:
         json.dump(report, handle, indent=2, ensure_ascii=False)

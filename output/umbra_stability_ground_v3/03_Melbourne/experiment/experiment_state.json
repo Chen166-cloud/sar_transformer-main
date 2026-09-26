@@ -1,0 +1,52 @@
+{
+  "roi": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\roi",
+  "protocol": "same seven released-method adapters and L=1 setting as Figure 3",
+  "requested_methods": [
+    "sarbm3d"
+  ],
+  "methods": {
+    "cl_sar": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\runs\\cl_sar\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\logs\\cl_sar.log",
+      "finished_utc": "2026-09-24T14:42:05Z"
+    },
+    "transsar": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\runs\\transsar\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\logs\\transsar.log",
+      "finished_utc": "2026-09-24T14:42:14Z"
+    },
+    "sdudnet": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\runs\\sdudnet_db_display\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\logs\\sdudnet.log",
+      "finished_utc": "2026-09-24T14:42:18Z"
+    },
+    "merlin": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\runs\\merlin_stride64_weighted\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\logs\\merlin.log",
+      "finished_utc": "2026-09-24T14:42:44Z"
+    },
+    "sar2sar": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\runs\\sar2sar\\summary.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\logs\\sar2sar.log",
+      "finished_utc": "2026-09-24T14:43:12Z"
+    },
+    "mulog_drunet": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\runs\\mulog_drunet\\run.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\logs\\mulog_drunet.log",
+      "finished_utc": "2026-09-24T14:43:38Z"
+    },
+    "sarbm3d": {
+      "status": "completed",
+      "completion": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\runs\\sarbm3d\\summary.json",
+      "log": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\logs\\sarbm3d.log",
+      "finished_utc": "2026-09-24T14:47:50Z"
+    }
+  },
+  "updated_utc": "2026-09-24T14:47:50Z"
+}

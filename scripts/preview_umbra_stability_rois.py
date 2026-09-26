@@ -29,11 +29,14 @@ def font(size: int) -> ImageFont.ImageFont:
     return ImageFont.load_default(size=size)
 
 
-def starts(length: int, size: int) -> list[int]:
+def starts(length: int, size: int, count: int) -> list[int]:
     maximum = length - size
     if maximum < 0:
         raise ValueError(f"crop size {size} exceeds image dimension {length}")
-    return [int(round(maximum * fraction)) for fraction in (0.12, 0.50, 0.88)]
+    if count < 1:
+        raise ValueError("grid count must be positive")
+    fractions = (0.12, 0.50, 0.88) if count == 3 else np.linspace(0.03, 0.97, count)
+    return [int(round(maximum * fraction)) for fraction in fractions]
 
 
 def main() -> None:
@@ -42,6 +45,8 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--crop-size", type=int, default=1536)
     parser.add_argument("--thumbnail", type=int, default=384)
+    parser.add_argument("--grid-rows", type=int, default=3)
+    parser.add_argument("--grid-cols", type=int, default=3)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
@@ -51,7 +56,8 @@ def main() -> None:
     try:
         sicd = reader.get_sicds_as_tuple()[0]
         height, width = int(sicd.ImageData.NumRows), int(sicd.ImageData.NumCols)
-        rows, cols = starts(height, args.crop_size), starts(width, args.crop_size)
+        rows = starts(height, args.crop_size, args.grid_rows)
+        cols = starts(width, args.crop_size, args.grid_cols)
         for row_index, row in enumerate(rows):
             for col_index, col in enumerate(cols):
                 name = f"R{row_index + 1}C{col_index + 1}"
@@ -92,17 +98,21 @@ def main() -> None:
     tile_width, tile_height = tiles[0].size
     sheet = Image.new(
         "RGB",
-        (3 * tile_width + 2 * gutter, 3 * tile_height + 2 * gutter),
+        (
+            args.grid_cols * tile_width + (args.grid_cols - 1) * gutter,
+            args.grid_rows * tile_height + (args.grid_rows - 1) * gutter,
+        ),
         "white",
     )
     for index, tile in enumerate(tiles):
-        row, col = divmod(index, 3)
+        row, col = divmod(index, args.grid_cols)
         sheet.paste(tile, (col * (tile_width + gutter), row * (tile_height + gutter)))
     sheet_path = args.output / "contact_sheet.png"
     sheet.save(sheet_path, optimize=True)
     manifest = {
         "source": str(args.source.resolve()),
         "source_shape": [height, width],
+        "grid_shape": [args.grid_rows, args.grid_cols],
         "selection_rule": "choose from noisy complex-input amplitude previews only",
         "candidates": records,
         "contact_sheet": str(sheet_path.resolve()),

@@ -1,0 +1,67 @@
+{
+  "source_catalog": "https://s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/catalog.json",
+  "selection_rule": "Three distinct Umbra acquisitions and scene types; visual screening used low-resolution GEC only; all experiments use a fixed 1024x1024 crop from original complex SICD per scene.",
+  "ground_truth_status": "These are real single-look SAR images without official speckle-free ground truth; no full-reference PSNR/SSIM should be claimed.",
+  "selections": [
+    {
+      "site": "01_Hong_Kong_Port",
+      "scene_type": "container port, water, coast and hillside",
+      "resolution_m": 0.35,
+      "polarization": "VV",
+      "common_bbox_lonlat": [114.0870463762224, 22.304362631551136, 114.15544385015662, 22.367993035915823],
+      "target": {
+        "id": "4813568f-0ba2-42de-bc54-4daf93870314",
+        "date": "2025-03-07",
+        "sicd_bytes": 7664050735,
+        "sicd_etag": "404e650789e6554702161a868d16d65a-147",
+        "incidence_angle_deg": 43.3,
+        "orbit_state": "ascending",
+        "look_dir": "right",
+        "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Hong Kong, Hong Kong/25bc1481-26f6-49e6-b4dc-74f5932759da/2025-03-07-15-07-59_UMBRA-09/2025-03-07-15-07-59_UMBRA-09.stac.v2.json",
+        "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Hong Kong, Hong Kong/25bc1481-26f6-49e6-b4dc-74f5932759da/2025-03-07-15-07-59_UMBRA-09/2025-03-07-15-07-59_UMBRA-09_GEC.tif",
+        "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Port of Hong Kong, Hong Kong/25bc1481-26f6-49e6-b4dc-74f5932759da/2025-03-07-15-07-59_UMBRA-09/2025-03-07-15-07-59_UMBRA-09_SICD.nitf"
+      },
+      "reference_pool": []
+    },
+    {
+      "site": "02_Tesla_Semi_Factory",
+      "scene_type": "industrial factory, roads and hills",
+      "resolution_m": 0.25,
+      "polarization": "VV",
+      "common_bbox_lonlat": [-119.48438961972327, 39.516436830390454, -119.40565965927264, 39.57738900690437],
+      "target": {
+        "id": "d0f7a19e-61ca-4048-aa87-e589d19f2a60",
+        "date": "2025-02-21",
+        "sicd_bytes": 12855994948,
+        "sicd_etag": "fb283cd60f40dd16bf3bb883eede50c2-246",
+        "incidence_angle_deg": 41.8,
+        "orbit_state": "descending",
+        "look_dir": "left",
+        "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Tesla Semi Factory, Nevada, United States/03122a9f-9b55-4e96-aebc-59d0906553fc/2025-02-21-19-06-10_UMBRA-08/2025-02-21-19-06-10_UMBRA-08.stac.v2.json",
+        "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Tesla Semi Factory, Nevada, United States/03122a9f-9b55-4e96-aebc-59d0906553fc/2025-02-21-19-06-10_UMBRA-08/2025-02-21-19-06-10_UMBRA-08_GEC.tif",
+        "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Tesla Semi Factory, Nevada, United States/03122a9f-9b55-4e96-aebc-59d0906553fc/2025-02-21-19-06-10_UMBRA-08/2025-02-21-19-06-10_UMBRA-08_SICD.nitf"
+      },
+      "reference_pool": []
+    },
+    {
+      "site": "03_Melbourne",
+      "scene_type": "dense urban street grid and river harbor",
+      "resolution_m": 0.25,
+      "polarization": "VV",
+      "common_bbox_lonlat": [144.87485207627353, -37.87624342377607, 144.95112930084449, -37.815757014262516],
+      "target": {
+        "id": "2a5ed3e3-502d-4c58-bde1-c1a73a80498e",
+        "date": "2025-06-28",
+        "sicd_bytes": 6655031476,
+        "sicd_etag": "9438b8894343b20ae37560b0feb3d892-127",
+        "incidence_angle_deg": 42.8,
+        "orbit_state": "descending",
+        "look_dir": "left",
+        "provider_metadata": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Melbourne, Australia/a891562d-5051-45c4-a9e1-f6fccb474b16/2025-06-28-23-34-53_UMBRA-05/2025-06-28-23-34-53_UMBRA-05.stac.v2.json",
+        "gec": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Melbourne, Australia/a891562d-5051-45c4-a9e1-f6fccb474b16/2025-06-28-23-34-53_UMBRA-05/2025-06-28-23-34-53_UMBRA-05_GEC.tif",
+        "sicd": "https://umbra-open-data-catalog.s3.us-west-2.amazonaws.com/sar-data/tasks/Melbourne, Australia/a891562d-5051-45c4-a9e1-f6fccb474b16/2025-06-28-23-34-53_UMBRA-05/2025-06-28-23-34-53_UMBRA-05_SICD.nitf"
+      },
+      "reference_pool": []
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "selection_rule": "Three distinct Umbra SICD acquisitions; choose each new 1024x1024 ROI from original noisy complex-intensity previews only, before inspecting new method outputs. Prefer fewer extreme point-scatterer sidelobes while retaining visible urban/industrial structure.",
+  "science_input": "Original provider SICD complex64 ROI; all seven methods must be rerun. Ground-proportion reprojection is for display only.",
+  "common_screening_metric": "Fraction of total uncalibrated linear intensity contributed by the brightest 105 of 1048576 noisy pixels (approximately top 0.01%); descriptive star/bright-scatterer concentration only.",
+  "scenes": [
+    {
+      "slug": "01_Hong_Kong_Port",
+      "source": "E:\\SAR_Data\\Umbra\\Stability_3Scenes_V2\\01_Hong_Kong_Port\\target\\2025-03-07-15-07-59_UMBRA-09_SICD.nitf",
+      "old_roi_row_col": [11673, 24732],
+      "new_roi_row_col": [3200, 24200],
+      "brightest_105_intensity_share_old_new": [0.142117, 0.082084],
+      "candidate_preview": "../umbra_stability_new_3scenes/01_Hong_Kong_Port/reselect_hk_fine/roi_01_r3200_c24200_panel.png",
+      "screening_observation": "Buildings and road edges remain visible; original-complex-image pixels above the same uncalibrated 35 dB threshold fall from 2629 to 141."
+    },
+    {
+      "slug": "02_Tesla_Semi_Factory",
+      "source": "E:\\SAR_Data\\Umbra\\Stability_3Scenes_V2\\02_Tesla_Semi_Factory\\target\\2025-02-21-19-06-10_UMBRA-08_SICD.nitf",
+      "old_roi_row_col": [12692, 38983],
+      "new_roi_row_col": [4800, 20500],
+      "brightest_105_intensity_share_old_new": [0.467536, 0.113333],
+      "candidate_preview": "../umbra_stability_new_3scenes/02_Tesla_Semi_Factory/exact_candidates/roi_05_r4800_c20500_panel.png",
+      "screening_observation": "Factory roof and terrain remain legible; uncalibrated original-complex-image pixels above 25 dB fall from 0.00629 to 0.00059 of the ROI."
+    },
+    {
+      "slug": "03_Melbourne",
+      "source": "E:\\SAR_Data\\Umbra\\Stability_3Scenes_V2\\03_Melbourne\\target\\2025-06-28-23-34-53_UMBRA-05_SICD.nitf",
+      "old_roi_row_col": [1000, 5800],
+      "new_roi_row_col": [8612, 5547],
+      "brightest_105_intensity_share_old_new": [0.188361, 0.090518],
+      "candidate_preview": "../umbra_stability_new_3scenes/03_Melbourne/low_star_candidates/roi_01_r8612_c5547_panel.png",
+      "screening_observation": "Main road and adjacent block grid remain visible; the common brightest-105-pixel intensity share falls from 18.84% to 9.05%."
+    }
+  ],
+  "screening_metric_limit": "Thresholds are uncalibrated source-pixel screening statistics only; they are not denoising quality metrics or comparable radiometry across scenes."
+}

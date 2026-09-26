@@ -1,0 +1,280 @@
+{
+  "complete": true,
+  "scene": "Melbourne Road and Urban Blocks",
+  "roi": {
+    "row_start": 8612,
+    "col_start": 5547,
+    "height": 1024,
+    "width": 1024,
+    "center_latitude_deg": -37.86085161973639,
+    "center_longitude_deg": 144.89145448063118,
+    "center_hae_m": 10.584147508192782,
+    "selection": "selected from original SICD noisy-only low-star preview; ground display separate"
+  },
+  "science_input_unchanged": true,
+  "scientific_arrays_source": "D:\\research\\sar_transformer-main\\output\\umbra_stability_ground_v3\\03_Melbourne\\experiment\\figure3_style\\scientific_arrays.mat",
+  "scientific_arrays_sha256": "2f712d6cdb58abe0d6c8228d0717ffbf7834f653b403a55417740b77888c4ba6",
+  "ground_display": {
+    "method": "constant-HAE local EN tangent-plane affine fit; display only",
+    "not_terrain_orthorectified": true,
+    "orientation": "row-horizontal",
+    "orientation_description": "source row runs right; source column generally runs down",
+    "basis_east_north_to_display_xy": [
+      [
+        0.9566079750878977,
+        0.29137807398332505
+      ],
+      [
+        -0.29137807398332505,
+        0.9566079750878977
+      ]
+    ],
+    "hae_m": 10.58414750644341,
+    "origin_lat_lon": [
+      -37.86085222470103,
+      144.8914526484163
+    ],
+    "image_row_col_to_display_xy_m": {
+      "linear": [
+        [
+          0.22964664408567376,
+          0.03969409876575561
+        ],
+        [
+          -3.175827957347473e-17,
+          0.22242640368005134
+        ]
+      ],
+      "offset": [
+        -137.7822652474417,
+        -113.77293335857568
+      ]
+    },
+    "ground_span_xy_m": [
+      275.8049206798637,
+      227.7646373683726
+    ],
+    "source_ground_step_row_m": 0.22964664408567376,
+    "source_ground_step_col_m": 0.2259405375997559,
+    "source_ground_axes_angle_deg": 79.88154482517461,
+    "affine_residual_max_m": 0.02195062872814047,
+    "affine_residual_rms_m": 0.011466221707467764,
+    "output_pixel_metres": 0.2693407428514294,
+    "output_width_height_pixels": [
+      1024,
+      846
+    ],
+    "valid_pixel_fraction": 0.8507833277925532,
+    "bounds_xy_m": [
+      -137.91693561886743,
+      -113.88414656041574,
+      137.88798506099627,
+      113.88049080795686
+    ],
+    "interpolation": "bilinear in dB, performed only for display PNGs"
+  },
+  "display": {
+    "source_noisy_db_limits": [
+      -4.419838547706604,
+      35.194973373413205
+    ],
+    "source_noisy_db_percentiles": [
+      1.0,
+      99.7
+    ],
+    "merlin_display_only_db_subtraction": 6.159797087903751,
+    "word_panel_pixels": [
+      502,
+      415
+    ],
+    "figure_pixels": [
+      2091,
+      1171
+    ],
+    "figure_dpi": 600,
+    "ratio_shared_symmetric_limit_db": 21.104985043846554,
+    "center_square_display_only": {
+      "created": true,
+      "map_pixel_box_left_top_right_bottom": [
+        89,
+        0,
+        935,
+        846
+      ],
+      "ground_side_m": 227.86226845230928,
+      "valid_pixel_fraction": 0.9684483789659586,
+      "figure": "figure3_ground_center_square_7methods_600dpi.png",
+      "figure_pixels": [
+        2091,
+        1345
+      ]
+    }
+  },
+  "created_utc": "2026-09-24T14:57:01Z",
+  "files": {
+    "figure3_ground_center_square_7methods_600dpi.png": {
+      "bytes": 1740569,
+      "sha256": "d324624ce7ea40f8bf49aa0c38ff47911a2ef8f9d6781942fdac98f533cb0fa3"
+    },
+    "figure3_ground_equal_scale_7methods_600dpi.png": {
+      "bytes": 1356601,
+      "sha256": "a359bdf55e67991e69b895e430cef6be4e85111662a96a84845dbdf520c10173"
+    },
+    "panels\\a_noisy.png": {
+      "bytes": 631161,
+      "sha256": "f0772a12fa3e4c37d5fab7a0191e0d90ec9ad16722ff8411ed624e7bd53448d4"
+    },
+    "panels\\b_sar-bm3d.png": {
+      "bytes": 351289,
+      "sha256": "eed24fd7933a7ea8cbfd1aca5ab36afdf99ee17d8ebc70c89b9585f31db72097"
+    },
+    "panels\\c_sar2sar.png": {
+      "bytes": 409509,
+      "sha256": "1774ff4b7d90d061b87b72eadd6d98a9f406df7b8b3caa11e3d8894e808fa3b0"
+    },
+    "panels\\d_sdudnet.png": {
+      "bytes": 347755,
+      "sha256": "35fbcfa34a8fe9bf7a1477104702c2c83c4334fdc6868269a2b6ffb5e2ae6f6c"
+    },
+    "panels\\e_trans-sar.png": {
+      "bytes": 246211,
+      "sha256": "ea6c0c9088a648de4f7b90a43e4be4edd768ce9a0bfa1b750a766a888d0aa74b"
+    },
+    "panels\\f_cl-sar.png": {
+      "bytes": 398919,
+      "sha256": "75232c2a96523e620317bd401997f4f77d2cc820e4cae9baf2a8fb164f26c3ba"
+    },
+    "panels\\g_merlin.png": {
+      "bytes": 235368,
+      "sha256": "4e9d6f6cf89133c1f64ac08cc3e5c83de5f51339aeb2ce17569e35bfda00eede"
+    },
+    "panels\\h_mulog-drunet.png": {
+      "bytes": 236749,
+      "sha256": "394804bd42493c8b4390842efa21384d02f77480bd4745a0a11b3b8d238c87f4"
+    },
+    "panels_center_square\\a_noisy.png": {
+      "bytes": 592337,
+      "sha256": "a10f9685f3c2b4ac8ed426aefbd66722bcf81c3c6a5f54126c83722019c3b026"
+    },
+    "panels_center_square\\b_sar-bm3d.png": {
+      "bytes": 327298,
+      "sha256": "49c5652e46e4eb6c0cd1124dc39e0d888ff3a99bd4beb22159ad140e4ebc55a8"
+    },
+    "panels_center_square\\c_sar2sar.png": {
+      "bytes": 382387,
+      "sha256": "144b28f27478f5ec7c9e021ea23d51f023886f8cf06053796188609fab051b18"
+    },
+    "panels_center_square\\d_sdudnet.png": {
+      "bytes": 323654,
+      "sha256": "2f0eb2bf4336ed1ca99939383bf717ac5f2ee7d70b108882d64b0ba8baa9fe02"
+    },
+    "panels_center_square\\e_trans-sar.png": {
+      "bytes": 227712,
+      "sha256": "03220991a82ac48bca91c76a8d48ecc48362d80ce6e751ca2eb452a5db316aef"
+    },
+    "panels_center_square\\f_cl-sar.png": {
+      "bytes": 372235,
+      "sha256": "3b6fae5d66f96b8f8cbc2a966f1c266ce5aaa7c26b03cbdb6a7aaff0411ac997"
+    },
+    "panels_center_square\\g_merlin.png": {
+      "bytes": 216527,
+      "sha256": "ea983a99bc7b6157b5769f1087abbd11ebed9b7fb50abf6a33675af736452ed0"
+    },
+    "panels_center_square\\h_mulog-drunet.png": {
+      "bytes": 218059,
+      "sha256": "41f26191a4b69d30b007556e72b0c8c5e2083093ac241e033f57aa28743ac65c"
+    },
+    "panels_word\\a_noisy.png": {
+      "bytes": 139709,
+      "sha256": "db3c1e103cb2423c803689fa78be3c9ed3b843efd5b5471bd960a923d35928cb"
+    },
+    "panels_word\\b_sar-bm3d.png": {
+      "bytes": 106653,
+      "sha256": "50453f0347b588b42c16c83e7ef0a52f87ff5bd0735c600e620e998eb9b098d2"
+    },
+    "panels_word\\c_sar2sar.png": {
+      "bytes": 108575,
+      "sha256": "87b8b062b78620662db9c8551c9b3890cc89f4d16229d4e744b8998972465402"
+    },
+    "panels_word\\d_sdudnet.png": {
+      "bytes": 105352,
+      "sha256": "4e7f7081e0117a03d7e31328b383a5462767897c557fae260e041fc95b594c1e"
+    },
+    "panels_word\\e_trans-sar.png": {
+      "bytes": 84836,
+      "sha256": "dac8326596cac1d08cc1500c51ffdfa46cc3a5f87e77943cf16c8b507c82a19b"
+    },
+    "panels_word\\f_cl-sar.png": {
+      "bytes": 107441,
+      "sha256": "86f81bf6b56819d3052bfdffe91514d7c8000d06a294a78e504b1fe76a6ace36"
+    },
+    "panels_word\\g_merlin.png": {
+      "bytes": 73695,
+      "sha256": "f45a917b7e52c1750a056abc9a2eeb23dcb82b5ff6e26680742fafbc0c67e34c"
+    },
+    "panels_word\\h_mulog-drunet.png": {
+      "bytes": 81876,
+      "sha256": "92cacb26d685cbe7d26e78d1a5df7a3586d04fbb4727e843613c0ec1349f3a4c"
+    },
+    "panels_word_center_square\\a_noisy.png": {
+      "bytes": 193582,
+      "sha256": "36e88dc5a36659678c6fe585e91d1d86055491ab06b7e07c30438b06f70b92b9"
+    },
+    "panels_word_center_square\\b_sar-bm3d.png": {
+      "bytes": 137098,
+      "sha256": "e8cab41c55746ce744f99561c34e3975fff8f7bcf2d22f0240b16f46cf0afbaa"
+    },
+    "panels_word_center_square\\c_sar2sar.png": {
+      "bytes": 142804,
+      "sha256": "4f8cbb84d6eb27b6d6e8c84e60359a2cd2fb4156d506ed99ae0f8c26236c5c42"
+    },
+    "panels_word_center_square\\d_sdudnet.png": {
+      "bytes": 135613,
+      "sha256": "8694b4a265ca8dd3ceca9b3f19e17202a880d32501bf8435d51fe424c762a796"
+    },
+    "panels_word_center_square\\e_trans-sar.png": {
+      "bytes": 105539,
+      "sha256": "a4d1ec3f775d232c4abe9de6fdf75fb69d54afb997df27cec53d776bff4d845a"
+    },
+    "panels_word_center_square\\f_cl-sar.png": {
+      "bytes": 140652,
+      "sha256": "b27ca8c68d8edacfc1dea133ee0ad0799aab523368d16bc496ec2d747585c718"
+    },
+    "panels_word_center_square\\g_merlin.png": {
+      "bytes": 92592,
+      "sha256": "bc9516310e4b1353de49bcd104237ed68e26f2eebabdec470daf5a33b091cc70"
+    },
+    "panels_word_center_square\\h_mulog-drunet.png": {
+      "bytes": 100537,
+      "sha256": "f13cd676e6f0e3ea2bc3f451ad973f9a7f344eaae02e77f6720df2706a6ac02c"
+    },
+    "ratios\\ratio_cl-sar_db_noisy-over-output.png": {
+      "bytes": 619206,
+      "sha256": "ef085ec11bc907dffdb81a1ca55593647b6b495f5d8f4bcb681966970ffd6683"
+    },
+    "ratios\\ratio_merlin_db_noisy-over-output.png": {
+      "bytes": 620404,
+      "sha256": "1fe1d8ad0045b7d7db0cf2e9ab8d8b80fc15d2348432805a3c75f384ef327fb5"
+    },
+    "ratios\\ratio_mulog-drunet_db_noisy-over-output.png": {
+      "bytes": 621038,
+      "sha256": "b43ebc87502bee3ebce0c28ed429b2a736fef550ebb6bd835414a9bd4f0cc5c4"
+    },
+    "ratios\\ratio_sar-bm3d_db_noisy-over-output.png": {
+      "bytes": 615698,
+      "sha256": "4dc8adbed8594fb770ce3a874b433ab6b671e7d98e3c6b5b70f7469d416d2fcd"
+    },
+    "ratios\\ratio_sar2sar_db_noisy-over-output.png": {
+      "bytes": 616119,
+      "sha256": "332e9f205b21e9d7dc9b67420fde2b874cd3f3faf30b28fb58af21c570a08a7b"
+    },
+    "ratios\\ratio_sdudnet_db_noisy-over-output.png": {
+      "bytes": 616850,
+      "sha256": "6d5274e34377f74364883a86d6072f68fdefabf973a46d0ec7a352fa02c557b3"
+    },
+    "ratios\\ratio_trans-sar_db_noisy-over-output.png": {
+      "bytes": 622273,
+      "sha256": "4a47ad47c1294e7baac8b9fd909801017ebcfa9937850c88367b7a05c86fc71d"
+    }
+  }
+}
