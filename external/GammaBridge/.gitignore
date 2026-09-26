@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Env
+.venv/
+venv/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# Local artifacts
+checkpoints/
+logs/
+runs/
+eval/results/
+
+# Large data
+data/bsds500/
+data/div2k/
+data/downloads/
+data/external_test/
+data/single_sample_test/
+
+# Model weights (too large for GitHub — host elsewhere)
+weights/
+*.pt
+*.pth
+
+# Third-party baselines
+baselines/
+
+# Regenerated figure outputs
+figures/samples/
+figures/samples_v1/
+figures/bsds500_samples/
+figures/L_sweep_samples/
+figures/multistep_samples/
+figures/external_test/
+figures/*.png
+figures/*.csv
+!assets/*.png

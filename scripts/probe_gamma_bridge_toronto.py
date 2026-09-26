@@ -13,7 +13,6 @@ import hashlib
 import json
 import math
 import platform
-import subprocess
 import sys
 import time
 from pathlib import Path
@@ -68,7 +67,7 @@ def main() -> None:
     for scene in args.scenes:
         if (args.output / scene).exists():
             raise FileExistsError(f"Choose a new output directory; preserving {args.output / scene}")
-    source_commit = subprocess.check_output(["git", "-C", str(SOURCE), "rev-parse", "HEAD"], text=True).strip()
+    source_commit = (SOURCE / "UPSTREAM_COMMIT").read_text(encoding="utf-8").strip()
     if source_commit != EXPECTED_COMMIT or digest(args.checkpoint) != EXPECTED_SHA256:
         raise RuntimeError("Source/checkpoint changed; audit before running")
     if not torch.cuda.is_available():

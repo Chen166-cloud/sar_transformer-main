@@ -70,7 +70,7 @@ venv/
 # Additional local baseline sources and virtual environments
 /external/deepdespeckling/
 /external/TransSAR_official/
-/external/GammaBridge/
+/external/.GammaBridge_git_metadata_backup/
 /.venv-merlin/
 /.venv-ours-legacy/
 /.venv-umbra-stack/
