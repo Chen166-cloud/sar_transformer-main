@@ -5,8 +5,8 @@
 ## 文件
 
 - `GRSL_paper.tex` / `GRSL_paper.pdf`：主稿，**5 页，包含全部参考文献**。
-- `GRSL_method_diagrams.tex` / `GRSL_method_diagrams.pdf`：1 页补充方法示意图，正文已引用 Fig. S1、S2。
-- `IEEEtran.cls`、`figures/`：本地模板类及全部原始图形资源。
+- `GRSL_method_diagrams.tex` / `GRSL_method_diagrams.pdf`：1 页独立补充方法示意图；当前主稿未引用 Fig. S1、S2。
+- `IEEEtran.cls`、`figures/`：本地模板类及主稿、补充稿编译所需图形资源。
 - `GRSL_REVISION_NOTES.md`：精简策略、图表对应关系、官方及论文来源、校验结果。
 - `build.ps1`：同时生成主稿和补充方法图 PDF。
 - `FIG1_DESIGN_NOTES.md`：图 1 的绘图依据、重绘说明及可编辑资源。

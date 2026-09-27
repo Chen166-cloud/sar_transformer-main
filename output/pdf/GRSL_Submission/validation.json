@@ -1,39 +1,35 @@
 {
-  "original_directory_unchanged": true,
-  "original_files_verified": 36,
-  "tables_preserved_verbatim": [
-    "tab:main",
-    "tab:ucm_scenes",
-    "tab:ablation",
-    "tab:real",
-    "tab:real_scenes"
-  ],
-  "experimental_figure_environments_preserved_verbatim": 2,
-  "experimental_panels_preserved": 16,
-  "unchanged_original_figure_assets": 22,
-  "redesigned_figure_1_assets": [
-    "figures/draw_fig1.py",
-    "figures/fig1_overall_architecture.pdf",
-    "figures/fig1_overall_architecture.svg"
-  ],
-  "equations_preserved": 8,
-  "bibliography_entries_preserved": 21,
-  "bibliography_reordered_by_first_citation": true,
-  "main_figure_count": 3,
-  "supplementary_method_diagram_count": 2,
-  "pdfs": {
-    "GRSL_paper": {
-      "pages": 5,
-      "sha256": "704e0d76df333fd1cd481c949d5e57e045a06bf68cce34a9d1184e9cc752a23f",
-      "underfull_vbox_notices": 1,
-      "errors_or_overfull_boxes": 0
-    },
-    "GRSL_method_diagrams": {
-      "pages": 1,
-      "sha256": "b0a81c77df2f4a1e31970ab1285360ef0e27eee8abb79baa4d246573de339741",
-      "underfull_vbox_notices": 0,
-      "errors_or_overfull_boxes": 0
-    }
-  },
-  "visual_review": "Final page renders reviewed separately; see previews."
+  "authority": "D:\\Users\\Chen\\Desktop\\V3修改答复.docx",
+  "checked_at": "2026-09-28",
+  "word_rendered_pages": 5,
+  "latex_main_pages": 5,
+  "main_figures": 3,
+  "main_tables": 5,
+  "numbered_equations": 8,
+  "references": 22,
+  "experiment_panels_exact_word_image_matches": 16,
+  "latex_equation_2_aligned_to_word": true,
+  "word_ooxml_insertion_elements": 0,
+  "word_ooxml_revision_elements": 0,
+  "word_track_revisions_enabled": false,
+  "word_ooxml_insertion_elements_before_acceptance": 58,
+  "word_revision_count_by_microsoft_word_before_acceptance": 48,
+  "word_visible_content_preserved_on_revision_acceptance_2026_09_27": true,
+  "word_sha256": "e9c2a7b113c1cf9b0556c0669e944199dfeb004ef9b3de6bbacd7a5f2b425f58",
+  "common_textual_eq_16_reference_needs_clarification": false,
+  "main_tex_sha256": "b2786acb89c266bc358864e18bb1a48b0a1b55c57fb95feb53fad82e47a6f35b",
+  "main_pdf_sha256": "0c48ee46d5b9b49f470df1b5942de7b35a2708b2a87fc8ec70c1971bc291a12d",
+  "supplementary_zip_entries_preserved": true,
+  "submission_zip_sha256": "2266b556022912d3655fb552aa33cd013b987b5d1f550369846b5c02f4f9e36b",
+  "submission_zip_files": 34,
+  "format_check_report": "GRSL_format_check_2026-09-28.md",
+  "main_body_font_pt": 10,
+  "main_reference_font_pt": 8,
+  "main_table_note_font_pt": 8,
+  "index_terms_alphabetical": true,
+  "all_pdf_fonts_embedded": true,
+  "equations_and_table_bodies_preserved": true,
+  "main_pdf_file": "GRSL_paper.pdf",
+  "original_submission_pdf_locked": false,
+  "current_preview_directory": "format-checked-pages"
 }

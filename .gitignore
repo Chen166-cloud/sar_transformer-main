@@ -110,5 +110,9 @@ venv/
 /output/umbra_source_7_visual_audit.pdf
 /output/去噪效果展示_*.docx
 
+# Duplicate GRSL submission render copies retained locally
+/output/pdf/GRSL_Submission/GRSL_paper.updated.pdf
+/output/pdf/GRSL_Submission/format-checked-pages/
+
 # Local session archives
 /codex_handoff_2026-09-03/
