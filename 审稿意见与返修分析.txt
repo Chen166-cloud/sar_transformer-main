@@ -1,0 +1,103 @@
+﻿GRSL-02805-2026 审稿意见与返修分析
+SAR Despeckling via Fourier Refinement and Representation-Consistent Reconstruction
+
+一、编辑决定与提交要求
+
+编辑和副主编均转达了积极意见，建议在作者充分回应后发表。当前是返修阶段，尚未正式录用，来信也未标明“大修”或“小修”。
+
+□ 收到决定信后 21 天内提交。所给文本未注明收信日期，具体截止日请以邮件或投稿系统为准。
+□ 修订后的论文不得超过 5 页。必须提交清稿，可另附高亮或修订标记稿。
+□ 上传前完成逐点回复。每条写明采纳了什么、做了哪些修改、修改位于哪一页哪一节或哪张图表。未采纳的建议也要逐条说明理由。
+
+二、这次返修要回答什么
+
+审稿人 1 认可方法的工程价值，但质疑真实 SAR 上的改善能否与过度平滑、对比度变化区分开，以及结果能否在其他采集中复现。审稿人 2 追问的是模型选择和比较依据：损失权重为何这样设、训练是否收敛、表中领先的幅度是否超过图像间的波动。
+
+优先整理两类证据：一是独立采集的真实 SAR 整景及其来源，二是每种方法在同一幅独立影像上的未取整结果。前者可同时回答外部验证、视觉效果和泛化三类问题；后者可同时用于报告跨图变异、消融差异和对基线的配对比较。以下是对来信的分析与建议，未将待做实验写成已有结果。
+
+三、审稿人 1 逐条分析
+
+（一）真实 SAR 的去斑质量
+
+R1.1  整景对比与比值图。审稿人要求展示整幅影像，并覆盖均匀区、结构区和纹理区。建议各方法使用相同显示范围，在整景标出三类局部位置，再展示对应输出和比值图。若数据为线性强度，比值可按输入强度除以恢复强度计算，注明实际数据域及零值处理。重点检查被去除的成分中是否仍能辨认出道路、边缘或地物纹理。
+
+R1.2  增加无参考指标。为每项新增指标写清定义、计算区域、单位或取值方向，并说明它反映抑斑还是保留结构。可将均匀区的抑斑指标与适合无真值数据的结构或比值图指标配合。不要仅凭单项指标判定真实影像的恢复质量。
+
+R1.3  排除平滑或对比度变化的影响。建议在同一幅图、同一显示范围内，同时核查均匀区波动、边界锐度或剖面、纹理是否保留。若均匀区更平坦，但细线消失、边缘变宽或比值图出现清晰轮廓，应如实报告该取舍。
+
+R1.4  限定真实恢复质量的结论。明确哪些现象发生在哪些采集、场景及指标上。证据有限时，将摘要、实验讨论和结论中的表述收窄到实际观察到的结果。
+
+（二）模拟斑点与外部泛化
+
+R1.5  多个独立真实采集。审稿人明确要求在来自多个 collection 的真实 SAR 采集上验证；条件允许时，再覆盖多个传感器。先确认采集来源与训练、适配、调参数据的关系。从同一母图重新裁块不能构成新的外部采集。
+
+R1.6  解释 clipping 的影响。原文此处指模拟流程中的数值截断或限幅。建议标明在哪个数据域、哪一步、按什么阈值截断，以及多少像素受到影响；在其他条件相同的情况下对比有无截断时的噪声分布和 PSNR、SSIM 等报告指标，按实测结果解释影响方向。
+
+R1.7  处理空间相关斑点。原文给了两种回应方式：补充更现实的相关斑点实验，或说明当前模拟覆盖的预期使用条件。若采用后者，写清噪声模型的假设和适用范围，并指出对相关斑点的表现仍待验证。
+
+R1.8  调整泛化措辞。区分同一数据来源内的测试、独立采集上的外部测试和跨传感器测试。仅对实际完成的层次作出结论；模拟数据上的优势不能独立支撑真实 SAR 泛化主张。
+
+（三）数据划分、区域选择与不确定性
+
+R1.9  增加独立外部测试集。审稿人引用第 5 页的训练、验证、测试数量 1175、146、148，要求另加独立集合，优先选择不同采集背景。可与 R1.5 共用一次外部验证。在数据小节说明上述数字各自统计的是整景、母图还是裁块，交代如何划分及外部数据是否参与过模型选择或适配。
+
+R1.10  按母图报告。母图指裁块或感兴趣区域（ROI）所属的原始影像。建议保留每幅母图的结果及有效区域数，再汇总各母图的表现；只有所有裁块混在一起的均值，无法判断优势是否集中在少数场景。
+
+R1.11  交代三类区域是如何选出的。分别给出均匀区、结构区和纹理区的判定依据、样本数、选区依据及选区时是否已看过模型输出。如果原选区受输出影响，可固定基于输入图像的规则，重新选区并让所有方法共用这些位置。
+
+R1.12  给出跨独立母图的变异与不确定性。列出独立母图数、逐图结果及跨图离散程度。数据支持时给出区间估计并说明计算单位；独立母图很少时，保留逐图差异并写明区间的局限。来自同一母图的多个 ROI 不能替代多幅独立影像。
+
+（四）消融与计算成本
+
+R1.13  单独验证两个位置的 FDR。可用四个配置：均不开启、仅瓶颈开启、仅解码器开启、两处均开启。固定其他模块、训练预算、数据与评价设置。这样既可比较单独贡献，也能判断联合使用的效果。
+
+R1.14  报告模型开销。原文同时提到 parameters 和 FLOPs。建议分别列参数量与单次前向推理的 FLOPs，注明输入尺寸和计数约定。可与四种消融配置并表，让读者看到每一处增益对应的计算代价。
+
+四、审稿人 2 逐条分析
+
+R2.1  给公式（7）、（8）中各 λ 的取值依据。审稿人认为第 5 页第 38–40 行已有的说明不足。逐个列出权重、对应损失项及选值理由。若实际依据是验证集实验，可固定其他项，对比最终值与邻近候选值，报告验证指标和选择规则。若有理论依据，则说明它如何导出或约束具体取值。
+
+R2.2  补充训练、验证和测试流程及学习曲线。在“A. Datasets and Evaluation Protocol”交代划分单位、各集合用途、如何选取检查点、何时进行最终测试。用同一口径画出训练集与验证集随 epoch 变化的损失或 PSNR、SSIM 曲线，说明收敛、波动及最佳检查点。最终测试结果单独报告。
+
+R2.3  用配对分析支撑性能比较。范围包括 E 节消融、F 节真实 SAR 适配、表 III–IV 的变体比较，以及表 I 与较强对照方法的 PSNR、SSIM 比较。建议在同一批独立影像上计算“本文方法减对照”的逐图差值，报告独立样本数、差值及方向、95% 置信区间和所用配对检验。按数据条件选择检验方法；若同表检验多个对照，说明多重比较的处理方式。真实 SAR 部分使用适合其参考数据条件的指标。结果不足以区分方法时，如实报告，不将均值排序写成显著优势。
+
+R2.4  统一指标显示精度。表 II、III 及正文相关讨论的 PSNR（dB）保留两位小数；表 V 的 EPI、M 最多保留四位小数。统计检验和汇总使用未取整值，只在展示时四舍五入。
+
+五、返修顺序与五页内的安排
+
+1. 先盘点证据。核实母图和采集之间的关系、外部集合、逐图结果、训练日志及消融检查点是否可用。外部集合若确实无法取得，须在回复中说明该项未满足的原因，并相应缩小正文结论。
+2. 优先做能同时回答多条意见的实验。用同一外部测试协议生成整景、三类区域、比值图和逐母图统计；用同一组消融结果比较两个 FDR 位置的性能差异与成本。再补 clipping 对照、λ 依据和学习曲线。
+3. 在 5 页内优先保留决定结论的证据。可将整景、局部和比值图合并为一幅组合图，在已有消融表中增加两处 FDR 开关与计算量，用精简表注交代样本数、配对单位和区间含义。
+4. 写逐点回复时沿用上述编号，对重复意见可引用同一图表，但分别回答各条问题。每条记录“审稿意见 → 所做修改或未采纳理由 → 结果与限制 → 修订稿页码、节号及图表号”。页码以最终清稿为准。
+
+附录　两位审稿人的英文原意见
+保留来信的措辞与编号，省略重复的中文译文和空项目符号。
+
+Reviewer: 1
+Comments to the Author
+I appreciate the authors to such an article which has an insight on Despeckling. The work has a potentially useful engineering contribution, but the present evidence is insufficient to establish that the proposed method reliably improves real-SAR restoration beyond the evaluated dataset and metrics.
+If the author claims that they use a real SAR image if so include
+- Include ratio-image analysis and whole-image visual comparisons for representative homogeneous, structural, and textured regions.
+- Report additional no-reference metrics with explicit definitions and interpretations.
+- Demonstrate that improvements are not simply caused by smoothing or changes in image contrast.
+- Narrow claims about real-world restoration quality unless stronger independent evidence is provided.
+Simulated speckle model is not sufficient enough for this
+-Validate on independent real SAR acquisitions from more than one collection and, if possible, more than one sensor.
+-Explain the effect of clipping on the simulated noise distribution and on the reported metrics.
+-Include experiments with more realistic correlated speckle or justify the intended operational conditions.
+-Rephrase claims of generalization to match the evidence actually provided.
+In page no 5 the authors claim that out of 1175 training, 146 validation and 148 test images
+-Add an independent collection for external testing, preferably from a different acquisition context.
+-Report results by parent image, not only by pooled patches or ROIs.
+-Explain how the homogeneous, structural, and texture subsets were selected and whether selection was conducted without looking at model outputs.
+-Report uncertainty estimates and variability across independent parent images.
+the ablation study doesn't isolate the contributions
+-bottleneck vs the decoder FDR components need to be added
+-Report the total parameters of FLOPS
+Reviewer: 2
+Comments to the Author
+Comments:
+1) The authors proposed the objective functions (eqs. 7, 8). using several constants lambdas. Because these constants can significantly inflow on performance of the designed framework, please provide theoretical or experimental justification for chosen parameter values. Some short information about this theme can be found in lines 38-40 (page 5), but the authors should extend justification for chosen parameters. 1）
+2) In opinion of this reviewer, the authors should provide information about training-validation-testing process. This expert did not find such information in subsect. A. Datasets and Evaluation Protocol. Such information is important for better understanding by a potential reader how works novel framework. Please illustrate the training-validation-testing process using the learning curves allowing the observation of convergence stability and behavior on both training and validation sets throughout the epochs for performance criteria (PSNR, SSIM, etc.) or objective function. 2）
+3) In opinion of this reviewer, all results that are presented in subsects. E. Ablation Study, F. Real-SAR Adaptation, and tables III- IV should be investigated using statistical revision analysis where different variants of analyzed architectures (frameworks) should be compared when confirming a one with better performance. The standard practice in statistical revision of the experiments that can help in selecting the best architecture variant for a designed framework consists of a comparison of the significancy in differences for metrics employing statistical significance testing performed on comparing different architecture products´ results. The authors should apply statistical significance testing (e.g., paired t-tests, interval estimations, variance differences. etc.). Such analysis should confirm significant differences in criteria for the best architecture variant or parameters´ values selected. Similar method that uses statistical significance testing of differences for quality criteria (PSNR, SSIM) of designed system against better methods should be employed for results presented in table I. 3）
+4) The authors presented in tables II and III quantitative comparison of performance for different models using quantitative metrics. This reviewer reminds that usage of third sign after point for PSNR values has not any statistical sense from statistical or practical point of view. It is known that 3dB difference is equal to 200% (1dB is 67%), so the variance in a value 0.001dB (third sign) equivalent to a change of 0,067%. Such difference is not significant in comparison PSNR values from statistical or practical point of view. Please use only two signs after point in these tables as well as in discussions connected with dB values for PSNR measures. Such representation of PSNR criterion is common in discussion for filtering or SR reconstruction studies. Also, in opinion of this reviewer, using more than four signs for EPI and M criteria (table V) has no statistical or practical significance.
